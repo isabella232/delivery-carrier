@@ -38,7 +38,7 @@
         <div class="row head">
           <p style='margin-top: 35px;'>
             Document: Customer account statement<br/>
-            Date: <span t-esc="today"/><br/>
+            Date: <span t-esc="context.get_lang_today()"/><br/>
             Client number: <span t-field="context.partner_id.ref"/>
           </p>
         </div>
