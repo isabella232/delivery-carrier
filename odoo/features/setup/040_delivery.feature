@@ -29,12 +29,12 @@ Feature: Configure the deliveries
       | 1        | Versand von Paketen  | 42133507 | scenario.postlogistics_license1 |
       | 2        | Promo Sendungen      | 60004890 | scenario.postlogistics_license2 |
 
-  @postlogistics_options_update
+  @postlogistics_options_update @slow
   Scenario: I update postlogistics services (It will take 1 minute)
     Given I am configuring the company with ref "base.main_company"
     And I update postlogistics services
 
-  @postlogistics_delivery_methods
+  @postlogistics_delivery_methods @slow
   Scenario Outline: Create a delivery method for postlogistics
     Given I need a "delivery.carrier" with oid: <oid>
     And having:
@@ -53,7 +53,7 @@ Feature: Configure the deliveries
     | scenario.carrier_post_lighting | Post Express Blitz | license1 | Swiss-Express / Swiss-Courier |
     | scenario.carrier_post_promo    | PostPac Promo      | license2 | Parcel                        |
 
-  @carrier_postlogistics_options
+  @carrier_postlogistics_options @slow
   Scenario Outline: I setup a postlogistic carrier options
     Given I need a "delivery.carrier.option" with oid: <oid>
     And having:

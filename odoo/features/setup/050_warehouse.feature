@@ -23,6 +23,7 @@ Feature: Configure Warehouse and Logistic processes
     Given I find a "stock.warehouse" with oid: stock.warehouse0
     And having:
       | key             | value         |
+      | name            | Swisslux AG   |
       | reception_steps | three_steps   |
       | delivery_steps  | ship_only     |
 
