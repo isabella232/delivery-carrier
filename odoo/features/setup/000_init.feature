@@ -120,7 +120,7 @@ Feature: Parameter the new database
 
   @url
   Scenario: setup url
-    Given I update web.base.url with server settings
+    Given I update web.base.url with full url "http://localhost:8069"
     Then I freeze web.base.url
 
   @address
