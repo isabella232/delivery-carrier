@@ -38,10 +38,3 @@ db:
     - PG_SYSTEM_EFFECTIVE_CACHE_SIZE=1024MB
   volumes:
     - swisslux-integration-datadb:/var/lib/postgresql
-
-nginx:
-  image: camptocamp/odoo-nginx:9.0
-  ports:
-    - 8080:80
-  links:
-    - odoo:odoo
