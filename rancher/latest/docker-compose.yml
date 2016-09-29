@@ -38,8 +38,12 @@ db:
     - PG_SYSTEM_EFFECTIVE_CACHE_SIZE=1024MB
   volumes:
     - swisslux-latest-datadb:/var/lib/postgresql
+  labels:
+    io.rancher.scheduler.affinity:host_label: application=true
 
 nginx:
   image: camptocamp/odoo-nginx:9.0
   links:
     - odoo:odoo
+  labels:
+    io.rancher.scheduler.affinity:host_label: application=true
