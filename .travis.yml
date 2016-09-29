@@ -16,6 +16,8 @@ env:
     - TESTS="0" LINT_CHECK="0"
     - ADDONS_DIR=${TRAVIS_BUILD_DIR}/odoo/local-src
     - COMPOSE_PROJECT_NAME=swisslux
+    - RANCHER_STACK_NAME=swisslux-odoo-test
+    - secure: "MvzSfQJXSaZ0h/mHbEs/CCdL35lROq3GCGz6Qqkv/TYoPw7p+1XD8wSfcvyA6TwZdkHrUuWeDXnhW5W64ikDmv4zH8DQGGLgco1pVlyua6VTDJJjgTO9YGfYcnzTlpojJQ76rV3yfF2LljM0590GjYuAT18X6AqHyh7HCS63mvMygP4VvRlMdc1m62hmtAggoEJWeAFscpRkIEOQ2woz9isKg9CWxtcKAFrHCaBUz2/Iz3fOlvonZY84q1W9x/P0YayIdi5q9hKxQY4xGzXTNI7BNry2+aOPnyMvU0XehdnWre1Y8Pn144jYGW1P49nSUm4t0KeTGV1aL3pmaA750RP8YVIEIvJ3tlfaVfXnuLWxPPjdKwuoeGpLLG6V+uIDWu/awB7fb2Xc89TObCXJA4bA3VHc0d8IcoBx+pqYPcwOiLXDnrPBLliI+V1pt4e9x4GfNSSlkxWcqp/7ogS7Ip/+xnpTQb3Ym1GoAvi0tucPaFpnkyz/o3ecvevkGlHvTkdC9Zg0rdEFhnmzZ/tqEBlOd6iA1J2mScFuuTBpVPW1/2dD8BqIHoJzymtZ00Y+TDGVXxhfLxhxg3amYLEK/ESZY2EccYN4/DvRUbxxdMSNDKmGiW+/exKyFeL0qRGK+ngEPdqIenath7YdLEYqiHIvupz67rJDAAmqEXwggJc="
 
 before_install:
   - sudo apt-get update
