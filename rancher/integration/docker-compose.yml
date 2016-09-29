@@ -1,10 +1,7 @@
-external-db:
-  image: rancher/external-service
-
 odoo:
   image: camptocamp/swisslux_odoo:9.1.0
-  links:
-    - external-db:db
+  external_links:
+    - postgres-cluster/postgres:db
   volumes:
     - swisslux-integration-dataodoo:/data/odoo
   environment:
@@ -27,6 +24,8 @@ odoo:
     - LIMIT_TIME_REAL=${LIMIT_TIME_REAL}
     - MARABUNTA_ALLOW_SERIE=True
     - MARABUNTA_MODE=demo
+  labels:
+    io.rancher.scheduler.affinity:host_label: application=true
 
 db:
   image: camptocamp/postgresql:pg9.5-latest
