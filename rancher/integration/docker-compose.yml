@@ -23,21 +23,9 @@ odoo:
     - LIMIT_TIME_CPU=${LIMIT_TIME_CPU}
     - LIMIT_TIME_REAL=${LIMIT_TIME_REAL}
     - MARABUNTA_ALLOW_SERIE=True
-    - MARABUNTA_MODE=demo
+    - MARABUNTA_MODE=full
   labels:
     io.rancher.scheduler.affinity:host_label: application=true
-
-db:
-  image: camptocamp/postgresql:pg9.5-latest
-  environment:
-    - POSTGRES_USER=${DB_USER}
-    - POSTGRES_PASSWORD=${DB_PASSWORD}
-    - PG_SYSTEM_SHARED_BUFFERS=256MB
-    - PG_SYSTEM_MAINTENANCE_WORK_MEM=256MB
-    - PG_SYSTEM_WAL_BUFFERS=8MB
-    - PG_SYSTEM_EFFECTIVE_CACHE_SIZE=1024MB
-  volumes:
-    - swisslux-integration-datadb:/var/lib/postgresql
 
 nginx:
   image: camptocamp/odoo-nginx:9.0
