@@ -1,7 +1,7 @@
 odoo:
   image: camptocamp/swisslux_odoo:9.1.0
   external_links:
-    - postgres-cluster/postgres:db
+    - postgres-cluster/lb:db
   volumes:
     - swisslux-integration-dataodoo:/data/odoo
   environment:
