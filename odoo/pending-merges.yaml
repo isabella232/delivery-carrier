@@ -66,3 +66,12 @@
     # port stock_split_picking
     - oca refs/pull/201/head
   target: *default_target
+./external-src/l10n-switzerland:
+  remotes:
+    oca: git@github.com:OCA/l10n-switzerland.git
+    camptocamp: git@github.com:camptocamp/l10n-switzerland.git
+  merges:
+    - oca 9.0
+    # port stock_split_picking
+    - oca refs/pull/264/head
+  target: *default_target
