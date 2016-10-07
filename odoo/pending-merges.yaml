@@ -72,6 +72,16 @@
     camptocamp: git@github.com:camptocamp/l10n-switzerland.git
   merges:
     - oca 9.0
-    # port stock_split_picking
+    # Fix bvr alignment
     - oca refs/pull/264/head
+  target: *default_target
+./external-src/carrier-delivery:
+  remotes:
+    oca: git@github.com:OCA/carrier-delivery.git
+    camptocamp: git@github.com:camptocamp/carrier-delivery.git
+  merges:
+    - oca 9.0
+    # fix acl & rename field type to carrier_type
+    - oca refs/pull/72/head
+    - oca refs/pull/73/head
   target: *default_target
