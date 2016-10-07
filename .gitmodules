@@ -21,13 +21,13 @@
 	url = git@github.com:camptocamp/bank-statement-reconcile.git
 [submodule "odoo/external-src/carrier-delivery"]
 	path = odoo/external-src/carrier-delivery
-	url = git@github.com:OCA/carrier-delivery.git
+	url = git@github.com:camptocamp/carrier-delivery.git
 [submodule "odoo/external-src/department"]
 	path = odoo/external-src/department
 	url = git@github.com:camptocamp/department.git
 [submodule "odoo/external-src/l10n-switzerland"]
 	path = odoo/external-src/l10n-switzerland
-	url = git@github.com:OCA/l10n-switzerland.git
+	url = git@github.com:camptocamp/l10n-switzerland.git
 [submodule "odoo/external-src/manufacture"]
 	path = odoo/external-src/manufacture
 	url = git@github.com:camptocamp/manufacture.git
