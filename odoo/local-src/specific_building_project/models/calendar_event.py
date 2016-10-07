@@ -30,8 +30,8 @@ class CalendarEvent(models.Model):
             lead = self.env['crm.lead'].browse(opportunity_id)
             if lead and lead.building_project_id:
                 vals['building_project_id'] = lead.building_project_id.id
-
-        return super(CalendarEvent, self).create(vals)
+        return super(CalendarEvent, self.with_context(
+            no_email=True, no_mail_to_attendees=True)).create(vals)
 
     @api.multi
     def write(self, vals):
