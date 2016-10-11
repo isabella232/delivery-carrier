@@ -9,6 +9,7 @@ test (unreleased)
 * Add field number_shipments in view & reports
 
 **Bugfixes**
+* Use display_name in building_project kanban view
 
 **Build**
 
