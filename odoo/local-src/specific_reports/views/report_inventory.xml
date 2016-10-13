@@ -283,8 +283,11 @@
                                     -
                                 </t>
                                 <br/>
-                                <t t-if="not m.product_id.default_code">
+                                <t t-if="m.product_id.default_code">
                                   <span  t-field="m.product_id.default_code"/>
+                                </t>
+                                <t t-if="not m.product_id.default_code">
+                                  -
                                 </t>
                             </td>
                             <td>
