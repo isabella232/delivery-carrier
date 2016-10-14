@@ -798,3 +798,7 @@ msgstr ""
 msgid "l10n_ch.payment_slip"
 msgstr ""
 
+#. module: specific_reports
+#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+msgid "Number of shipments:"
+msgstr ""
