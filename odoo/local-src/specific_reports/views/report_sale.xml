@@ -173,6 +173,7 @@
           <th>Product Num.</th>
           <th>Description</th>
           <th class="text-right">Unit Price</th>
+          <th class="text-right">Taxes</th>
           <th class="text-right" groups="sale.group_discount_per_so_line">Disc.(%)</th>
           <th class="text-right" groups="sale.group_discount_per_so_line">Net</th>
           <th class="text-right">Total</th>
@@ -221,17 +222,20 @@
           </td>
           <td>
             <t t-if="l.product_id.e_nr">
-              <span  t-field="l.product_id.e_nr"/>
+              <span t-field="l.product_id.e_nr"/>
             </t>
             <t t-if="not l.product_id.e_nr">
-              <span  t-field="l.product_id.default_code"/>
+              <span t-field="l.product_id.default_code"/>
             </t>
           </td>
           <td>
-              <span  t-field="l.name"/>
+              <span t-field="l.name"/>
           </td>
           <td class="text-right">
             <span t-field="l.price_unit"/>
+          </td>
+          <td class="text-right">
+            <span t-field="l.tax_id.name"/>
           </td>
           <td class="text-right" groups="sale.group_discount_per_so_line">
             <span t-esc="round(l.public_discount, 1)"/><br/>
@@ -257,6 +261,7 @@
           <th>Product Num.</th>
           <th>Description</th>
           <th class="text-right">Unit Price</th>
+          <th class="text-right">Taxes</th>
           <th groups="sale.group_discount_per_so_line" class="text-right">
             <span>
               Disc.(%)
