@@ -38,6 +38,7 @@
                     .address{
                       position: fixed;
                       left: 186px;
+                      max-width:250px;
                     }
                 </style>
             </xpath>
@@ -125,15 +126,14 @@
                             <br/>
                         </div>
                         <div class="col-xs-7"></div>
-                        <div class="col-xs-6 pl-0" style="margin-left: 0px; padding-left: 0px;">
-                          <div t-if="o.partner_id.parent_id" class="col-xs-12" style="padding-left: 0px;">
+                        <div class="col-xs-6 pl-0" style="margin-left: 0px; padding-left: 0px;width=20px;">
+                                                    <div t-if="o.sale_id.partner_id.parent_id" class="col-xs-12" style="padding-left: 0px;">
                             <span class="col-xs-5">Contact:</span>
-                              <t t-if="o.sale_id.partner_id.parent_id">
-                                <span class="address" t-field="o.sale_id.partner_id.parent_id.name"/>, <span t-field="o.sale_id.partner_id.name"/>
-                              </t>
-                              <t t-if="not o.sale_id.partner_id.parent_id">
-                                <span class="address" t-field="o.sale_id.partner_id.name"/>
-                              </t>
+                                <span class="address"><span t-field="o.sale_id.partner_id.parent_id.name"/>, <span t-field="o.sale_id.partner_id.name"/></span>
+                          </div>
+                          <div t-if="not o.sale_id.partner_id.parent_id" class="col-xs-12" style="padding-left: 0px;">
+                            <span class="col-xs-5">Contact:</span>
+                                <span class="address"><span t-field="o.sale_id.partner_id.name"/></span>
                           </div>
 
                           <div t-if="o.sale_id.client_order_contact_type" class="col-xs-12" style="padding-left: 0px;">
