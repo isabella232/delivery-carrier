@@ -235,7 +235,7 @@
             <span t-field="l.price_unit"/>
           </td>
           <td class="text-right">
-            <span t-field="l.tax_id.name"/>
+            <span t-field="l.tax_id.description"/>
           </td>
           <td class="text-right" groups="sale.group_discount_per_so_line">
             <span t-esc="round(l.public_discount, 1)"/><br/>
