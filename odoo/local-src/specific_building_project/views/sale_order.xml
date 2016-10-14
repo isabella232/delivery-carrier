@@ -45,6 +45,17 @@
     </field>
   </record>
 
+  <record id="view_order_form_inherit_sale_stock_inherit_sale_order_dates" model="ir.ui.view">
+    <field name="name">sale.order.form.inherit.c2c</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale_stock.view_order_form_inherit_sale_stock"/>
+    <field name="arch" type="xml">
+      <group name="sale_shipping" position="inside">
+        <field name="number_shipments"/>
+      </group>
+    </field>
+  </record>
+
   <record id="view_order_tree" model="ir.ui.view">
     <field name="name">sale.order.tree</field>
     <field name="model">sale.order</field>
