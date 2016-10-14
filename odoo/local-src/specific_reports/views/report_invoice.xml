@@ -52,6 +52,7 @@
           h2{
               font-weight: bold;
               font-size: 18px;
+              margin-top: 80px;
           }
           #informations{
               padding-bottom: 12px;
@@ -80,7 +81,7 @@
                   Tel:
                   <t t-if="o.user_id">
                     <span t-field="o.get_employee_from_user(o.user_id).work_phone"/><br/>
-                  </t>                  
+                  </t>
                   <span t-field="o.user_id.email"/><br/>
                 </small>
               </small>

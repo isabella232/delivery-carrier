@@ -7,5 +7,13 @@
             <span t-field="pack_operation.product_id.description_picking"/>
         </xpath>
 
+        <xpath expr="//table[2]/thead/tr/th/strong" position="replace">
+            <strong>Product<br/>E-NR</strong>
+        </xpath>
+
+        <xpath expr="//span[@t-field='pack_operation.product_id']" position="after">
+            <br/>
+            <span t-field="pack_operation.product_id.e_nr"/>
+        </xpath>
     </template>
 </odoo>
