@@ -181,7 +181,9 @@
       </xpath>
 
       <xpath expr="//p[@t-if='doc.payment_term_id.note']" position="replace">
-        <p>Number of shipments: <span t-field="doc.number_shipments"/></p>
+        <t t-if="doc.number_shipments">
+          <p>Number of shipments: <span t-field="doc.number_shipments"/></p>
+        </t>
       	<p>Taxes: include VAT and any other taxes</p>
         <p t-if="doc.payment_term_id.note">
           Payment term:

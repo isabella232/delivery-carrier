@@ -29,7 +29,6 @@ class SaleOrder(models.Model):
     )
     number_shipments = fields.Integer(
         string="Number of shipments",
-        default=1
     )
 
     @api.onchange('project_id')
