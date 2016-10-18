@@ -501,7 +501,7 @@ msgstr ""
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
-msgid "E-nr"
+msgid "E-Nr"
 msgstr ""
 
 #. module: specific_reports
