@@ -103,10 +103,9 @@
                         <div t-if="o.partner_id" name="partner_header">
                           <t t-if="o.partner_id.parent_id">
                             <span t-field="o.partner_id.parent_id.name"/>
+                             <br/>
                           </t>
-                          <t t-if="not o.partner_id.parent_id">
                             <span t-field="o.partner_id.name"/>
-                          </t>
                             <div t-field="o.partner_id"
                                t-field-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
                         </div>
