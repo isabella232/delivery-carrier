@@ -42,3 +42,8 @@ msgstr " An Lager"
 #: model:ir.ui.view,arch_db:stock.product_template_form_view_procurement_button
 msgid "On Hand"
 msgstr "An Lager"
+
+#. module: specific_building_project
+#: model:ir.model.fields,field_description:specific_building_project.field_sale_order_number_shipments
+msgid "Number of shipments"
+msgstr "Anzahl Lieferungen"
