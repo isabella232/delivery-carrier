@@ -796,6 +796,12 @@ msgid "Taxes"
 msgstr "Imposte"
 
 #. module: specific_reports
+#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+msgid "Taxes: include VAT and any other taxes"
+msgstr "Taxes: include VAT and any other taxes"
+
+
+#. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.external_layout_footer
 msgid "Technik-Hotline: +41 43 844 80 77,"
 msgstr "Technik-Hotline: +41 43 844 80 77,"
