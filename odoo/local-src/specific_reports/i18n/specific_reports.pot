@@ -741,6 +741,11 @@ msgstr ""
 msgid "Taxes"
 msgstr ""
 
+#. module: specific_reports
+#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+msgid "Taxes: include VAT and any other taxes"
+msgstr ""
+
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.external_layout_footer
