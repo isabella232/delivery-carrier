@@ -156,3 +156,12 @@ class ResPartner(models.Model):
         if self.zip_id:
             self.region_id = self.zip_id.region_id
             self.user_id = self.zip_id.user_id
+
+    @api.multi
+    def copy(self, default=None):
+        self.ensure_one()
+        default = dict(default or {})
+        default['ref'] = self.env['ir.sequence'].next_by_code(
+            'res.partner'
+            )
+        return super(ResPartner, self).copy(default)
