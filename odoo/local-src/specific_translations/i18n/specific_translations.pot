@@ -48,3 +48,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:specific_building_project.field_sale_order_number_shipments
 msgid "Number of shipments"
 msgstr ""
+
+#. module: account_payment_partner
+#: model:ir.ui.view,arch_db:account_payment_partner.report_invoice_payment_mode
+msgid "<strong>Bank Account:</strong>"
+msgstr ""
