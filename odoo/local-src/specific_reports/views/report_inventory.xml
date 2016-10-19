@@ -298,10 +298,6 @@
                             <td>
                                 <!--<t t-debug="pdb"/>-->
                                 <span  t-raw="m.name.replace('\n','&lt;br/&gt;')"/>
-                                <t t-if="m.product_id.description_sale">
-                                  <br/>
-                                  <span t-field="m.product_id.description_sale"/>
-                                </t>
                             </td>
                             <td>
                               <span t-field="m.product_id.harmsys_code"/>
