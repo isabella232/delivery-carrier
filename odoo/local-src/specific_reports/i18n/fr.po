@@ -141,7 +141,7 @@ msgstr "<br/>\n"
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
 msgid "<br/><span>Shipping address:</span>"
-msgstr "<br/><span>Adresse de livraison :</span>"
+msgstr "<br/><span>Adresse de livraison:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.external_layout_header
@@ -258,13 +258,13 @@ msgstr "<span class=\"col-xs-5\">Supplier Number:</span>"
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
 msgid "<span class=\"col-xs-5\">Term of delivery:</span>"
-msgstr "<span class=\"col-xs-5\">Délai de livraison :</span>"
+msgstr "<span class=\"col-xs-5\">Délais de livraison :</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
 msgid "<span class=\"col-xs-5\">Term of delivery:</span>\n"
 "                  <span>nach Absprache</span>"
-msgstr "<span class=\"col-xs-5\">Délai de livraison :</span>"
+msgstr "<span class=\"col-xs-5\">Délais de livraison :</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
@@ -809,7 +809,7 @@ msgstr "Technik-Hotline: +41 43 844 80 77,"
 #: model:ir.model.fields,field_description:specific_reports.field_account_invoice_delivery_term
 #: model:ir.model.fields,field_description:specific_reports.field_sale_order_delivery_term
 msgid "Term of delivery"
-msgstr "Délai de livraison"
+msgstr "Délais de livraison"
 
 #. module: specific_reports
 #: model:ir.model.fields,help:specific_reports.field_sale_order_line_project_id
@@ -863,3 +863,8 @@ msgstr "l10n_ch.payment_slip"
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
 msgid "Number of shipments:"
 msgstr "Condition: Expédition de toute la quantité dans max. livraison(s)"
+
+#. module: specific_reports
+#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+msgid "<span class=\"col-xs-3\">Business provider:</span>"
+msgstr "<span class=\"col-xs-3\">Apporteur d'affaire:</span>"

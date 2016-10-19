@@ -865,3 +865,8 @@ msgstr "l10n_ch.payment_slip"
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
 msgid "Number of shipments:"
 msgstr "Bedigung: Abnahme der Gesamtmenge in max. Lieferungen "
+
+#. module: specific_reports
+#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+msgid "<span class=\"col-xs-3\">Business provider:</span>"
+msgstr "<span class=\"col-xs-3\">Auftraggeber:</span>"
