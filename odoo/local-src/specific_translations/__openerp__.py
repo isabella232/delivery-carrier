@@ -11,6 +11,7 @@
  'depends': ['account',
              'report_intrastat',
              'product',
+             'specific_building_project',
              ],
  'website': 'http://www.camptocamp.com',
  'data': [

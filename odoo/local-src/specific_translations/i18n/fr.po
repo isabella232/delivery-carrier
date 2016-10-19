@@ -19,3 +19,8 @@ msgstr ""
 #: model:product.uom,name:product.product_uom_unit
 msgid "Unit(s)"
 msgstr "Pce"
+
+#. module: specific_building_project
+#: model:ir.model.fields,field_description:specific_building_project.field_sale_order_number_shipments
+msgid "Number of shipments"
+msgstr "Nombre de livraisons"
