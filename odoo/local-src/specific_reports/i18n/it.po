@@ -555,8 +555,8 @@ msgstr "E-No.<br/>Artikel-Nr."
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
-msgid "E-nr"
-msgstr "E-nr"
+msgid "E-Nr"
+msgstr "E-Nr"
 
 #. module: specific_reports
 #: model:ir.model,name:specific_reports.model_mail_template
@@ -790,8 +790,16 @@ msgstr "P.IVA:"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_invoice_layouted
+#: model:ir.ui.view,arch_db:specific_reports.report_sale_layouted
+#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
 msgid "Taxes"
 msgstr "Imposte"
+
+#. module: specific_reports
+#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+msgid "Taxes: include VAT and any other taxes"
+msgstr "Taxes: include VAT and any other taxes"
+
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.external_layout_footer

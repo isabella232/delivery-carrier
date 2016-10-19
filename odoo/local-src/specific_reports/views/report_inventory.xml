@@ -20,6 +20,7 @@
                       font-weight: bold;
                       font-size: 18px;
                       margin-bottom: 0px;
+                      margin-top: 80px;
                     }
                     #informations{
                       padding-bottom: 12px;
@@ -102,10 +103,9 @@
                         <div t-if="o.partner_id" name="partner_header">
                           <t t-if="o.partner_id.parent_id">
                             <span t-field="o.partner_id.parent_id.name"/>
+                             <br/>
                           </t>
-                          <t t-if="not o.partner_id.parent_id">
                             <span t-field="o.partner_id.name"/>
-                          </t>
                             <div t-field="o.partner_id"
                                t-field-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
                         </div>
@@ -296,7 +296,8 @@
                                 </t>
                             </td>
                             <td>
-                                <span  t-field="m.name"/>
+                                <!--<t t-debug="pdb"/>-->
+                                <span  t-raw="m.name.replace('\n','&lt;br/&gt;')"/>
                                 <t t-if="m.product_id.description_sale">
                                   <br/>
                                   <span t-field="m.product_id.description_sale"/>

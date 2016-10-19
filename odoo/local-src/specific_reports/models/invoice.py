@@ -42,6 +42,16 @@ class AccountInvoice(models.Model):
 
         return hr_employee
 
+    @api.multi
+    def get_so_from_invoice(self):
+        self.ensure_one()
+        return_val = False
+        for invoice_line in self.invoice_line_ids:
+            if invoice_line.sale_line_ids:
+                return_val = invoice_line.sale_line_ids[0].order_id
+                break
+        return return_val
+
 
 class InvoiceOrderLine(models.Model):
     _inherit = 'account.invoice.line'
