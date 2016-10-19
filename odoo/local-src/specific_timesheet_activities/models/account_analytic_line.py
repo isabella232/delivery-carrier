@@ -9,8 +9,7 @@ class AccountAnalyticLine(models.Model):
     _inherit = 'account.analytic.line'
 
     activity_id = fields.Many2one('hr.timesheet.sheet.activity',
-                                  string='Activity',
-                                  required=True)
+                                  string='Activity')
     user_department_id = fields.Many2one('hr.department',
                                          compute='_get_user_department_id')
 
