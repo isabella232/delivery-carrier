@@ -6,6 +6,18 @@ test (unreleased)
 +++++++++++++++++++
 
 **Features and Improvements**
+
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+9.2.0 (2016-10-20)
+++++++++++++++++++
+
+**Features and Improvements**
 * Add field number_shipments in view & reports & translations
 * Add E_nr in the internal_picking report
 * Add VAT on Quotations/SO in the so_lines
