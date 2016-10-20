@@ -126,15 +126,15 @@ Feature: Configure Warehouse and Logistic processes
   Scenario: Configure dedicated picking type from occasion
     Given I need an "stock.location.route" with oid: scenario.location_route
     And having:
-      | key                      | value                            |
-      | name                     | Swisslux AG: Vorrat Sendung      |
-      | product_selectable       | True                             |
-      | sale_selectable          | True                             |
-      | product_categ_selectable | True                             |
-      | warehouse_selectable     | True                             |
-      | active                   | True                             |
-      | sequence                 | 10                               |
-      | warehouse_id             | by oid: stock.warehouse0         |
+      | key                      | value                       |
+      | name                     | Swisslux AG: Vorrat Sendung |
+      | product_selectable       | True                        |
+      | sale_selectable          | True                        |
+      | product_categ_selectable | True                        |
+      | warehouse_selectable     | True                        |
+      | active                   | True                        |
+      | sequence                 | 10                          |
+      | warehouse_ids            | by oid: stock.warehouse0    |
   
   @occasion
   Scenario: Configure the propagation of procurement order for occasion
