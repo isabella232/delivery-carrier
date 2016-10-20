@@ -94,3 +94,70 @@ Feature: Configure Warehouse and Logistic processes
   @csv @reception_text_article_default
   Scenario: import products for ir_values
     Given "ir.values" is imported from CSV "setup/ir_values.csv" using delimiter ","
+  
+  @occasion
+  Scenario: Occasion management
+    Given I need an "stock.location" with oid: scenario.location_occasion
+    And having:
+      | key             | value       |
+      | name            | Vorrat      |
+      | usage           | internal    |
+      | location_id     | by name: WH |
+      | active          | True        |
+      | return_location | True        |
+      | scrap_location  | False       |
+  
+  @occasion
+  Scenario: Configure dedicated picking type from occasion
+    Given I need an "stock.picking.type" with oid: scenario.picking_type_occasion
+    And having:
+      | key                      | value                                  |
+      | name                     | Vorrat Sendung                         |
+      | default_location_dest_id | by oid: stock.stock_location_customers |
+      | default_location_src_id  | by oid: scenario.location_occasion     |
+      | code                     | outgoing                               |
+      | use_existing_lots        | True                                   |
+      | active                   | True                                   |
+      | sequence_id              | by name: Swisslux AG Sequence in       |
+      | warehouse_id             | by oid: stock.warehouse0               |
+      | return_picking_type_id   | by oid: stock.picking_type_out         |
+  
+  @occasion
+  Scenario: Configure dedicated picking type from occasion
+    Given I need an "stock.location.route" with oid: scenario.location_route
+    And having:
+      | key                      | value                            |
+      | name                     | Swisslux AG: Vorrat Sendung      |
+      | product_selectable       | True                             |
+      | sale_selectable          | True                             |
+      | product_categ_selectable | True                             |
+      | warehouse_selectable     | True                             |
+      | active                   | True                             |
+      | sequence                 | 10                               |
+      | warehouse_id             | by oid: stock.warehouse0         |
+  
+  @occasion
+  Scenario: Configure the propagation of procurement order for occasion
+    Given I need an "procurement.rule" with oid: scenario.procurement_rule_occasion
+    And having:
+      | key             | value                                  |
+      | action          | move                                   |
+      | active          | True                                   |
+      | procure_method  | make_to_stock                          |
+      | name            | WH: Vorrat -> Customers                |
+      | delay           | 0                                      |
+      | picking_type_id | by oid: scenario.picking_type_occasion |
+      | location_id     | by oid: stock.stock_location_customers |
+      | route_sequence  | 10                                     |
+      | sequence        | 20                                     |
+      | warehouse_id    | by oid: stock.warehouse0               |
+      | route_id        | by oid: scenario.location_route        |
+      | location_src_id | by oid: scenario.location_occasion     |
+      | propagate       | True                                   |
+    
+  @occasion
+  Scenario: Configure the route occasion to have the correct pull
+    Given I find an "stock.location.route" with oid: scenario.location_route
+    And having:
+      | key      | value                                      |
+      | pull_ids | by oid: scenario.procurement_rule_occasion |
