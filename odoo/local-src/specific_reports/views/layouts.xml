@@ -40,7 +40,7 @@
               <small>
                 <small>
                   <div class="col-xs-1"> </div>
-                  <div class="col-xs-10">
+                  <div class="col-xs-11">
                   <strong t-field="company.name"/>
                   <span t-field="company.street"/>,
                   <span t-field="company.zip"/>
@@ -50,10 +50,6 @@
                   Technik-Hotline: +41 43 844 80 77,
                   <span t-field="company.email"/>,
                   <span t-raw="company.website[7:]"/>
-                  </div>
-                    <div class="text-right col-xs-1">
-                    <span>Page:</span>
-                    <span class="page"/>/<span class="topage"/>
                   </div>
                 </small>
               </small>

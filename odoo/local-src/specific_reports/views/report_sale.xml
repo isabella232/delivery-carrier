@@ -36,7 +36,7 @@
           }
           .address{
               position: fixed;
-              left: 186px;
+              left: 215px;
           }
         </style>
         <!-- Informations contact on top of page -->
