@@ -38,7 +38,7 @@
                     }
                     .address{
                       position: fixed;
-                      left: 186px;
+                      left: 215px;
                       max-width:250px;
                     }
                 </style>
@@ -143,7 +143,12 @@
                           </div>
                           <div class="col-xs-12" style="padding-left: 0px;">
                               <span class="col-xs-5">Client number:</span>
-                              <span class="address" t-field="o.partner_id.ref"/>
+                              <span t-if="o.partner_id.is_company">
+                                <span class="address" t-field="o.partner_id.ref"/>
+                              </span>
+                              <span t-if="not o.partner_id.is_company">
+                                <span class="address" t-field="o.partner_id.parent_id.ref"/>
+                              </span>
                           </div>
                           <div t-if="not o.partner_id.country_id.code == 'CH'" class="col-xs-12" style="padding-left: 0px;">
                               <span class="col-xs-5">EORI NR:</span>

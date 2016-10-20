@@ -27,7 +27,7 @@
         }
         .address{
           position: fixed;
-          left: 190px;
+          left: 215px;
         }
         .pl-0{
             padding-left: 0px;
