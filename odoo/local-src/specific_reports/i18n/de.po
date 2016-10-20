@@ -144,6 +144,12 @@ msgid "<br/><span>Shipping address:</span>"
 msgstr "<br/><span>Lieferanschrift:</span>"
 
 #. module: specific_reports
+#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+msgid "Shipping address:"
+msgstr "Lieferanschrift:"
+
+
+#. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.external_layout_header
 msgid "<small>\n"
 "                  <small>\n"
@@ -799,7 +805,7 @@ msgstr "Steuern"
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
 msgid "Taxes: include VAT and any other taxes"
-msgstr "Taxes: include VAT and any other taxes"
+msgstr "Steuern : beinhalten MWSt und allfällige vRG"
 
 
 #. module: specific_reports
@@ -865,3 +871,13 @@ msgstr "l10n_ch.payment_slip"
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
 msgid "Number of shipments:"
 msgstr "Bedigung: Abnahme der Gesamtmenge in max. Lieferungen "
+
+#. module: specific_reports
+#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+msgid "<span class=\"col-xs-3\">Business provider:</span>"
+msgstr "<span class=\"col-xs-3\">Auftraggeber:</span>"
+
+#. module: sale
+#: model:ir.ui.view,arch_db:sale.report_saleorder_document
+msgid "Order #"
+msgstr "Auftragbestätigung"

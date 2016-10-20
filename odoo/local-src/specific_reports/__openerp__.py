@@ -29,6 +29,7 @@
              'sale_layout',
              'account',
              'stock',
+             'sale',
              'delivery',
              'specific_product',
              'mrp_bom_dismantling',

@@ -24,10 +24,11 @@
         h2{
           font-weight: bold;
           font-size: 18px;
+          margin-top: 80px;
         }
         .address{
           position: fixed;
-          left: 190px;
+          left: 215px;
         }
         .pl-0{
             padding-left: 0px;
@@ -66,11 +67,13 @@
     <xpath expr="//div[@class='page']/div[@class='row'][1]" position="replace">
       <div class="row" id="address">
         <div class="col-xs-6">
-          <span t-field="o.partner_id.parent_id"/><br/>
-          <span t-field="o.partner_id.name"/><br/>
-          <span t-field="o.partner_id.street"/><br/>
-          <span t-field="o.partner_id.zip"/> <span t-field="o.partner_id.city"/><br/>
-          <span t-if="o.partner_id.vat">TIN: <span t-field="o.partner_id.vat"/></span>
+              <t t-if="o.partner_id.parent_id">
+                <span t-field="o.partner_id.parent_id.name"/><br/>
+              </t>
+                <span t-field="o.partner_id.name"/>
+            <address t-field="o.partner_id"
+                t-field-options='{"widget": "contact", "fields": ["address"], "no_marker": true}' />
+            <span t-if="o.partner_id.vat">TIN: <span t-field="o.partner_id.vat"/></span>
         </div>
       </div>
     </xpath>
@@ -168,7 +171,32 @@
     <xpath expr="//div[@class='page']" position="attributes">
         <attribute name="style">margin-left: 60px !important;margin-right: 25px !important;</attribute>
     </xpath>
-
+    <xpath expr="//div[@class='page']//div[@class='row mt32 mb32'][1]" position="before">
+      <style type="text/css">
+        .page{
+          margin-right: 25px !important;
+        }
+        h2{
+          font-weight: bold;
+          font-size: 18px;
+          margin-top: 80px;
+        }
+        .address{
+          position: fixed;
+          left: 215px;
+        }
+        .pl-0{
+            padding-left: 0px;
+        }
+        #informations{
+              padding-bottom: 12px;
+              margin-bottom: 12px;
+        }
+        .al-top{
+          vertical-align: text-top;
+        }
+      </style>
+    </xpath>
     <!-- Address of swisslux & vendor -->
     <xpath expr="//div[@class='page']/div[@class='row mt32 mb32']" position="replace">
       <small>
@@ -180,7 +208,6 @@
                   Person of contact
                 </strong><span t-field="o.env.user.name"/><br/>
                 Phone: <span t-field="o.get_employee_from_user(o.env.user).work_phone"/><br/>
-                <span t-field="o.env.user.email"/><br/>
                 <span t-field="o.env.user.email"/><br/>
               </small>
             </small>
@@ -198,6 +225,7 @@
           <span t-field="o.partner_id.parent_id"/><br/>
           <span t-field="o.partner_id.name"/><br/>
           <span t-field="o.partner_id.street"/><br/>
+          <span t-field="o.partner_id.street2"/><br/>
           <span t-field="o.partner_id.zip"/> <span t-field="o.partner_id.city"/><br/>
           <span t-if="o.partner_id.vat">TIN: <span t-field="o.partner_id.vat"/></span>
         </div>
