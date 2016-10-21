@@ -40,7 +40,7 @@ Feature: Configure the deliveries
     And having:
       | name                           | value                                                      |
       | name                           | <name>                                                     |
-      | type                           | postlogistics                                              |
+      | carrier_type                   | postlogistics                                              |
       | partner_id                     | by oid: delivery_carrier_label_postlogistics.postlogistics |
       | postlogistics_service_group_id | by name: <service_group>                                   |
       | postlogistics_license_id       | by oid: scenario.postlogistics_<license>                   |
