@@ -29,6 +29,12 @@ Feature: import master data
   @csv @products @slow
   Scenario: import products
     Given "product.product" is imported from CSV "setup/product.product.csv" using delimiter ","
+    Given I set the context to "{'lang':'en_US'}"
+      And "product.product" is imported from CSV "setup/product.product.en.csv" using delimiter ","
+    Given I set the context to "{'lang':'fr_FR'}"
+      And "product.product" is imported from CSV "setup/product.product.fr.csv" using delimiter ","
+    Given I set the context to "{'lang':'it_IT'}"
+      And "product.product" is imported from CSV "setup/product.product.it.csv" using delimiter ","
 
   @update_reception_text_product @product
   Scenario: set default product reception text
