@@ -805,7 +805,7 @@ msgstr "Steuern"
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
 msgid "Taxes: include VAT and any other taxes"
-msgstr "Steuern : beinhalten MWSt und allfällige vRG"
+msgstr "Steuern: Beinhalten MWSt und allfällige vRG"
 
 
 #. module: specific_reports
@@ -870,7 +870,7 @@ msgstr "l10n_ch.payment_slip"
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
 msgid "Number of shipments:"
-msgstr "Bedigung: Abnahme der Gesamtmenge in max. Lieferungen "
+msgstr "Bedingung: Abnahme der Gesamtmenge in max. Lieferungen "
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
