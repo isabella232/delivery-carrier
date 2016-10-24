@@ -80,17 +80,17 @@
             <div class="col-xs-7"></div>
             <div class="col-xs-6" style="padding-left: 0px; margin-left: 0px">
               <div t-if="not doc.partner_id.is_company" class="col-xs-12" style="padding-left: 0px;">
-                  <span class="col-xs-5">Contact:</span>
+                  <span class="col-xs-7">Contact:</span>
                   <span class="address" t-field="doc.partner_id.name"/>
               </div>
               <div t-if="doc.client_order_contact_type" class="col-xs-12" style="padding-left: 0px;">
-                  <span class="col-xs-5">Your order:</span>
+                  <span class="col-xs-7">Your order:</span>
                   <span class="address">
                     <span t-field="doc.client_order_contact_type"/><t t-if="doc.client_order_date">, <span t-field="doc.client_order_date"/></t>
                   </span>
               </div>
               <div class="col-xs-12" style="padding-left: 0px;">
-                  <span class="col-xs-5">Client number:</span>
+                  <span class="col-xs-7">Client number:</span>
                   <span t-if="doc.partner_id.is_company">
                   	<span class="address" t-field="doc.partner_id.ref"/>
 				  </span>
@@ -99,36 +99,36 @@
                   </span>
               </div>
               <div name="payment_term" t-if="doc.payment_term_id" class="col-xs-12 hidden " style="padding-left: 0px;">
-                  <span class="col-xs-5">Payment Term:</span>
+                  <span class="col-xs-7">Payment Term:</span>
                   <span class="address" t-field="doc.payment_term_id"/>
               </div>
               <div class="col-xs-12" t-if="doc.validity_date" style="padding-left: 0px;">
-                  <span class="col-xs-5">Validity:</span>
-                  <span class="address" t-field="doc.validity_date"/>
+                  <span class="col-xs-7">Validity:</span>
+                  <span class="address" t-field="doc.validity_date" style="padding-left: 0px;"/>
               </div>
             </div>
             <div class="col-xs-6">
-              <div t-if="doc.date_order" class="col-xs-12">
+              <div>
                   <t t-if="doc.state not in ['draft','sent']">
-                    <span class="col-xs-5">Date Ordered:</span>
+                    <span class="col-xs-7">Date Ordered:</span>
                   </t>
-                  <t class="col-xs-5" t-if="doc.state in ['draft','sent']">
-                    <span class="col-xs-5">Quotation Date:</span>
+                  <t t-if="doc.state in ['draft','sent']">
+                    <span class="col-xs-7">Quotation Date:</span>
                   </t>
-                  <span t-field="doc.date_order" t-field-options='{"widget":"date"}'/>
+                  <span t-field="doc.date_order" style="padding-left: 0px;" t-field-options='{"widget":"date"}' />
               </div>
-              <div class="col-xs-12">
-                  <span class="col-xs-5">Term of delivery:</span>
+              <div>
+                  <span class="col-xs-7">Term of delivery:</span>
                   <t t-if="doc.delivery_term">
-                  	<span t-field="doc.delivery_term"/>
+                  	<span style="padding-left: 0px;" t-field="doc.delivery_term" />
 				  </t>
 				  <t t-if="not doc.delivery_term">
-                    <span>according to the arrangement</span>
+                    <span style="padding-left: 0px;">according to the arrangement</span>
                   </t>
               </div>
-              <div t-if="doc.carrier_id" class="col-xs-12">
-                  <span class="col-xs-5">Delivery Method:</span>
-                  <span t-field="doc.carrier_id"/>
+              <div t-if="doc.carrier_id" >
+                  <span class="col-xs-7">Delivery Method:</span>
+                  <span style="padding-left: 0px;" t-field="doc.carrier_id" />
               </div>
             </div>
             <div t-if="doc.business_provider_id" class="col-xs-12" style="padding-left: 0px; margin-left: 0px">
