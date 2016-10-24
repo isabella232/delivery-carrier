@@ -146,8 +146,7 @@
 			<div t-if="doc.partner_invoice_id != doc.partner_id or doc.partner_shipping_id != doc.partner_id" class="col-xs-12" style="padding-left: 0px; margin-left: 0px">
               <t t-if="not doc.business_provider_id"><br/></t>
 			  <div class="col-xs-12" style="padding-left: 0px; margin-left: 0px">
-			     <span class="col-xs-3" t-if="doc.partner_shipping_id == doc.partner_invoice_id">Invoicing and shipping address:</span>
-                 <span class="col-xs-3" t-if="doc.partner_shipping_id != doc.partner_invoice_id">Invoicing address:</span>
+                 <span class="col-xs-3">Invoicing address:</span>
                     <t t-if="doc.partner_invoice_id.is_company">
 					   <span t-field="doc.partner_invoice_id.name"/>,
 					</t>
@@ -158,7 +157,7 @@
 
 			  </div>
               <div class="col-xs-12" style="padding-left: 0px; margin-left: 0px">
-             	<span class="col-xs-3" t-if="doc.partner_shipping_id != doc.partner_invoice_id">Shipping address:</span>
+                 <span class="col-xs-3">Shipping address:</span>
 			       <t t-if="doc.partner_shipping_id.is_company">
                        <span t-field="doc.partner_shipping_id.name"/>,
                     </t>
