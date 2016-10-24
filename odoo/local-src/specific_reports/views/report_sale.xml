@@ -135,7 +135,12 @@
               <br/>
               <div class="col-xs-12" style="padding-left: 0px; margin-left: 0px">
               	 <span class="col-xs-3">Business provider:</span>
-                 <span t-field="doc.business_provider_id.name"/>, <span t-field="doc.business_provider_id.street"/>, <span t-field="doc.business_provider_id.zip"/> <span t-field="doc.business_provider_id.city"/>
+                <t t-if="not doc.business_provider_id.parent_id">
+                   <span t-field="doc.business_provider_id.name"/>
+                </t>
+                <t t-if="doc.business_provider_id.parent_id">
+                   <span t-field="doc.business_provider_id.parent_id.name"/>, <span t-field="doc.business_provider_id.name"/>
+                </t>
               </div>
             </div>
 			<div t-if="doc.partner_invoice_id != doc.partner_id or doc.partner_shipping_id != doc.partner_id" class="col-xs-12" style="padding-left: 0px; margin-left: 0px">
