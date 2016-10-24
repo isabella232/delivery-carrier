@@ -799,12 +799,12 @@ msgstr "P.IVA:"
 #: model:ir.ui.view,arch_db:specific_reports.report_sale_layouted
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
 msgid "Taxes"
-msgstr "Imposte"
+msgstr "Tasse "
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
 msgid "Taxes: include VAT and any other taxes"
-msgstr "Tasse: comprende IVA e tutte altre imposte"
+msgstr "Tasse: Comprende IVA e tutte altre imposte"
 
 
 #. module: specific_reports
@@ -869,12 +869,12 @@ msgstr "l10n_ch.payment_slip"
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
 msgid "Number of shipments:"
-msgstr "Spedizione:  al massimo in consegna/e"
+msgstr "Spedizione: Al massimo in consegna/e"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
 msgid "<span class=\"col-xs-3\">Business provider:</span>"
-msgstr "<span class=\"col-xs-3\">Fornitore di business:</span>"
+msgstr "<span class=\"col-xs-3\">Committente:</span>"
 
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.report_saleorder_document
