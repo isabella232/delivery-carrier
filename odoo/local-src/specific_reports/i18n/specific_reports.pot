@@ -823,5 +823,5 @@ msgstr ""
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span>according to the arrangement</span>"
+msgid "<span style="padding-left: 0px;">according to the arrangement</span>"
 msgstr ""
