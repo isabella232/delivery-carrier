@@ -880,3 +880,13 @@ msgstr "<span class=\"col-xs-3\">Apporteur d'affaire:</span>"
 #: model:ir.ui.view,arch_db:sale.report_saleorder_document
 msgid "Order #"
 msgstr "Confirmation de commande"
+
+#. module: sale
+#: model:ir.ui.view,arch_db:sale.report_saleorder_document
+msgid "Quotation #"
+msgstr "Offre #"
+
+#. module: specific_reports
+#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+msgid "<span>according to the arrangement</span>"
+msgstr "Nach Absprache"

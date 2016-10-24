@@ -429,7 +429,7 @@ msgstr "<strong>Ursprungsort</strong>"
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
 msgid "<strong>Your Reference:</strong>"
-msgstr "Ihre Referenz"
+msgstr "<strong>Kommission:</strong>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
@@ -881,3 +881,9 @@ msgstr "<span class=\"col-xs-3\">Auftraggeber:</span>"
 #: model:ir.ui.view,arch_db:sale.report_saleorder_document
 msgid "Order #"
 msgstr "Auftragbestätigung"
+
+#. module: specific_reports
+#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+msgid "<span>according to the arrangement</span>"
+msgstr "Nach Absprache"
+
