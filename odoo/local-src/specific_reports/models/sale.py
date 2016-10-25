@@ -100,9 +100,9 @@ class SaleOrderLine(models.Model):
 
     @api.multi
     def _prepare_invoice_line(self, qty):
-        for rec in self:
-            inv_line = super(SaleOrderLine, rec)._prepare_invoice_line(qty)
+        self.ensure_one()
+        inv_line = super(SaleOrderLine, self)._prepare_invoice_line(qty)
 
-            inv_line['project_discount'] = rec.project_discount
-            inv_line['public_discount'] = rec.public_discount
+        inv_line['project_discount'] = self.project_discount
+        inv_line['public_discount'] = self.public_discount
         return inv_line

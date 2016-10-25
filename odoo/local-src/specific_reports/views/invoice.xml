@@ -9,7 +9,10 @@
 
         <xpath expr="//tree/field[@name='discount']" position="replace">
           <field name="discount" groups="sale.group_discount_per_so_line" invisible="1"/>
-          <field name="public_discount" groups="sale.group_discount_per_so_line"/>
+          <!-- On rends le champs public_discount readonly si project_discount est renseigné (depuis un sale.order) -->
+          <field name="public_discount"
+                 attrs="{'readonly': [('project_discount', '!=', 0)]}"
+                 groups="sale.group_discount_per_so_line"/>
           <field name="project_discount" groups="sale.group_discount_per_so_line"/>
         </xpath>
 
@@ -23,7 +26,9 @@
       <field name="arch" type="xml">
 
         <xpath expr="//field[@name='discount']" position="after">
-          <field name="public_discount" groups="sale.group_discount_per_so_line"/>
+          <field name="public_discount"
+                 attrs="{'readonly': [('project_discount', '!=', 0)]}"
+                 groups="sale.group_discount_per_so_line"/>
           <field name="project_discount" groups="sale.group_discount_per_so_line"/>
         </xpath>
 
