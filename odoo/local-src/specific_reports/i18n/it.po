@@ -210,8 +210,8 @@ msgstr "<span class=\"col-xs-7\">Vostro contatto:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-5\">Date Ordered:</span>"
-msgstr "<span class=\"col-xs-5\">Data ordinato:</span>"
+msgid "<span class=\"col-xs-7\">Date Ordered:</span>"
+msgstr "<span class=\"col-xs-7\">Data ordinato:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
@@ -227,8 +227,8 @@ msgstr "<span class=\"col-xs-5\">Data di consegna:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-5\">Delivery Method:</span>"
-msgstr "<span class=\"col-xs-5\">Metodo di consegna:</span>"
+msgid "<span class=\"col-xs-7\">Delivery Method:</span>"
+msgstr "<span class=\"col-xs-7\">Metodo di consegna:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
@@ -558,7 +558,7 @@ msgstr "Documento: Report conto cliente<br/>\n"
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
 msgid "E-No.<br/>Artikel-Nr."
-msgstr "E-No.<br/>Artikel-Nr."
+msgstr "E-No.<br/>No articolo"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
@@ -905,3 +905,34 @@ msgstr "Tasse"
 #: model:ir.ui.view,arch_db:sale_layout.report_sale_layouted
 msgid "Taxes"
 msgstr "Tasse"
+
+#. module: account
+#: selection:account.account.tag,applicability:0
+#: model:account.tax.group,name:account.tax_group_taxes
+#: model:ir.actions.act_window,name:account.action_tax_form
+#: model:ir.model.fields,field_description:account.field_account_invoice_line_invoice_line_tax_ids
+#: model:ir.model.fields,field_description:account.field_account_move_line_tax_ids
+#: model:ir.ui.menu,name:account.menu_action_tax_form
+#: model:ir.ui.view,arch_db:account.account_planner
+#: model:ir.ui.view,arch_db:account.invoice_form
+#: model:ir.ui.view,arch_db:account.invoice_supplier_form
+#: model:ir.ui.view,arch_db:account.report_invoice_document
+#: model:ir.ui.view,arch_db:account.view_account_config_settings
+#: model:ir.ui.view,arch_db:account.view_move_line_form
+msgid "Taxes"
+msgstr "Tasse"
+
+#. module: account
+#. openerp-web
+#: code:addons/account/static/src/js/account_reconciliation_widgets.js:124
+#: code:addons/account/static/src/js/account_reconciliation_widgets.js:129
+#: model:ir.model,name:account.model_account_tax
+#: model:ir.model.fields,field_description:account.field_account_invoice_amount_tax
+#: model:ir.model.fields,field_description:account.field_account_invoice_tax_tax_id
+#: model:ir.model.fields,field_description:account.field_account_operation_template_second_tax_id
+#: model:ir.model.fields,field_description:account.field_account_operation_template_tax_id
+#: model:ir.ui.view,arch_db:account.report_invoice_document
+#: model:ir.ui.view,arch_db:account.view_account_tax_search
+#, python-format
+msgid "Tax"
+msgstr "Tassa"

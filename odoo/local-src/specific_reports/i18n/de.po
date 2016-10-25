@@ -212,8 +212,8 @@ msgstr "<span class=\"col-xs-7\">Besteller:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-6\">Date Ordered:</span>"
-msgstr "<span class=\"col-xs-6\">Datum:</span>"
+msgid "<span class=\"col-xs-7\">Date Ordered:</span>"
+msgstr "<span class=\"col-xs-7\">Datum:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
@@ -229,8 +229,8 @@ msgstr "<span class=\"col-xs-5\">Lieferdatum:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-5\">Delivery Method:</span>"
-msgstr "<span class=\"col-xs-5\">Versandart:</span>"
+msgid "<span class=\"col-xs-7\">Delivery Method:</span>"
+msgstr "<span class=\"col-xs-7\">Versandart:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
