@@ -145,9 +145,8 @@ msgstr "<br/><span>Adresse de livraison:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "Shipping address:"
-msgstr "Adresse de livraison:"
-
+msgid "<span class=\"col-xs-3\">Shipping address:</span>"
+msgstr "<span class=\"col-xs-3\">Adresse de livraison:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.external_layout_header
@@ -168,13 +167,15 @@ msgstr "<small>\n"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
-msgid "<span class=\"col-xs-5 pl-0\">Your order:</span>"
-msgstr "<span class=\"col-xs-5\">Votre commande:</span>"
+msgid "<span class=\"col-xs-7\">Your order:</span>"
+msgstr "<span class=\"col-xs-7\">Votre commande:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
-msgid "<span class=\"col-xs-5\" style=\"padding-left: 0px;\"><strong>Your reference:</strong></span>"
-msgstr "<span class=\"col-xs-5\" style=\"padding-left: 0px;\"><strong>Votre référence:</strong></span>"
+msgid "<br/>\n"
+"                            <span class=\"col-xs-5\" style=\"padding-left: 0px;\"><strong>Your reference:</strong></span>"
+msgstr "<br/>\n"
+"                            <span class=\"col-xs-5\" style=\"padding-left: 0px;\"><strong>Votre référence:</strong></span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
@@ -209,8 +210,8 @@ msgstr "<span class=\"col-xs-7\">Votre contact:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-6\">Date Ordered:</span>"
-msgstr "<span class=\"col-xs-6\">Date de commande:</span>"
+msgid "<span class=\"col-xs-7\">Date Ordered:</span>"
+msgstr "<span class=\"col-xs-7\">Date de commande:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
@@ -226,8 +227,8 @@ msgstr "<span class=\"col-xs-5\">Date de livraison:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-5\">Delivery Method:</span>"
-msgstr "<span class=\"col-xs-5\">Méthode de livraison:</span>"
+msgid "<span class=\"col-xs-7\">Delivery Method:</span>"
+msgstr "<span class=\"col-xs-7\">Méthode de livraison:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
@@ -279,8 +280,8 @@ msgstr "<span class=\"col-xs-5\">No. TVA:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-5\">Validity:</span>"
-msgstr "<span class=\"col-xs-5\">Validité:</span>"
+msgid "<span class=\"col-xs-7\">Validity:</span>"
+msgstr "<span class=\"col-xs-7\">Validité:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
@@ -591,8 +592,8 @@ msgstr "Ligne de facturation"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "Invoicing address:"
-msgstr "Adresse de facturation :"
+msgid "<span class=\"col-xs-3\">Invoicing address:</span>"
+msgstr "<span class=\"col-xs-3\">Adresse de facturation:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
@@ -809,7 +810,7 @@ msgstr "Taxes: Comprennent TVA et toutes autres taxes"
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.external_layout_footer
 msgid "Technik-Hotline: +41 43 844 80 77,"
-msgstr "Technik-Hotline: +41 43 844 80 77,"
+msgstr "Hotline Technique: +41 43 844 80 77,"
 
 #. module: specific_reports
 #: model:ir.model.fields,field_description:specific_reports.field_account_invoice_delivery_term

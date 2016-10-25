@@ -145,9 +145,8 @@ msgstr "<br/><span>Indirizzo di spedizione:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "Shipping address:"
-msgstr "Indirizzo di spedizione:"
-
+msgid "<span class=\"col-xs-3\">Shipping address:</span>"
+msgstr "<span class=\"col-xs-3\">Indirizzo di spedizione:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.external_layout_header
@@ -168,13 +167,15 @@ msgstr "<small>\n"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
-msgid "<span class=\"col-xs-5 pl-0\">Your order:</span>"
-msgstr "<span class=\"col-xs-5\">Vostra Ordinazione:</span>"
+msgid "<span class=\"col-xs-7\">Your order:</span>"
+msgstr "<span class=\"col-xs-7\">Vostra Ordinazione:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
-msgid "<span class=\"col-xs-5\" style=\"padding-left: 0px;\"><strong>Your reference:</strong></span>"
-msgstr "<span class=\"col-xs-5\" style=\"padding-left: 0px;\"><strong>Commissione:</strong></span>"
+msgid "<br/>\n"
+"                            <span class=\"col-xs-5\" style=\"padding-left: 0px;\"><strong>Your reference:</strong></span>"
+msgstr "<br/>\n"
+"                            <span class=\"col-xs-5\" style=\"padding-left: 0px;\"><strong>Votre référence:</strong></span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
@@ -209,8 +210,8 @@ msgstr "<span class=\"col-xs-7\">Vostro contatto:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-5\">Date Ordered:</span>"
-msgstr "<span class=\"col-xs-5\">Data ordinato:</span>"
+msgid "<span class=\"col-xs-7\">Date Ordered:</span>"
+msgstr "<span class=\"col-xs-7\">Data ordinato:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
@@ -226,8 +227,8 @@ msgstr "<span class=\"col-xs-5\">Data di consegna:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-5\">Delivery Method:</span>"
-msgstr "<span class=\"col-xs-5\">Metodo di consegna:</span>"
+msgid "<span class=\"col-xs-7\">Delivery Method:</span>"
+msgstr "<span class=\"col-xs-7\">Metodo di consegna:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
@@ -279,8 +280,8 @@ msgstr "<span class=\"col-xs-5\">Partita IVA:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-5\">Validity:</span>"
-msgstr "<span class=\"col-xs-5\">Validità:</span>"
+msgid "<span class=\"col-xs-7\">Validity:</span>"
+msgstr "<span class=\"col-xs-7\">Validità:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
@@ -557,7 +558,7 @@ msgstr "Documento: Report conto cliente<br/>\n"
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
 msgid "E-No.<br/>Artikel-Nr."
-msgstr "E-No.<br/>Artikel-Nr."
+msgstr "E-No.<br/>No articolo"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
@@ -591,8 +592,8 @@ msgstr "Riga fattura"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "Invoicing address:"
-msgstr "Indirizzo di fatturazione:"
+msgid "<span class=\"col-xs-3\">Invoicing address:</span>"
+msgstr "<span class=\"col-xs-3\">Indirizzo di fatturazione:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
@@ -804,7 +805,7 @@ msgstr "Tasse "
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
 msgid "Taxes: include VAT and any other taxes"
-msgstr "Tasse: Comprende IVA e tutte altre imposte"
+msgstr "Tasse: Comprende IVA e tutte altre tasse"
 
 
 #. module: specific_reports
@@ -891,3 +892,47 @@ msgstr "Offerta #"
 msgid "<span style="padding-left: 0px;">according to the arrangement</span>"
 msgstr "<span>Nach Absprache</span>"
 
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order_amount_tax
+#: model:ir.model.fields,field_description:sale.field_sale_order_line_price_tax
+#: model:ir.model.fields,field_description:sale.field_sale_order_line_tax_id
+#: model:ir.ui.view,arch_db:sale.report_saleorder_document
+msgid "Taxes"
+msgstr "Tasse"
+
+#. module: sale_layout
+#: model:ir.ui.view,arch_db:sale_layout.report_invoice_layouted
+#: model:ir.ui.view,arch_db:sale_layout.report_sale_layouted
+msgid "Taxes"
+msgstr "Tasse"
+
+#. module: account
+#: selection:account.account.tag,applicability:0
+#: model:account.tax.group,name:account.tax_group_taxes
+#: model:ir.actions.act_window,name:account.action_tax_form
+#: model:ir.model.fields,field_description:account.field_account_invoice_line_invoice_line_tax_ids
+#: model:ir.model.fields,field_description:account.field_account_move_line_tax_ids
+#: model:ir.ui.menu,name:account.menu_action_tax_form
+#: model:ir.ui.view,arch_db:account.account_planner
+#: model:ir.ui.view,arch_db:account.invoice_form
+#: model:ir.ui.view,arch_db:account.invoice_supplier_form
+#: model:ir.ui.view,arch_db:account.report_invoice_document
+#: model:ir.ui.view,arch_db:account.view_account_config_settings
+#: model:ir.ui.view,arch_db:account.view_move_line_form
+msgid "Taxes"
+msgstr "Tasse"
+
+#. module: account
+#. openerp-web
+#: code:addons/account/static/src/js/account_reconciliation_widgets.js:124
+#: code:addons/account/static/src/js/account_reconciliation_widgets.js:129
+#: model:ir.model,name:account.model_account_tax
+#: model:ir.model.fields,field_description:account.field_account_invoice_amount_tax
+#: model:ir.model.fields,field_description:account.field_account_invoice_tax_tax_id
+#: model:ir.model.fields,field_description:account.field_account_operation_template_second_tax_id
+#: model:ir.model.fields,field_description:account.field_account_operation_template_tax_id
+#: model:ir.ui.view,arch_db:account.report_invoice_document
+#: model:ir.ui.view,arch_db:account.view_account_tax_search
+#, python-format
+msgid "Tax"
+msgstr "Tassa"
