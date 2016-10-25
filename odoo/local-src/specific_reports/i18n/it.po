@@ -805,7 +805,7 @@ msgstr "Tasse "
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
 msgid "Taxes: include VAT and any other taxes"
-msgstr "Tasse: Comprende IVA e tutte altre imposte"
+msgstr "Tasse: Comprende IVA e tutte altre tasse"
 
 
 #. module: specific_reports
@@ -892,3 +892,16 @@ msgstr "Offerta #"
 msgid "<span style="padding-left: 0px;">according to the arrangement</span>"
 msgstr "<span>Nach Absprache</span>"
 
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order_amount_tax
+#: model:ir.model.fields,field_description:sale.field_sale_order_line_price_tax
+#: model:ir.model.fields,field_description:sale.field_sale_order_line_tax_id
+#: model:ir.ui.view,arch_db:sale.report_saleorder_document
+msgid "Taxes"
+msgstr "Tasse"
+
+#. module: sale_layout
+#: model:ir.ui.view,arch_db:sale_layout.report_invoice_layouted
+#: model:ir.ui.view,arch_db:sale_layout.report_sale_layouted
+msgid "Taxes"
+msgstr "Tasse"

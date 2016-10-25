@@ -210,8 +210,8 @@ msgstr "<span class=\"col-xs-7\">Votre contact:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-6\">Date Ordered:</span>"
-msgstr "<span class=\"col-xs-6\">Date de commande:</span>"
+msgid "<span class=\"col-xs-7\">Date Ordered:</span>"
+msgstr "<span class=\"col-xs-7\">Date de commande:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
@@ -227,8 +227,8 @@ msgstr "<span class=\"col-xs-5\">Date de livraison:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-5\">Delivery Method:</span>"
-msgstr "<span class=\"col-xs-5\">Méthode de livraison:</span>"
+msgid "<span class=\"col-xs-7\">Delivery Method:</span>"
+msgstr "<span class=\"col-xs-7\">Méthode de livraison:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
@@ -810,7 +810,7 @@ msgstr "Taxes: Comprennent TVA et toutes autres taxes"
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.external_layout_footer
 msgid "Technik-Hotline: +41 43 844 80 77,"
-msgstr "Technik-Hotline: +41 43 844 80 77,"
+msgstr "Hotline Technique: +41 43 844 80 77,"
 
 #. module: specific_reports
 #: model:ir.model.fields,field_description:specific_reports.field_account_invoice_delivery_term
