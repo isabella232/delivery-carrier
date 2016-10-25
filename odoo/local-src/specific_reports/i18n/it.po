@@ -145,9 +145,8 @@ msgstr "<br/><span>Indirizzo di spedizione:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "Shipping address:"
-msgstr "Indirizzo di spedizione:"
-
+msgid "<span class=\"col-xs-3\">Shipping address:</span>"
+msgstr "<span class=\"col-xs-3\">Indirizzo di spedizione:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.external_layout_header
@@ -168,8 +167,8 @@ msgstr "<small>\n"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
-msgid "<span class=\"col-xs-5 pl-0\">Your order:</span>"
-msgstr "<span class=\"col-xs-5\">Vostra Ordinazione:</span>"
+msgid "<span class=\"col-xs-7\">Your order:</span>"
+msgstr "<span class=\"col-xs-7\">Vostra Ordinazione:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
@@ -279,8 +278,8 @@ msgstr "<span class=\"col-xs-5\">Partita IVA:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-5\">Validity:</span>"
-msgstr "<span class=\"col-xs-5\">Validità:</span>"
+msgid "<span class=\"col-xs-7\">Validity:</span>"
+msgstr "<span class=\"col-xs-7\">Validità:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
@@ -591,8 +590,8 @@ msgstr "Riga fattura"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "Invoicing address:"
-msgstr "Indirizzo di fatturazione:"
+msgid "<span class=\"col-xs-3\">Invoicing address:</span>"
+msgstr "<span class=\"col-xs-3\">Indirizzo di fatturazione:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document

@@ -143,11 +143,11 @@ msgstr "<br/> \n"
 msgid "<br/><span>Shipping address:</span>"
 msgstr "<br/><span>Lieferanschrift:</span>"
 
+
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "Shipping address:"
-msgstr "Lieferanschrift:"
-
+msgid "<span class=\"col-xs-3\">Shipping address:</span>"
+msgstr "<span class=\"col-xs-3\">Lieferanschrift:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.external_layout_header
@@ -168,8 +168,8 @@ msgstr "<small>\n"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
-msgid "<span class=\"col-xs-5 pl-0\">Your order:</span>"
-msgstr "<span class=\"col-xs-5\">Ihre Bestellung:</span>"
+msgid "<span class=\"col-xs-7\">Your order:</span>"
+msgstr "<span class=\"col-xs-7\">Ihre Bestellung:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
@@ -216,8 +216,8 @@ msgstr "<span class=\"col-xs-6\">Datum:</span>"
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
 #: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
 #: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
-msgid "<span class=\"col-xs-5\">Date:</span>"
-msgstr "<span class=\"col-xs-5\">Datum:</span>"
+msgid "<span class=\"col-xs-7\">Date:</span>"
+msgstr "<span class=\"col-xs-7\">Datum:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
@@ -248,8 +248,8 @@ msgstr "<span class=\"col-xs-5\">Payment Term:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-5\">Quotation Date:</span>"
-msgstr "<span class=\"col-xs-5\">Datum:</span>"
+msgid "<span class=\"col-xs-7\">Quotation Date:</span>"
+msgstr "<span class=\"col-xs-7\">Datum:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
@@ -263,14 +263,14 @@ msgstr "<span class=\"col-xs-5\">Lieferanten-Nr.:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-6\">Term of delivery:</span>"
-msgstr "<span class=\"col-xs-6\">Lieferfrist:</span>"
+msgid "<span class=\"col-xs-7\">Term of delivery:</span>"
+msgstr "<span class=\"col-xs-7\">Lieferfrist:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-6\">Term of delivery:</span>\n"
+msgid "<span class=\"col-xs-7\">Term of delivery:</span>\n"
 "                  <span>nach Absprache</span>"
-msgstr "<span class=\"col-xs-6\">Lieferfrist:</span>\n"
+msgstr "<span class=\"col-xs-7\">Lieferfrist:</span>\n"
 "                  <span>nach Absprache</span>"
 
 #. module: specific_reports
@@ -280,8 +280,8 @@ msgstr "<span class=\"col-xs-5\">u. MWSt-Nr:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-5\">Validity:</span>"
-msgstr "<span class=\"col-xs-5\">Gültigkeit:</span>"
+msgid "<span class=\"col-xs-7\">Validity:</span>"
+msgstr "<span class=\"col-xs-7\">Gültigkeit:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
@@ -592,8 +592,8 @@ msgstr "Rechnungszeile"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "Invoicing address:"
-msgstr "Rechnungsadresse:"
+msgid "<span class=\"col-xs-3\">Invoicing address:</span>"
+msgstr "<span class=\"col-xs-3\">Rechnungsadresse:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
