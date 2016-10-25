@@ -286,8 +286,8 @@ msgstr "<span class=\"col-xs-7\">Validité:</span>"
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-5\">Your order:</span>"
-msgstr "<span class=\"col-xs-5\">Votre commande:</span>"
+msgid "<span class=\"col-xs-7\">Your order:</span>"
+msgstr "<span class=\"col-xs-7\">Votre commande:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_invoice_layouted
