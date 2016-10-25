@@ -1,6 +1,9 @@
 migration:
   versions:
     - version: 9.1.0
+      operations:
+        post:
+          - anthem openerp.addons.cloud_platform.songs::install_exoscale
       modes:
         demo:
           operations:
@@ -71,6 +74,8 @@ migration:
           - mrp_bom_dismantling
           #oca/server-tools
           - base_technical_features
+          #camptocamp/cloud-platform
+          - cloud_platform
           #Specific
           - specific-addons
           - specific_account
@@ -85,4 +90,3 @@ migration:
           - specific_timesheet
           - specific_timesheet_activities
           - specific_translations
-     
