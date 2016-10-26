@@ -8,7 +8,6 @@ scenario.account_1021,,1021,ZKB CH2300700115500179557,account.data_account_type_
 scenario.account_1024,,1024,AFEX,account.data_account_type_current_assets
 scenario.account_1025,,1025,Viseca,account.data_account_type_current_assets
 scenario.account_1026,,1026,Verrechnungskonto Kunden/Lieferanten,account.data_account_type_current_assets
-scenario.account_1090,,1090,Geld-Transferkonto,account.data_account_type_current_assets
 scenario.account_1091,,1191,Kautionen Miete/ZAZ,account.data_account_type_current_assets
 scenario.account_1092,,1192,Vorauszahlungen an Lieferanten,account.data_account_type_current_assets
 scenario.account_1093,,1193,Verrechn.kto. Vorauszahlungen an Lief.,account.data_account_type_current_assets
@@ -34,7 +33,6 @@ scenario.account_1521,,1521,Software,account.data_account_type_current_assets
 scenario.account_1522,,1522,Netzwerk,account.data_account_type_current_assets
 scenario.account_1524,,1524,Sicherheitseinrichtungen,account.data_account_type_current_assets
 scenario.account_1551,,1551,Hochlagerregal,account.data_account_type_current_assets
-scenario.account_1590,,1590,Wäsche und Berufskleidung,account.data_account_type_current_assets
 scenario.account_1591,,1591,Formen und Modelle,account.data_account_type_current_assets
 scenario.account_1601,,1601,Mieterausbau Geschäftsliegenschaften,account.data_account_type_current_assets
 scenario.account_1630,,1630,Lagergebäude,account.data_account_type_current_assets
@@ -69,7 +67,6 @@ scenario.account_3491,,3491,Rabatte und Preisnachlässe DL,account.data_account_
 scenario.account_3492,,3492,Rückvergütungen DL,account.data_account_type_revenue
 scenario.account_3495,,3495,"Verluste Forderungen, Veränderung Wertberichtigungen DL",account.data_account_type_revenue
 scenario.account_3496,,3496,Kursdifferenzen DL,account.data_account_type_revenue
-scenario.account_3807,,3807,Frachten u. Porti,account.data_account_type_revenue
 scenario.account_3808,,3808,Garantieleistungen,account.data_account_type_revenue
 scenario.account_4015,,4015,Einkauf von Verpackungsmaterial IL,account.data_account_type_expenses
 scenario.account_4016,,4016,"Einkauf von Beschriftungsmaterial, Ettiketen IL",account.data_account_type_expenses
