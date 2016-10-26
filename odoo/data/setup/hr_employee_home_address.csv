@@ -31,5 +31,5 @@ scenario.res_users_jar_res_partner,"Artho","Jürg",Kundenberater,"Hinwilerstrass
 scenario.res_users_ddj_res_partner,"Djuric","Dejan",Kundenberater Deutschschweiz,"Dornacherstrasse 191",,"4147","Aesch BL",base.ch,False,False,True,de_DE,"",0129998877,private_mail_von_ddj@domain.com
 scenario.res_users_rdi_res_partner,"Di Placido","Rocco",Spedition,"Höglerenstrasse 50",,"8600","Dübendorf",base.ch,False,False,True,de_DE,"",0129998877,private_mail_von_rdi@domain.com
 scenario.res_users_dho_res_partner,"Höhn","David",Produktmanager,"Forchstrasse 161",,"8132","Egg b. Zürich",base.ch,False,False,True,de_DE,"",0129998877,private_mail_von_dho@domain.com
-scenario.res_users_rch_res_partner,"Christe","René",COO, CEO a.i.,"",,"","",base.ch,False,False,True,de_DE,"",0129998877,private_mail_von_rch@domain.com
+scenario.res_users_rch_res_partner,"Christe","René",COO / CEO a.i.,"",,"","",base.ch,False,False,True,de_DE,"",0129998877,private_mail_von_rch@domain.com
 scenario.res_users_thu_res_partner,"Hunziker","Thierry",Produktion,"",,"","",base.ch,False,False,True,de_DE,"",0129998877,private_mail_von_thu@domain.com
