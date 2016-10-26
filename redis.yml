@@ -14,7 +14,7 @@ services:
     environment:
       - ODOO_SESSION_REDIS=1
       - ODOO_SESSION_REDIS_HOST=redis
-      - ODOO_SESSION_REDIS_PREFIX=swisslux-odoo-integration
+      - ODOO_SESSION_REDIS_PREFIX=swisslux-odoo-dev
 
 volumes:
   data-redis:
