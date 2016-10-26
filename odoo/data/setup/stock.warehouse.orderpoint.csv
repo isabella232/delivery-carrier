@@ -697,7 +697,6 @@ scenario.orderpoint_142542,1,OP/00344,1,base.main_company,stock.warehouse0,stock
 scenario.orderpoint_142543,1,OP/00344,1,base.main_company,stock.warehouse0,stock.stock_location_stock,scenario.product_142543,0,0
 scenario.orderpoint_142544,100,OP/00345,1,base.main_company,stock.warehouse0,stock.stock_location_stock,scenario.product_142544,0,0
 scenario.orderpoint_142545,100,OP/00346,1,base.main_company,stock.warehouse0,stock.stock_location_stock,scenario.product_142545,0,0
-scenario.orderpoint_142871,1,OP/00415,1,base.main_company,stock.warehouse0,stock.stock_location_stock,scenario.product_142871,0,0
 scenario.orderpoint_142546,1,OP/00347,1,base.main_company,stock.warehouse0,stock.stock_location_stock,scenario.product_142546,0,0
 scenario.orderpoint_142547,1,OP/00348,1,base.main_company,stock.warehouse0,stock.stock_location_stock,scenario.product_142547,0,0
 scenario.orderpoint_142548,1,OP/00348,1,base.main_company,stock.warehouse0,stock.stock_location_stock,scenario.product_142548,0,0
