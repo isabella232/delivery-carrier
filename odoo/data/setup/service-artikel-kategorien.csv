@@ -1,0 +1,161 @@
+id,type,name,parent_id/id,property_stock_valuation_account_id,property_account_income_categ_id,property_account_expense_categ_id,property_stock_account_input_categ_id,property_stock_account_output_categ_id
+product_category_sa_finanz,view,SA/FIN - Finanz,scenario.product_category_sa_EKDIV,,,,,
+product_category_sa_BankundPost,view,Bank- und Post-Spesen,product_category_sa_finanz,,,,,
+product_category_sa_afex,view,Afex Zahlungen,product_category_sa_finanz,,,,,
+product_category_sa_viseca,view,Viseca Zahlungen,product_category_sa_finanz,,,,,
+product_category_sa_eev,view,"Verrechnung Kunden-Rechnungen, Gutschriften",product_category_sa_finanz,,,,,
+product_category_sa_EnergieundEntsorgung,view,Energie und Entsorgung,product_category_sa_finanz,,,,,
+product_category_sa_Gebühren/Abgaben,view,"Gebühren, Abgaben, Steuern",product_category_sa_finanz,,,,,
+product_category_sa_Miete,view,Miete,product_category_sa_finanz,,,,,
+product_category_sa_Versicherungen,view,Versicherungen,product_category_sa_finanz,,,,,
+product_category_sa_Verwaltung,view,Verwaltung,product_category_sa_finanz,,,,,
+product_category_sa_Porti,normal,Porti,product_category_sa_BankundPost,6513,6513,6513,6513,6513
+product_category_sa_SpesenundKommissionen,normal,Spesen und Kommissionen,product_category_sa_BankundPost,6940,6940,6940,6940,6940
+product_category_sa_BenzinFahrzeuge,normal,Benzin Fahrzeuge,product_category_sa_EnergieundEntsorgung,6210,6210,6210,6210,6210
+product_category_sa_Entsorgung/Kehricht,normal,"Entsorgung, Kehricht",product_category_sa_EnergieundEntsorgung,6460,6460,6460,6460,6460
+product_category_sa_Strom,normal,Strom,product_category_sa_EnergieundEntsorgung,6422,6422,6422,6422,6422
+product_category_sa_Gebühren/Abgabendivers,normal,"Gebühren, Abgaben divers",product_category_sa_Gebühren/Abgaben,6360,6360,6360,6360,6360
+product_category_sa_Verkehrsabgaben,normal,Verkehrsabgaben,product_category_sa_Gebühren/Abgaben,6230,6230,6230,6230,6230
+product_category_sa_vstwaren,normal,"Vorsteuer Material, Waren, DL, Energie",product_category_sa_Gebühren/Abgaben,1170,1170,1170,1170,1170
+product_category_sa_vstinvest,normal,"Vorsteuer Investitionen, übriger Betriebsaufwand",product_category_sa_Gebühren/Abgaben,1171,1171,1171,1171,1171
+product_category_sa_Büromietzinsen,normal,Büromietzinsen,product_category_sa_Miete,6000,6000,6000,6000,6000
+product_category_sa_Lagermietzinsen,normal,Lagermietzinsen,product_category_sa_Miete,6002,6002,6002,6002,6002
+product_category_sa_MieteParkplätze,normal,Miete Parkplätze,product_category_sa_Miete,6006,6006,6006,6006,6006
+product_category_sa_AHV/IV/EO,normal,"AHV, IV, EO",product_category_sa_Versicherungen,2271,2271,2271,2271,2271
+product_category_sa_ALV,normal,ALV,product_category_sa_Versicherungen,2271,2271,2271,2271,2271
+product_category_sa_Fahrzeugversicherungen,normal,Fahrzeugversicherungen,product_category_sa_Versicherungen,6220,6220,6220,6220,6220
+product_category_sa_Haftpflichtversicherung,normal,Haftpflichtversicherung,product_category_sa_Versicherungen,6310,6310,6310,6310,6310
+product_category_sa_Krankentaggeldversicherung,normal,Krankentaggeldversicherung,product_category_sa_Versicherungen,2274,2274,2274,2274,2274
+product_category_sa_PensionskasseBVG,normal,Pensionskasse BVG,product_category_sa_Versicherungen,2270,2270,2270,2270,2270
+product_category_sa_Sachversicherungen,normal,Sachversicherungen,product_category_sa_Versicherungen,6300,6300,6300,6300,6300
+product_category_sa_Transportversicherung,normal,Transportversicherung,product_category_sa_Versicherungen,6303,6303,6303,6303,6303
+product_category_sa_Unfallversicherung,normal,Unfallversicherung,product_category_sa_Versicherungen,2273,2273,2273,2273,2273
+product_category_sa_Beratung,normal,Beratung,product_category_sa_Verwaltung,6580,6580,6580,6580,6580
+product_category_sa_Bücher/Zeitschriften,normal,"Bücher, Zeitschriften",product_category_sa_Verwaltung,6503,6503,6503,6503,6503
+product_category_sa_Revisionsstelle,normal,Revisionsstelle,product_category_sa_Verwaltung,6542,6542,6542,6542,6542
+product_category_sa_Verbandsbeiträge,normal,Verbandsbeiträge,product_category_sa_Verwaltung,6520,6520,6520,6520,6520
+product_category_sa_HR,view,SA/HR - Human Ressource,scenario.product_category_sa_EKDIV,,,,,
+product_category_sa_AnschaffungenHR,view,Anschaffungen HR,product_category_sa_HR,,,,,
+product_category_sa_Personal,view,Personal,product_category_sa_HR,,,,,
+product_category_sa_KleininvestitionenBüro-/Verwaltung,normal,Kleininvestitionen Büro-/Verwaltung,product_category_sa_AnschaffungenHR,6001,6001,6001,6001,6001
+product_category_sa_KleininvestitionenGarage-/Parkplätze,normal,Kleininvestitionen Garage-/Parkplätze,product_category_sa_AnschaffungenHR,6007,6007,6007,6007,6007
+product_category_sa_EventsfürMitarbeiter,normal,Events für Mitarbeiter,product_category_sa_Personal,5880,5880,5880,5880,5880
+product_category_sa_GeschenkeanMitarbeiter,normal,Geschenke an Mitarbeiter,product_category_sa_Personal,5088,5088,5088,5088,5088
+product_category_sa_VerpflegungMitarbeiterHR,normal,Verpflegung Mitarbeiter HR,product_category_sa_Personal,5840,5840,5840,5840,5840
+product_category_sa_Unterhalt/Reparatur,normal,"Unterhalt, Reparatur",product_category_sa_HR,6100,6100,6100,6100,6100
+product_category_sa_Logistik/Produktion,view,"SA/LOG - Logistik, Produktion",scenario.product_category_sa_EKDIV,,,,,
+product_category_sa_AnschaffungenProduktion,view,Anschaffungen Produktion,product_category_sa_Logistik/Produktion,,,,,
+product_category_sa_BüroundVerwaltung,view,Büro und Verwaltung,product_category_sa_Logistik/Produktion,,,,,
+product_category_sa_Hilfsmaterial,view,Hilfsmaterial,product_category_sa_Logistik/Produktion,,,,,
+product_category_sa_MessenundAusbildungLOG,view,Messen und Ausbildung LOG,product_category_sa_Logistik/Produktion,,,,,
+product_category_sa_Unterhalt/ReparaturenLOG,view,"Unterhalt, Reparaturen LOG",product_category_sa_Logistik/Produktion,,,,,
+product_category_sa_AusgangsfrachtenundPorti,view,Ausgangsfrachten und Porti,product_category_sa_Logistik/Produktion,,,,,
+product_category_sa_Wareneingang,view,Wareneingang,product_category_sa_Logistik/Produktion,,,,,
+product_category_sa_Einkaufspreisminderungen,view,Einkaufspreisminderungen,product_category_sa_Logistik/Produktion,,,,,
+product_category_sa_Büromobiliar/Büroeinrichtung,normal,"Büromobiliar, Büroeinrichtung",product_category_sa_AnschaffungenProduktion,1510,1510,1510,1510,1510
+product_category_sa_KleininvestitionenBüro(<Fr.1500),normal,Kleininvestitionen Büro (< Fr. 1500),product_category_sa_AnschaffungenProduktion,6001,6001,6001,6001,6001
+product_category_sa_Kleininvestitionendivers(<Fr.1500),normal,Kleininvestitionen divers (< Fr. 1500),product_category_sa_AnschaffungenProduktion,6009,6009,6009,6009,6009
+product_category_sa_KleininvestitionenLagerbis(<Fr.1500),normal,Kleininvestitionen Lager bis (< Fr. 1500),product_category_sa_AnschaffungenProduktion,6003,6003,6003,6003,6003
+product_category_sa_Lagermobiliar/Lagereinrichtung,normal,"Lagermobiliar, Lagereinrichtung",product_category_sa_AnschaffungenProduktion,1550,1550,1550,1550,1550
+product_category_sa_Büromaterial,normal,Büromaterial,product_category_sa_BüroundVerwaltung,6500,6500,6500,6500,6500
+product_category_sa_Kehrricht,normal,Kehrricht,product_category_sa_BüroundVerwaltung,6460,6460,6460,6460,6460
+product_category_sa_Reinigung/Reinigungsmaterial,normal,Reinigung/Reinigungsmaterial,product_category_sa_BüroundVerwaltung,6040,6040,6040,6040,6040
+product_category_sa_ÜbrigerBüroaufwand,normal,Übriger Büroaufwand,product_category_sa_BüroundVerwaltung,6500,6500,6500,6500,6500
+product_category_sa_VerpflegungMitarbeiterLOG,normal,Verpflegung Mitarbeiter LOG,product_category_sa_BüroundVerwaltung,5840,5840,5840,5840,5840
+product_category_sa_BeschriftungEtiketten,normal,Beschriftung Etiketten,product_category_sa_Hilfsmaterial,4016,4016,4016,4016,4016
+product_category_sa_EinkaufHilfsmaterial,normal,Einkauf Hilfsmaterial,product_category_sa_Hilfsmaterial,4008,4008,4008,4008,4008
+product_category_sa_Verpackungsmaterial,normal,Verpackungsmaterial,product_category_sa_Hilfsmaterial,4015,4015,4015,4015,4015
+product_category_sa_Ausbildungsmaterial,normal,Ausbildungsmaterial,product_category_sa_MessenundAusbildungLOG,6621,6621,6621,6621,6621
+product_category_sa_Messematerial/Dienstleistungen,normal,Messematerial/Dienstleistungen,product_category_sa_MessenundAusbildungLOG,6620,6620,6620,6620,6620
+product_category_sa_Mietzins/Büromobilien,normal,Mietzins/Büromobilien,product_category_sa_Unterhalt/ReparaturenLOG,6105,6105,6105,6105,6105
+product_category_sa_Unterhalt/ReparaturBüro,normal,"Unterhalt, Reparatur Büro",product_category_sa_Unterhalt/ReparaturenLOG,6102,6102,6102,6102,6102
+product_category_sa_Unterhalt/Reparaturdivers,normal,"Unterhalt, Reparatur divers",product_category_sa_Unterhalt/ReparaturenLOG,6109,6109,6109,6109,6109
+product_category_sa_Unterhalt/ReparaturLager,normal,"Unterhalt, Reparatur Lager",product_category_sa_Unterhalt/ReparaturenLOG,6101,6101,6101,6101,6101
+product_category_sa_Unterhalt/ReparaturFahrzeuge,normal,"Unterhalt, Reparatur Fahrzeuge",product_category_sa_Unterhalt/ReparaturenLOG,6200,6200,6200,6200,6200
+product_category_sa_Eingangsfrachten,normal,Eingangsfrachten,product_category_sa_Wareneingang,4070,4070,4070,4070,4070
+product_category_sa_Eingangsspedition,normal,Eingangsspedition,product_category_sa_Wareneingang,4072,4072,4072,4072,4072
+product_category_sa_Eingangzölle,normal,Einfuhrzölle IL,product_category_sa_Wareneingang,4071,4071,4071,4071,4071
+product_category_sa_zollbeg,normal,Einfuhrzölle BEG,product_category_sa_Wareneingang,4271,4271,4271,4271,4271
+product_category_sa_zolldivers,normal,Einfuhrzölle divers,product_category_sa_Wareneingang,4701,4701,4701,4701,4701
+product_category_sa_Rabatte/PreisnachlässeP,normal,"Rabatte, Preisnachlässe Produktion",product_category_sa_Einkaufspreisminderungen,4091,4091,4091,4091,4091
+product_category_sa_Rabatte/PreisnachlässeH,normal,"Rabatte, Preisnachlässe Handel",product_category_sa_Einkaufspreisminderungen,4291,4291,4291,4291,4291
+product_category_sa_Rabatte/SkontiP,normal,Skonti Produktion,product_category_sa_Einkaufspreisminderungen,4090,4090,4090,4090,4090
+product_category_sa_Rabatte/SkontiH,normal,Skonti Handel,product_category_sa_Einkaufspreisminderungen,4290,4290,4290,4290,4290
+product_category_sa_Rabatte/UmsatzrückP,normal,Umsatzrückvergütungen Produktion,product_category_sa_Einkaufspreisminderungen,4092,4092,4092,4092,4092
+product_category_sa_Rabatte/UmsatzrückH,normal,Umsatzrückvergütungen Handel,product_category_sa_Einkaufspreisminderungen,4292,4292,4292,4292,4292
+product_category_sa_Rabatte/KursdiffP,normal,Kursdifferenzen Produktion,product_category_sa_Einkaufspreisminderungen,4096,4096,4096,4096,4096
+product_category_sa_Rabatte/KursdiffH,normal,Kursdifferenzen Handel,product_category_sa_Einkaufspreisminderungen,4296,4296,4296,4296,4296
+product_category_sa_Marketing,view,SA/MA - Marketing,scenario.product_category_sa_EKDIV,,,,,
+product_category_sa_BeratungundAnalyse,view,Beratung und Analyse,product_category_sa_Marketing,,,,,
+product_category_sa_MessenundAusbildungMA,view,Messen und Ausbildung MA,product_category_sa_Marketing,,,,,
+product_category_sa_Mitgliedschaften,view,Mitgliedschaften,product_category_sa_Marketing,,,,,
+product_category_sa_Publikationen,view,Publikationen,product_category_sa_Marketing,,,,,
+product_category_sa_Marktanalysen,normal,Marktanalysen,product_category_sa_BeratungundAnalyse,6681,6681,6681,6681,6681
+product_category_sa_Werbeberatung,normal,Werbeberatung,product_category_sa_BeratungundAnalyse,6680,6680,6680,6680,6680
+product_category_sa_Fachmessen/Ausstellungen,normal,"Fachmessen, Ausstellungen",product_category_sa_MessenundAusbildungMA,6620,6620,6620,6620,6620
+product_category_sa_Schulungs-undAusbildungsmaterialMA,normal,Schulungs- und Ausbildungsmaterial MA,product_category_sa_MessenundAusbildungMA,6621,6621,6621,6621,6621
+product_category_sa_Datenbank-Mitgliedschaften,normal,Datenbank-Mitgliedschaften,product_category_sa_Mitgliedschaften,6662,6662,6662,6662,6662
+product_category_sa_Marketing-Mitgliedschaften,normal,Marketing-Mitgliedschaften,product_category_sa_Mitgliedschaften,6663,6663,6663,6663,6663
+product_category_sa_Sponsoring,normal,Sponsoring,product_category_sa_Publikationen,6661,6661,6661,6661,6661
+product_category_sa_Werbeeinträge,normal,Werbeeinträge,product_category_sa_Publikationen,6660,6660,6660,6660,6660
+product_category_sa_Werbedrucksachen,normal,Werbedrucksachen,product_category_sa_Marketing,6610,6610,6610,6610,6610
+product_category_sa_Inserate,normal,Inserate,product_category_sa_Werbedrucksachen,6600,6600,6600,6600,6600
+product_category_sa_PublikationeninFachzeitschriften,normal,Publikationen in Fachzeitschriften,product_category_sa_Werbedrucksachen,6601,6601,6601,6601,6601
+product_category_sa_Reklameartikel/Muster,normal,"Reklameartikel, Muster",product_category_sa_Werbedrucksachen,6611,6611,6611,6611,6611
+product_category_sa_Übersetzungen,normal,Übersetzungen,product_category_sa_Werbedrucksachen,6613,6613,6613,6613,6613
+product_category_sa_Versand-undVerpackungsspesenfürWerbeversände,normal,Versand- und Verpackungsspesen für Werbeversände,product_category_sa_Werbedrucksachen,6612,6612,6612,6612,6612
+product_category_sa_Werbedrucksachen/Werbematerial,normal,"Werbedrucksachen, Werbematerial",product_category_sa_Werbedrucksachen,6610,6610,6610,6610,6610
+product_category_sa_OperationsInformatik,view,SA/IS - Informatik,scenario.product_category_sa_EKDIV,,,,,
+product_category_sa_IS,view,IS,product_category_sa_OperationsInformatik,,,,,
+product_category_sa_IT,view,IT,product_category_sa_OperationsInformatik,,,,,
+product_category_sa_Nst,view,Nst,product_category_sa_OperationsInformatik,,,,,
+product_category_sa_BeratungsdienstleistungIS,normal,Beratungsdienstleistung IS,product_category_sa_IS,6580,6580,6580,6580,6580
+product_category_sa_Schulung/Erstausbildung,normal,"Schulung, Erstausbildung",product_category_sa_IS,6582,6582,6582,6582,6582
+product_category_sa_AnschaffungIS,normal,Anschaffung IS,product_category_sa_IS,1521,1521,1521,1521,1521
+product_category_sa_MieteIS,normal,Miete IS,product_category_sa_IS,6563,6563,6563,6563,6563
+product_category_sa_WartungIS,normal,Wartung IS,product_category_sa_IS,6572,6572,6572,6572,6572
+product_category_sa_SupportIS,normal,Support IS,product_category_sa_IS,6572,6572,6572,6572,6572
+product_category_sa_BeratungsdienstleistungIT,normal,Beratungsdienstleistung IT,product_category_sa_IT,6580,6580,6580,6580,6580
+product_category_sa_Hosting,normal,Hosting,product_category_sa_IT,6564,6564,6564,6564,6564
+product_category_sa_SchulungIT,normal,Schulung IT,product_category_sa_IT,6582,6582,6582,6582,6582
+product_category_sa_AnschaffungIT,normal,Anschaffung IT,product_category_sa_IT,1520,1520,1520,1520,1520
+product_category_sa_MieteIT,normal,Miete IT,product_category_sa_IT,6562,6562,6562,6562,6562
+product_category_sa_WartungIT,normal,Wartung IT,product_category_sa_IT,6571,6571,6571,6571,6571
+product_category_sa_Disketten/CD/Tape/Verbrauchsmaterial,normal,"Disketten, CD, Tape, Verbrauchsmaterial",product_category_sa_IT,6573,6573,6573,6573,6573
+product_category_sa_KleininvestitionenIT,normal,Kleininvestitionen IT,product_category_sa_IT,6574,6574,6574,6574,6574
+product_category_sa_Papier/Couverts/Etiketten/â€¦,normal,"Papier, Couverts, Etiketten, â€¦",product_category_sa_IT,6501,6501,6501,6501,6501
+product_category_sa_Infrastrukturintern,normal,Infrastruktur intern,product_category_sa_IT,1522,1522,1522,1522,1522
+product_category_sa_Security,normal,Security,product_category_sa_IT,1524,1524,1524,1524,1524
+product_category_sa_TelekommunikationTelefon,normal,Telekommunikation Telefon,product_category_sa_IT,6510,6510,6510,6510,6510
+product_category_sa_TelekommunikationInternet,normal,Telekommunikation Internet,product_category_sa_IT,6512,6512,6512,6512,6512
+product_category_sa_SupportIT,normal,Support IT,product_category_sa_IT,6571,6571,6571,6571,6571
+product_category_sa_BeschaffungDivers,normal,Beschaffung Divers,product_category_sa_Nst,6574,6574,6574,6574,6574
+product_category_sa_Hardware,normal,Hardware,product_category_sa_Nst,1520,1520,1520,1520,1520
+product_category_sa_HardwareKleininvestitionen,normal,Hardware Kleininvestitionen,product_category_sa_Nst,6574,6574,6574,6574,6574
+product_category_sa_Software,normal,Software,product_category_sa_Nst,1521,1521,1521,1521,1521
+product_category_sa_SoftwareKleininvestitionen,normal,Software Kleininvestitionen,product_category_sa_Nst,6570,6570,6570,6570,6570
+product_category_sa_SchulungNst,normal,Schulung Nst,product_category_sa_Nst,6582,6582,6582,6582,6582
+product_category_sa_Produktmanagement,view,SA/PM - Produktmanagement,scenario.product_category_sa_EKDIV,,,,,
+product_category_sa_AnschaffungenPM,view,Anschaffungen PM,product_category_sa_Produktmanagement,,,,,
+product_category_sa_Entwicklung,view,Entwicklung,product_category_sa_Produktmanagement,,,,,
+product_category_sa_Unterhalt/ReparaturenPM,normal,"Unterhalt, Reparaturen PM",product_category_sa_Produktmanagement,6104,6104,6104,6104,6104
+product_category_sa_KleininvestitionenPM,normal,Kleininvestitionen PM,product_category_sa_AnschaffungenPM,6005,6005,6005,6005,6005
+product_category_sa_Werkzeuge/Tools,normal,"Werkzeuge, Tools",product_category_sa_AnschaffungenPM,6005,6005,6005,6005,6005
+product_category_sa_ForschungundEntwicklungBEG,normal,Forschung und Entwicklung BEG,product_category_sa_Entwicklung,6721,6721,6721,6721,6721
+product_category_sa_ForschungundEntwicklungLEUCHTEN,normal,Forschung und Entwicklung LEUCHTEN,product_category_sa_Entwicklung,6720,6720,6720,6720,6720
+product_category_sa_Produktprüfungen(CEPrüfungen),normal,Produktprüfungen (CE Prüfungen ...),product_category_sa_Entwicklung,6720,6720,6720,6720,6720
+product_category_sa_Verkauf,view,SA/VK - Verkauf,scenario.product_category_sa_EKDIV,,,,,
+product_category_sa_KleininvestitionenVerkauf,normal,Kleininvestitionen Verkauf,product_category_sa_Verkauf,6611,6611,6611,6611,6611
+product_category_sa_Kundenpflege,view,Kundenpflege,product_category_sa_Verkauf,,,,,
+product_category_sa_Übernachtungsspesen,normal,Übernachtungsspesen,product_category_sa_Verkauf,5084,5084,5084,5084,5084
+product_category_sa_Unterhalt/ReparaturenFahrzeuge,normal,"Unterhalt, Reparaturen Fahrzeuge",product_category_sa_Verkauf,6200,6200,6200,6200,6200
+product_category_sa_Kundenanlässe,normal,Kundenanlässe,product_category_sa_Kundenpflege,6670,6670,6670,6670,6670
+product_category_sa_Kundenspesen,normal,Kundenspesen,product_category_sa_Kundenpflege,6641,6641,6641,6641,6641
+product_category_sa_all,view,SA/ALLE -  Abteilungen,scenario.product_category_sa_EKDIV,,,,,
+product_category_sa_Aus-undWeiterbildung/Seminare(inklAn-/Rückreise/Übernachtungetc),normal,"Aus- und Weiterbildung, Seminare (inkl. An-/Rückreise, Übernachtung etc.)",product_category_sa_all,5081,5081,5081,5081,5081
+product_category_sa_Reisespesen,normal,Reisespesen,product_category_sa_all,5082,5082,5082,5082,5082
+product_category_sa_EKPM,view,Einkaufspreisminderungen,product_category_sa_all,,,,,
+product_category_sa_EPMSkonti,normal,Skonti,product_category_sa_EKPM,4900,4900,4900,4900,4900
+product_category_sa_Rabatte/PreisnachlässeD,normal,"Rabatte, Preisnachlässe Diverse",product_category_sa_EKPM,4901,4901,4901,4901,4901
+product_category_sa_EPMRückvergütungen,normal,Rückvergütungen,product_category_sa_EKPM,4902,4902,4902,4902,4902
+product_category_sa_EPMEinkaufsprovisionen,normal,Einkaufsprovisionen,product_category_sa_EKPM,4903,4903,4903,4903,4903

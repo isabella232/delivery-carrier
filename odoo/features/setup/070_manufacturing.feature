@@ -52,5 +52,12 @@ Feature: Configure manufacturing
       | name            | Poltera                                   |      
       | location_id     | by oid: scenario.location_vendor_poltera  |
       | active          | True                                      |
+    Given I need an "mrp.routing" with oid: scenario.mrp_routing_intern
+    And having:
+      | key             | value                                     |
+      | code            | SLX                                       |
+      | name            | Intern                                    |      
+      | location_id     | by oid: scenario.location_vendor_poltera  |
+      | active          | True                                      |
       
       

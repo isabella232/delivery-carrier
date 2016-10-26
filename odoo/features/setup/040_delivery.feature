@@ -44,11 +44,13 @@ Feature: Configure the deliveries
       | partner_id                     | by oid: delivery_carrier_label_postlogistics.postlogistics |
       | postlogistics_service_group_id | by name: <service_group>                                   |
       | postlogistics_license_id       | by oid: scenario.postlogistics_<license>                   |
+      | fixed_price                    | 0               |
 
   Examples:
     | oid                            | name               | license  | service_group                 |
     | scenario.carrier_post_eco      | Post Economy       | license1 | Parcel                        |
     | scenario.carrier_post_pri      | Post Priority      | license1 | Parcel                        |
+    | scenario.carrier_post_pri200   | Post Priority 200  | license1 | Parcel                        |
     | scenario.carrier_post_moon     | Post Express Mond  | license1 | Swiss-Express / Swiss-Courier |
     | scenario.carrier_post_lighting | Post Express Blitz | license1 | Swiss-Express / Swiss-Courier |
     | scenario.carrier_post_promo    | PostPac Promo      | license2 | Parcel                        |
@@ -67,6 +69,7 @@ Feature: Configure the deliveries
     | oid                                     | carrier                        | option |
     | scenario.carrier_option_post_eco_1      | scenario.carrier_post_eco      | ECO    |
     | scenario.carrier_option_post_pri_1      | scenario.carrier_post_pri      | PRI    |
+    | scenario.carrier_option_post_pri_2      | scenario.carrier_post_pri200   | PRI    |
     | scenario.carrier_option_post_moon_1     | scenario.carrier_post_moon     | SEM    |
     | scenario.carrier_option_post_lighting_1 | scenario.carrier_post_lighting | SKB    |
 
