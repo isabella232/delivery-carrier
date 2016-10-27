@@ -2,7 +2,8 @@
 
 Release History
 ---------------
-test (unreleased)
+
+latest (unreleased)
 +++++++++++++++++++
 
 **Features and Improvements**
@@ -12,6 +13,29 @@ test (unreleased)
 **Build**
 
 **Documentation**
+
+
+9.3.0 (2016-10-27)
+++++++++++++++++++
+
+**Features and Improvements**
+
+* Add scenario for occasion locations
+* Add final data files
+
+**Bugfixes**
+
+* Fix order position
+* Fix translations
+* account invoice: public_discount can be filled manually
+* Fix layout of reports
+* add report inventory email layout
+* fix carrier_type field name in postlogistic
+
+**Build**
+
+* Configure composition files for production
+* Add the cloud platform addons and configuration
 
 
 9.2.0 (2016-10-20)

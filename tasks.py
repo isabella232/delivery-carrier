@@ -32,7 +32,7 @@ PROJECT_ID = '1622'
 VERSION_FILE = build_path('odoo/VERSION')
 VERSION_RANCHER_FILES = (
     build_path('rancher/integration/docker-compose.yml'),
-    build_path('rancher/production/docker-compose.yml'),
+    build_path('rancher/prod/docker-compose.yml'),
 )
 HISTORY_FILE = build_path('HISTORY.rst')
 DOCKER_IMAGE = 'camptocamp/swisslux_odoo'
@@ -93,8 +93,19 @@ def push_branches(ctx):
     _check_git_diff(ctx)
     with open(PENDING_MERGES, 'ru') as f:
         merges = yaml.load(f.read())
-        for path in merges:
+        for path, setup in merges.iteritems():
+            print('pushing {}'.format(path))
             with cd(build_path(path, from_file=PENDING_MERGES)):
+                try:
+                    ctx.run(
+                        'git config remote.{}.url'.format(GIT_REMOTE_NAME)
+                    )
+                except exceptions.Failure:
+                    remote_url = setup['remotes'][GIT_REMOTE_NAME]
+                    ctx.run(
+                        'git remote add {} {}'.format(GIT_REMOTE_NAME,
+                                                      remote_url)
+                    )
                 ctx.run(
                     'git push -f -v {} HEAD:refs/heads/{}'
                     .format(GIT_REMOTE_NAME, branch_name)
