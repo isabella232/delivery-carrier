@@ -7,12 +7,10 @@ from openerp import api, models
 class AccountInvoice(models.Model):
     _inherit = 'account.invoice'
 
-    @api.onchange('partner_id.country_id')
+    @api.onchange('partner_id')
     def onchange_partner_id_set_bank(self):
         """ Overwrite default partner bank if invoice bank rules are set """
-        super(AccountInvoice, self).onchange_partner_id_set_bank()
-        if (self.partner_id and
-                self.type in ('out_invoice', 'out_refund')):
+        if self.partner_id and self.type in ('out_invoice', 'out_refund'):
             bank_ids = self.company_id.partner_id.bank_ids
             if not bank_ids:
                 return
