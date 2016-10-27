@@ -36,14 +36,11 @@ migration:
           - sale
           - stock
           - warning
-          - enterprise
           - account_reports_followup
           - hr_appraisal
           #OCA
           #oca/bank-statement-reconcile
           - account_operation_rule_early_payment_discount
-          #oca/bank-payment
-          - account_invoice_bank_selection
           #oca/carrier-delivery
           - delivery_carrier_label_postlogistics
           #oca/department
@@ -72,7 +69,6 @@ migration:
           #oca/server-tools
           - base_technical_features
           #Specific
-          - specific-addons
           - specific_account
           - specific_building_project
           - specific_hr
