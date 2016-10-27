@@ -98,6 +98,10 @@ Feature: import master data
   @csv @partner_category
   Scenario: import partner categories
     Given "res.partner.category" is imported from CSV "setup/res.partner.category.csv" using delimiter ","
+  
+  @csv @partner_supplier @slow
+  Scenario: import partner
+    Given "res.partner" is imported from CSV "setup/res.partner_supplier.csv" using delimiter ","
     
   @csv @partner @slow
   Scenario: import partner
