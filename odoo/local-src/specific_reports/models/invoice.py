@@ -61,7 +61,10 @@ class InvoiceOrderLine(models.Model):
         digits=dp.get_precision('Product Price'),
         string='Subtotal', readonly=True
     )
-    project_discount = fields.Float(string='Object Discount (%)')
+    project_discount = fields.Float(
+        string='Object Discount (%)',
+        readonly=True
+    )
     public_discount = fields.Float(string='Discount (%)')
 
     @api.multi
@@ -76,3 +79,12 @@ class InvoiceOrderLine(models.Model):
             else:
                 rec.price_unit_discount = rec.price_unit
         return self
+
+    @api.onchange('public_discount')
+    def onchange_public_discount(self):
+        """ Si le champ public_discount est rempli manuellement on copie
+        sa valeur dans discount (qui est caché) pour que les montants
+        soient correctement calculés.
+        """
+        self.discount = self.public_discount
+        self._compute_price()
