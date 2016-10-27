@@ -1,4 +1,4 @@
-FROM camptocamp/odoo-project:9.0-1.5.0
+FROM camptocamp/odoo-project:9.0-1.6.2
 MAINTAINER Camptocamp
 
 COPY requirements.txt /opt/odoo/requirements.txt
@@ -21,6 +21,7 @@ ENV ADDONS_PATH="/opt/odoo/local-src, \
     /opt/odoo/external-src/department, \
     /opt/odoo/external-src/l10n-switzerland, \
     /opt/odoo/external-src/manufacture, \
+    /opt/odoo/external-src/odoo-cloud-platform, \
     /opt/odoo/external-src/partner-contact, \
     /opt/odoo/external-src/product-attribute, \
     /opt/odoo/external-src/project, \
@@ -32,4 +33,5 @@ ENV ADDONS_PATH="/opt/odoo/local-src, \
     LIMIT_TIME_CPU=86400 \
     LIMIT_TIME_REAL=86400 \
     LIMIT_MEMORY_SOFT=1342177280 \
-    LIMIT_MEMORY_HARD=1610612736
+    LIMIT_MEMORY_HARD=1610612736 \
+    OERPSCENARIO_ODOO_CONFIG=/opt/odoo/etc/odoo.cfg

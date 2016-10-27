@@ -15,8 +15,7 @@ class TestInvoiceBankRule(common.TransactionCase):
     def test_no_bank_rule(self):
         self.invoice.partner_id = self.partner_us
         self.invoice.onchange_partner_id_set_bank()
-        self.assertEqual(self.invoice.partner_bank_id,
-                         self.env.user.company_id.partner_id.bank_ids[0])
+        self.assertFalse(self.invoice.partner_bank_id)
 
     def test_invoice_us_customer(self):
         self.setup_rules()

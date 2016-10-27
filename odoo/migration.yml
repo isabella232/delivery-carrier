@@ -1,6 +1,9 @@
 migration:
   versions:
     - version: 9.1.0
+      operations:
+        post:
+          - anthem openerp.addons.cloud_platform.songs::install_exoscale
       modes:
         demo:
           operations:
@@ -36,14 +39,11 @@ migration:
           - sale
           - stock
           - warning
-          - enterprise
           - account_reports_followup
           - hr_appraisal
           #OCA
           #oca/bank-statement-reconcile
           - account_operation_rule_early_payment_discount
-          #oca/bank-payment
-          - account_invoice_bank_selection
           #oca/carrier-delivery
           - delivery_carrier_label_postlogistics
           #oca/department
@@ -71,8 +71,9 @@ migration:
           - mrp_bom_dismantling
           #oca/server-tools
           - base_technical_features
+          #camptocamp/cloud-platform
+          - cloud_platform
           #Specific
-          - specific-addons
           - specific_account
           - specific_building_project
           - specific_hr
@@ -85,4 +86,3 @@ migration:
           - specific_timesheet
           - specific_timesheet_activities
           - specific_translations
-     

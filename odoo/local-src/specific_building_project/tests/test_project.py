@@ -19,6 +19,9 @@ class TestProject(TransactionCase):
             ('user_id', '=', self.env.user.id)]
         )
         for employee in employees:
+            self.env['hr.attendance'].search([
+                ('employee_id', '=', employee.id)]
+            ).unlink()
             employee.unlink()
 
         self.env['hr.employee'].create({

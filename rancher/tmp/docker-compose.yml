@@ -1,5 +1,6 @@
 odoo:
-  image: camptocamp/swisslux_odoo:9.2.0
+  command: odoo
+  image: camptocamp/swisslux_odoo:cloudplatform
   external_links:
     - postgres-cluster/lb:db
     - redis/redis:redis
@@ -21,7 +22,7 @@ odoo:
     - LIMIT_REQUEST=${LIMIT_REQUEST}
     - LIMIT_TIME_CPU=${LIMIT_TIME_CPU}
     - LIMIT_TIME_REAL=${LIMIT_TIME_REAL}
-    - MARABUNTA_ALLOW_SERIE=True
+    - MARABUNTA_ALLOW_SERIE=${MARABUNTA_ALLOW_SERIE}
     - MARABUNTA_MODE=${MARABUNTA_MODE}
     - AWS_HOST=${AWS_HOST}
     - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
@@ -34,7 +35,6 @@ odoo:
     - ODOO_CLOUD_PLATFORM_UNSAFE=${ODOO_CLOUD_PLATFORM_UNSAFE}
   labels:
     io.rancher.scheduler.affinity:host_label: application=true
-    # remove once the production is up
     io.rancher.scheduler.global: 'true'
 
 nginx:
@@ -43,5 +43,4 @@ nginx:
     - odoo:odoo
   labels:
     io.rancher.scheduler.affinity:host_label: application=true
-    # remove once the production is up
     io.rancher.scheduler.global: 'true'

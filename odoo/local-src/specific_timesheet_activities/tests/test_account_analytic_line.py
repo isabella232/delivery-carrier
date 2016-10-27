@@ -7,6 +7,15 @@ class TestAccountAnalyticLine(TransactionCase):
     def setUp(self):
         super(TestAccountAnalyticLine, self).setUp()
 
+        employees = self.env['hr.employee'].search([
+            ('user_id', '=', self.env.user.id)]
+        )
+        for employee in employees:
+            self.env['hr.attendance'].search([
+                ('employee_id', '=', employee.id)]
+            ).unlink()
+            employee.unlink()
+
         self.activity = self.env['hr.timesheet.sheet.activity'].create({
             'name': 'Test activity',
         })

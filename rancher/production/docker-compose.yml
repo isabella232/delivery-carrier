@@ -34,7 +34,6 @@ odoo:
     - ODOO_CLOUD_PLATFORM_UNSAFE=${ODOO_CLOUD_PLATFORM_UNSAFE}
   labels:
     io.rancher.scheduler.affinity:host_label: application=true
-    # remove once the production is up
     io.rancher.scheduler.global: 'true'
 
 nginx:
@@ -43,5 +42,4 @@ nginx:
     - odoo:odoo
   labels:
     io.rancher.scheduler.affinity:host_label: application=true
-    # remove once the production is up
     io.rancher.scheduler.global: 'true'

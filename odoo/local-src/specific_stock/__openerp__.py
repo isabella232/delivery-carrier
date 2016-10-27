@@ -10,6 +10,7 @@
     'website': 'http://www.swisslux.ch',
     'images': [],
     'depends': [
+        'stock_split_picking',
         'delivery'
     ],
     'data': [
