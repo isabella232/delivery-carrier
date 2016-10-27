@@ -12,9 +12,9 @@ Feature: Initial setup of the payment term
     Given I find an "account.payment.term" with oid: account.account_payment_term_immediate
     And I delete it
 
-  @payment_term
+  @csv @static @payment_term
   Scenario: import payment term
-    Given "account.payment.term" is imported from CSV "setup/payment_term.csv" using delimiter ","
+    Given "account.payment.term" is imported from CSV "setup/account.payment.term.csv" using delimiter ","
 
   @followup_clean
   Scenario: remove demo followup
@@ -41,7 +41,7 @@ Feature: Initial setup of the payment term
       | name        | 2. Mahnung                               |
       | followup_id | by oid: scenario.followup_1              |
       | sequence    | 2                                        |
-      | delay       | 15                                       |
+      | delay       | 35                                       |
       | send_email  | False                                    |
       | description | STHOESUTHOE |
     Given I need an "account_followup.followup.line" with oid: scenario.followup_1_line_3
@@ -50,7 +50,7 @@ Feature: Initial setup of the payment term
       | name        | 3. Mahnung                               |
       | followup_id | by oid: scenario.followup_1              |
       | sequence    | 3                                        |
-      | delay       | 10                                       |
+      | delay       | 45                                       |
       | send_email  | False                                    |
 
   @followup_trans

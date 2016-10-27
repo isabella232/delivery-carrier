@@ -5,5 +5,5 @@ Feature: Manage partner informations
 
   @csv @partner_category
   Scenario: import partner categories
-    Given "res.partner.category" is imported from CSV "setup/res_partner_category.csv" using delimiter ","
+    Given "res.partner.category" is imported from CSV "setup/res.partner.category.csv" using delimiter ","
  
