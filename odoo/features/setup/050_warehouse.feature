@@ -238,7 +238,7 @@ Feature: Configure Warehouse and Logistic processes
   	  
   @retour
   Scenario: Update dedicated route for retour
-    Given I find an "stock.location.route" with oid: scenario.retour_route
+    Given I find an "stock.location.route" with oid: scenario.location_route_retour
     And having:
       | key                      | value                       				|
   	  | push_ids				 | by oid: scenario.location_path_retour	|
