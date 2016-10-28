@@ -107,6 +107,10 @@ Feature: import master data
   Scenario: import partner
     Given "res.partner" is imported from CSV "setup/res.partner.csv" using delimiter ","
 
+  @csv @partner_invoice_headquarter @slow
+  Scenario: import partner
+    Given "res.partner" is imported from CSV "setup/res_partner_invoice_headquarter.csv" using delimiter ","
+
   @csv @partner_contacts @slow
   Scenario: import specific partner contacts
     Given "res.partner" is imported from CSV "setup/res.partner_contacts.csv" using delimiter ","

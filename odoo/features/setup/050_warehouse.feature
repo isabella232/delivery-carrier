@@ -161,3 +161,86 @@ Feature: Configure Warehouse and Logistic processes
     And having:
       | key      | value                                      |
       | pull_ids | by oid: scenario.procurement_rule_occasion |
+     
+  @retour
+  Scenario: Retour management
+    Given I need an "stock.location" with oid: scenario.location_retour_in
+    And having:
+      | key             | value       			|
+      | name            | Retouren (Eingang) 	|
+      | usage           | internal    			|
+      | location_id     | by name: WH 			|
+      | active          | True        			|
+      | return_location | True        			|
+      | scrap_location  | False       			|
+    Given I need an "stock.location" with oid: scenario.location_retour_qc
+    And having:
+      | key             | value       			|
+      | name            | Retouren (Qualität) 	|
+      | usage           | internal    			|
+      | location_id     | by name: WH 			|
+      | active          | True        			|
+      | return_location | True        			|
+      | scrap_location  | False       			|
+      
+  @retour
+  Scenario: Configure dedicated picking type for retour
+    Given I need an "stock.picking.type" with oid: scenario.picking_type_retour
+    And having:
+      | key                      | value                                  |
+      | name                     | Retouren (receipt)                     |
+      | default_location_dest_id | by oid: scenario.location_retour_in    |
+      | default_location_src_id  | by oid: stock.stock_location_customers |
+      | code                     | incoming                               |
+      | use_existing_lots        | True                                   |
+      | active                   | True                                   |
+      | sequence_id              | by name: Swisslux AG Sequence in       |
+      | warehouse_id             | by oid: stock.warehouse0               |
+    Given I need an "stock.picking.type" with oid: scenario.picking_type_retour_int
+    And having:
+      | key                      | value                                  |
+      | name                     | Retouren (internal transfer)           |
+      | default_location_dest_id | by oid: scenario.location_retour_qc    |
+      | default_location_src_id  | by oid: scenario.location_retour_qc    |
+      | code                     | internal                               |
+      | use_existing_lots        | True                                   |
+      | active                   | True                                   |
+      | sequence_id              | by name: Swisslux AG Sequence in       |
+      | warehouse_id             | by oid: stock.warehouse0               |
+      
+  @retour
+  Scenario: Configure dedicated route for retour
+    Given I need an "stock.location.route" with oid: scenario.location_route_retour
+    And having:
+      | key                      | value                       			|
+      | name                     | Swisslux AG: Retouren für Kontrolle	|
+      | product_selectable       | True                        			|
+      | sale_selectable          | True                        			|
+      | product_categ_selectable | True                        			|
+      | warehouse_selectable     | True                        			|
+      | active                   | True                        			|
+      | sequence                 | 10                          			|
+      | warehouse_ids            | by oid: stock.warehouse0    			|
+      
+  @retour
+  Scenario: Configure dedicated path for retour
+  	Given I need an "stock.location.path" with oid: scenario.location_path_retour
+  	And having:
+  	  | key                      | value                       					|
+  	  | active					 | True								 			|
+  	  | auto				     | manual										|
+  	  | location_from_id		 | by oid: scenario.location_retour_in			|  	  
+  	  |	location_dest_id         | by oid: scenario.location_retour_qc		    |
+  	  |	name					 | WH: Retour Input -> Retour Quality Control	|
+  	  |	picking_type_id  	     | by oid: scenario.picking_type_retour_int		|
+  	  |	propagate				 | True											|
+  	  |	route_id				 | by oid: scenario.location_route_retour		|
+  	  
+  @retour
+  Scenario: Update dedicated route for retour
+    Given I find an "stock.location.route" with oid: scenario.retour_route
+    And having:
+      | key                      | value                       				|
+  	  | push_ids				 | by oid: scenario.location_path_retour	|
+  	  
+
