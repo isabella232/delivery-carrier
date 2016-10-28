@@ -1,4 +1,4 @@
-﻿id,product_tmpl_id:id,product_uom:id,product_qty,active,routing_id/id,bom_line_ids/product_id/id,bom_line_ids/product_uom/id,bom_line_ids/product_qty
+id,product_tmpl_id:id,product_uom:id,product_qty,active,routing_id/id,bom_line_ids/product_id/id,bom_line_ids/product_uom/id,bom_line_ids/product_qty
 scenario.bom_141103,scenario.product_141103,product.product_uom_unit,1,true,scenario.mrp_routing_intern,scenario.product_141105,product.product_uom_unit,1
 scenario.bom_141103,scenario.product_141103,product.product_uom_unit,1,true,scenario.mrp_routing_intern,scenario.product_141318,product.product_uom_unit,1
 scenario.bom_141120,scenario.product_141120,product.product_uom_unit,1,true,scenario.mrp_routing_intern,scenario.product_141108,product.product_uom_unit,1
