@@ -10,6 +10,7 @@ services:
     image: redis
     volumes:
       - "data-redis:/data"
+
   odoo:
     environment:
       - ODOO_SESSION_REDIS=1

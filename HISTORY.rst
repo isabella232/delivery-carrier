@@ -15,6 +15,14 @@ latest (unreleased)
 **Documentation**
 
 
+9.3.1 (2016-10-28)
+++++++++++++++++++
+
+**Features and Improvements**
+
+* Update data setup files
+
+
 9.3.0 (2016-10-27)
 ++++++++++++++++++
 
