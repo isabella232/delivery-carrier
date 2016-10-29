@@ -15,6 +15,15 @@ latest (unreleased)
 **Documentation**
 
 
+9.3.3 (2016-10-29)
+++++++++++++++++++
+
+**Data**
+
+* add a missing partner used by supplier infos
+* remove slow imports from the release, will be imported in the next release
+
+
 9.3.2 (2016-10-28)
 ++++++++++++++++++
 
