@@ -6,6 +6,25 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Data**
+
+* in contacts:
+  * replaced in 'influence':
+    * I_A by installer_a
+    * I_B by installer_b
+    * I_C by installer_c
+    * P_A by planer_A
+    * P_B by planer_B
+    * P_C by planer_C
+    * G_A by wholesale_a
+    * G_B by wholesale_b
+    * G_C by wholesale_c
+    * Z by key_contact
+  * emptied field 'property_stock_location' wrongly set to ' Land.Caption_Caption09' on every record
+  * moved invalid contacts (columns shifted) in 'invalid_contacts.csv'
+  * added missing partner titles Project Manager and Ms
+* in partner headquarter: removed lines without any link (faster import)
+
 **Features and Improvements**
 
 **Bugfixes**

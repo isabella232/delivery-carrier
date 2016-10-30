@@ -78,3 +78,9 @@ migration:
           - specific_timesheet
           - specific_timesheet_activities
           - specific_translations
+    - version: 9.3.4
+      modes:
+        full:
+          operations:
+            post:
+              - oerpscenario -t setup -t slow

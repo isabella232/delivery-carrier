@@ -111,6 +111,20 @@ Feature: import master data
   Scenario: import partner
     Given "res.partner" is imported from CSV "setup/res_partner_invoice_headquarter.csv" using delimiter ","
 
+  @partner_title @slow
+  Scenario: add Project Manager title
+    Given I need a "res.partner.title" with oid: scenario.partner_title_project_management
+      And having:
+        | key  | value     |
+        | name | Project Manager |
+
+  @partner_title @slow
+  Scenario: add Ms title
+    Given I need a "res.partner.title" with oid: scenario.partner_title_ms
+      And having:
+        | key  | value     |
+        | name | Ms |
+
   @csv @partner_contacts @slow
   Scenario: import specific partner contacts
     Given "res.partner" is imported from CSV "setup/res.partner_contacts.csv" using delimiter ","
