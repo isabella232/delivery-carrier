@@ -6,9 +6,23 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Features and Improvements**
+
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+9.3.4 (2016-10-30)
+++++++++++++++++++
+
 **Data**
 
-* in contacts:
+* Import 'slow' data
+
+* Fixes in contacts:
   * replaced in 'influence':
     * I_A by installer_a
     * I_B by installer_b
@@ -24,14 +38,6 @@ latest (unreleased)
   * moved invalid contacts (columns shifted) in 'invalid_contacts.csv'
   * added missing partner titles Project Manager and Ms
 * in partner headquarter: removed lines without any link (faster import)
-
-**Features and Improvements**
-
-**Bugfixes**
-
-**Build**
-
-**Documentation**
 
 
 9.3.3 (2016-10-29)
