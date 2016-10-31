@@ -84,3 +84,4 @@ migration:
           operations:
             post:
               - oerpscenario -t setup -t slow
+    - version: 9.3.5

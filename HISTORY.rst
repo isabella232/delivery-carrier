@@ -15,6 +15,16 @@ latest (unreleased)
 **Documentation**
 
 
+9.3.5 (2016-10-31)
+++++++++++++++++++
+
+**Bugfixes**
+
+* Cloud Platform: rework of ``attachment_s3`` which makes
+  ``AWS_ATTACHMENT_READONLY`` useless and correct a bug that deletes existing
+  attachments (mainly assets)
+
+
 9.3.4 (2016-10-30)
 ++++++++++++++++++
 
