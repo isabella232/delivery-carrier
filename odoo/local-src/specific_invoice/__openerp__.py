@@ -14,6 +14,7 @@
      ],
  'data': [
      'views/invoice_bank_rule.xml',
+     'security/ir.model.access.csv'
      ],
  'test': [],
  'installable': True,
