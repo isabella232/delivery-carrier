@@ -50,7 +50,7 @@
                   Person of contact
                 </strong><span t-field="o.env.user.name"/><br/>
                 Phone: <span t-field="o.get_employee_from_user(o.env.user).work_phone"/><br/>
-                <span t-field="o.env.user.email"/><br/>
+                <span t-field="o.get_employee_from_user(o.env.user).work_email"/><br/>
               </small>
             </small>
           </div>
@@ -208,7 +208,7 @@
                   Person of contact
                 </strong><span t-field="o.env.user.name"/><br/>
                 Phone: <span t-field="o.get_employee_from_user(o.env.user).work_phone"/><br/>
-                <span t-field="o.env.user.email"/><br/>
+                <span t-field="o.get_employee_from_user(o.env.user).work_email"/><br/>
               </small>
             </small>
           </div>
