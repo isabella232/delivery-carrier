@@ -14,7 +14,7 @@ class SaleOrder(models.Model):
         super(SaleOrder, self).onchange_partner_id()
         values = {}
         partner = None
-        if self.partner_id.company_id:
+        if self.partner_id.is_company:
             partner = self.partner_id
         elif self.partner_id.parent_id:
             partner = self.partner_id.parent_id
