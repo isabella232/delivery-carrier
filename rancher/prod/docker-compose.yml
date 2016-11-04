@@ -1,5 +1,5 @@
 odoo:
-  image: camptocamp/swisslux_odoo:9.3.5
+  image: camptocamp/swisslux_odoo:9.3.6
   external_links:
     - postgres-cluster/lb:db
     - redis/redis:redis
