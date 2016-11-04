@@ -98,3 +98,9 @@ migration:
       addons:
         upgrade:
           - specific_invoice
+    - version: 9.4.0
+      addons:
+        upgrade:
+          - logging_json
+          - monitoring_statsd
+          - cloud_platform
