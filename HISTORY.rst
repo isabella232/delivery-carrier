@@ -15,6 +15,14 @@ latest (unreleased)
 **Documentation**
 
 
+9.3.6 (2016-11-04)
+++++++++++++++++++
+
+**Bugfixes**
+
+* Fix customer/supplier field on contact if parent company is customer/supplier 
+* Add security for specific_invoice
+
 9.3.5 (2016-10-31)
 ++++++++++++++++++
 
