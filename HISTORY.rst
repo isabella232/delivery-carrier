@@ -15,6 +15,14 @@ latest (unreleased)
 **Documentation**
 
 
+9.4.0 (2016-11-08)
+++++++++++++++++++
+
+**Features and Improvements**
+* Logs output as Json
+* Metrics sent as UDP to statsd(Grafana)
+
+
 9.3.7 (2016-11-08)
 ++++++++++++++++++
 
