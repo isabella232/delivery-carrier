@@ -1,5 +1,6 @@
 odoo:
   image: camptocamp/swisslux_odoo:latest
+  command: odoo --load=web,web_kanban,logging_json
   external_links:
     - redis/redis:redis
   links:
@@ -29,6 +30,12 @@ odoo:
     - ODOO_SESSION_REDIS_PREFIX=${ODOO_SESSION_REDIS_PREFIX}
     - ODOO_SESSION_REDIS_EXPIRATION=${ODOO_SESSION_REDIS_EXPIRATION}
     - ODOO_CLOUD_PLATFORM_UNSAFE=${ODOO_CLOUD_PLATFORM_UNSAFE}
+    - ODOO_LOGGING_JSON=${ODOO_LOGGING_JSON}
+    - ODOO_STATSD=${ODOO_STATSD}
+    - STATSD_CUSTOMER=swisslux
+    - STATSD_ENVIRONMENT=${STATSD_ENVIRONMENT}
+    - STATSD_HOST=${STATSD_HOST}
+    - STATSD_PORT=${STATSD_PORT}
   labels:
     io.rancher.scheduler.affinity:host_label: application=true
 

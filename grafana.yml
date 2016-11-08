@@ -1,0 +1,48 @@
+# If you want to use Odoo with Redis,
+# run the composition with
+# docker-compose -f docker-compose.yml \
+#                -f docker-compose.override.yml \
+#                -f grafana.yml up
+version: '2'
+
+services:
+  grafana:
+    image: grafana/grafana
+    ports:
+      - 3000:3000
+    depends_on:
+      - prometheus
+    volumes:
+      - "data-grafana:/var/lib/grafana"
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - "data-prometheus:/prometheus"
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  statsd:
+    image: prom/statsd-exporter
+    depends_on:
+      - prometheus
+    # command:
+    #   - -statsd.mapping-config=/tmp/statsd_mapping.conf
+    ports:
+      - "9102:9102"
+      - "9125:9125/udp"
+    # volumes:
+    #   - ./statsd_mapping.conf:/tmp/statsd_mapping.conf
+
+  odoo:
+    depends_on:
+      - grafana
+      - statsd
+    environment:
+      - STATSD_HOST=statsd
+      - STATSD_PORT=9125
+
+volumes:
+  data-grafana:
+  data-prometheus:

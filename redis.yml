@@ -12,6 +12,8 @@ services:
       - "data-redis:/data"
 
   odoo:
+    depends_on:
+      - redis
     environment:
       - ODOO_SESSION_REDIS=1
       - ODOO_SESSION_REDIS_HOST=redis
