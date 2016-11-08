@@ -98,6 +98,10 @@ migration:
       addons:
         upgrade:
           - specific_invoice
+    - version: 9.3.7
+      addons:
+        upgrade:
+          - specific_reports
     - version: 9.4.0
       addons:
         upgrade:

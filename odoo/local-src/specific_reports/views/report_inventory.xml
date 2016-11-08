@@ -98,10 +98,10 @@
                                     </t>
                                   </t>
                                   <t t-if="o.sale_id">
-                                      <span t-field="o.sale_id.user_id.email"/>
+                                      <span t-field="o.get_employee_from_user(o.sale_id.user_id).work_email"/>
                                   </t>
                                   <t t-if="not o.sale_id">
-                                      <span t-field="o.partner_id.user_id.email"/>
+                                      <span t-field="o.get_employee_from_user(o.partner_id.user_id).work_email"/>
                                   </t>
                                 </small>
                               </small>

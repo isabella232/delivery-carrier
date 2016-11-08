@@ -81,7 +81,7 @@
                   <t t-if="o.user_id">
                     <span t-field="o.get_employee_from_user(o.user_id).work_phone"/><br/>
                   </t>
-                  <span t-field="o.user_id.email"/><br/>
+                  <span t-field="o.get_employee_from_user(o.user_id).work_email"/><br/>
                 </small>
               </small>
             </div>
