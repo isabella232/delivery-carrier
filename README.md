@@ -16,6 +16,32 @@ Images are pushed on the registry only when Travis has a green build.
 The database is automatically created and the migration scripts
 automatically run.
 
+## Small quick procedure for support
+### Make a release
+You need to first install invoke
+* pip install invoke
+Then you need to prepare history file
+* invoke release.bump --patch
+response Yes to questions
+Then you edit HISTORY.rst file to describe your release
+You add modified file HISTORY Version and rancher
+You commit your release
+* git commit --message="[RELEASE] XXX"
+* git tag -as XXXX
+(You need to configure GPG )
+### Request rancher to pull your image
+You need fist the rancher cli in your path (see camptocamp rancher file)
+You need to get the name of your stack
+You need to go to rancher directory of your projet like rancher/integration
+You need to decript environement file (the key passphrase is on lastpass)
+* source <(gpg2 -d rancher.env.gpg )
+After you can pull images first
+* rancher-compose -p swisslux-odoo-integration pull
+* rancher-compose -p swisslux-odoo-integration up -d --pull --force-recreate --confirm-upgrade
+If you want logs
+* rancher-compose -p swisslux-odoo-integration logs --follow
+
+
 You'll find a [Docker guide for the development](./docs/docker-dev.md) and on for the [testers](./docs/docker-test.md).
 
 ## Guides
