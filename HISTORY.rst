@@ -15,6 +15,13 @@ latest (unreleased)
 **Documentation**
 
 
+9.3.7 (2016-11-08)
+++++++++++++++++++
+
+**Bugfixes**
+* Fix working_email in report header
+* Get right delivery adress and invoicing address on sale order
+
 9.3.6 (2016-11-04)
 ++++++++++++++++++
 
