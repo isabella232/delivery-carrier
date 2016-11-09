@@ -108,3 +108,7 @@ migration:
           - logging_json
           - monitoring_statsd
           - cloud_platform
+    - version: 9.4.1
+      addons:
+        upgrade:
+          - specific_reports
