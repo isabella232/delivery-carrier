@@ -48,13 +48,29 @@ def import_partner_part(ctx, req, file_part):
 
 @anthem.log
 def import_partner_contact_part(ctx, req, file_part):
-    """ Import partner  """
+    """ Import partner contact """
     with ctx.log(u'Import Partner Contact %s' % str(file_part)):
         csv_content = resource_stream(
             req,
             'data/update/res.partner_[contacts_only]).%s.csv' % str(
                 file_part).zfill(3))
         load_csv_stream(ctx, 'res.partner', csv_content, delimiter=',')
+
+
+@anthem.log
+def import_partner_invoicing(ctx, req):
+    """ Import partner invoicing  """
+    csv_content = resource_stream(
+        req, 'data/update/res.partner_invoiving_id.csv')
+    load_csv_stream(ctx, 'res.partner', csv_content, delimiter=',')
+
+
+@anthem.log
+def import_product_supplier_info(ctx, req):
+    """ Import  pricelist  """
+    csv_content = resource_stream(
+        req, 'data/update/product.supplierinfo.csv')
+    load_csv_stream(ctx, 'product.supplierinfo', csv_content, delimiter=',')
 
 
 @anthem.log
@@ -67,5 +83,7 @@ def main(ctx):
     # import_pricelist_item(ctx, req)
     for seq_file in xrange(1, 13):
         import_partner_part(ctx, req, seq_file)
+    import_partner_invoicing(ctx, req)
     for seq_file in xrange(1, 20):
         import_partner_contact_part(ctx, req, seq_file)
+    import_product_supplier_info(ctx, req)
