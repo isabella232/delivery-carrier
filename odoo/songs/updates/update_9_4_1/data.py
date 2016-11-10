@@ -77,10 +77,10 @@ def import_product_supplier_info(ctx, req):
 def main(ctx):
     """ Loading data """
     req = Requirement.parse('swisslux-odoo')
-    # import_product_class(ctx, req)
-    # import_product(ctx, req)
-    # import_mrp_bom(ctx, req)
-    # import_pricelist_item(ctx, req)
+    import_product_class(ctx, req)
+    import_product(ctx, req)
+    import_mrp_bom(ctx, req)
+    import_pricelist_item(ctx, req)
     for seq_file in xrange(1, 13):
         import_partner_part(ctx, req, seq_file)
     import_partner_invoicing(ctx, req)
