@@ -1,4 +1,6 @@
 migration:
+  options:
+    install_args: --load=web,web_kanban,session_redis,attachment_s3,logging_json
   versions:
     - version: 9.3.3
       operations:
