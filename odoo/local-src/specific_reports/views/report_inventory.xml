@@ -92,7 +92,7 @@
                                     <span t-field="o.get_employee_from_user().work_phone"/><br/>
                                   </t>
                                   <t t-if="o.sale_id">
-                                    <t t-if="not o.sale_id.user_id.phone">
+                                    <t t-if="not o.get_employee_from_user().work_phone">
                                       &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;
                                       &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;<br/>
                                     </t>
