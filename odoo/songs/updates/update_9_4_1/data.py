@@ -10,7 +10,7 @@ from anthem.lyrics.loaders import load_csv_stream
 
 @anthem.log
 def import_product_class(ctx, req):
-    """ Importing product template """
+    """ Importing product class """
     content = resource_stream(req, 'data/update/product.class.csv')
     load_csv_stream(ctx, 'product.class', content, delimiter=',')
 
@@ -67,23 +67,31 @@ def import_partner_invoicing(ctx, req):
 
 @anthem.log
 def import_product_supplier_info(ctx, req):
-    """ Import  pricelist  """
+    """ Import  suppler info  """
     csv_content = resource_stream(
         req, 'data/update/product.supplierinfo.csv')
     load_csv_stream(ctx, 'product.supplierinfo', csv_content, delimiter=',')
 
 
 @anthem.log
+def delete_previous_mrp_bom(ctx):
+    """ Delete previous mrp bom  """
+    ctx.env.cr.execute("""
+        DELETE from mrp_bom;
+    """)
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     req = Requirement.parse('swisslux-odoo')
-    import_product_class(ctx, req)
-    import_product(ctx, req)
+    #import_product_class(ctx, req)
+    #import_product(ctx, req)
+    delete_previous_mrp_bom(ctx)
     import_mrp_bom(ctx, req)
-    import_pricelist_item(ctx, req)
-    for seq_file in xrange(1, 13):
-        import_partner_part(ctx, req, seq_file)
-    import_partner_invoicing(ctx, req)
-    for seq_file in xrange(1, 20):
-        import_partner_contact_part(ctx, req, seq_file)
-    import_product_supplier_info(ctx, req)
+    #import_pricelist_item(ctx, req)
+    # for seq_file in xrange(1, 13):
+    #     import_partner_part(ctx, req, seq_file)
+    #import_partner_invoicing(ctx, req)
+    # for seq_file in xrange(1, 20):
+    #     import_partner_contact_part(ctx, req, seq_file)
+    #import_product_supplier_info(ctx, req)
