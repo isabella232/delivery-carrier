@@ -108,3 +108,4 @@ migration:
           - logging_json
           - monitoring_statsd
           - cloud_platform
+    - version: 9.4.1
