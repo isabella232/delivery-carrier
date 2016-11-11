@@ -15,6 +15,14 @@ latest (unreleased)
 **Documentation**
 
 
+9.4.1 (2016-11-11)
+++++++++++++++++++
+
+**Build**
+
+* Rename databases on the Rancher instances with anonymous names
+
+
 9.4.0 (2016-11-08)
 ++++++++++++++++++
 
