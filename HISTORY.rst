@@ -15,6 +15,16 @@ latest (unreleased)
 **Documentation**
 
 
+9.4.3 (2016-11-11)
+++++++++++++++++++
+
+**Features and Improvements**
+* Improve CSV data files
+**Bugfixes**
+* Change sequence on pricelist, user can order item per sequence
+* Change layout test work_email on sale order report
+
+
 9.4.2 (2016-11-11)
 ++++++++++++++++++
 
