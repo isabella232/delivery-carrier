@@ -1,5 +1,5 @@
 odoo:
-  image: camptocamp/swisslux_odoo:9.4.2
+  image: camptocamp/swisslux_odoo:9.4.3
   command: odoo --load=web,web_kanban,logging_json
   external_links:
     - postgres-cluster/lb:db
