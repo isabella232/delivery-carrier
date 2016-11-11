@@ -15,6 +15,14 @@ latest (unreleased)
 **Documentation**
 
 
+9.4.2 (2016-11-11)
+++++++++++++++++++
+
+**Build**
+
+* Rename databases with _ instead of -
+
+
 9.4.1 (2016-11-11)
 ++++++++++++++++++
 

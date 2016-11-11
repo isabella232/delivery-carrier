@@ -109,6 +109,7 @@ migration:
           - monitoring_statsd
           - cloud_platform
     - version: 9.4.1
+    - version: 9.4.2
     - version: 9.4.3
       modes:
         full:
