@@ -8,3 +8,4 @@ from . import product_color_code
 from . import product_harmsys_code
 from . import product_manual_code
 from . import product_supplierinfo
+from . import product_pricelist

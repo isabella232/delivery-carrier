@@ -110,3 +110,13 @@ migration:
           - cloud_platform
     - version: 9.4.1
     - version: 9.4.2
+    - version: 9.4.3
+      modes:
+        full:
+          operations:
+            post:
+              - anthem songs.updates.update_9_4_3.data::main
+      addons:
+        upgrade:
+          - specific_reports
+          - specific_product
