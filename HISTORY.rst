@@ -15,6 +15,12 @@ latest (unreleased)
 **Documentation**
 
 
+9.4.5 (2016-11-14)
+++++++++++++++++++
+
+**Bugfixes**
+* Fix typo in xml id for payment term in invoice report
+
 9.4.4 (2016-11-14)
 ++++++++++++++++++
 
