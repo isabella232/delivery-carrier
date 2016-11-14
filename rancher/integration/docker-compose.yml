@@ -40,8 +40,6 @@ odoo:
     - STATSD_PORT=${STATSD_PORT}
   labels:
     io.rancher.scheduler.affinity:host_label: application=true
-    # remove once the production is up
-    io.rancher.scheduler.global: 'true'
 
 nginx:
   image: camptocamp/odoo-nginx:9.0
@@ -49,5 +47,3 @@ nginx:
     - odoo:odoo
   labels:
     io.rancher.scheduler.affinity:host_label: application=true
-    # remove once the production is up
-    io.rancher.scheduler.global: 'true'
