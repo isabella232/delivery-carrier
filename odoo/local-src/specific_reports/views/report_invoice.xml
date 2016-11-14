@@ -10,7 +10,7 @@
       <xpath expr="//div[@class='row']/div/address[@t-field='o.partner_id']/.." position="replace">
         <!-- 1 Address IF no eev_nr or eev_alarm for a company or contact in a company AND
         payment term not to the EEV -->
-        <t t-if="not (o.partner_id.eev_member or o.partner_id.parent_id.eev_member) or (o.partner_id.eev_alarm or o.partner_id.parent_id.eev_alarm) or not (o.payment_term_id == o.env.ref('scenario.account_payment_term_eev'))">
+        <t t-if="not (o.partner_id.eev_member or o.partner_id.parent_id.eev_member) or (o.partner_id.eev_alarm or o.partner_id.parent_id.eev_alarm) or not (o.payment_term_id == o.env.ref('scenario.accountpaymentterm_eev'))">
           <div class="col-xs-6">
               <t t-if="o.partner_id.parent_id">
                 <span t-field="o.partner_id.parent_id.name"/><br/>
@@ -23,7 +23,7 @@
         </t>
         <!-- Address of eev & partner IF eev and not eev_alarm for company or contact in a company AND
           payment term is EEV -->
-        <t t-if="(o.partner_id.eev_member or o.partner_id.parent_id.eev_member) and not (o.partner_id.eev_alarm or o.partner_id.parent_id.eev_alarm) and (o.payment_term_id == o.env.ref('scenario.account_payment_term_eev'))">
+        <t t-if="(o.partner_id.eev_member or o.partner_id.parent_id.eev_member) and not (o.partner_id.eev_alarm or o.partner_id.parent_id.eev_alarm) and (o.payment_term_id == o.env.ref('scenario.accountpaymentterm_eev'))">
           <div class="col-xs-6">
             <span t-field="o.env.ref('scenario.partner_90424').name"/><br/>
             <span t-field="o.env.ref('scenario.partner_90424').street"/><br/>
