@@ -121,3 +121,7 @@ migration:
           - specific_reports
           - specific_product
     - version: 9.4.4
+    - version: 9.4.5
+      addons:
+        upgrade:
+          - specific_reports
