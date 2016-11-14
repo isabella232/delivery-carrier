@@ -120,3 +120,4 @@ migration:
         upgrade:
           - specific_reports
           - specific_product
+    - version: 9.4.4

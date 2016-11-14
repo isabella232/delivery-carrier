@@ -15,6 +15,20 @@ latest (unreleased)
 **Documentation**
 
 
+9.4.4 (2016-11-14)
+++++++++++++++++++
+
+**Bugfixes**
+
+* When an attachment is deleted and is stored on a different Object Storage
+  bucket than the current one, do not delete it from the bucket
+
+**Build**
+
+* Start integration on only 1 host
+* Start integration with 2 workers
+
+
 9.4.3 (2016-11-11)
 ++++++++++++++++++
 
