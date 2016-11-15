@@ -125,3 +125,10 @@ migration:
       addons:
         upgrade:
           - specific_reports
+    - version: 9.4.6
+      operations:
+        post:
+          - anthem songs.updates.update_9_4_6.update::main
+      addons:
+        upgrade:
+          - specific_reports
