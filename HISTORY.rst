@@ -15,6 +15,17 @@ latest (unreleased)
 **Documentation**
 
 
+9.4.6 (2016-11-15)
+++++++++++++++++++
+
+**Features and Improvements**
+* When you deactivate a company it deactivate related contact
+**Bugfixes**
+* Fix layout overlay in delivery slip
+* Fix invoice additionnal comma if company is selected instead of contact
+* Fix translation in quotation report
+
+
 9.4.5 (2016-11-14)
 ++++++++++++++++++
 
