@@ -175,7 +175,7 @@ msgstr "<span class=\"col-xs-7\">Vostra Ordinazione:</span>"
 msgid "<br/>\n"
 "                            <span class=\"col-xs-5\" style=\"padding-left: 0px;\"><strong>Your reference:</strong></span>"
 msgstr "<br/>\n"
-"                            <span class=\"col-xs-5\" style=\"padding-left: 0px;\"><strong>Votre référence:</strong></span>"
+"                            <span class=\"col-xs-5\" style=\"padding-left: 0px;\"><strong>Commissione:</strong></span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
