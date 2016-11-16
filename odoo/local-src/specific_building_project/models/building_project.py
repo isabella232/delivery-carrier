@@ -273,15 +273,16 @@ class BuildingProject(models.Model):
     @api.multi
     def add_role(self, partner):
         self.ensure_one()
+        company_partner = partner.get_company_partner()
         domain = [
-            ('partner_id', '=', partner.id),
+            ('partner_id', '=', company_partner.id),
             ('building_project_id', '=', self.id),
         ]
         role = self.env['res.partner.role'].search(domain)
         if role:
             return
         self.env['res.partner.role'].create({
-            'partner_id': partner.id,
+            'partner_id': company_partner.id,
             'building_project_id': self.id,
         })
 
