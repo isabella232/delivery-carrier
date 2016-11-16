@@ -165,3 +165,14 @@ class ResPartner(models.Model):
             'res.partner'
             )
         return super(ResPartner, self).copy(default)
+
+    @api.multi
+    def write(self, vals):
+        # Check if partner that we modify have active switch to false
+        # if it's a company we will deactivate all related contacts
+        if 'active' in vals and not vals['active']:
+            for current_partner in self:
+                if current_partner.child_ids:
+                    current_partner.child_ids.write({'active': False})
+        result = super(ResPartner, self).write(vals)
+        return result
