@@ -142,3 +142,7 @@ migration:
       addons:
         upgrade:
           - board 
+    - version: 9.4.8
+      addons:
+        upgrade:
+          - specific_partner

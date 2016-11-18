@@ -7,3 +7,4 @@ from . import region
 from . import better_zip
 from . import partner_title
 from . import sale
+from . import partner_bank_account
