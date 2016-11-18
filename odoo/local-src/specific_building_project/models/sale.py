@@ -58,6 +58,8 @@ class SaleOrder(models.Model):
         this project is defined. If it doesn't exist, create one.
         Otherwise do nothing.
         """
+        partner = self.env['res.partner'].browse(partner_id)
+        partner_id = partner.get_company_partner().id
         if project_id and project_pricelist_id:
             build_project = self.env['building.project'].search(
                 [('analytic_account_id', '=', project_id)])

@@ -15,6 +15,18 @@ latest (unreleased)
 **Documentation**
 
 
+9.4.7 (2016-11-18)
+++++++++++++++++++
+
+**Bugfixes**
+* Fix company instead of contact in building project
+* Fix new CSV file (imported in production)
+* Scenario to rename Stock Order point + fix sequence next val
+* Set ref on partner is missing + fix sequence next val
+* Cancel WH/OUT/00019
+* Remove All OP from Stock with OP as name
+
+
 9.4.6 (2016-11-15)
 ++++++++++++++++++
 
