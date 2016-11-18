@@ -14,6 +14,14 @@ class ResPartner(models.Model):
     )
 
     @api.multi
+    def get_company_partner(self):
+        self.ensure_one()
+        if self.parent_id:
+            return self.parent_id
+        else:
+            return self
+
+    @api.multi
     def _get_building_projects(self):
         for rec in self:
             if rec.is_company:
