@@ -37,7 +37,7 @@ class ResPartner(models.Model):
         ),
     }
 
-    ref = fields.Char('Code', required=True, readonly=True)
+    ref = fields.Char('Code', readonly=True)
     parent_category_id = fields.Many2one(
         relation='parent_id.category_id',
         string="Tags parent",
