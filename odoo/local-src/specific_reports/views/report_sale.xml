@@ -110,15 +110,15 @@
             <div class="col-xs-6">
               <div t-if="doc.date_order">
                   <t t-if="doc.state not in ['draft','sent']">
-                    <span class="col-xs-7">Date Ordered:</span>
+                    <span class="col-xs-5">Date Ordered:</span>
                   </t>
                   <t t-if="doc.state in ['draft','sent']">
-                    <span class="col-xs-7">Quotation Date:</span>
+                    <span class="col-xs-5">Quotation Date:</span>
                   </t>
                   <span t-field="doc.date_order" style="padding-left: 0px;" t-field-options='{"widget":"date"}' />
               </div>
               <div>
-                  <span class="col-xs-7">Term of delivery:</span>
+                  <span class="col-xs-5">Term of delivery:</span>
                   <t t-if="doc.delivery_term">
                   	<span style="padding-left: 0px;" t-field="doc.delivery_term" />
 				  </t>
@@ -127,7 +127,7 @@
                   </t>
               </div>
               <div t-if="doc.carrier_id" >
-                  <span class="col-xs-7">Delivery Method:</span>
+                  <span class="col-xs-5">Delivery Method:</span>
                   <span style="padding-left: 0px;" t-field="doc.carrier_id" />
               </div>
             </div>

@@ -210,8 +210,8 @@ msgstr "<span class=\"col-xs-7\">Vostro contatto:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-7\">Date Ordered:</span>"
-msgstr "<span class=\"col-xs-7\">Data ordinato:</span>"
+msgid "<span class=\"col-xs-5\">Date Ordered:</span>"
+msgstr "<span class=\"col-xs-5\">Data ordinato:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
@@ -227,8 +227,8 @@ msgstr "<span class=\"col-xs-5\">Data di consegna:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-7\">Delivery Method:</span>"
-msgstr "<span class=\"col-xs-7\">Metodo di consegna:</span>"
+msgid "<span class=\"col-xs-5\">Delivery Method:</span>"
+msgstr "<span class=\"col-xs-5\">Metodo di consegna:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
@@ -249,8 +249,8 @@ msgstr "<span class=\"col-xs-5\">Condizioni:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-7\">Quotation Date:</span>"
-msgstr "<span class=\"col-xs-7\">Data:</span>"
+msgid "<span class=\"col-xs-5\">Quotation Date:</span>"
+msgstr "<span class=\"col-xs-5\">Data:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
@@ -264,14 +264,14 @@ msgstr "<span class=\"col-xs-5\">Numero del fornitore:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-7\">Term of delivery:</span>"
-msgstr "<span class=\"col-xs-7\">Data di consegna:</span>"
+msgid "<span class=\"col-xs-5\">Term of delivery:</span>"
+msgstr "<span class=\"col-xs-5\">Data di consegna:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-7\">Term of delivery:</span>\n"
+msgid "<span class=\"col-xs-5\">Term of delivery:</span>\n"
 "                  <span>nach Absprache</span>"
-msgstr "<span class=\"col-xs-7\">Data di consegna:</span>"
+msgstr "<span class=\"col-xs-5\">Data di consegna:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
