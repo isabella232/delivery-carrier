@@ -15,6 +15,19 @@ latest (unreleased)
 **Documentation**
 
 
+9.4.8 (2016-11-22)
+++++++++++++++++++
+
+**Features and Improvements**
+* Add new rule for china 
+**Bugfixes**
+* Remove contraints for unique account number for partner bank 
+* Remove required for ref on partner form
+* Change Order print layout of date
+* Change Invoice print layout
+* Fix invoice xmlid reference for partner_90424
+
+
 9.4.7 (2016-11-18)
 ++++++++++++++++++
 
