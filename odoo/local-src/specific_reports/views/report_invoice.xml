@@ -25,9 +25,9 @@
           payment term is EEV -->
         <t t-if="(o.partner_id.eev_member or o.partner_id.parent_id.eev_member) and not (o.partner_id.eev_alarm or o.partner_id.parent_id.eev_alarm) and (o.payment_term_id == o.env.ref('scenario.accountpaymentterm_eev'))">
           <div class="col-xs-6">
-            <span t-field="o.env.ref('scenario.partner_90424').name"/><br/>
-            <span t-field="o.env.ref('scenario.partner_90424').street"/><br/>
-            <span t-field="o.env.ref('scenario.partner_90424').country_id.code"/>-<span t-field="o.env.ref('scenario.partner_90424').zip"/> <span t-field="o.env.ref('scenario.partner_90424').city"/><br/>
+            <span t-field="o.env.ref('.partner_90424').name"/><br/>
+            <span t-field="o.env.ref('.partner_90424').street"/><br/>
+            <span t-field="o.env.ref('.partner_90424').country_id.code"/>-<span t-field="o.env.ref('.partner_90424').zip"/> <span t-field="o.env.ref('.partner_90424').city"/><br/>
           </div>
           <div class="col-xs-5">
             <t t-if="o.partner_id.parent_id">
@@ -141,7 +141,7 @@
             </div>
             <div class="col-xs-6 lp-0">
               <div t-if="o.create_date" class="col-xs-12">
-                  <span class="col-xs-5">Date:</span>
+                  <span class="col-xs-3">Date:</span>
                   <span t-field="o.create_date" t-field-options='{"widget":"date"}'/>
               </div>
             </div>
