@@ -149,3 +149,4 @@ migration:
       addons:
         upgrade:
           - specific_partner
+          - specific_reports
