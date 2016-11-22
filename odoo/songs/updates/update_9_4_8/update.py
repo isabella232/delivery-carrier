@@ -17,13 +17,54 @@ def reload_translation(ctx, module):
 @anthem.log
 def create_new_route(ctx):
     """ Create new route Buy from China """
+    # Create procurement rule first
+    values = {
+        'name': "Swisslux AG: Buy from China",
+        'sequence': 20,
+        'action': "buy",
+        'active': True,
+        'group_propagation_option': "propagate",
+        'location_id': 18,
+        'picking_type_id': 7,
+        'delay': 0,
+        'warehouse_id': 1,
+        'propagate': True,
+        'procure_method': "make_to_stock",
+        'route_sequence': 1,
+    }
+    create_or_update(ctx, 'procurement.rule',
+                     '__upgrade948__.procurement_rule_china', values)
+
+    values = {
+        'name': "WH:  Departure from China-> Input",
+        'sequence': 20,
+        'action': "move",
+        'active': True,
+        'group_propagation_option': "propagate",
+        'location_id': 13,
+        'location_src_id': 18,
+        'picking_type_id': 1,
+        'delay': 0,
+        'warehouse_id': 1,
+        'propagate': True,
+        'procure_method': "make_to_order",
+        'route_sequence': 1,
+    }
+    create_or_update(ctx, 'procurement.rule',
+                     '__upgrade948__.procurement_rule_input', values)
+
     values = {
         'name': "Buy from China",
-        'sequence': "1",
+        'sequence': 1,
         'warehouse_selectable': False,
         'product_selectable': True,
         'product_categ_selectable': False,
         'sale_selectable': False,
+        'pull_ids' : [
+            (6, 0, [ctx.env.ref(
+                '__upgrade948__.procurement_rule_china').id,
+                ctx.env.ref(
+                '__upgrade948__.procurement_rule_input').id])]
     }
     create_or_update(ctx, 'stock.location.route',
                      '__upgrade948__.stock_location_route_china', values)
