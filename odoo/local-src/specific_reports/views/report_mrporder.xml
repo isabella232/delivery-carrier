@@ -86,10 +86,11 @@
                                     <strong>Products to Consume</strong>
                                 </td>
                             </tr>
-                            <tr t-foreach="o.move_lines" t-as="line">
+                            <tr t-foreach="o.move_lines.sorted(key=lambda l: l.product_id.description_picking)" t-as="line">
                                 <td>
                                     <span t-field="line.product_id.code"/>
                                     <span t-field="line.product_id.name"/>
+                                    <span t-field="line.product_id.e_nr"/>
                                 </td>
                                 <td class="text-right">
                                     <span t-field="line.product_uom_qty"/>
@@ -106,10 +107,11 @@
                                     <strong>Consumed Products</strong>
                                 </td>
                             </tr>
-                            <tr t-foreach="o.move_lines2" t-as="line2">
+                            <tr t-foreach="o.move_lines2.sorted(key=lambda l: l.product_id.description_picking)" t-as="line2">
                                 <td>
                                     <span t-field="line2.product_id.code"/>
                                     <span t-field="line2.product_id.name"/>
+                                    <span t-field="line2.product_id.e_nr"/>
                                 </td>
                                 <td class="text-right">
                                     <span t-field="line2.product_uom_qty"/>
@@ -140,7 +142,7 @@
                         </thead>
                         <tbody>
                             <!-- Add Products to Produce list-->
-                            <t t-if="o.move_created_ids">
+                            <t t-if="o.move_created_ids.sorted(key=lambda l: l.product_id.description_picking)">
                                 <tr>
                                     <td colspan="4" style="padding-top: 15px !important;">
                                         <strong>Products to Produce</strong>
@@ -150,6 +152,7 @@
                                     <td>
                                         <span t-field="line.product_id.code"/>
                                         <span t-field="line.product_id.name"/>
+                                        <span t-field="line.product_id.e_nr"/>
                                     </td>
                                     <td class="text-right">
                                         <span t-field="line.product_uom_qty"/>
@@ -172,6 +175,7 @@
                                     <td>
                                         <span t-field="line2.product_id.code"/>
                                         <span t-field="line2.product_id.name"/>
+                                        <span t-field="line2.product_id.e_nr"/>
                                     </td>
                                     <td class="text-right">
                                         <span t-field="line2.product_uom_qty"/>
