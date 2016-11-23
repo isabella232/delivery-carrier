@@ -9,8 +9,6 @@ from openerp.osv import expression
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
-    default_code = fields.Char(readonly=True)
-
     e_nr = fields.Char("E-Nr", copy=False)
 
     transit_qty = fields.Float(
