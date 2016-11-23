@@ -158,3 +158,4 @@ migration:
         upgrade:
           - specific_reports
           - specific_product
+          - specific_account
