@@ -150,3 +150,11 @@ migration:
         upgrade:
           - specific_partner
           - specific_reports
+    - version: 9.4.9
+      operations:
+        post:
+          - anthem songs.updates.update_9_4_9.update::main
+      addons:
+        upgrade:
+          - specific_reports
+          - specific_product
