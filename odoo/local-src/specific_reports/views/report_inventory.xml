@@ -39,7 +39,6 @@
                     .address{
                       position: fixed;
                       left: 215px;
-                      max-width:350px;
                     }
                 </style>
             </xpath>
