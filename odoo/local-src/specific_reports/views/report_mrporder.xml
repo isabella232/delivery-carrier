@@ -90,7 +90,9 @@
                                 <td>
                                     <span t-field="line.product_id.code"/>
                                     <span t-field="line.product_id.name"/>
-                                    <span t-field="line.product_id.e_nr"/>
+                                    <br/>
+                                    <t t-set="pdb"></t>
+                                    <span t-field="line.product_id.cut_e_nr"/>
                                 </td>
                                 <td class="text-right">
                                     <span t-field="line.product_uom_qty"/>
@@ -111,7 +113,9 @@
                                 <td>
                                     <span t-field="line2.product_id.code"/>
                                     <span t-field="line2.product_id.name"/>
-                                    <span t-field="line2.product_id.e_nr"/>
+                                    <br/>
+                                    <t t-debug="pdb"></t>
+                                    <span t-field="line2.product_id.cut_e_nr"/>
                                 </td>
                                 <td class="text-right">
                                     <span t-field="line2.product_uom_qty"/>
@@ -152,7 +156,8 @@
                                     <td>
                                         <span t-field="line.product_id.code"/>
                                         <span t-field="line.product_id.name"/>
-                                        <span t-field="line.product_id.e_nr"/>
+                                        <br/>
+                                        <span t-field="line.product_id.cut_e_nr"/>
                                     </td>
                                     <td class="text-right">
                                         <span t-field="line.product_uom_qty"/>
@@ -175,7 +180,8 @@
                                     <td>
                                         <span t-field="line2.product_id.code"/>
                                         <span t-field="line2.product_id.name"/>
-                                        <span t-field="line2.product_id.e_nr"/>
+                                        <br/>
+                                        <span t-field="line2.product_id.cut_e_nr"/>
                                     </td>
                                     <td class="text-right">
                                         <span t-field="line2.product_uom_qty"/>
