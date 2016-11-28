@@ -142,3 +142,11 @@ migration:
       addons:
         upgrade:
           - board 
+    - version: 9.4.8
+      operations:
+        post:
+          - anthem songs.updates.update_9_4_8.update::main
+      addons:
+        upgrade:
+          - specific_partner
+          - specific_reports

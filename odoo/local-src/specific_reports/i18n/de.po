@@ -212,15 +212,21 @@ msgstr "<span class=\"col-xs-7\">Besteller:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-7\">Date Ordered:</span>"
-msgstr "<span class=\"col-xs-7\">Datum:</span>"
+msgid "<span class=\"col-xs-5\">Date Ordered:</span>"
+msgstr "<span class=\"col-xs-5\">Datum:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
 #: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
 msgid "<span class=\"col-xs-7\">Date:</span>"
 msgstr "<span class=\"col-xs-7\">Datum:</span>"
+
+#. module: specific_reports
+#: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
+msgid "<span class=\"col-xs-3\">Date:</span>"
+msgstr "<span class=\"col-xs-3\">Datum:</span>"
+
+
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
@@ -229,8 +235,8 @@ msgstr "<span class=\"col-xs-5\">Lieferdatum:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-7\">Delivery Method:</span>"
-msgstr "<span class=\"col-xs-7\">Versandart:</span>"
+msgid "<span class=\"col-xs-5\">Delivery Method:</span>"
+msgstr "<span class=\"col-xs-5\">Versandart:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
@@ -251,8 +257,8 @@ msgstr "<span class=\"col-xs-5\">Payment Term:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-7\">Quotation Date:</span>"
-msgstr "<span class=\"col-xs-7\">Datum:</span>"
+msgid "<span class=\"col-xs-5\">Quotation Date:</span>"
+msgstr "<span class=\"col-xs-5\">Datum:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
@@ -266,14 +272,14 @@ msgstr "<span class=\"col-xs-5\">Lieferanten-Nr.:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-7\">Term of delivery:</span>"
-msgstr "<span class=\"col-xs-7\">Lieferfrist:</span>"
+msgid "<span class=\"col-xs-5\">Term of delivery:</span>"
+msgstr "<span class=\"col-xs-5\">Lieferfrist:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-7\">Term of delivery:</span>\n"
+msgid "<span class=\"col-xs-5\">Term of delivery:</span>\n"
 "                  <span>nach Absprache</span>"
-msgstr "<span class=\"col-xs-7\">Lieferfrist:</span>\n"
+msgstr "<span class=\"col-xs-5\">Lieferfrist:</span>\n"
 "                  <span>nach Absprache</span>"
 
 #. module: specific_reports
