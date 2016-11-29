@@ -9,8 +9,6 @@ from openerp.osv import expression
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
-    default_code = fields.Char(readonly=True)
-
     e_nr = fields.Char("E-Nr", copy=False)
 
     transit_qty = fields.Float(
@@ -84,7 +82,7 @@ class ProductTemplate(models.Model):
 class ProductProduct(models.Model):
     _inherit = 'product.product'
 
-    default_code = fields.Char(readonly=True, required=True)
+    default_code = fields.Char(readonly=True)
 
     transit_qty = fields.Float(
         compute='_get_transit_qty',
@@ -127,6 +125,14 @@ class ProductProduct(models.Model):
                 'product.product'
             )
         return super(ProductProduct, self).create(vals)
+
+    @api.multi
+    def copy(self, default=None):
+        self.ensure_one()
+        default = dict(default or {})
+        default['default_code'] = False
+        return super(ProductProduct, self).copy(default)
+
 
     @api.model
     def name_search(self, name, args=None, operator='ilike', limit=100):
