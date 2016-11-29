@@ -71,13 +71,15 @@ class SaleOrder(models.Model):
                     'building_project_id': build_project.id,
                     'partner_id': partner_id,
                     'pricelist_id': project_pricelist_id})
-        if project_id and business_provider_id:
+        if project_id and business_provider_id and \
+                (partner_id.id != business_provider_id.id):
             build_project = self.env['building.project'].search(
                 [('analytic_account_id', '=', project_id)])
             project_pl = self.env['building.project.pricelist'].search(
                 [('building_project_id', '=', build_project.id),
                  ('partner_id', '=', business_provider_id),
                  ('pricelist_id', '=', False)])
+            # TODO : check the usage of this write call
             project_pl.write({'partner_id': business_provider_id})
             if not project_pl:
                 self.env['building.project.pricelist'].create({

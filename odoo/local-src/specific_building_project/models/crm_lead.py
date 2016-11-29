@@ -63,7 +63,7 @@ class CRMLead(models.Model):
             building_project_id
         )
         act_dict['context'].update({
-            'default_business_provider_id': lead_partner_id,
+            'default_business_provider_id': False,
             'default_partner_id': self.partner_id.id,
             'default_project_id': building_project.analytic_account_id.id,
         })
