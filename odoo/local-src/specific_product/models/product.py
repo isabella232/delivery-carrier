@@ -133,7 +133,6 @@ class ProductProduct(models.Model):
         default['default_code'] = False
         return super(ProductProduct, self).copy(default)
 
-
     @api.model
     def name_search(self, name, args=None, operator='ilike', limit=100):
         """ Allow to search by E-Nr or internal ref """

@@ -54,7 +54,6 @@ class CRMLead(models.Model):
         )
         act_dict['context'] = self.env.context.copy()
 
-        lead_partner_id = self.env.context.get('default_partner_id')
         # get aa of building project as it is what SO expects in project_id
         building_project_id = self.env.context.get(
             'default_building_project_id'
@@ -63,7 +62,7 @@ class CRMLead(models.Model):
             building_project_id
         )
         act_dict['context'].update({
-            'default_business_provider_id': lead_partner_id,
+            'default_business_provider_id': False,
             'default_partner_id': self.partner_id.id,
             'default_project_id': building_project.analytic_account_id.id,
         })

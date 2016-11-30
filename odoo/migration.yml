@@ -154,6 +154,8 @@ migration:
           - specific_reports
     - version: 9.4.9
       operations:
+        pre:
+          - "sh -c 'PGPASSWORD=$DB_PASSWORD psql -h db -U $DB_USER -f songs/updates/update_9_4_9/update.sql $DB_NAME'"
         post:
           - anthem songs.updates.update_9_4_9.update::main
       addons:
@@ -161,3 +163,5 @@ migration:
           - specific_reports
           - specific_product
           - specific_account
+          - mail_environment
+          - specific_sale
