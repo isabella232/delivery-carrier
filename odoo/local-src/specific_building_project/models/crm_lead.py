@@ -54,7 +54,6 @@ class CRMLead(models.Model):
         )
         act_dict['context'] = self.env.context.copy()
 
-        lead_partner_id = self.env.context.get('default_partner_id')
         # get aa of building project as it is what SO expects in project_id
         building_project_id = self.env.context.get(
             'default_building_project_id'
