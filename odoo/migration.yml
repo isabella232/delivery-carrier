@@ -164,3 +164,4 @@ migration:
           - specific_product
           - specific_account
           - mail_environment
+          - specific_sale
