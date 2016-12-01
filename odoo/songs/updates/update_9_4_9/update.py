@@ -6,6 +6,12 @@
 import anthem
 from anthem.lyrics.records import create_or_update
 
+@anthem.log
+def reload_translation(ctx, module):
+    """ update translation """
+    ctx.env['ir.module.module'].with_context(overwrite=True).search(
+        [('name', '=', module)]).update_translations()
+
 
 @anthem.log
 def get_new_default_code(ctx):
@@ -16,7 +22,9 @@ def get_new_default_code(ctx):
         product.default_code = ctx.env['ir.sequence'].next_by_code(
             'product.product')
 
+
 @anthem.log
 def main(ctx):
     """ Loading data """
     get_new_default_code(ctx)
+    reload_translation(ctx, 'specific_reports')
