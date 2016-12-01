@@ -20,12 +20,14 @@ latest (unreleased)
 
 **Features and Improvements**
 * Add configuration for email
+* Add Chat configuration
 **Bugfixes**
 * Fix reference on invoice, the customer ref comma are replace by a '/' on sale order when saved
 * Building project : Business provider blank when create a quotation from an opportunity + Prevent dupplicate pricelist if partner equal to business provider
 * E-nr add on shipping report + split it in bloc of 3 character at printing
 * Remove size limit on delivery slip report, now the customer reference is printed on the full page size
 * Add support for ZKB
+* Fix sale order address delivery
 
 
 9.4.8 (2016-11-22)
