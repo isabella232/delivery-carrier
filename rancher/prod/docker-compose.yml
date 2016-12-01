@@ -41,11 +41,12 @@ odoo:
   labels:
     io.rancher.scheduler.affinity:host_label: application=true
     io.rancher.scheduler.global: 'true'
+    io.rancher.sidekicks: nginx
 
 nginx:
-  image: camptocamp/odoo-nginx:9.0
+  image: camptocamp/odoo-nginx:9.0-1.1.0
+  net: "container:odoo"
+  environment:
+    - NGX_ODOO_HOST=localhost
   links:
     - odoo:odoo
-  labels:
-    io.rancher.scheduler.affinity:host_label: application=true
-    io.rancher.scheduler.global: 'true'
