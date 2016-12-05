@@ -58,8 +58,9 @@ class SaleOrder(models.Model):
         this project is defined. If it doesn't exist, create one.
         Otherwise do nothing.
         """
-        partner = self.env['res.partner'].browse(partner_id)
-        partner_id = partner.get_company_partner().id
+        if partner_id:
+            partner = self.env['res.partner'].browse(partner_id)
+            partner_id = partner.get_company_partner().id
         if project_id and project_pricelist_id:
             build_project = self.env['building.project'].search(
                 [('analytic_account_id', '=', project_id)])
@@ -71,13 +72,15 @@ class SaleOrder(models.Model):
                     'building_project_id': build_project.id,
                     'partner_id': partner_id,
                     'pricelist_id': project_pricelist_id})
-        if project_id and business_provider_id:
+        if project_id and business_provider_id and \
+                (partner_id != business_provider_id):
             build_project = self.env['building.project'].search(
                 [('analytic_account_id', '=', project_id)])
             project_pl = self.env['building.project.pricelist'].search(
                 [('building_project_id', '=', build_project.id),
                  ('partner_id', '=', business_provider_id),
                  ('pricelist_id', '=', False)])
+            # TODO : check the usage of this write call
             project_pl.write({'partner_id': business_provider_id})
             if not project_pl:
                 self.env['building.project.pricelist'].create({

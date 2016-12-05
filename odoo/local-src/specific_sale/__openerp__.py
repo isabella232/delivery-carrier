@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# © 2016 Cyril Gaudin (Camptocamp)
+# © 2016 Vincent Renaville (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
-    'name': 'Specific - Account',
+    'name': 'Specific - Sale',
     'version': '9.0.1.0.0',
     'author': 'Camptocamp',
     'license': 'AGPL-3',
@@ -10,14 +10,9 @@
     'website': 'http://www.swisslux.ch',
     'images': [],
     'depends': [
-        'account',
-        'specific_building_project',
-        'l10n_ch_pain_credit_transfer'
+        'sale',
     ],
     'data': [
-        'views/account_invoice.xml',
-        'security/account_invoice.xml',
-        'wizards/account_invoice_refund.xml',
     ],
     'test': [],
     'installable': True,
