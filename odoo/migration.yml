@@ -165,3 +165,4 @@ migration:
           - specific_account
           - mail_environment
           - specific_sale
+    - version: 9.4.10
