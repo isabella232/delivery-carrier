@@ -43,10 +43,13 @@ class SaleOrder(models.Model):
     @api.onchange('project_id', 'partner_id')
     def _set_project_pricelist(self):
         if self.project_id or not self.partner_id:
+            company_partner_id = False
+            if self.partner_id:
+                company_partner_id = self.partner_id.get_company_partner()
             build_project = self.env['building.project'].search(
                 [('analytic_account_id', '=', self.project_id.id)])
             discounts = [pl for pl in build_project.customer_discount_ids
-                         if pl.partner_id == self.partner_id]
+                         if pl.partner_id == company_partner_id]
             pricelist = discounts[0].pricelist_id if discounts else False
             self.project_pricelist_id = pricelist
 
