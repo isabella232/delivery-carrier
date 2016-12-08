@@ -65,6 +65,7 @@ class CRMLead(models.Model):
             'default_business_provider_id': False,
             'default_partner_id': self.partner_id.id,
             'default_project_id': building_project.analytic_account_id.id,
+            'default_opportunity_id': self.id
         })
         return act_dict
 
