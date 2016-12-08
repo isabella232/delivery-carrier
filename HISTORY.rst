@@ -15,6 +15,15 @@ latest (unreleased)
 **Documentation**
 
 
+9.4.10 (2016-12-08)
++++++++++++++++++++
+
+**Bugfixes**
+* Linked opportunity to quotation even if it's a building project
+* If partner is a contact, it will take the company to get the related pricelist
+* customer reference with comma is replaced by / also on creation
+
+
 9.4.9 (2016-11-30)
 ++++++++++++++++++
 
