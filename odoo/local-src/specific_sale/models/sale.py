@@ -14,7 +14,17 @@ class SaleOrder(models.Model):
     def write(self, vals):
         # Force the use of the first alias for creating tasks
         if 'client_order_ref' in vals:
-            vals['client_order_ref'] = vals['client_order_ref'].replace(
-                ',', '/')
+            if vals['client_order_ref']:
+                vals['client_order_ref'] = vals['client_order_ref'].replace(
+                    ',', '/')
         res = super(SaleOrder, self).write(vals)
+        return res
+
+    @api.model
+    def create(self, vals):
+        if 'client_order_ref' in vals:
+            if vals['client_order_ref']:
+                vals['client_order_ref'] = vals['client_order_ref'].replace(
+                    ',', '/')
+        res = super(SaleOrder, self).create(vals)
         return res
