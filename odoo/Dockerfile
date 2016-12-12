@@ -2,7 +2,16 @@ FROM camptocamp/odoo-project:9.0-1.7.1
 MAINTAINER Camptocamp
 
 COPY requirements.txt /opt/odoo/requirements.txt
-RUN pip install -r /opt/odoo/requirements.txt
+
+# Install additional debian packages
+RUN set -x; \
+         apt-get update \
+         && apt-get install -y --no-install-recommends \
+         build-essential libssl-dev libffi-dev python-dev \
+         && cd /opt/odoo && pip install -r requirements.txt \
+         && apt-get clean \
+         && apt-get remove -y build-essential libssl-dev libffi-dev python-dev \
+         && rm -rf /var/lib/apt/lists/*
 
 COPY ./features /opt/odoo/features
 

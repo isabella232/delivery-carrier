@@ -8,6 +8,10 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add module for exporting partners in csv to sftp server
+* Add configuration for SFTP in server env configuration files
+
+
 **Bugfixes**
 
 **Build**
@@ -25,7 +29,7 @@ latest (unreleased)
 +++++++++++++++++++
 
 **Features and Improvements**
-* New logs for Redis 
+* New logs for Redis
 **Bugfixes**
 * inactivate security rules for building project
 * reset a new sequence on dupplicate products
@@ -59,9 +63,9 @@ latest (unreleased)
 ++++++++++++++++++
 
 **Features and Improvements**
-* Add new rule for china 
+* Add new rule for china
 **Bugfixes**
-* Remove contraints for unique account number for partner bank 
+* Remove contraints for unique account number for partner bank
 * Remove required for ref on partner form
 * Change Order print layout of date
 * Change Invoice print layout
@@ -157,7 +161,7 @@ latest (unreleased)
 
 **Bugfixes**
 
-* Fix customer/supplier field on contact if parent company is customer/supplier 
+* Fix customer/supplier field on contact if parent company is customer/supplier
 * Add security for specific_invoice
 
 9.3.5 (2016-10-31)
