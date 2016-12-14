@@ -39,7 +39,10 @@ odoo:
     - STATSD_HOST=${STATSD_HOST}
     - STATSD_PORT=${STATSD_PORT}
   labels:
-    io.rancher.scheduler.affinity:host_label: application=true
+    # TODO: restore the 'application=true' label once the label is added
+    # on the integration host
+    # io.rancher.scheduler.affinity:host_label: application=true,integration=true
+    io.rancher.scheduler.affinity:host_label: integration=true
     io.rancher.sidekicks: nginx
 
 nginx:
@@ -71,7 +74,10 @@ letsencrypt:
     PUBLIC_KEY_TYPE: RSA-2048
     RENEWAL_TIME: '12'
   labels:
-    io.rancher.scheduler.affinity:host_label: application=true
+    # TODO: restore the 'application=true' label once the label is added
+    # on the integration host
+    # io.rancher.scheduler.affinity:host_label: application=true,integration=true
+    io.rancher.scheduler.affinity:host_label: integration=true
     io.rancher.container.create_agent: 'true'
     io.rancher.container.agent.role: environment
   image: janeczku/rancher-letsencrypt:v0.3.0

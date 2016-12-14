@@ -39,7 +39,7 @@ odoo:
     - STATSD_HOST=${STATSD_HOST}
     - STATSD_PORT=${STATSD_PORT}
   labels:
-    io.rancher.scheduler.affinity:host_label: application=true
+    io.rancher.scheduler.affinity:host_label: application=true,production=true
     io.rancher.scheduler.global: 'true'
     io.rancher.sidekicks: nginx
 
@@ -72,7 +72,7 @@ letsencrypt:
     PUBLIC_KEY_TYPE: RSA-2048
     RENEWAL_TIME: '12'
   labels:
-    io.rancher.scheduler.affinity:host_label: application=true
+    io.rancher.scheduler.affinity:host_label: application=true,production=true
     io.rancher.container.create_agent: 'true'
     io.rancher.container.agent.role: environment
   image: janeczku/rancher-letsencrypt:v0.3.0
