@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
   <record model="ir.rule" id="rule_department_manager_project_create">
-    <field name="active" eval="1" />
+    <field name="active" eval="0" />
     <field name="domain_force">[('department_id.manager_id.user_id', '=', user.id)]</field>
     <field name="model_id" ref="project.model_project_project" />
     <field name="name">Department manager can create projects for their department</field>

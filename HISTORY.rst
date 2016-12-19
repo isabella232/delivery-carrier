@@ -15,6 +15,16 @@ latest (unreleased)
 **Documentation**
 
 
+9.4.11 (2016-12-16)
++++++++++++++++++++
+
+**Features and Improvements**
+* New logs for Redis 
+**Bugfixes**
+* inactivate security rules for building project
+* reset a new sequence on dupplicate products
+
+
 9.4.10 (2016-12-08)
 +++++++++++++++++++
 
