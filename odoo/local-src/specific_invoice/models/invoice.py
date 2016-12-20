@@ -22,3 +22,9 @@ class AccountInvoice(models.Model):
                 matching_rule = rule_model.search(domain, limit=1)
             if matching_rule:
                 self.partner_bank_id = matching_rule.partner_bank_id
+
+    @api.multi
+    def invoice_validate(self):
+        # Invalidate constraint that check unique reference for partner invoice
+        # With some credit card company invoice reference is always the same
+        return self.write({'state': 'open'})
