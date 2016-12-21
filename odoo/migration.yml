@@ -173,3 +173,4 @@ migration:
       addons:
         upgrade:
           - specific_building_project
+    - version: 9.4.12

@@ -15,6 +15,12 @@ latest (unreleased)
 **Documentation**
 
 
+9.4.12 (2016-12-21)
++++++++++++++++++++
+
+**Bugfixes**
+* Allow multiple same supplier reference on supplier invoice
+
 9.4.11 (2016-12-16)
 +++++++++++++++++++
 
