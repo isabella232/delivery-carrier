@@ -8,6 +8,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+9.5.0 (2016-12-21)
+++++++++++++++++++
+
+**Features and Improvements**
+
 * Add module for exporting partners in csv to sftp server
 * Add configuration for SFTP in server env configuration files
 
