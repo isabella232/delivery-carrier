@@ -174,8 +174,7 @@ migration:
         upgrade:
           - specific_building_project
     - version: 9.4.12
-    - version: 9.5.0
+    - version: 9.5.1
       addons:
         upgrade:
           - specific_csv_export
-    - version: 9.5.1
