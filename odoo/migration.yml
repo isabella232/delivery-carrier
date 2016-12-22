@@ -178,3 +178,4 @@ migration:
       addons:
         upgrade:
           - specific_csv_export
+    - version: 9.5.1
