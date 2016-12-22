@@ -15,6 +15,21 @@ latest (unreleased)
 **Documentation**
 
 
+9.5.1 (2016-12-22)
+++++++++++++++++++
+
+**Features and Improvements**
+
+**Bugfixes**
+
+* Fix csv if there is no "influence"
+
+
+**Build**
+
+**Documentation**
+
+
 9.5.0 (2016-12-21)
 ++++++++++++++++++
 

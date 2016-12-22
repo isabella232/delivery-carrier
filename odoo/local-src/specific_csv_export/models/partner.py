@@ -250,14 +250,12 @@ class ResPartner(models.Model):
         }
         return res
 
-    @api.model
     def get_parent_id_ref(self):
 
         parent_ref = self.parent_id.ref
 
         return parent_ref
 
-    @api.model
     def get_partner_state(self):
         if self.partner_state == 'qualified':
             return 'qualifiziert - Person'
@@ -266,7 +264,6 @@ class ResPartner(models.Model):
         elif self.partner_state == 'active':
             return 'potentieller Partner - Person'
 
-    @api.model
     def get_country_id_name(self):
         country_name = self.country_id.code
         if country_name == 'IT':
@@ -280,17 +277,14 @@ class ResPartner(models.Model):
         else:
             return country_name
 
-    @api.model
     def get_state_name(self):
         if self.state_id.code:
             return self.state_id.code
 
-    @api.model
     def get_user_id(self):
         if self.user_id.login:
             return self.user_id.login
 
-    @api.model
     def get_export_tags(self):
         if self.category_id:
             values = ()
@@ -301,11 +295,11 @@ class ResPartner(models.Model):
 
             return values
 
-    @api.model
     def get_influence(self):
-        key = self.influence
-        value = dict(self.fields_get(allfields=['influence'])
-                     ['influence']['selection'])[key]
-        if value == "Schluesselkontakt":
-            value = "Schlüsselkontakt"
-        return value
+        if self.influence:
+            key = self.influence
+            value = dict(self.fields_get(allfields=['influence'])
+                         ['influence']['selection'])[key]
+            if value == "Schluesselkontakt":
+                value = u"Schlüsselkontakt"
+            return value
