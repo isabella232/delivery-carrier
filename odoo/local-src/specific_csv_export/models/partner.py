@@ -303,9 +303,10 @@ class ResPartner(models.Model):
 
     @api.model
     def get_influence(self):
-        key = self.influence
-        value = dict(self.fields_get(allfields=['influence'])
-                     ['influence']['selection'])[key]
-        if value == "Schluesselkontakt":
-            value = "Schlüsselkontakt"
-        return value
+        if self.influence:
+            key = self.influence
+            value = dict(self.fields_get(allfields=['influence'])
+                         ['influence']['selection'])[key]
+            if value == "Schluesselkontakt":
+                value = "Schlüsselkontakt"
+            return value

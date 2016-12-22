@@ -10,6 +10,9 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Fix csv if there is no "influence"
+
+
 **Build**
 
 **Documentation**
