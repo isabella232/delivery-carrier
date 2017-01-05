@@ -15,10 +15,13 @@ latest (unreleased)
 **Documentation**
 
 
-9.5.1 (2016-12-22)
+9.5.1 (2016-01-05)
 ++++++++++++++++++
 
 **Features and Improvements**
+
+* Script post install to ignore the partners created/modified before 16-12-01
+* Set CRON unactive at installation
 
 **Bugfixes**
 
