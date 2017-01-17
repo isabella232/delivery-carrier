@@ -3,6 +3,9 @@ MAINTAINER Camptocamp
 
 COPY requirements.txt /opt/odoo/requirements.txt
 
+
+COPY ./start-entrypoint.d/010_dev_set_db_storage /opt/odoo/start-entrypoint.d/010_dev_set_db_storage
+
 # Install additional debian packages
 RUN set -x; \
          apt-get update \
