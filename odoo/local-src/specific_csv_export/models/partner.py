@@ -37,6 +37,7 @@ EXPORT_FIELDS_ADRESSES = [
     ('active', 'Account_Active', 'boolean_number'),
     ('name', 'Account_LastName', None),
     ('street', 'Account_Street', None),
+    ('street2', 'Account_AddressLine1', None),
     ('zip', 'Account_PostalCode', None),
     ('city', 'Account_City', None),
     ('get_country_id_name', 'Account_Country_Dimension_ID', None),
@@ -263,8 +264,12 @@ class ResPartner(models.Model):
             return 'Kontaktpflege aktuell - Person'
         elif self.partner_state == 'active':
             return 'potentieller Partner - Person'
+        else:
+            return ''
 
     def get_country_id_name(self):
+        if not self.country_id:
+            return ''
         country_name = self.country_id.code
         if country_name == 'IT':
             return 'I'
