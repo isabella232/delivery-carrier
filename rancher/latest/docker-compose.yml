@@ -2,7 +2,7 @@ odoo:
   image: camptocamp/swisslux_odoo:latest
   command: odoo --load=web,web_kanban,session_redis,attachment_s3,logging_json
   external_links:
-    - redis/redis:redis
+    - redis-integration/redis:redis
   links:
     - db:db
   environment:
