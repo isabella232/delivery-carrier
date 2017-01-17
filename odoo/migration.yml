@@ -181,3 +181,7 @@ migration:
       addons:
         upgrade:
           - specific_csv_export
+    - version: 9.5.2
+      addons:
+        upgrade:
+          - attachment_s3
