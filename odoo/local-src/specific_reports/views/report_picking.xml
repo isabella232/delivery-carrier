@@ -13,7 +13,17 @@
 
         <xpath expr="//span[@t-field='pack_operation.product_id']" position="after">
             <br/>
-            <span t-field="pack_operation.product_id.e_nr"/>
+            <span t-field="pack_operation.product_id.cut_e_nr"/>
         </xpath>
+        <xpath expr="//tr[@t-foreach='o.pack_operation_ids']//img" position="attributes">
+           <attribute name="style">width:300px;height:50px;margin-bottom:40px</attribute>
+        </xpath>
+
+        <xpath expr="//tr[@t-foreach='o.pack_operation_ids']" position="attributes">
+           <attribute name="t-foreach">o.pack_operation_ids.sorted(key=lambda l: l.product_id.description_picking)</attribute>
+        </xpath>
+
+
+
     </template>
 </odoo>

@@ -18,4 +18,4 @@ class ProductTemplate(models.Model):
     @api.one
     def _compute_cut_enr(self):
         self.cut_e_nr = ' '.join(self.e_nr[i:i + 3] for i in xrange(
-            0, len(self.e_nr), 3))
+            0, len(self.e_nr or ''), 3))
