@@ -29,7 +29,8 @@ SERV_CONFIG_SECTION = 'sftp_csv'
 class CSVExporter(object):
 
     def __init__(self, records, export_mapping, export_padding=False,
-                 encoding='utf-8', quote_all=True, separator=';'):
+                 encoding='utf-8', quote_all=True, quotechar='"',
+                 separator=';', escapechar='\\'):
         # `records._name` does not exsist in v6.1
         model = records and records[0]._name or 'unknown model'
         _logger.info('export %d %s', len(records), model)
@@ -42,11 +43,13 @@ class CSVExporter(object):
             self._export_padding = None
         quoting = csv.QUOTE_MINIMAL
         if quote_all:
-            quoting = csv.QUOTE_ALL
+            quoting = csv.QUOTE_NONE
 
         self.csv_writer = csv.writer(self.output,
                                      encoding=encoding,
+                                     quotechar=quotechar,
                                      quoting=quoting,
+                                     escapechar=escapechar,
                                      delimiter=separator)
 
     def generate_export(self):
@@ -74,6 +77,10 @@ class CSVExporter(object):
                             value = 'False'
                         if type_field == 'number':
                             value = '0'
+                        if type_field == 'NAfield':
+                            value = 'n/a'
+                    if value and type_field == 'CharLimit50':
+                        value = value[:50]
                     if (type_field == 'boolean_number'):
                         if not value:
                             value = '0'
