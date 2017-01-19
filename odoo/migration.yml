@@ -187,7 +187,12 @@ migration:
         upgrade:
           - specific_csv_export
     - version: 9.5.2
+      operations:
+        post:
+          - anthem songs.updates.update_9_5_2.update::main
       addons:
         upgrade:
           - attachment_s3
           - specific_purchase
+          - specific_reports
+          - specific_partner
