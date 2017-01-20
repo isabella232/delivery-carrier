@@ -6,14 +6,13 @@
 import anthem
 
 @anthem.log
-def set_web_base_url(ctx):
+def set_report_base_url(ctx):
     """ Configuring web.base.url """
     url = 'http://localhost:8069'
-    ctx.env['ir.config_parameter'].set_param('web.base.url', url)
-    ctx.env['ir.config_parameter'].set_param('web.base.url.freeze', 'True')
+    ctx.env['ir.config_parameter'].set_param('report.url', url)
 
 
 @anthem.log
 def main(ctx):
     """ Loading data """
-    set_web_base_url(ctx)
+    set_report_base_url(ctx)
