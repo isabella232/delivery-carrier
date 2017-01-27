@@ -7,6 +7,7 @@ migration:
         post:
           - anthem openerp.addons.cloud_platform.songs::install_exoscale
           - oerpscenario -t setup -t ~slow
+          - anthem songs.install.post::main
 
       addons:
         upgrade:
