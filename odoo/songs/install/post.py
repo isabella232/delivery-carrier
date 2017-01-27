@@ -8,6 +8,7 @@ import anthem
 
 @anthem.log
 def admin_user_password(ctx):
+    """ Change admin password """
     ctx.env.user.password_crypt = (
         '$pbkdf2-sha512$12000$jpESopSSspZSihGCkFIKgQ$ERBXlRyOqRO0LTdpmamlO'
         'QFQnGMDKndQZaHRZfmvzYAeQWH/R6wv.QVnlj.cEV4/xshhEAdK8H7ro525hy.LjA'
