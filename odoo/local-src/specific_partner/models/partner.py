@@ -14,7 +14,10 @@ class ResPartner(models.Model):
     def _display_name_compute(self, name, args):
         res = super(ResPartner, self)._display_name_compute(name, args)
         for rec in self:
-            if rec.ref:
+            if rec.ref and rec.city:
+                res[rec.id] = u'{}, {}  ({})'.format(res[rec.id],
+                                                     rec.city, rec.ref)
+            elif rec.ref:
                 res[rec.id] = u'{} ({})'.format(res[rec.id], rec.ref)
         return res
 
