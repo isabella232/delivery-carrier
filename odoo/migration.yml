@@ -197,3 +197,4 @@ migration:
           - specific_purchase
           - specific_reports
           - specific_partner
+          - specific_company_group
