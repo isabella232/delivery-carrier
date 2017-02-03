@@ -14,3 +14,8 @@ class AccountInvoice(models.Model):
         model='res.partner',
         string='Company Group',
     )
+
+    income_partner_id = fields.Many2one(
+        'res.partner',
+        string='Income Partner',
+    )
