@@ -11,10 +11,16 @@ class sale_report(models.Model):
         'Company Group'
     )
 
+    income_partner_id = fields.Many2one(
+        'res.partner',
+        'Income Partner'
+    )
+
     def _select(self):
         return super(sale_report, self).\
-                   _select() + ", s.company_group_id as company_group_id"
+            _select() + ", s.company_group_id as company_group_id," + \
+            "s.income_partner_id as income_partner_id"
 
     def _group_by(self):
         return super(sale_report, self). \
-                   _group_by() + ", s.company_group_id"
+                   _group_by() + ", s.company_group_id, s.income_partner_id"

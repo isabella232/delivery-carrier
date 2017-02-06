@@ -36,6 +36,7 @@
             <filter name="group_by_partner_id" position="after">
              <filter name="group_by_company_group_id" string="Company group" context="{'group_by':'company_group_id'}"/>
              <filter name="group_by_income_partner_id" string="Income Partner" context="{'group_by':'income_partner_id'}"/>
+             <filter name="group_by_turnover" string="Turnover Report" context="{'group_by':['company_group_id', 'commercial_partner_id', 'income_partner_id']}"/>
             </filter>
         </field>
     </record>

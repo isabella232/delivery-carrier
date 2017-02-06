@@ -32,6 +32,7 @@
             </field>
             <filter name="customer" position="after">
                <filter name="group_company_group" string="Company Group" domain="[]" context="{'group_by':'company_group_id'}"/>
+               <filter name="group_turnover" string="Turnover Report" domain="[]" context="{'group_by':['company_group_id', 'income_partner_id', 'commercial_partner_id']}"/>
             </filter>
         </field>
     </record>

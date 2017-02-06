@@ -19,6 +19,8 @@ class ResPartner(models.Model):
                                                      rec.city, rec.ref)
             elif rec.ref:
                 res[rec.id] = u'{} ({})'.format(res[rec.id], rec.ref)
+            elif rec.city:
+                res[rec.id] = u'{}, {}'.format(res[rec.id], rec.city)
         return res
 
     # Add ref in triggers in base code
@@ -27,7 +29,7 @@ class ResPartner(models.Model):
             lambda self, cr, uid, ids, context=None: self.search(
                 cr, uid, [('id', 'child_of', ids)],
                 context=dict(active_test=False)),
-            ['parent_id', 'is_company', 'name', 'ref'], 10)
+            ['parent_id', 'is_company', 'name', 'ref', 'city'], 10)
     }
 
     def _display_name(self, *args, **kwargs):
@@ -153,6 +155,48 @@ class ResPartner(models.Model):
                 name, args=args, operator=operator, limit=limit)
         return result
 
+    def name_get(self, cr, uid, ids, context=None):
+        if context is None:
+            context = {}
+        if isinstance(ids, (int, long)):
+            ids = [ids]
+        res = []
+        for record in self.browse(cr, uid, ids, context=context):
+            name = record.name or ''
+            if record.ref and record.city:
+                name = u'{}, {}  ({})'.format(name, record.city, record.ref)
+            elif record.ref:
+                name = u'{} ({})'.format(name, record.ref)
+            elif record.city:
+                name = u'{}, {}'.format(name, record.city)
+            if record.parent_id and not record.is_company:
+                if not name and record.type in ['invoice',
+                                                'delivery',
+                                                'other']:
+                    name = dict(self.fields_get(
+                        cr, uid, ['type'],
+                        context=context)['type']['selection'])[record.type]
+                name = "%s, %s" % (record.parent_name, name)
+            if context.get('show_address_only'):
+                name = self._display_address(cr,
+                                             uid,
+                                             record,
+                                             without_company=True,
+                                             context=context)
+            if context.get('show_address'):
+                name = name + "\n" + self._display_address(
+                    cr, uid, record,
+                    without_company=True,
+                    context=context)
+            name = name.replace('\n\n', '\n')
+            name = name.replace('\n\n', '\n')
+            if context.get('show_email') and record.email:
+                name = "%s <%s>" % (name, record.email)
+            if context.get('html_format'):
+                name = name.replace('\n', '<br/>')
+            res.append((record.id, name))
+        return res
+
     @api.one
     @api.onchange('zip_id')
     def onchange_zip_set_region_and_user(self):
@@ -166,7 +210,7 @@ class ResPartner(models.Model):
         default = dict(default or {})
         default['ref'] = self.env['ir.sequence'].next_by_code(
             'res.partner'
-            )
+        )
         return super(ResPartner, self).copy(default)
 
     @api.multi
