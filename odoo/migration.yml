@@ -190,3 +190,4 @@ migration:
       addons:
         upgrade:
           - attachment_s3
+          - specific_purchase
