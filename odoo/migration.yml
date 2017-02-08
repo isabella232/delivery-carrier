@@ -198,3 +198,15 @@ migration:
           - specific_reports
           - specific_partner
           - specific_company_group
+          - account_extension
+          - web_gantt
+          - hr_holidays_gantt
+          - project_timesheet_synchro
+          - website_enterprise
+          - l10n_ch_reports
+          - account_bank_statement_import_ofx
+          - hr_appraisal
+          - account_reports_followup
+          - account_reports
+          - currency_rate_live
+          - stock_barcode
