@@ -27,6 +27,7 @@ def recreate_routing(ctx):
         ('location_id', 'in', [13, 18]),
         ('id', 'not in', [715, 752, 6439, 731, 737, 749, 728])])
     cpt = 1
+    context = {'bypass_check_state': True}
     for stock_move in stock_move_list:
         #We will search the the stock_move_releated
         chaine_move_id = get_child_move(ctx, stock_move, [])
@@ -35,7 +36,7 @@ def recreate_routing(ctx):
         to_cancel_moves = ctx.env['stock.move'].search([
             ('id', 'in', chaine_move_id)])
         for cancel_move in to_cancel_moves:
-            cancel_move.state = 'cancel'
+            cancel_move.with_context(context).action_cancel()
         cpt+=1
     # Get all stock picking from location vendor that is not done or cancel
     picking_list = ctx.env['stock.picking'].search([
@@ -45,7 +46,8 @@ def recreate_routing(ctx):
     for stock_picking in picking_list:
         anthem.output.safe_print(
             'Cancel picking %s-%s-%s ' % (stock_picking.id,cpt, len(picking_list)))
-        stock_picking.action_cancel()
+        context = {'bypass_check_state': True}
+        stock_picking.with_context(context).action_cancel()
         new_picking = stock_picking.copy()
         new_picking.action_confirm()
         cpt += 1
