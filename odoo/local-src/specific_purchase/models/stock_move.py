@@ -2,7 +2,7 @@
 # © 2017 Joel Grand-Guillaume (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, models
+from openerp import models
 
 
 class StockMove(models.Model):
@@ -10,7 +10,7 @@ class StockMove(models.Model):
 
     def _propagate_procurement_group(self, group_id):
         """ Propagate the proc. group to all chain moves if propagate is True.
-        Goal is to have all moves related to a same PO in a same picking all 
+        Goal is to have all moves related to a same PO in a same picking all
         along the chain event if the PO has been generated from a OP.
         @return: True
         """
