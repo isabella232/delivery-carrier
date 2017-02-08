@@ -198,7 +198,6 @@ migration:
           - specific_reports
           - specific_partner
           - specific_company_group
-          - account_extension
           - web_gantt
           - hr_holidays_gantt
           - project_timesheet_synchro
