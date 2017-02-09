@@ -209,3 +209,5 @@ migration:
           - account_reports
           - currency_rate_live
           - stock_barcode
+          - specific_mrp
+
