@@ -19,8 +19,7 @@ class MrpProduction(models.Model):
         for production in self:
             production.group_id = self.env['procurement.group'].create(
                 {'name': production.name})
-        super(MrpProduction, self).action_confirm()
-        return 0
+        return super(MrpProduction, self).action_confirm()
 
     @api.multi
     def copy(self, default=None):
@@ -38,6 +37,7 @@ class MrpProduction(models.Model):
         for move in self.env['stock.move'].browse(created_ids):
             if not move.group_id:
                 move.write({'group_id': production.group_id.id})
+        return created_ids
 
     @api.multi
     def action_cancel(self):
@@ -46,8 +46,7 @@ class MrpProduction(models.Model):
                                                     '=',
                                                     production.group_id.id)])
             moves.with_context(bypass_check_state=True).action_cancel()
-        super(MrpProduction, self).action_cancel()
-        return True
+        return super(MrpProduction, self).action_cancel()
 
     @api.model
     def _make_consume_line_from_data(self, production, product, uom_id, qty):
