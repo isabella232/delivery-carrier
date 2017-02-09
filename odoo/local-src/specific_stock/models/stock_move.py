@@ -36,7 +36,7 @@ class StockMove(models.Model):
             for current_stock_move in self:
                 for parent_stock_move in current_stock_move.move_orig_ids:
                     if parent_stock_move.state != 'cancel':
-                        raise UserError(_("You Cannot cancel this move %s,"
+                        raise UserError(_("You cannot cancel this move %s,"
                                           " you must first cancel "
                                           "the parent move"
                                           " in the picking %s") %

@@ -14,13 +14,7 @@ class ResPartner(models.Model):
     def _display_name_compute(self, name, args):
         res = super(ResPartner, self)._display_name_compute(name, args)
         for rec in self:
-            if rec.ref and rec.city:
-                res[rec.id] = u'{}, {}  ({})'.format(res[rec.id],
-                                                     rec.city, rec.ref)
-            elif rec.ref:
-                res[rec.id] = u'{} ({})'.format(res[rec.id], rec.ref)
-            elif rec.city:
-                res[rec.id] = u'{}, {}'.format(res[rec.id], rec.city)
+            res[rec.id] = rec.name_get()[0][1]
         return res
 
     # Add ref in triggers in base code
@@ -155,13 +149,10 @@ class ResPartner(models.Model):
                 name, args=args, operator=operator, limit=limit)
         return result
 
-    def name_get(self, cr, uid, ids, context=None):
-        if context is None:
-            context = {}
-        if isinstance(ids, (int, long)):
-            ids = [ids]
+    @api.multi
+    def name_get(self):
         res = []
-        for record in self.browse(cr, uid, ids, context=context):
+        for record in self:
             name = record.name or ''
             if record.ref and record.city:
                 name = u'{}, {}  ({})'.format(name, record.city, record.ref)
@@ -173,26 +164,19 @@ class ResPartner(models.Model):
                 if not name and record.type in ['invoice',
                                                 'delivery',
                                                 'other']:
-                    name = dict(self.fields_get(
-                        cr, uid, ['type'],
-                        context=context)['type']['selection'])[record.type]
+                    name = dict(self.fields_get()['type']
+                                ['selection'])[record.type]
                 name = "%s, %s" % (record.parent_name, name)
-            if context.get('show_address_only'):
-                name = self._display_address(cr,
-                                             uid,
-                                             record,
-                                             without_company=True,
-                                             context=context)
-            if context.get('show_address'):
-                name = name + "\n" + self._display_address(
-                    cr, uid, record,
-                    without_company=True,
-                    context=context)
+            if self.env.context.get('show_address_only'):
+                name = record._display_address(without_company=True)
+            if self.env.context.get('show_address'):
+                name = name + "\n" + record._display_address(
+                    without_company=True)
             name = name.replace('\n\n', '\n')
             name = name.replace('\n\n', '\n')
-            if context.get('show_email') and record.email:
+            if self.env.context.get('show_email') and record.email:
                 name = "%s <%s>" % (name, record.email)
-            if context.get('html_format'):
+            if self.env.context.get('html_format'):
                 name = name.replace('\n', '<br/>')
             res.append((record.id, name))
         return res

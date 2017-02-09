@@ -3,7 +3,7 @@
 from openerp import models, fields
 
 
-class sale_report(models.Model):
+class SaleReport(models.Model):
     _inherit = 'sale.report'
 
     company_group_id = fields.Many2one(
@@ -17,10 +17,10 @@ class sale_report(models.Model):
     )
 
     def _select(self):
-        return super(sale_report, self).\
+        return super(SaleReport, self).\
             _select() + ", s.company_group_id as company_group_id," + \
             "s.income_partner_id as income_partner_id"
 
     def _group_by(self):
-        return super(sale_report, self). \
+        return super(SaleReport, self). \
                    _group_by() + ", s.company_group_id, s.income_partner_id"

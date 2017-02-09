@@ -12,6 +12,7 @@ class SaleOrder(models.Model):
         related='partner_id.company_group_id',
         model='res.partner',
         store=True,
+        readonly=True,
         string='Company Group',
     )
 

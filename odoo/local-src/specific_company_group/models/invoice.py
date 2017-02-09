@@ -11,6 +11,7 @@ class AccountInvoice(models.Model):
     company_group_id = fields.Many2one(
         related='partner_id.company_group_id',
         store=True,
+        readonly=True,
         model='res.partner',
         string='Company Group',
     )
