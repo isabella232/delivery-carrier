@@ -3,10 +3,20 @@
 Release History
 ---------------
 
-latest (unreleased)
-+++++++++++++++++++
+
+9.5.2 (2017-02-09)
+++++++++++++++++++
 
 **Features and Improvements**
+* Add procurement group on MO and propagated on stock move
+* Cancelling a MO, cancel all related move
+* The PO procurement group is propagated, on all related stock move (event on buy from china route)
+* Fix CSV exporting contact, remove 'False' inside fields, add escape caracter on text fields
+* Improve Report picking Layout
+* Improve of display partner (Name, City (Ref))
+* Add script to recompute display parter
+* Add module to report on Company Group (Turnover Report) 
+* Add check to prevent to cancelling a move if the parent is not cancelled
 
 **Bugfixes**
 
