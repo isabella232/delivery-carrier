@@ -91,7 +91,6 @@
                                     <span t-field="line.product_id.code"/>
                                     <span t-field="line.product_id.name"/>
                                     <br/>
-                                    <t t-set="pdb"></t>
                                     <span t-field="line.product_id.cut_e_nr"/>
                                 </td>
                                 <td class="text-right">

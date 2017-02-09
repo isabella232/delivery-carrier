@@ -14,8 +14,7 @@ class ResPartner(models.Model):
     def _display_name_compute(self, name, args):
         res = super(ResPartner, self)._display_name_compute(name, args)
         for rec in self:
-            if rec.ref:
-                res[rec.id] = u'{} ({})'.format(res[rec.id], rec.ref)
+            res[rec.id] = rec.name_get()[0][1]
         return res
 
     # Add ref in triggers in base code
@@ -24,7 +23,7 @@ class ResPartner(models.Model):
             lambda self, cr, uid, ids, context=None: self.search(
                 cr, uid, [('id', 'child_of', ids)],
                 context=dict(active_test=False)),
-            ['parent_id', 'is_company', 'name', 'ref'], 10)
+            ['parent_id', 'is_company', 'name', 'ref', 'city'], 10)
     }
 
     def _display_name(self, *args, **kwargs):
@@ -150,6 +149,38 @@ class ResPartner(models.Model):
                 name, args=args, operator=operator, limit=limit)
         return result
 
+    @api.multi
+    def name_get(self):
+        res = []
+        for record in self:
+            name = record.name or ''
+            if record.ref and record.city:
+                name = u'{}, {}  ({})'.format(name, record.city, record.ref)
+            elif record.ref:
+                name = u'{} ({})'.format(name, record.ref)
+            elif record.city:
+                name = u'{}, {}'.format(name, record.city)
+            if record.parent_id and not record.is_company:
+                if not name and record.type in ['invoice',
+                                                'delivery',
+                                                'other']:
+                    name = dict(self.fields_get()['type']
+                                ['selection'])[record.type]
+                name = "%s, %s" % (record.parent_name, name)
+            if self.env.context.get('show_address_only'):
+                name = record._display_address(without_company=True)
+            if self.env.context.get('show_address'):
+                name = name + "\n" + record._display_address(
+                    without_company=True)
+            name = name.replace('\n\n', '\n')
+            name = name.replace('\n\n', '\n')
+            if self.env.context.get('show_email') and record.email:
+                name = "%s <%s>" % (name, record.email)
+            if self.env.context.get('html_format'):
+                name = name.replace('\n', '<br/>')
+            res.append((record.id, name))
+        return res
+
     @api.one
     @api.onchange('zip_id')
     def onchange_zip_set_region_and_user(self):
@@ -163,7 +194,7 @@ class ResPartner(models.Model):
         default = dict(default or {})
         default['ref'] = self.env['ir.sequence'].next_by_code(
             'res.partner'
-            )
+        )
         return super(ResPartner, self).copy(default)
 
     @api.multi

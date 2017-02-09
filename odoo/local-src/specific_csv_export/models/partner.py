@@ -18,14 +18,14 @@ EXPORT_FIELDS_CONTACTS = [
     ('active', 'AccountContact_Active', 'boolean_number'),
     ('get_parent_id_ref', 'AccountContact_Account_ID', None),
     ('title', 'AccountContact_Salutation', None),
-    ('lastname', 'AccountContact_LastName', None),
+    ('lastname', 'AccountContact_LastName', 'NAfield'),
     ('firstname', 'AccountContact_FirstName', None),
     ('phone', 'AccountContact_Phone1', None),
     ('mobile', 'AccountContact_Mobile1', None),
     ('fax', 'AccountContact_Fax1', None),
     ('lang', 'AccountContact_Language_Dimension_ID', None),
     ('email', 'AccountContact_Email1', None),
-    ('function', 'AccountContact_Function', None),
+    ('function', 'AccountContact_Function', 'CharLimit50'),
     ('get_partner_state', 'AccountContact_Flag_Dimension_ID', None),
     ('get_influence', 'AccountContact_Influence_Dimension_ID', None),
     ('department', 'AccountContact_Department', None),
@@ -37,6 +37,7 @@ EXPORT_FIELDS_ADRESSES = [
     ('active', 'Account_Active', 'boolean_number'),
     ('name', 'Account_LastName', None),
     ('street', 'Account_Street', None),
+    ('street2', 'Account_AddressLine1', None),
     ('zip', 'Account_PostalCode', None),
     ('city', 'Account_City', None),
     ('get_country_id_name', 'Account_Country_Dimension_ID', None),
@@ -263,8 +264,12 @@ class ResPartner(models.Model):
             return 'Kontaktpflege aktuell - Person'
         elif self.partner_state == 'active':
             return 'potentieller Partner - Person'
+        else:
+            return ''
 
     def get_country_id_name(self):
+        if not self.country_id:
+            return ''
         country_name = self.country_id.code
         if country_name == 'IT':
             return 'I'

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Hide default button for in_invoice or in_refund invoices -->
+    <record id="invoice_form_company_group" model="ir.ui.view">
+        <field name="name">account.invoice.form.over</field>
+        <field name="inherit_id" ref="account.invoice_form"/>
+        <field name="model">account.invoice</field>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="company_group_id"/>
+                <field name="income_partner_id"/>
+            </field>
+        </field>
+    </record>
+    <record id="invoice_tree_company_group" model="ir.ui.view">
+        <field name="name">account.invoice.tree.over</field>
+        <field name="inherit_id" ref="account.invoice_tree"/>
+        <field name="model">account.invoice</field>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="company_group_id"/>
+                <field name="income_partner_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_account_invoice_filter_company_group" model="ir.ui.view">
+        <field name="name">account.invoice.select</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+        <field name="model">account.invoice</field>
+        <field name="arch" type="xml">
+            <field name="journal_id" position="after">
+                <field name="company_group_id"/>
+                <field name="income_partner_id"/>
+            </field>
+            <filter name="group_by_partner_id" position="after">
+             <filter name="group_by_company_group_id" string="Company group" context="{'group_by':'company_group_id'}"/>
+             <filter name="group_by_income_partner_id" string="Income Partner" context="{'group_by':'income_partner_id'}"/>
+             <filter name="group_by_turnover" string="Turnover Report" context="{'group_by':['company_group_id', 'commercial_partner_id', 'income_partner_id']}"/>
+            </filter>
+        </field>
+    </record>
+
+</odoo>
