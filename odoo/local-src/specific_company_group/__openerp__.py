@@ -15,7 +15,8 @@
         "base",
         "sale",
         "account",
-        "specific_partner"
+        "specific_partner",
+        "specific_building_project"
     ],
     "data": [
         "views/res_partner.xml",

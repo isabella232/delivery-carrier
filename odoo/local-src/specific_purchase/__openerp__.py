@@ -10,7 +10,9 @@
     'website': 'http://www.swisslux.ch',
     'images': [],
     'depends': [
-        'purchase'
+        'purchase',
+        'stock',
+        'specific_stock'
     ],
     'data': [
     ],

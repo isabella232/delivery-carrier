@@ -18,3 +18,12 @@ class PurchaseOrderLine(models.Model):
         for move in res:
             move._propagate_procurement_group(move.group_id)
         return res
+
+
+class PurchaseOrder(models.Model):
+    _inherit = 'purchase.order'
+
+    @api.multi
+    def button_cancel(self):
+        return super(PurchaseOrder, self.with_context(
+            bypass_check_state=True)).button_cancel()
