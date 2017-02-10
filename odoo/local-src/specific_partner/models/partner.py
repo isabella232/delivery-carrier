@@ -154,12 +154,15 @@ class ResPartner(models.Model):
         res = []
         for record in self:
             name = record.name or ''
-            if record.ref and record.city:
-                name = u'{}, {}  ({})'.format(name, record.city, record.ref)
-            elif record.ref:
-                name = u'{} ({})'.format(name, record.ref)
-            elif record.city:
-                name = u'{}, {}'.format(name, record.city)
+            if self.env.context.get('show_address') or\
+                    self.env.context.get('uid'):
+                if record.ref and record.city:
+                    name = u'{}, {}  ({})'.format(name,
+                                                  record.city, record.ref)
+                elif record.ref:
+                    name = u'{} ({})'.format(name, record.ref)
+                elif record.city:
+                    name = u'{}, {}'.format(name, record.city)
             if record.parent_id and not record.is_company:
                 if not name and record.type in ['invoice',
                                                 'delivery',
@@ -168,10 +171,10 @@ class ResPartner(models.Model):
                                 ['selection'])[record.type]
                 name = "%s, %s" % (record.parent_name, name)
             if self.env.context.get('show_address_only'):
-                name = record._display_address(without_company=True)
+                name = record._display_address(record, without_company=True)
             if self.env.context.get('show_address'):
                 name = name + "\n" + record._display_address(
-                    without_company=True)
+                    record, without_company=True)
             name = name.replace('\n\n', '\n')
             name = name.replace('\n\n', '\n')
             if self.env.context.get('show_email') and record.email:

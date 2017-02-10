@@ -19,4 +19,5 @@ class AccountInvoice(models.Model):
     income_partner_id = fields.Many2one(
         'res.partner',
         string='Income Partner',
+        domain=([('is_company', '=', True)])
     )

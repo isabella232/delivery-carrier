@@ -37,7 +37,8 @@ class SaleOrder(models.Model):
     @api.multi
     def _prepare_invoice(self):
         vals = super(SaleOrder, self)._prepare_invoice()
-        vals['income_partner_id'] = self.partner_id.id
+        company_partner = self.partner_id.get_company_partner()
+        vals['income_partner_id'] = company_partner.id
         return vals
 
 
@@ -48,5 +49,6 @@ class SaleAdvancePaymentInv(models.TransientModel):
     def _create_invoice(self, order, so_line, amount):
         invoice_return = super(SaleAdvancePaymentInv, self)._create_invoice(
             order, so_line, amount)
-        invoice_return.income_partner_id = order.partner_id.id
+        company_partner = order.partner_id.get_company_partner()
+        invoice_return.income_partner_id = company_partner.id
         return invoice_return
