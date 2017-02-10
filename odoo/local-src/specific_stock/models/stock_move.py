@@ -21,7 +21,7 @@ class StockMove(models.Model):
         expected_dates = {
             move.move_dest_id: move.move_dest_id.date_expected
             for move in self if move.move_dest_id.location_id == transit_loc
-        }
+            }
 
         super(StockMove, self).action_done()
 
@@ -32,14 +32,17 @@ class StockMove(models.Model):
     def action_cancel(self):
         """In order to prevent to cancel a move in a supply chain, we check
         that the parent move are also cancelled"""
-        if 'bypass_check_state' not in self.env.context:
-            for current_stock_move in self:
-                for parent_stock_move in current_stock_move.move_orig_ids:
+        if (all([not move.move_orig_ids for move in self]))\
+                or 'bypass_check_state' in self.env.context:
+            return super(StockMove, self.with_context(
+                bypass_check_state=True)).action_cancel()
+        else:
+            for move in self:
+                for parent_stock_move in move.move_orig_ids:
                     if parent_stock_move.state != 'cancel':
                         raise UserError(_("You cannot cancel this move %s,"
                                           " you must first cancel "
                                           "the parent move"
                                           " in the picking %s") %
-                                        (current_stock_move.name,
-                                        parent_stock_move.picking_id.name))
-        return super(StockMove, self).action_cancel()
+                                        (move.name,
+                                         parent_stock_move.picking_id.name))

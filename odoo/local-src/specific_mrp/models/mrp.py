@@ -44,8 +44,12 @@ class MrpProduction(models.Model):
         for production in self:
             moves = self.env['stock.move'].search([('group_id',
                                                     '=',
-                                                    production.group_id.id)])
-            moves.with_context(bypass_check_state=True).action_cancel()
+                                                    production.group_id.id),
+                                                   ('move_orig_ids',
+                                                    '=',
+                                                    False)
+                                                   ])
+            moves.action_cancel()
         return super(MrpProduction, self).action_cancel()
 
     @api.model
