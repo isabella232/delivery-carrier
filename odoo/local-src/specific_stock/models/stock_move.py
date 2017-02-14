@@ -39,10 +39,11 @@ class StockMove(models.Model):
         else:
             for move in self:
                 for parent_stock_move in move.move_orig_ids:
-                    if parent_stock_move.state != 'cancel':
+                    if parent_stock_move.state not in ('cancel', 'done'):
                         raise UserError(_("You cannot cancel this move %s,"
                                           " you must first cancel "
                                           "the parent move"
                                           " in the picking %s") %
                                         (move.name,
                                          parent_stock_move.picking_id.name))
+            return super(StockMove, self).action_cancel()
