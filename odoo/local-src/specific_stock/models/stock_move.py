@@ -32,14 +32,14 @@ class StockMove(models.Model):
     def action_cancel(self):
         """In order to prevent to cancel a move in a supply chain, we check
         that the parent move are also cancelled"""
-        if (all([not move.move_orig_ids for move in self]))\
-                or 'bypass_check_state' in self.env.context:
+        if (all(move.state in ('cancel', 'done')
+                for move in self.mapped('move_orig_ids'))
+                or 'bypass_check_state' in self.env.context):
             return super(StockMove, self.with_context(
                 bypass_check_state=True)).action_cancel()
         else:
             for move in self:
                 for parent_stock_move in move.move_orig_ids:
-                    if parent_stock_move.state not in ('cancel', 'done'):
                         raise UserError(_("You cannot cancel this move %s,"
                                           " you must first cancel "
                                           "the parent move"
