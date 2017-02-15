@@ -4,6 +4,13 @@ Release History
 ---------------
 
 
+9.5.3 (2017-02-13)
+++++++++++++++++++
+
+**Features and Improvements**
+* Add S3 management for Shipping Label
+
+
 9.5.2 (2017-02-09)
 ++++++++++++++++++
 
@@ -17,12 +24,6 @@ Release History
 * Add script to recompute display parter
 * Add module to report on Company Group (Turnover Report) 
 * Add check to prevent to cancelling a move if the parent is not cancelled
-
-**Bugfixes**
-
-**Build**
-
-**Documentation**
 
 
 9.5.1 (2016-01-05)
