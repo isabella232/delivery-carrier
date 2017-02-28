@@ -215,9 +215,11 @@ migration:
         upgrade:
           - delivery_carrier_label_s3
     - version: 9.5.4
-      operations:
-        post:
-          - anthem songs.updates.update_9_5_4.update::main
+      modes:
+        full:
+          operations:
+            post:
+              - anthem songs.updates.update_9_5_4.update::main
       addons:
         upgrade:
           - account_banking_pain_base
