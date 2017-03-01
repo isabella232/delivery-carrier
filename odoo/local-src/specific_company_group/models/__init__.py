@@ -5,3 +5,4 @@ from . import partner
 from . import invoice
 from . import sale
 from . import sale_report
+from . import invoice_report

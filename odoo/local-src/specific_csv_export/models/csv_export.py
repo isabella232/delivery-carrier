@@ -43,10 +43,12 @@ class CSVExporter(object):
             self._export_padding = None
         quoting = csv.QUOTE_MINIMAL
         if quote_all:
-            quoting = csv.QUOTE_NONE
+            quoting = csv.QUOTE_ALL
 
         self.csv_writer = csv.writer(self.output,
                                      encoding=encoding,
+                                     dialect='excel',
+                                     doublequote=False,
                                      quotechar=quotechar,
                                      quoting=quoting,
                                      escapechar=escapechar,

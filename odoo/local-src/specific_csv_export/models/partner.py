@@ -17,7 +17,7 @@ EXPORT_FIELDS_CONTACTS = [
     ('ref', 'AccountContact_InterfaceKey1', None),
     ('active', 'AccountContact_Active', 'boolean_number'),
     ('get_parent_id_ref', 'AccountContact_Account_ID', None),
-    ('title', 'AccountContact_Salutation', None),
+    ('get_translated_title', 'AccountContact_Salutation', None),
     ('lastname', 'AccountContact_LastName', 'NAfield'),
     ('firstname', 'AccountContact_FirstName', None),
     ('phone', 'AccountContact_Phone1', None),
@@ -281,6 +281,12 @@ class ResPartner(models.Model):
             return 'USA'
         else:
             return country_name
+
+    def get_translated_title(self):
+        # get title in the partner language
+        if not self.title:
+            return ''
+        return self.title.with_context(lang=self.lang).name
 
     def get_state_name(self):
         if self.state_id.code:
