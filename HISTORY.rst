@@ -3,6 +3,14 @@
 Release History
 ---------------
 
+9.5.4 (2017-02-13)
+++++++++++++++++++
+
+**Features and Improvements**
+* Fix payment order maturity date 
+* Fix invoice report turnover
+* Fix export csv delimiter for partner and contact
+* Add partner title translated in export csv
 
 9.5.3 (2017-02-13)
 ++++++++++++++++++
