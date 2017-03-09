@@ -80,6 +80,7 @@ def delete_previous_mrp_bom(ctx):
         DELETE from mrp_bom;
     """)
 
+
 @anthem.log
 def main(ctx):
     """ Loading data """

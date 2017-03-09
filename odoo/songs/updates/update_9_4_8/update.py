@@ -60,7 +60,7 @@ def create_new_route(ctx):
         'product_selectable': True,
         'product_categ_selectable': False,
         'sale_selectable': False,
-        'pull_ids' : [
+        'pull_ids': [
             (6, 0, [ctx.env.ref(
                 '__upgrade948__.procurement_rule_china').id,
                 ctx.env.ref(

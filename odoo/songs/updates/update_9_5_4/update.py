@@ -8,13 +8,13 @@ from pkg_resources import resource_stream, Requirement
 import anthem
 from anthem.lyrics.loaders import load_csv_stream
 
+
 @anthem.log
 def import_group_data(ctx, req):
     """ Importing product template """
     content = resource_stream(
         req, 'data/upgrade_9_5_4/res.groups_slx_confidential.csv')
     load_csv_stream(ctx, 'res.groups', content, delimiter=',')
-
 
 
 @anthem.log

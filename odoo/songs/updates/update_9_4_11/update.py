@@ -4,7 +4,6 @@
 
 
 import anthem
-from anthem.lyrics.records import create_or_update
 
 
 @anthem.log
