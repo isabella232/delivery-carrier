@@ -3,6 +3,13 @@
 Release History
 ---------------
 
+9.5.5 (2017-04-24)
+++++++++++++++++++
+
+**Features and Improvements**
+* Fix exporting CSV, no file generated if data is empty
+
+
 9.5.4 (2017-02-13)
 ++++++++++++++++++
 

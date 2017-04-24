@@ -229,5 +229,7 @@ migration:
           - account_payment_partner
           - account_payment_sale
           - specific_company_group
-
-
+    - version: 9.5.5
+      addons:
+        upgrade:
+          - specific_csv_export
