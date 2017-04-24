@@ -120,7 +120,7 @@ class ResPartner(models.Model):
         """We want to export all the partners that are emmbedded into a company
         """
         exc = False
-
+        file_export = False
         self.env.cr.execute('SELECT id FROM res_partner '
                             'WHERE (parent_id IS NOT NULL) '
                             'AND (is_company IS False) '
@@ -128,31 +128,37 @@ class ResPartner(models.Model):
                             'OR (write_date> contacts_last_xprt) '
                             'OR (create_date> contacts_last_xprt))')
         ids = [row[0] for row in self.env.cr.fetchall()]
-        partners = self.with_context(active_test=False).browse(ids)
+        if not ids:
+            exc = 'No contacts to export'
+        else:
+            partners = self.with_context(active_test=False).browse(ids)
 
-        exporter = CSVExporter(partners, EXPORT_FIELDS_CONTACTS)
-        exporter.generate_export()
-        disk = '/tmp/partnercontact_'  # Set for dev purposes
-        ftp = 'partnercontact_'
-        if ftp is not None:
-            try:
-                exporter.save_to_sftp(ftp)
-            except paramiko.SSHException as exc:
-                pass
-        elif disk is not None:
-            exporter.save_to_disk(disk)
+            exporter = CSVExporter(partners, EXPORT_FIELDS_CONTACTS)
 
-        if not exc:
-            # Update the partners. Bypass the ORM in order not to modify the
-            # write_date
-            for partner in partners:
-                self.env.cr.execute('UPDATE res_partner '
-                                    'SET contacts_last_xprt=CURRENT_TIMESTAMP '
-                                    'WHERE id = %s' % partner.id)
-        file = exporter.get_data()
+            exporter.generate_export()
+            disk = '/tmp/partnercontact_'  # Set for dev purposes
+            ftp = 'partnercontact_'
+            if ftp is not None:
+                try:
+                    exporter.save_to_sftp(ftp)
+                except paramiko.SSHException as exc:
+                    pass
+            elif disk is not None:
+                exporter.save_to_disk(disk)
+
+            if not exc:
+                # Update the partners. Bypass the ORM in order
+                # not to modify the
+                # write_date
+                for partner in partners:
+                    self.env.cr.execute('UPDATE res_partner '
+                                        'SET '
+                                        'contacts_last_xprt=CURRENT_TIMESTAMP '
+                                        'WHERE id = %s' % partner.id)
+            file_export = exporter.get_data()
         res = {
             'exc': exc,
-            'file': file,
+            'file': file_export,
             'ftp': ftp,
             'disk': disk,
         }
@@ -165,6 +171,9 @@ class ResPartner(models.Model):
             companies
         """
         exc = False
+        file_export = False
+        ftp = False
+        disk = False
 
         self.env.cr.execute("""SELECT id FROM res_partner
                             WHERE((((is_company is False)
@@ -175,33 +184,36 @@ class ResPartner(models.Model):
                             OR (create_date > adrs_lst_xprt)))""")
 
         ids = [row[0] for row in self.env.cr.fetchall()]
+        if not ids:
+            exc = 'No partner to export'
+        else:
+            partners = self.with_context(active_test=False).browse(ids)
 
-        partners = self.with_context(active_test=False).browse(ids)
+            exporter = CSVExporter(partners, EXPORT_FIELDS_ADRESSES,
+                                   PADDING_ADRESSES_FIELDS)
+            exporter.generate_export()
+            disk = '/tmp/partner_'  # TODO Set for dev purposes
+            ftp = 'partner_'
+            if ftp is not None:
+                try:
+                    exporter.save_to_sftp(ftp)
+                except paramiko.SSHException as exc:
+                    pass
+            elif disk is not None:
+                exporter.save_to_disk(disk)
 
-        exporter = CSVExporter(partners, EXPORT_FIELDS_ADRESSES,
-                               PADDING_ADRESSES_FIELDS)
-        exporter.generate_export()
-        disk = '/tmp/partner_'  # TODO Set for dev purposes
-        ftp = 'partner_'
-        if ftp is not None:
-            try:
-                exporter.save_to_sftp(ftp)
-            except paramiko.SSHException as exc:
-                pass
-        elif disk is not None:
-            exporter.save_to_disk(disk)
-
-        if not exc:
-            # Update the partners. Bypass the ORM in order not to modify the
-            # write_date
-            for partner in partners:
-                self.env.cr.execute('UPDATE res_partner '
-                                    'SET adrs_lst_xprt=CURRENT_TIMESTAMP '
-                                    'WHERE id = %s' % partner.id)
-        file = exporter.get_data()
+            if not exc:
+                # Update the partners.
+                # Bypass the ORM in order not to modify the
+                # write_date
+                for partner in partners:
+                    self.env.cr.execute('UPDATE res_partner '
+                                        'SET adrs_lst_xprt=CURRENT_TIMESTAMP '
+                                        'WHERE id = %s' % partner.id)
+            file_export = exporter.get_data()
         res = {
             'exc': exc,
-            'file': file,
+            'file': file_export,
             'ftp': ftp,
             'disk': disk,
         }
@@ -214,6 +226,9 @@ class ResPartner(models.Model):
         """
         exc = False
         res = False
+        file_export = False
+        ftp = False
+        disk = False
 
         sql = """SELECT id  FROM res_partner WHERE (is_company=True)
                  AND ((adrs_tags_lst_xprt is Null)
@@ -222,30 +237,36 @@ class ResPartner(models.Model):
 
         self.env.cr.execute(sql)
         ids = [row[0] for row in self.env.cr.fetchall()]
-        partners = self.with_context(active_test=False).browse(ids)
-        exporter = CSVExporter(partners, EXPORT_FIELDS_TAGS, quote_all=False)
-        exporter.generate_export()
-        disk = '/tmp/Identifier_partnertags_'
-        ftp = 'Identifier_partnertags_'
-        if ftp is not None:
-            try:
-                exporter.save_to_sftp(ftp)
-            except paramiko.SSHException as exc:
-                pass
-        elif disk is not None:
-            exporter.save_to_disk(disk)
+        if not ids:
+            exc = 'No partner to export'
+        else:
+            partners = self.with_context(active_test=False).browse(ids)
+            exporter = CSVExporter(partners, EXPORT_FIELDS_TAGS,
+                                   quote_all=False)
+            exporter.generate_export()
+            disk = '/tmp/Identifier_partnertags_'
+            ftp = 'Identifier_partnertags_'
+            if ftp is not None:
+                try:
+                    exporter.save_to_sftp(ftp)
+                except paramiko.SSHException as exc:
+                    pass
+            elif disk is not None:
+                exporter.save_to_disk(disk)
 
-        if not exc:
-            # Update the partners. Bypass the ORM in order not to modify the
-            # write_date
-            for partner in partners:
-                self.env.cr.execute('UPDATE res_partner '
-                                    'SET adrs_tags_lst_xprt=CURRENT_TIMESTAMP '
-                                    'WHERE id = %s' % partner.id)
-        file = exporter.get_data()
+            if not exc:
+                # Update the partners. Bypass the ORM in
+                # order not to modify the
+                # write_date
+                for partner in partners:
+                    self.env.cr.execute('UPDATE res_partner '
+                                        'SET '
+                                        'adrs_tags_lst_xprt=CURRENT_TIMESTAMP '
+                                        'WHERE id = %s' % partner.id)
+            file_export = exporter.get_data()
         res = {
             'exc': exc,
-            'file': file,
+            'file': file_export,
             'ftp': ftp,
             'disk': disk,
         }
