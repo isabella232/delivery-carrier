@@ -57,16 +57,6 @@ EXPORT_FIELDS_TAGS = [
 ]
 
 PADDING_ADRESSES_FIELDS = [
-    ('Account_Sales', 1),
-    ('Account_Purchase', 1),
-    ('Account_Purchase_Taxcode_ID', 326),
-    ('Account_Sales_Taxcode_ID', 301),
-    ('Account3_Sales_Ertrag_ID', 6000),
-    ('Account_Sales_FinancialAccount_ID', 1050),
-    ('Account_Purchase_Currency_ID', 'CHF'),
-    ('Account_Sales_Currency_ID', 'CHF'),
-    ('Account3_Purchase_Ertrag_ID', 4690),
-    ('Account_Purchase_FinancialAccount_ID', 4000),
     ('Account_Sales_PaymentCondition_ID', 1),
     ('Account_Purchase_PaymentCondition_ID', 1),
     ('Account_Sales_Shipping_Dimension_ID', 5)
