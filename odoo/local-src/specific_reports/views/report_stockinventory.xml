@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <template id="report_purchaseorder_document" inherit_id="stock.report_inventory">
+    <xpath expr="//t[@t-call='report.external_layout']" position="attributes">
+      <attribute name="t-call">specific_reports.inventory_layout</attribute>
+    </xpath>
+  </template>
+</odoo>
