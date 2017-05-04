@@ -8,7 +8,8 @@ Release History
 
 **Features and Improvements**
 * Fix exporting CSV, no file generated if data is empty
-* Remove not more used file
+* Remove not more used field in partner export
+* Add page count on inventory report
 
 9.5.4 (2017-02-13)
 ++++++++++++++++++
