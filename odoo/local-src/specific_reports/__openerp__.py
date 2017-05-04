@@ -52,6 +52,7 @@
      'views/report_purchase.xml',
      'views/report_sale.xml',
      'views/report_followup.xml',
+     'views/report_stockinventory.xml'
      ],
  'demo_xml': [],
  'test': [],

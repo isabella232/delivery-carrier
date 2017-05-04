@@ -216,9 +216,9 @@ class CsvExportManager(models.Model):
 
         if con['exc'] or part['exc'] or tags['exc']:
             is_exported = False
-            log = "Contacts: " + con['exc'] + \
-                  " Partners: " + part['exc'] + \
-                  " Tags: " + tags['exc']
+            log = "Contacts: " + con['exc'] or '' + \
+                  " Partners: " + part['exc'] or '' + \
+                  " Tags: " + tags['exc'] or ''
 
         vals = {
             'last_export': fields.Datetime.now(),
