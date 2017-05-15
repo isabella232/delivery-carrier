@@ -3,6 +3,13 @@
 Release History
 ---------------
 
+9.5.6 (2017-05-15)
+++++++++++++++++++
+
+**Features and Improvements**
+* Fix missing template in purchase Order
+
+
 9.5.5 (2017-04-24)
 ++++++++++++++++++
 

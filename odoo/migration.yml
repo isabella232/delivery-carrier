@@ -234,3 +234,7 @@ migration:
         upgrade:
           - specific_csv_export
           - specific_reports
+    - version: 9.5.6
+      addons:
+        upgrade:
+          - specific_reports
