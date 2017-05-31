@@ -173,6 +173,10 @@
                               <span class="col-xs-5">Carrier:</span>
                               <span>no carrier</span>
                           </div>
+                          <div class="col-xs-12">
+                              <span class="col-xs-5">Sale Order:</span>
+                              <span t-field="o.sale_id.name" />
+                          </div>
                         </div>
                     </div><!-- Box info-->
                 </t><!-- IF outgoing-->

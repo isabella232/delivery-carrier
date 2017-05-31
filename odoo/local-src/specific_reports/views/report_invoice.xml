@@ -141,8 +141,14 @@
             </div>
             <div class="col-xs-6 lp-0">
               <div t-if="o.create_date" class="col-xs-12">
-                  <span class="col-xs-3">Date:</span>
+                  <span class="col-xs-4">Date:</span>
                   <span t-field="o.create_date" t-field-options='{"widget":"date"}'/>
+              </div>
+            </div>
+            <div class="col-xs-6 lp-0">
+              <div class="col-xs-12">
+                  <span class="col-xs-4">Sale Order:</span>
+                  <span t-field="o.sale_order_ref" />
               </div>
             </div>
 
