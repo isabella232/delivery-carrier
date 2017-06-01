@@ -1,0 +1,17 @@
+<openerp>
+  <data>
+
+    <record model="ir.ui.view" id="invoice_form_inherit">
+      <field name="name">account.invoice.form.inherit</field>
+      <field name="model">account.invoice</field>
+      <field name="inherit_id" ref="account.invoice_form" />
+      <field name="arch" type="xml">
+        <button name="action_invoice_sent" position="after">
+            <button name="button_proforma_paid" string="Close Proforma" type="object" attrs="{'invisible':[('state', '!=', 'proforma2')]}" class="oe_highlight" />
+        </button>
+      </field>
+    </record>
+
+
+  </data>
+</openerp>
