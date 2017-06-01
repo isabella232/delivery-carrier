@@ -87,6 +87,10 @@
           ['|', '|',('default_code','ilike',self),('name','ilike',self), ('e_nr','ilike',self)]
         </attribute>
       </field>
+      <field name="name" position="after">
+          <field name="supplier_code_name" />
+      </field>
+
     </field>
   </record>
 
