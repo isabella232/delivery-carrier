@@ -1,10 +1,12 @@
-FROM camptocamp/odoo-project:9.0-2.0.0
+FROM camptocamp/odoo-project:9.0-2.2.0
 MAINTAINER Camptocamp
 
 COPY requirements.txt /opt/odoo/requirements.txt
 
-
-COPY ./start-entrypoint.d/010_dev_set_db_storage /opt/odoo/start-entrypoint.d/010_dev_set_db_storage
+COPY ./before-migrate-entrypoint.d/* odoo/before-migrate-entrypoint.d/
+COPY ./start-entrypoint.d/* odoo/start-entrypoint.d/
+RUN chmod +x odoo/before-migrate-entrypoint.d/* \
+    && chmod +x odoo/start-entrypoint.d/*
 
 # Install additional debian packages
 RUN set -x; \
