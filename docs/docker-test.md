@@ -1,6 +1,10 @@
+<!--
+This file has been generated with 'invoke project.sync'.
+Do not modify. Any manual change will be lost.
+-->
 # How to run a test server, the short way
 
-This method is mostly for project managers or functional testers because it uses the pre-generated Docker images. Developers will prefer to use [Docker in development mode](development.md).
+This method is mostly for project managers or functional testers because it uses the pre-generated Docker images. Developers will prefer to use [Docker in development mode](docker-dev.md).
 
 ## Pre-requisite
 
@@ -10,7 +14,7 @@ Be sure to [install Docker and docker-compose](prerequisite.md) before going any
 
 1. Clone the project
 
-        git clone git@github.com:camptocamp/swisslux_odoo.git swisslux_odoo
+        git clone git@github.com:camptocamp/swisslux_odoo.git swisslux
 
 2. Login to Docker Hub (create an account on https://hub.docker.com/ if you
    don't have one yet and ask to be added to the Camptocamp team because this
@@ -21,9 +25,9 @@ Be sure to [install Docker and docker-compose](prerequisite.md) before going any
 
 3. Start the composition
 
-        cd swisslux_odoo
-        docker-compose -f test.yml -f local.yml pull
-        docker-compose -f test.yml -f local.yml up
+        cd swisslux
+        docker-compose -f docker-compose.yml -f test.yml pull
+        docker-compose -f docker-compose.yml -f test.yml up
 
 4. Open a browser on http://localhost (only one odoo instance at a time can be
    started because it uses the port 80, this can be changed in the
@@ -33,4 +37,4 @@ Be sure to [install Docker and docker-compose](prerequisite.md) before going any
 
 5. If you want to drop your database, run:
 
-        docker-compose -f test.yml -f local.yml rm -v
+        docker-compose -f docker-compose.yml -f test.yml odoo dropdb odoodb
