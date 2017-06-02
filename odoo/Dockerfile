@@ -48,4 +48,5 @@ ENV ADDONS_PATH="/opt/odoo/local-src, \
     LIMIT_TIME_REAL=86400 \
     LIMIT_MEMORY_SOFT=1342177280 \
     LIMIT_MEMORY_HARD=1610612736 \
-    OERPSCENARIO_ODOO_CONFIG=/opt/odoo/etc/odoo.cfg
+    OERPSCENARIO_ODOO_CONFIG=/opt/odoo/etc/odoo.cfg \
+    LIST_DB=True
