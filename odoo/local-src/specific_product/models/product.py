@@ -78,6 +78,37 @@ class ProductTemplate(models.Model):
             'context': context,
         }
 
+    @api.depends('seller_ids',
+                 'seller_ids.product_code')
+    def _get_supplier_code_name(self):
+        '''
+        It will concatenate the product reference of suppliers
+        '''
+        print str(self)
+        res = {}
+        for product in self:
+            supplier_name = []
+            for supplier in product.seller_ids:
+                if supplier.product_code:
+                    supplier_name.append(supplier.product_code)
+            res[product.id] = '/'.join(supplier_name)
+        return res
+
+    def _supplier_code_name_search(self, operator, operand):
+        product_supplier_obj = self.env['product.supplierinfo']
+        product_supplier_product = product_supplier_obj.search_read(
+            [('product_code', operator, operand)], ['product_tmpl_id'])
+        if product_supplier_product:
+            return_vals = [x['product_tmpl_id'][0] for x in
+                           product_supplier_product]
+            return [('id', 'in', tuple(return_vals))]
+        else:
+            return [('id', '=', 0)]
+
+    supplier_code_name = fields.Char(compute='_get_supplier_code_name',
+                                     string="Supplier Code",
+                                     search='_supplier_code_name_search')
+
 
 class ProductProduct(models.Model):
     _inherit = 'product.product'

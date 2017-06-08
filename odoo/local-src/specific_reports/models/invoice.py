@@ -14,6 +14,24 @@ class AccountInvoice(models.Model):
         help="Reference for the client"
     )
 
+    @api.one
+    def _get_sale_order_ref(self):
+        if self.id:
+            sale_order_ref_tab = []
+            for invoice_line in self.invoice_line_ids:
+                for sale_line in invoice_line.sale_line_ids:
+                    sale_order_ref_tab.append(sale_line.order_id.name)
+            self.sale_order_ref = '/'.join(list(set(sale_order_ref_tab)))
+
+        else:
+            self.sale_order_ref = ''
+
+    sale_order_ref = fields.Char(
+        "Sale order reference",
+        compute='_get_sale_order_ref',
+        help="Reference for the client"
+    )
+
     client_order_contact_type = fields.Selection(
         [('email', 'Per E-Mail'),
          ('in_person', 'Persönlich'),

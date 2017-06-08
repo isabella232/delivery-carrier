@@ -12,7 +12,8 @@
     'depends': [
         'account',
         'specific_building_project',
-        'l10n_ch_pain_credit_transfer'
+        'l10n_ch_pain_credit_transfer',
+        'account_payment_order'
     ],
     'data': [
         'views/account_invoice.xml',

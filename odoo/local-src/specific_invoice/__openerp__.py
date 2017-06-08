@@ -14,6 +14,7 @@
      ],
  'data': [
      'views/invoice_bank_rule.xml',
+     'views/invoice.xml',
      'security/ir.model.access.csv'
      ],
  'test': [],
