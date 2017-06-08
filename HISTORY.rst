@@ -3,6 +3,12 @@
 Release History
 ---------------
 
+9.5.8 (2017-05-15)
+++++++++++++++++++
+
+**Features and Improvements**
+* Picking report : add PO name + use operations if present
+
 9.5.7 (2017-05-15)
 ++++++++++++++++++
 
