@@ -8,6 +8,10 @@ Release History
 
 **Features and Improvements**
 * Picking report : add PO name + use operations if present
+* Propagate sale invoice on invoice
+* Get the partner bank account when expense imported in payment order
+* Allow to close a proforma invoice
+* Allow to search on the supplier code product
 
 9.5.7 (2017-05-15)
 ++++++++++++++++++
@@ -28,7 +32,7 @@ Release History
 ++++++++++++++++++
 
 **Features and Improvements**
-* Fix payment order maturity date 
+* Fix payment order maturity date
 * Fix invoice report turnover
 * Fix export csv delimiter for partner and contact
 * Add partner title translated in export csv
@@ -51,7 +55,7 @@ Release History
 * Improve Report picking Layout
 * Improve of display partner (Name, City (Ref))
 * Add script to recompute display parter
-* Add module to report on Company Group (Turnover Report) 
+* Add module to report on Company Group (Turnover Report)
 * Add check to prevent to cancelling a move if the parent is not cancelled
 
 
@@ -341,4 +345,3 @@ Release History
 ++++++++++++++++++
 
 First docker release!
-
