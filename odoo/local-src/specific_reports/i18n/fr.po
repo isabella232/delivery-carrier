@@ -896,3 +896,8 @@ msgstr "Offre #"
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
 msgid "<span style="padding-left: 0px;">according to the arrangement</span>"
 msgstr "<span>Nach Absprache</span>"
+
+#. module: specific_reports
+#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+msgid "<span class=\"col-xs-5\">Sale Order:</span>"
+msgstr "<span class=\"col-xs-5\">Ordre de vente:</span>"

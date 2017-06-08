@@ -941,3 +941,8 @@ msgstr "Tasse"
 #, python-format
 msgid "Tax"
 msgstr "Tassa"
+
+#. module: specific_reports
+#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+msgid "<span class=\"col-xs-5\">Sale Order:</span>"
+msgstr "<span class=\"col-xs-5\">Ordine di vendita:</span>"
