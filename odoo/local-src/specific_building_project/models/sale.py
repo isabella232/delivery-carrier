@@ -111,6 +111,7 @@ class SaleOrder(models.Model):
         return super(SaleOrder, self).write(vals)
 
     @api.multi
+    @api.onchange('project_pricelist_id', 'pricelist_id')
     def button_update_unit_prices(self):
         """ Button action to update prices in lines based on pricelists """
         for rec in self:
