@@ -12,6 +12,7 @@ Release History
 * Get the partner bank account when expense imported in payment order
 * Allow to close a proforma invoice
 * Allow to search on the supplier code product
+* Add on change on specific price list in SO. see incident 4037
 
 9.5.7 (2017-05-15)
 ++++++++++++++++++
