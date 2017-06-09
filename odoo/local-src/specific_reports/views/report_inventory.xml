@@ -59,12 +59,14 @@
                         Mitarbeiter :<br/>
                         RG/LS-Nr :<br/>
                         Lieferant :<br/>
+                        Lieferant :<br/>
                     </div>
                     <div class="col-xs-3">
                         <span t-esc='time.strftime("%d.%m.%Y")'/><br/>
                         ______________<br/>
                         ______________<br/>
                         <span t-esc="o.partner_id.name"/><br/>
+                        <span t-esc="o.group_id.name"/><br/>
                         <br/>
                     </div>
                     <h2 class="mb16">
@@ -203,7 +205,7 @@
                         </thead>
                         <tbody>
                             <t t-if="o.pack_operation_ids">
-                                <tr t-foreach="o.move_lines" t-as="pack_operation">
+                                <tr t-foreach="o.pack_operation_ids" t-as="pack_operation">
                                     <td><span t-field="pack_operation.product_id.default_code"/><br/>
                                     <t t-if="not pack_operation.product_id and pack_operation.package_id">
                                         <span  t-field="pack_operation.package_id"/><br/>
@@ -223,7 +225,7 @@
                                         <span t-field="o.company_id.receipt_checklist"/><br/>
                                     </td>
                                     <td>
-                                        <span t-field="pack_operation.product_qty"/> <span t-field="pack_operation.product_uom"/><br/>
+                                        <span t-field="pack_operation.product_qty"/> <span t-field="pack_operation.product_uom_id"/><br/>
                                     <br/>
                                     ________<br/>
                                     ________<br/>
