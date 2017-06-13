@@ -244,3 +244,8 @@ migration:
           - specific_reports
           - specific_product
           - specific_invoice
+
+    - version: 9.5.8
+      addons:
+        upgrade:
+          - specific_reports
