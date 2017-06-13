@@ -242,10 +242,12 @@ migration:
       addons:
         upgrade:
           - specific_reports
-          - specific_product
-          - specific_invoice
 
     - version: 9.5.8
       addons:
         upgrade:
           - specific_reports
+          - specific_product
+          - specific_invoice
+          - account_permanent_lock_move
+
