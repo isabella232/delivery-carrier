@@ -1,80 +1,35 @@
 # -*- coding: utf-8 -*-
+# This file has been generated with 'invoke project.sync'.
+# Do not modify. Any manual change will be lost.
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
-
 from __future__ import print_function
 
 import fileinput
-import os
-import re
-
-from contextlib import contextmanager
 from datetime import date
-from distutils.version import StrictVersion
 
 import yaml
 
-from invoke import task, exceptions, Collection
+from distutils.version import StrictVersion
 
-
-ns = Collection()
-release = Collection('release')
-ns.add_collection(release)
-
-
-def build_path(path, from_file=None):
-    if from_file is None:
-        from_file = __file__
-    return os.path.join(os.path.dirname(os.path.realpath(from_file)), path)
-
-
-PROJECT_ID = '1622'
-VERSION_FILE = build_path('odoo/VERSION')
-VERSION_RANCHER_FILES = (
-    build_path('rancher/integration/docker-compose.yml'),
-    build_path('rancher/prod/docker-compose.yml'),
+from invoke import task, exceptions
+from .common import (
+    PENDING_MERGES,
+    MIGRATION_FILE,
+    VERSION_FILE,
+    HISTORY_FILE,
+    GIT_REMOTE_NAME,
+    cookiecutter_context,
+    current_version,
+    exit_msg,
+    check_git_diff,
+    cd,
+    build_path
 )
-HISTORY_FILE = build_path('HISTORY.rst')
-DOCKER_IMAGE = 'camptocamp/swisslux_odoo'
-PENDING_MERGES = build_path('odoo/pending-merges.yaml')
-GIT_REMOTE_NAME = 'camptocamp'
-MIGRATION_FILE = build_path('odoo/migration.yml')
 
 
-def exit_msg(message):
-    print(message)
-    raise exceptions.Exit(1)
-
-
-@contextmanager
-def cd(path):
-    prev = os.getcwd()
-    os.chdir(os.path.expanduser(path))
-    try:
-        yield
-    finally:
-        os.chdir(prev)
-
-
-def _current_version():
-    with open(VERSION_FILE, 'rU') as fd:
-        version = fd.read().strip()
-    return version
-
-
-def _check_git_diff(ctx):
-    try:
-        ctx.run('git diff --quiet --exit-code')
-        ctx.run('git diff --cached --quiet --exit-code')
-    except exceptions.Failure:
-        r = raw_input('Your repository has local changes, '
-                      'are you sure you want to continue? (y/N) ')
-        if r not in ('y', 'Y', 'yes'):
-            exit_msg('Aborted')
-
-
-@task
-def push_branches(ctx):
+@task(name='push-branches')
+def push_branches(ctx, force=False):
     """ Push the local branches to the camptocamp remote
 
     The branch name will be composed of the id of the project and the current
@@ -83,16 +38,22 @@ def push_branches(ctx):
     It should be done at the closing of every release, so we are able
     to build a new patch branch from the same commits if required.
     """
-    version = _current_version()
-    branch_name = 'merge-branch-{}-{}'.format(PROJECT_ID, version)
+    version = current_version()
+    project_id = cookiecutter_context()['project_id']
+    branch_name = 'merge-branch-{}-{}'.format(project_id, version)
     response = raw_input(
-        'push local branches to {}? (y/N) '.format(branch_name)
+        'Push local branches to {}? (Y/n) '.format(branch_name)
     )
-    if response not in ('y', 'Y', 'yes'):
+    if response in ('n', 'N', 'no'):
         exit_msg('Aborted')
-    _check_git_diff(ctx)
+    if not force:
+        check_git_diff(ctx)
+    print('Pushing pending-merge branches...')
     with open(PENDING_MERGES, 'ru') as f:
         merges = yaml.load(f.read())
+        if not merges:
+            print('Nothing to push')
+            return
         for path, setup in merges.iteritems():
             print('pushing {}'.format(path))
             with cd(build_path(path, from_file=PENDING_MERGES)):
@@ -112,12 +73,12 @@ def push_branches(ctx):
                 )
 
 
-@task(post=[push_branches])
+@task
 def bump(ctx, feature=False, patch=False):
     """ Increase the version number where needed """
     if not (feature or patch):
         exit_msg("should be a --feature or a --patch version")
-    old_version = _current_version()
+    old_version = current_version()
     if not old_version:
         exit_msg("the version file is empty")
     try:
@@ -138,6 +99,10 @@ def bump(ctx, feature=False, patch=False):
                    version.version[2] + 1)
     version = '.'.join([str(v) for v in version])
 
+    print('Increasing version number from {} '
+          'to {}...'.format(old_version, version))
+    print()
+
     try:
         ctx.run(r'grep --quiet --regexp "- version:.*{}" {}'.format(
             version,
@@ -149,18 +114,6 @@ def bump(ctx, feature=False, patch=False):
 
     with open(VERSION_FILE, 'w') as fd:
         fd.write(version + '\n')
-
-    pattern = r'^(\s*)image:\s+{}:\d+.\d+.\d+$'.format(DOCKER_IMAGE)
-    replacement = r'\1image: {}:{}'.format(DOCKER_IMAGE, version)
-    for rancher_file in VERSION_RANCHER_FILES:
-        if not os.path.exists(rancher_file):
-            continue
-        # with fileinput, stdout is redirected to the file in place
-        for line in fileinput.input(rancher_file, inplace=True):
-            if DOCKER_IMAGE in line:
-                print(re.sub(pattern, replacement, line), end='')
-            else:
-                print(line, end='')
 
     new_version_index = None
     for index, line in enumerate(fileinput.input(HISTORY_FILE, inplace=True)):
@@ -184,11 +137,19 @@ def bump(ctx, feature=False, patch=False):
 
         print(line, end='')
 
-    print('version changed to {}'.format(version))
-    print('you should probably clean {}'
-          '(remove empty sections, whitespaces, ...)'.format(HISTORY_FILE))
-    print('and commit + tag the changes')
+    push_branches(ctx, force=True)
 
-
-release.add_task(bump, 'bump')
-release.add_task(push_branches, 'push-branches')
+    print()
+    print('** Version changed to {} **'.format(version))
+    print()
+    print('Please continue with the release by:')
+    print()
+    print(' * Cleaning HISTORY.rst. Remove the empty sections, empty lines...')
+    print(' * Check the diff then run:')
+    print('      git add ... # pick the files ')
+    print('      git commit -m"Release {}"'.format(version))
+    print('      git tag -a {}  '
+          '# optionally -s to sign the tag'.format(version))
+    print('      # copy-paste the content of the release from HISTORY.rst'
+          ' in the annotation of the tag')
+    print('      git push --tags && git push')

@@ -1,10 +1,12 @@
-FROM camptocamp/odoo-project:9.0-2.0.0
+FROM camptocamp/odoo-project:9.0-2.2.0
 MAINTAINER Camptocamp
 
 COPY requirements.txt /opt/odoo/requirements.txt
 
-
-COPY ./start-entrypoint.d/010_dev_set_db_storage /opt/odoo/start-entrypoint.d/010_dev_set_db_storage
+COPY ./before-migrate-entrypoint.d/* odoo/before-migrate-entrypoint.d/
+COPY ./start-entrypoint.d/* odoo/start-entrypoint.d/
+RUN chmod +x odoo/before-migrate-entrypoint.d/* \
+    && chmod +x odoo/start-entrypoint.d/*
 
 # Install additional debian packages
 RUN set -x; \
@@ -46,4 +48,5 @@ ENV ADDONS_PATH="/opt/odoo/local-src, \
     LIMIT_TIME_REAL=86400 \
     LIMIT_MEMORY_SOFT=1342177280 \
     LIMIT_MEMORY_HARD=1610612736 \
-    OERPSCENARIO_ODOO_CONFIG=/opt/odoo/etc/odoo.cfg
+    OERPSCENARIO_ODOO_CONFIG=/opt/odoo/etc/odoo.cfg \
+    LIST_DB=True
