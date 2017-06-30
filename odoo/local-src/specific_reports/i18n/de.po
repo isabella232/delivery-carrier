@@ -901,3 +901,8 @@ msgstr "<span>Nach Absprache</span>"
 msgid "<span class=\"col-xs-5\">Sale Order:</span>"
 msgstr "<span class=\"col-xs-5\">Verkaufsauftrag:</span>"
 
+
+#. module: account_reports
+#: model:ir.ui.view,arch_db:account_reports.report_followup_body
+msgid "Invoice Number"
+msgstr "Rechnung-Nr."
