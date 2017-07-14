@@ -1,0 +1,17 @@
+#!/bin/bash
+#In integration Swisslux wants to use a specific mail server that is not
+#available in production so we have to add it each time we refresh the test
+
+if [ "$RUNNING_ENV" = "integration" ] ; then
+    echo "Setting enterprise subscription in demo mode"
+
+    psql << EOF
+
+    DELETE FROM ir_mail_server where name = 'SLX_TEST';
+    INSERT INTO ir_mail_server (create_uid, write_uid, create_date, write_date,
+                                smtp_debug, name, active, sequence)
+      VALUES (5, 5, NOW(), NOW(), false, 'SLX_TEST', true, 5);
+
+EOF
+
+fi
