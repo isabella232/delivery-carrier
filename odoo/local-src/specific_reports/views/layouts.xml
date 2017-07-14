@@ -34,7 +34,7 @@
 
     <template id="external_layout_footer" inherit_id="account.external_layout_footer">
       <xpath expr="//div[@class='footer']" position="replace">
-        <div class="footer">
+        <div class="footer" width="100%">
           <div class="text-center">
             <small>
               <small>
