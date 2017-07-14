@@ -3,6 +3,18 @@
 Release History
 ---------------
 
+latest (unreleased)
++++++++++++++++++++
+
+**Features and Improvements**
+ - Customisation of Followup Report issue #4132 (https://odoo.priv.camptocamp.com/#id=4132&view_type=form&model=project.issue&menu_id=677&action=1014)
+
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
 9.5.8 (2017-05-15)
 ++++++++++++++++++
 

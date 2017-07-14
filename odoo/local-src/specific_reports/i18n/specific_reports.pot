@@ -830,3 +830,8 @@ msgstr ""
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
 msgid "<span class=\"col-xs-5\">Sale Order:</span>"
 msgstr ""
+
+#. module: account_reports
+#: model:ir.ui.view,arch_db:account_reports.report_followup_body
+msgid "Invoice Number"
+msgstr ""
