@@ -251,7 +251,6 @@ migration:
           - specific_invoice
           - account_permanent_lock_move
 
-
     - version: 9.6.0
       addons:
         upgrade:
