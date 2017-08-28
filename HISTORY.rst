@@ -10,6 +10,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Alignement in followup report
+
 **Build**
 
 **Documentation**
