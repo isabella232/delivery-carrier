@@ -250,8 +250,11 @@ migration:
           - specific_product
           - specific_invoice
           - account_permanent_lock_move
-
     - version: 9.6.0
+      addons:
+        upgrade:
+          - specific_reports
+    - version: 9.6.1
       addons:
         upgrade:
           - specific_reports
