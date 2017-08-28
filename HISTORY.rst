@@ -10,6 +10,18 @@ latest (unreleased)
 
 **Bugfixes**
 
+**Build**
+
+**Documentation**
+
+
+9.6.1 (2017-08-28)
+++++++++++++++++++
+
+**Features and Improvements**
+
+**Bugfixes**
+
 * Alignement in followup report
 
 **Build**
