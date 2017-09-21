@@ -8,6 +8,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add web_environment_ribbon
+
 **Bugfixes**
 
 **Build**

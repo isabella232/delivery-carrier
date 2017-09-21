@@ -258,3 +258,8 @@ migration:
       addons:
         upgrade:
           - specific_reports
+    - version: 9.6.2
+      addons:
+        upgrade:
+          - web_environment_ribbon
+          - server_environment_ir_config_parameter
