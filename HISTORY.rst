@@ -14,6 +14,8 @@ latest (unreleased)
 
 **Build**
 
+* Update docker-odoo-project from 9.0-2.2.0 -> 9.0-2.4.0
+
 **Documentation**
 
 
