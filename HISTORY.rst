@@ -8,9 +8,14 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add web_environment_ribbon
+
 **Bugfixes**
 
 **Build**
+
+* Update docker-odoo-project from 9.0-2.2.0 -> 9.0-2.4.0
+* Update with latest from odoo-template
 
 **Documentation**
 

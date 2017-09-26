@@ -27,7 +27,7 @@
   merges:
     - oca 9.0
     # add module account_operation_rule
-    - oca refs/pull/141/head
+    - oca refs/pull/141/head  # merged
     # new module account_operation_rule_early_payment_discount
     - oca refs/pull/142/head
     # add account_operation_rule: check rules when user manually adds move line
@@ -40,13 +40,13 @@
   merges:
     - oca 9.0
     # port project_department
-    - oca refs/pull/53/head
+    - oca refs/pull/53/head  # moved to project
     # port analytic_department
-    - oca refs/pull/54/head
+    - oca refs/pull/54/head  # moved to project
     # port project_task_department
-    - oca refs/pull/55/head
+    - oca refs/pull/55/head  # moved to project
     # port analytic_base_department
-    - oca refs/pull/56/head
+    - oca refs/pull/56/head  # moved to project
   target: *default_target
 ./external-src/manufacture:
   remotes:
@@ -54,7 +54,7 @@
     camptocamp: git@github.com:camptocamp/manufacture.git
   merges:
     - oca 9.0
-    # module mrp_bom_dismantling: dismantling bom button 
+    # module mrp_bom_dismantling: dismantling bom button
     - oca refs/pull/137/head
   target: *default_target
 ./external-src/stock-logistics-workflow:
@@ -73,7 +73,7 @@
   merges:
     - oca 9.0
     # Fix bvr alignment
-    - oca refs/pull/264/head
+    - oca refs/pull/264/head  # closed in favour of a PR targeting v8...
   target: *default_target
 ./external-src/carrier-delivery:
   remotes:
@@ -82,6 +82,6 @@
   merges:
     - oca 9.0
     # fix acl & rename field type to carrier_type
-    - oca refs/pull/72/head
-    - oca refs/pull/73/head
+    - oca refs/pull/72/head  # merged
+    - oca refs/pull/73/head  # merged
   target: *default_target
