@@ -263,3 +263,4 @@ migration:
         upgrade:
           - web_environment_ribbon
           - server_environment_ir_config_parameter
+    - version: 9.7.0

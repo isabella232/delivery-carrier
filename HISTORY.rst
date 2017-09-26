@@ -8,6 +8,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+9.7.0 (2017-09-26)
+++++++++++++++++++
+
+**Features and Improvements**
+
 * Add web_environment_ribbon
 
 **Bugfixes**
