@@ -264,3 +264,7 @@ migration:
           - web_environment_ribbon
           - server_environment_ir_config_parameter
     - version: 9.7.0
+    - version: 9.7.1
+      operations:
+        post:
+          - anthem songs.updates.update_9_7_1.update::main
