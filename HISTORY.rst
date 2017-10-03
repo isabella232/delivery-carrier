@@ -8,6 +8,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+9.7.1 (2017-10-03)
+++++++++++++++++++
+
+**Features and Improvements**
+
 * Add SLX_TEST outgoing mail settings
 
 **Bugfixes**
