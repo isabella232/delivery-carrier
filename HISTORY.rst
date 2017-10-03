@@ -8,6 +8,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add SLX_TEST outgoing mail settings
+
 **Bugfixes**
 
 **Build**
