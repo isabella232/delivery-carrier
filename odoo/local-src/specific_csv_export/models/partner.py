@@ -3,7 +3,8 @@
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, fields, api
+from contextlib import closing
+from openerp import models, fields, api, sql_db
 # from openerp.tools.misc import DEFAULT_SERVER_DATE_FORMAT
 
 from csv_export import CSVExporter
@@ -140,11 +141,12 @@ class ResPartner(models.Model):
                 # Update the partners. Bypass the ORM in order
                 # not to modify the
                 # write_date
-                for partner in partners:
-                    self.env.cr.execute('UPDATE res_partner '
-                                        'SET '
-                                        'contacts_last_xprt=CURRENT_TIMESTAMP '
-                                        'WHERE id = %s' % partner.id)
+                new_cr = sql_db.db_connect(self.env.cr.dbname).cursor()
+                with closing(new_cr):
+                    new_cr.execute('UPDATE res_partner '
+                                   'SET '
+                                   'contacts_last_xprt=CURRENT_TIMESTAMP '
+                                   'WHERE id in (%s)' % tuple(partners.ids))
             file_export = exporter.get_data()
         res = {
             'exc': exc,
@@ -196,10 +198,11 @@ class ResPartner(models.Model):
                 # Update the partners.
                 # Bypass the ORM in order not to modify the
                 # write_date
-                for partner in partners:
-                    self.env.cr.execute('UPDATE res_partner '
-                                        'SET adrs_lst_xprt=CURRENT_TIMESTAMP '
-                                        'WHERE id = %s' % partner.id)
+                new_cr = sql_db.db_connect(self.env.cr.dbname).cursor()
+                with closing(new_cr):
+                    new_cr.execute('UPDATE res_partner '
+                                   'SET adrs_lst_xprt=CURRENT_TIMESTAMP '
+                                   'WHERE id in (%s)' % tuple(partners.ids))
             file_export = exporter.get_data()
         res = {
             'exc': exc,
@@ -248,11 +251,13 @@ class ResPartner(models.Model):
                 # Update the partners. Bypass the ORM in
                 # order not to modify the
                 # write_date
-                for partner in partners:
-                    self.env.cr.execute('UPDATE res_partner '
-                                        'SET '
-                                        'adrs_tags_lst_xprt=CURRENT_TIMESTAMP '
-                                        'WHERE id = %s' % partner.id)
+
+                new_cr = sql_db.db_connect(self.env.cr.dbname).cursor()
+                with closing(new_cr):
+                    new_cr.execute('UPDATE res_partner '
+                                   'SET '
+                                   'adrs_tags_lst_xprt=CURRENT_TIMESTAMP '
+                                   'WHERE id in (%s)' % tuple(partners.ids))
             file_export = exporter.get_data()
         res = {
             'exc': exc,
