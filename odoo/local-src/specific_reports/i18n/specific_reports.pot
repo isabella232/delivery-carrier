@@ -178,7 +178,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
 #: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
 #: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
-msgid "<span class=\"col-xs-5\">Date:</span>"
+msgid "Date:"
 msgstr ""
 
 #. module: specific_reports

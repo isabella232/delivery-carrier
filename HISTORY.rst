@@ -10,6 +10,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Fix some reports layout problems in specific_reports
+
 **Build**
 
 **Documentation**

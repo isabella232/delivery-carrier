@@ -268,3 +268,10 @@ migration:
       operations:
         post:
           - anthem songs.updates.update_9_7_1.update::main
+    - version: 9.7.2
+      addons:
+        upgrade:
+          - specific_reports
+      operations:
+        post:
+          - anthem songs.updates.update_9_7_2.update::main

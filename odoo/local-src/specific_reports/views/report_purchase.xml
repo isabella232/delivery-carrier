@@ -97,7 +97,7 @@
         </div>
         <div class="col-xs-6 pl-0">
           <div class="col-xs-12">
-            <span class="col-xs-5">Date:</span>
+            <span t-if="1" class="col-xs-5">Date:</span>
             <span t-field="o.date_order" t-field-options='{"widget":"date"}'/>
           </div>
         </div>
