@@ -10,7 +10,20 @@ latest (unreleased)
 
 **Bugfixes**
 
+**Build**
+
+**Documentation**
+
+
+9.7.2 (2017-10-09)
+++++++++++++++++++
+
+**Features and Improvements**
+
+**Bugfixes**
+
 * Fix some reports layout problems in specific_reports
+* Fix faulty cursor usage in customer csv export
 
 **Build**
 
