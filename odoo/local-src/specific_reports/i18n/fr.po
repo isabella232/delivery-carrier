@@ -198,15 +198,15 @@ msgstr "<span class=\"col-xs-5\">Expédition:</span>\n"
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
 #: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-7\">Client number:</span>"
-msgstr "<span class=\"col-xs-7\">No de client:</span>"
+msgid "<span class=\"col-xs-5\">Client number:</span>"
+msgstr "<span class=\"col-xs-5\">No de client:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
 #: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span class=\"col-xs-7\">Contact:</span>"
-msgstr "<span class=\"col-xs-7\">Votre contact:</span>"
+msgid "<span class=\"col-xs-5\">Contact:</span>"
+msgstr "<span class=\"col-xs-5\">Votre contact:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
@@ -215,15 +215,10 @@ msgstr "<span class=\"col-xs-5\">Date de commande:</span>"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
-#: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
-msgid "<span class=\"col-xs-5\">Date:</span>"
-msgstr "<span class=\"col-xs-5\">Date:</span>"
-
-#. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
-msgid "<span class=\"col-xs-3\">Date:</span>"
-msgstr "<span class=\"col-xs-3\">Date:</span>"
-
+#: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
+msgid "Date:"
+msgstr "Date:"
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
