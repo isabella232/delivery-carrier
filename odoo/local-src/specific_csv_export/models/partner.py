@@ -277,9 +277,9 @@ class ResPartner(models.Model):
         if self.partner_state == 'qualified':
             return 'qualifiziert - Person'
         elif self.partner_state == 'potential_partner':
-            return 'Kontaktpflege aktuell - Person'
-        elif self.partner_state == 'active':
             return 'potentieller Partner - Person'
+        elif self.partner_state == 'active':
+            return 'Kontaktpflege aktuell - Person'
         else:
             return ''
 
