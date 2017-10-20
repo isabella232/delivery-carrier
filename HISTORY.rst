@@ -15,6 +15,20 @@ latest (unreleased)
 **Documentation**
 
 
+9.7.3 (2017-10-20)
+++++++++++++++++++
+
+**Features and Improvements**
+
+**Bugfixes**
+
+* Fix category mapping in csv export of partner BIZ-644
+
+**Build**
+
+**Documentation**
+
+
 9.7.2 (2017-10-09)
 ++++++++++++++++++
 

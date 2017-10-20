@@ -275,3 +275,4 @@ migration:
       operations:
         post:
           - anthem songs.updates.update_9_7_2.update::main
+    - version: 9.7.3
