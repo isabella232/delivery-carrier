@@ -55,7 +55,7 @@
   merges:
     - oca 9.0
     # module mrp_bom_dismantling: dismantling bom button
-    - oca refs/pull/137/head
+    - oca refs/pull/231/head
   target: *default_target
 ./external-src/stock-logistics-workflow:
   remotes:
