@@ -10,6 +10,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Update manufacture to fix dismantling issue BIZ-704
+
 **Build**
 
 **Documentation**
