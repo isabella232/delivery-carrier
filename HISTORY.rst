@@ -10,6 +10,18 @@ latest (unreleased)
 
 **Bugfixes**
 
+**Build**
+
+**Documentation**
+
+
+9.7.4 (2017-10-26)
+++++++++++++++++++
+
+**Features and Improvements**
+
+**Bugfixes**
+
 * Update manufacture to fix dismantling issue BIZ-704
 
 **Build**
