@@ -84,18 +84,20 @@
     </xpath>
 
 
-
     <xpath expr="//div[@class='row']" position="replace">
       <div class="row head">
         <div class="address">
           <div style="text-decoration: underline; padding-left: 0px;">
             <span t-field="o.company_id.name"/>, <span t-field="o.company_id.street"/>, <span t-field="o.company_id.zip"/> <span t-field="o.company_id.city"/>
+
             <br/>
             <br/>
           </div>
+          <div t-field="context.partner_id.name"/>
           <div t-field="context.partner_id"
-               t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
+               t-field-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
           <span t-field="context.partner_id.vat"/>
+          <br/>
         </div>
       </div>
       <div class="row head">
