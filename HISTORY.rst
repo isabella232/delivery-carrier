@@ -15,6 +15,20 @@ latest (unreleased)
 **Documentation**
 
 
+9.7.5 (2017-11-20)
+++++++++++++++++++
+
+**Features and Improvements**
+
+**Bugfixes**
+
+* BIZ-705 Improve followup report layer
+
+**Build**
+
+**Documentation**
+
+
 9.7.4 (2017-10-26)
 ++++++++++++++++++
 

@@ -280,3 +280,7 @@ migration:
       addons:
         upgrade:
           - mrp
+    - version: 9.7.5
+      addons:
+        upgrade:
+          - specific_reports
