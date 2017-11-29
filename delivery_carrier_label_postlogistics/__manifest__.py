@@ -11,7 +11,7 @@
  'depends': ['base_delivery_carrier_label',
              'configuration_helper',
              'web_domain_field'],
- 'website': 'http://www.camptocamp.com/',
+ 'website': 'https://github.com/OCA/delivery-carrier',
  'data': ['data/partner.xml',
           'data/product.xml',
           'data/delivery.xml',
