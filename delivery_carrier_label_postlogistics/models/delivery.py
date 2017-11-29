@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 # Copyright 2013-2017 Yannick Vaucher (Camptocamp SA)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from lxml import etree
 import logging
 import json
 from odoo import api, fields, models
