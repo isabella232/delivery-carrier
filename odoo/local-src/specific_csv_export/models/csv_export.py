@@ -216,9 +216,9 @@ class CsvExportManager(models.Model):
 
         if con['exc'] or part['exc'] or tags['exc']:
             is_exported = False
-            log = "Contacts: " + con['exc'] or '' + \
-                  " Partners: " + part['exc'] or '' + \
-                  " Tags: " + tags['exc'] or ''
+            log = "Contacts: " + (str(con['exc']) or '') + \
+                  " Partners: " + (str(part['exc']) or '') + \
+                  " Tags: " + (str(tags['exc']) or '')
 
         vals = {
             'last_export': fields.Datetime.now(),
@@ -227,11 +227,14 @@ class CsvExportManager(models.Model):
         }
         export = self.create(vals)
         if not con['exc']:
-            export.save_attachement('csv', con['file'], con['ftp'])
+            export.save_attachement('csv', con['file'], con['ftp'] or
+                                    con['disk'])
         if not part['exc']:
-            export.save_attachement('csv', part['file'], part['ftp'])
+            export.save_attachement('csv', part['file'], part['ftp'] or
+                                    part['disk'])
         if not tags['exc']:
-            export.save_attachement('csv', tags['file'], tags['ftp'])
+            export.save_attachement('csv', tags['file'], tags['ftp'] or
+                                    tags['disk'])
 
     def save_attachement(self, type, content, filename, inc=None):
         ira = self.env['ir.attachment']
