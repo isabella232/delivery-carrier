@@ -131,12 +131,12 @@ msgstr ""
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
-msgid "<span class=\"col-xs-5 pl-0\">Your order:</span>"
+msgid "<span class=\"col-xs-4 pl-0\">Your order:</span>"
 msgstr ""
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
-msgid "<span class=\"col-xs-5\" style=\"padding-left: 0px;\"><strong>Your reference:</strong></span>"
+msgid "<span class=\"col-xs-2\"><strong>Your reference:</strong></span>"
 msgstr ""
 
 #. module: specific_reports
@@ -146,17 +146,16 @@ msgstr ""
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
-msgid "<span class=\"col-xs-5\">Carrier:</span>"
+msgid "<span class=\"col-xs-4 pl-0\">Carrier:</span>"
 msgstr ""
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
-msgid "<span class=\"col-xs-5\">Carrier:</span>\n"
+msgid "<span class=\"col-xs-4 pl-0\">Carrier:</span>\n"
 "                              <span>no carrier</span>"
 msgstr ""
 
 #. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
 #: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
 msgid "<span class=\"col-xs-5\">Client number:</span>"
@@ -164,9 +163,18 @@ msgstr ""
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+msgid "<span class=\"col-xs-4 pl-0\">Client number:</span>"
+msgstr ""
+
+#. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
 msgid "<span class=\"col-xs-5\">Contact:</span>"
+msgstr ""
+
+#. module: specific_reports
+#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+msgid "<span class=\"col-xs-4 pl-0\">Contact:</span>"
 msgstr ""
 
 #. module: specific_reports
@@ -823,12 +831,12 @@ msgstr ""
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
-msgid "<span style="padding-left: 0px;">according to the arrangement</span>"
+msgid "<span style=\"padding-left: 0px;\">according to the arrangement</span>"
 msgstr ""
 
 #. module: specific_reports
 #: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
-msgid "<span class=\"col-xs-5\">Sale Order:</span>"
+msgid "<span class=\"col-xs-4 pl-0\">Sale Order:</span>"
 msgstr ""
 
 #. module: account_reports
