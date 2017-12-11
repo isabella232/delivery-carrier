@@ -146,7 +146,9 @@ class ResPartner(models.Model):
                     new_cr.execute('UPDATE res_partner '
                                    'SET '
                                    'contacts_last_xprt=CURRENT_TIMESTAMP '
-                                   'WHERE id in (%s)' % tuple(partners.ids))
+                                   'WHERE id in (%s)' %
+                                   (','.join(map(str, partners.ids))))
+                    new_cr.commit()
             file_export = exporter.get_data()
         res = {
             'exc': exc,
@@ -202,7 +204,9 @@ class ResPartner(models.Model):
                 with closing(new_cr):
                     new_cr.execute('UPDATE res_partner '
                                    'SET adrs_lst_xprt=CURRENT_TIMESTAMP '
-                                   'WHERE id in (%s)' % tuple(partners.ids))
+                                   'WHERE id in (%s)' %
+                                   (','.join(map(str, partners.ids))))
+                    new_cr.commit()
             file_export = exporter.get_data()
         res = {
             'exc': exc,
@@ -257,7 +261,9 @@ class ResPartner(models.Model):
                     new_cr.execute('UPDATE res_partner '
                                    'SET '
                                    'adrs_tags_lst_xprt=CURRENT_TIMESTAMP '
-                                   'WHERE id in (%s)' % tuple(partners.ids))
+                                   'WHERE id in (%s)' %
+                                   (','.join(map(str, partners.ids))))
+                    new_cr.commit()
             file_export = exporter.get_data()
         res = {
             'exc': exc,

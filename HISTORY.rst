@@ -10,6 +10,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BIZ-978 CSV-Export has stopped
+
 **Build**
 
 **Documentation**
