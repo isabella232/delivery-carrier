@@ -10,6 +10,18 @@ latest (unreleased)
 
 **Bugfixes**
 
+**Build**
+
+**Documentation**
+
+
+9.8.0 (2017-12-12)
+++++++++++++++++++
+
+**Features and Improvements**
+
+**Bugfixes**
+
 * BIZ-978 CSV-Export has stopped
 
 **Build**
