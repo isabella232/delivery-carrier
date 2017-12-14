@@ -207,18 +207,15 @@ class CsvExportManager(models.Model):
     def export_contacts_partners(self):
 
         partner = self.env['res.partner']
-        is_exported = True
-        log = ""
 
         con = partner.export_csv_contacts()
         part = partner.export_csv_partners()
         tags = partner.export_csv_partner_tags()
 
-        if con['exc'] or part['exc'] or tags['exc']:
-            is_exported = False
-            log = 'Contacts: ' + str(con['exc'] or '') + \
-                  ' Partners: ' + str(part['exc'] or '') + \
-                  ' Tags: ' + str(tags['exc'] or '')
+        is_exported = not (con['exc'] or part['exc'] or tags['exc'])
+        log = 'Contacts: ' + str(con['msg'] or '') + \
+              ' | Partners: ' + str(part['msg'] or '') + \
+              ' | Tags: ' + str(tags['msg'] or '')
 
         vals = {
             'last_export': fields.Datetime.now(),
@@ -226,13 +223,13 @@ class CsvExportManager(models.Model):
             'log': log,
         }
         export = self.create(vals)
-        if not con['exc']:
+        if con['file']:
             export.save_attachement('csv', con['file'], con['ftp'] or
                                     con['disk'])
-        if not part['exc']:
+        if part['file']:
             export.save_attachement('csv', part['file'], part['ftp'] or
                                     part['disk'])
-        if not tags['exc']:
+        if tags['file']:
             export.save_attachement('csv', tags['file'], tags['ftp'] or
                                     tags['disk'])
 

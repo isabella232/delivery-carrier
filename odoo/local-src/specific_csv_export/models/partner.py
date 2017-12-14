@@ -111,16 +111,19 @@ class ResPartner(models.Model):
         """We want to export all the partners that are emmbedded into a company
         """
         exc = False
+        msg = False
         file_export = False
+
         self.env.cr.execute('SELECT id FROM res_partner '
                             'WHERE (parent_id IS NOT NULL) '
                             'AND (is_company IS False) '
                             'AND ((contacts_last_xprt is NULL) '
                             'OR (write_date> contacts_last_xprt) '
                             'OR (create_date> contacts_last_xprt))')
+
         ids = [row[0] for row in self.env.cr.fetchall()]
         if not ids:
-            exc = 'No contacts to export'
+            msg = 'No contact to export'
         else:
             partners = self.with_context(active_test=False).browse(ids)
 
@@ -133,7 +136,7 @@ class ResPartner(models.Model):
                 try:
                     exporter.save_to_sftp(ftp)
                 except paramiko.SSHException as exc:
-                    pass
+                    msg = str(exc)
             elif disk is not None:
                 exporter.save_to_disk(disk)
 
@@ -149,9 +152,11 @@ class ResPartner(models.Model):
                                    'WHERE id in (%s)' %
                                    (','.join(map(str, partners.ids))))
                     new_cr.commit()
+                msg = '%d contacts exported' % len(ids)
             file_export = exporter.get_data()
         res = {
             'exc': exc,
+            'msg': msg,
             'file': file_export,
             'ftp': ftp,
             'disk': disk,
@@ -165,6 +170,7 @@ class ResPartner(models.Model):
             companies
         """
         exc = False
+        msg = False
         file_export = False
         ftp = False
         disk = False
@@ -179,7 +185,7 @@ class ResPartner(models.Model):
 
         ids = [row[0] for row in self.env.cr.fetchall()]
         if not ids:
-            exc = 'No partner to export'
+            msg = 'No partner to export'
         else:
             partners = self.with_context(active_test=False).browse(ids)
 
@@ -192,7 +198,7 @@ class ResPartner(models.Model):
                 try:
                     exporter.save_to_sftp(ftp)
                 except paramiko.SSHException as exc:
-                    pass
+                    msg = str(exc)
             elif disk is not None:
                 exporter.save_to_disk(disk)
 
@@ -207,9 +213,11 @@ class ResPartner(models.Model):
                                    'WHERE id in (%s)' %
                                    (','.join(map(str, partners.ids))))
                     new_cr.commit()
+                msg = '%d partners exported' % len(ids)
             file_export = exporter.get_data()
         res = {
             'exc': exc,
+            'msg': msg,
             'file': file_export,
             'ftp': ftp,
             'disk': disk,
@@ -222,7 +230,7 @@ class ResPartner(models.Model):
             "company_type" = "company"
         """
         exc = False
-        res = False
+        msg = False
         file_export = False
         ftp = False
         disk = False
@@ -235,7 +243,7 @@ class ResPartner(models.Model):
         self.env.cr.execute(sql)
         ids = [row[0] for row in self.env.cr.fetchall()]
         if not ids:
-            exc = 'No partner to export'
+            msg = 'No partner to export'
         else:
             partners = self.with_context(active_test=False).browse(ids)
             exporter = CSVExporter(partners, EXPORT_FIELDS_TAGS,
@@ -247,7 +255,7 @@ class ResPartner(models.Model):
                 try:
                     exporter.save_to_sftp(ftp)
                 except paramiko.SSHException as exc:
-                    pass
+                    msg = str(exc)
             elif disk is not None:
                 exporter.save_to_disk(disk)
 
@@ -264,9 +272,11 @@ class ResPartner(models.Model):
                                    'WHERE id in (%s)' %
                                    (','.join(map(str, partners.ids))))
                     new_cr.commit()
+                msg = '%d partners exported' % len(ids)
             file_export = exporter.get_data()
         res = {
             'exc': exc,
+            'msg': msg,
             'file': file_export,
             'ftp': ftp,
             'disk': disk,
