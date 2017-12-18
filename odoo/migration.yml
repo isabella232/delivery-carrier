@@ -285,3 +285,12 @@ migration:
         upgrade:
           - specific_reports
     - version: 9.8.0
+    - version: 9.9.0
+      addons:
+        upgrade:
+          - account_fiscal_position_rule
+          - account_fiscal_position_rule_sale
+          - account_fiscal_position_rule_purchase
+      operations:
+        post:
+          - anthem songs.updates.update_9_9_0.update::main

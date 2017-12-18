@@ -61,3 +61,7 @@
 [submodule "odoo/external-src/odoo-cloud-platform"]
 	path = odoo/external-src/odoo-cloud-platform
 	url = git@github.com:camptocamp/odoo-cloud-platform
+[submodule "odoo/external-src/account-fiscal-rule"]
+	path = odoo/external-src/account-fiscal-rule
+	url = git@github.com:OCA/account-fiscal-rule.git
+	branch = 9.0

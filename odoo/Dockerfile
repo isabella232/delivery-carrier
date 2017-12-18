@@ -28,6 +28,7 @@ ENV ADDONS_PATH="/opt/odoo/local-src, \
     /opt/odoo/external-src/server-tools, \
     /opt/odoo/external-src/account-financial-reporting, \
     /opt/odoo/external-src/account-financial-tools, \
+    /opt/odoo/external-src/account-fiscal-rule, \
     /opt/odoo/external-src/account-payment, \
     /opt/odoo/external-src/bank-payment, \
     /opt/odoo/external-src/bank-statement-reconcile, \
