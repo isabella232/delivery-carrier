@@ -93,33 +93,59 @@ def create_vat_2018_fiscal_position(ctx):
     tax_sale_3_8_incl = ctx.env['account.tax'].search([
         ('amount', '=', 3.8), ('type_tax_use', '=', 'sale'),
         ('price_include', '=', True)])
+    tax_sale_3_8_excl = ctx.env['account.tax'].search([
+        ('amount', '=', 3.8), ('type_tax_use', '=', 'sale'),
+        ('price_include', '=', False)])
+
     tax_sale_3_7_incl = ctx.env['account.tax'].with_context(
         active_test=False).search([
             ('amount', '=', 3.7), ('type_tax_use', '=', 'sale'),
             ('price_include', '=', True)])
+    tax_sale_3_7_excl = ctx.env['account.tax'].with_context(
+        active_test=False).search([
+            ('amount', '=', 3.7), ('type_tax_use', '=', 'sale'),
+            ('price_include', '=', False)])
 
     tax_invest_3_8_excl = ctx.env['account.tax'].search([
         ('amount', '=', 3.8), ('type_tax_use', '=', 'purchase'),
         ('price_include', '=', False), ('description', 'like', '%invest%')])
+    tax_invest_3_8_incl = ctx.env['account.tax'].search([
+        ('amount', '=', 3.8), ('type_tax_use', '=', 'purchase'),
+        ('price_include', '=', True), ('description', 'like', '%invest%')])
+
     tax_invest_3_7_excl = ctx.env['account.tax'].with_context(
         active_test=False).search([
             ('amount', '=', 3.7), ('type_tax_use', '=', 'purchase'),
             ('price_include', '=', False),
             ('description', 'like', '%invest%')])
-
-    tax_invest_3_8_incl = ctx.env['account.tax'].search([
-        ('amount', '=', 3.8), ('type_tax_use', '=', 'purchase'),
-        ('price_include', '=', True), ('description', 'like', '%invest%')])
     tax_invest_3_7_incl = ctx.env['account.tax'].with_context(
         active_test=False).search([
             ('amount', '=', 3.7), ('type_tax_use', '=', 'purchase'),
             ('price_include', '=', True),
             ('description', 'like', '%invest%')])
 
+    tax_purchase_3_8_incl = ctx.env['account.tax'].search([
+        ('amount', '=', 3.8), ('type_tax_use', '=', 'purchase'),
+        ('price_include', '=', True), ('description', 'like', '%achat%')])
+    tax_purchase_3_8_excl = ctx.env['account.tax'].search([
+        ('amount', '=', 3.8), ('type_tax_use', '=', 'purchase'),
+        ('price_include', '=', False), ('description', 'like', '%achat%')])
+
+    tax_purchase_3_7_incl = ctx.env['account.tax'].with_context(
+        active_test=False).search([
+            ('amount', '=', 3.7), ('type_tax_use', '=', 'purchase'),
+            ('price_include', '=', True), ('description', 'like', '%achat%')])
+    tax_purchase_3_7_excl = ctx.env['account.tax'].with_context(
+        active_test=False).search([
+            ('amount', '=', 3.7), ('type_tax_use', '=', 'purchase'),
+            ('price_include', '=', False), ('description', 'like', '%achat%')])
+
     inactive_taxes = (tax_sale_7_7_incl | tax_sale_7_7_excl |
                       tax_purchase_7_7_incl | tax_purchase_7_7_excl |
-                      tax_sale_3_7_incl | tax_invest_3_7_excl |
-                      tax_invest_3_7_incl)
+                      tax_invest_7_7_incl | tax_invest_7_7_excl |
+                      tax_sale_3_7_incl | tax_sale_3_7_excl |
+                      tax_purchase_3_7_incl | tax_purchase_3_7_excl |
+                      tax_invest_3_7_incl | tax_invest_3_7_excl)
     inactive_taxes.write({'active': True})
 
     fiscal_position_2018 = ctx.env['account.fiscal.position'].create({
@@ -147,6 +173,15 @@ def create_vat_2018_fiscal_position(ctx):
             'tax_src_id': tax_sale_3_8_incl.id,
             'tax_dest_id': tax_sale_3_7_incl.id,
         }), (0, 0, {
+            'tax_src_id': tax_sale_3_8_excl.id,
+            'tax_dest_id': tax_sale_3_7_excl.id,
+        }), (0, 0, {
+            'tax_src_id': tax_purchase_3_8_incl.id,
+            'tax_dest_id': tax_purchase_3_7_incl.id,
+        }), (0, 0, {
+            'tax_src_id': tax_purchase_3_8_excl.id,
+            'tax_dest_id': tax_purchase_3_7_excl.id,
+        }), (0, 0, {
             'tax_src_id': tax_invest_3_8_excl.id,
             'tax_dest_id': tax_invest_3_7_excl.id,
         }), (0, 0, {
@@ -165,6 +200,67 @@ def create_vat_2018_fiscal_position(ctx):
         'use_purchase': True,
         'use_invoice': True,
     })
+
+    import_export = ctx.env['account.fiscal.position'].search(
+        [('name', '=', 'Import/Export')])
+    import_0_vat = ctx.env['account.tax'].search(
+        [('description', '=', '0% import.')])
+    export_0_vat = ctx.env['account.tax'].search(
+        [('description', '=', '0%')])
+
+    import_export_taxes = [
+        {
+            'position_id': import_export.id,
+            'tax_src_id': tax_sale_7_7_incl.id,
+            'tax_dest_id': export_0_vat.id,
+        }, {
+            'position_id': import_export.id,
+            'tax_src_id': tax_sale_7_7_excl.id,
+            'tax_dest_id': export_0_vat.id,
+        }, {
+            'position_id': import_export.id,
+            'tax_src_id': tax_purchase_7_7_incl.id,
+            'tax_dest_id': import_0_vat.id,
+        }, {
+            'position_id': import_export.id,
+            'tax_src_id': tax_purchase_7_7_excl.id,
+            'tax_dest_id': import_0_vat.id,
+        }, {
+            'position_id': import_export.id,
+            'tax_src_id': tax_invest_7_7_incl.id,
+            'tax_dest_id': import_0_vat.id,
+        }, {
+            'position_id': import_export.id,
+            'tax_src_id': tax_invest_7_7_excl.id,
+            'tax_dest_id': import_0_vat.id,
+        }, {
+            'position_id': import_export.id,
+            'tax_src_id': tax_sale_3_7_incl.id,
+            'tax_dest_id': export_0_vat.id,
+        }, {
+            'position_id': import_export.id,
+            'tax_src_id': tax_sale_3_7_excl.id,
+            'tax_dest_id': export_0_vat.id,
+        }, {
+            'position_id': import_export.id,
+            'tax_src_id': tax_purchase_3_7_incl.id,
+            'tax_dest_id': import_0_vat.id,
+        }, {
+            'position_id': import_export.id,
+            'tax_src_id': tax_purchase_3_7_excl.id,
+            'tax_dest_id': import_0_vat.id,
+        }, {
+            'position_id': import_export.id,
+            'tax_src_id': tax_invest_3_7_excl.id,
+            'tax_dest_id': import_0_vat.id,
+        }, {
+            'position_id': import_export.id,
+            'tax_src_id': tax_invest_3_7_incl.id,
+            'tax_dest_id': import_0_vat.id,
+        }]
+
+    for tax in import_export_taxes:
+        ctx.env['account.fiscal.position.tax'].create(tax)
 
 
 @anthem.log
