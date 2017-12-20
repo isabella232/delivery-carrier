@@ -1,5 +1,5 @@
 id,name
-l10n_ch.vat_tag_302,Switzerland VAT Form: grid 302a
-l10n_ch.vat_tag_302b,Switzerland VAT Form: grid 302b
-l10n_ch.vat_tag_342,Switzerland VAT Form: grid 342a
-l10n_ch.vat_tag_342b,Switzerland VAT Form: grid 342b
+__setup__.vat_tag_302_a,Switzerland VAT Form: grid 302a
+__setup__.vat_tag_302_b,Switzerland VAT Form: grid 302b
+__setup__.vat_tag_342_a,Switzerland VAT Form: grid 342a
+__setup__.vat_tag_342_b,Switzerland VAT Form: grid 342b
