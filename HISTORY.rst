@@ -8,6 +8,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+9.9.1 (2018-01-04)
+++++++++++++++++++
+
+**Features and Improvements**
+
 * BIZ-1024: update products with new VAT
 
 **Bugfixes**
