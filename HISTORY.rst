@@ -8,6 +8,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BIZ-1024: update products with new VAT
+
 **Bugfixes**
 
 **Build**
