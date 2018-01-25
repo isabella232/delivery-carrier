@@ -10,6 +10,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BIZ-1133: Error message opening VAT-report
+
 **Build**
 
 * Update odoo-cloud-platform (BIZ-1093)
