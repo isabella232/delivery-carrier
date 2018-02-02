@@ -11,6 +11,7 @@ latest (unreleased)
 **Bugfixes**
 
 * BIZ-1133: Error message opening VAT-report
+* BIZ-992: Delivery slips are suddently bad again
 
 **Build**
 

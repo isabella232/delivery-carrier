@@ -302,3 +302,10 @@ migration:
       operations:
         pre:
           - anthem songs.updates.update_9_9_2::pre_update
+    - version: 9.9.3
+      addons:
+        upgrade:
+          - specific_reports
+      operations:
+        post:
+          - anthem songs.updates.update_9_9_3::main

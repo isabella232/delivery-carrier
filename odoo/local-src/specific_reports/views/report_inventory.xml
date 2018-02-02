@@ -40,6 +40,12 @@
                       # position: fixed;
                       left: 215px;
                     }
+                    .pl-0{
+                      padding-left: 0px;
+                    }
+                    .ml-0{
+                      margin-left: 0px;
+                    }
                 </style>
             </xpath>
             <!-- Throwing away unuseful table & Title -->
@@ -124,32 +130,40 @@
                           <span> </span> <!-- Black line to ensure layout downside -->
                     </div>
                     <div class="row mt32 mb32" id="informations">
-                        <div class="col-xs-6" name="reference" id="padding">
+                        <div class="col-xs-12" name="reference" id="padding">
+                            <div class="row">
+                            <div class="col-xs-12">
                             <h2 t-if="o.name">Delivery Slip <span t-field="o.name"/></h2>
                             <br/>
-                            <span class="col-xs-5" style="padding-left: 0px;"><strong>Your reference:</strong></span>
+                            </div>
+                            </div>
+                            <div class="row">
+                            <span class="col-xs-2"><strong>Your reference:</strong></span>
                             <t t-if="o.sale_id.client_order_ref">
-                              <strong class="address" t-field="o.sale_id.client_order_ref"/>
+                              <strong class="col-xs-10 pl-0" t-field="o.sale_id.client_order_ref"/>
                             </t>
+                            </div>
                         </div>
                         <div class="col-xs-7"></div>
+                        <div class="col-xs-12">
+                        <div class="row">
                         <div class="col-xs-6 pl-0" style="margin-left: 0px; padding-left: 0px;width=20px;">
-                          <div t-if="o.sale_id.partner_id.parent_id" class="col-xs-12" style="padding-left: 0px;">
-                            <span class="col-xs-5">Contact:</span>
-                                <span class="address"><span t-field="o.sale_id.partner_id.parent_id.name"/>, <span t-field="o.sale_id.partner_id.name"/></span>
+                          <div t-if="o.sale_id.partner_id.parent_id" class="col-xs-12">
+                            <span class="col-xs-4 pl-0">Contact:</span>
+                                <span class="col-xs-8 pl-0"><span t-field="o.sale_id.partner_id.parent_id.name"/>, <span t-field="o.sale_id.partner_id.name"/></span>
                           </div>
-                          <div t-if="not o.sale_id.partner_id.parent_id" class="col-xs-12" style="padding-left: 0px;">
-                            <span class="col-xs-5">Contact:</span>
-                                <span class="address"><span t-field="o.sale_id.partner_id.name"/></span>
+                          <div t-if="not o.sale_id.partner_id.parent_id" class="col-xs-12">
+                            <span class="col-xs-4 pl-0">Contact:</span>
+                                <span class="col-xs-8 pl-0"><span t-field="o.sale_id.partner_id.name"/></span>
                           </div>
 
-                          <div t-if="o.sale_id.client_order_contact_type" class="col-xs-12" style="padding-left: 0px;">
-                              <span class="col-xs-5 pl-0">Your order:</span>
+                          <div t-if="o.sale_id.client_order_contact_type" class="col-xs-12">
+                              <span class="col-xs-4 pl-0">Your order:</span>
                               <span class="address"><span t-field="o.sale_id.client_order_contact_type"/><t t-if="o.sale_id.client_order_date">, <span t-field="o.sale_id.client_order_date"/></t>
                               </span>
                           </div>
-                          <div class="col-xs-12" style="padding-left: 0px;">
-                              <span class="col-xs-5">Client number:</span>
+                          <div class="col-xs-12">
+                              <span class="col-xs-4 pl-0">Client number:</span>
                               <span t-if="o.partner_id.is_company">
                                 <span class="address" t-field="o.partner_id.ref"/>
                               </span>
@@ -157,28 +171,30 @@
                                 <span class="address" t-field="o.partner_id.parent_id.ref"/>
                               </span>
                           </div>
-                          <div t-if="not o.partner_id.country_id.code == 'CH'" class="col-xs-12" style="padding-left: 0px;">
-                              <span class="col-xs-5">EORI NR:</span>
+                          <div t-if="not o.partner_id.country_id.code == 'CH'" class="col-xs-12" >
+                              <span class="col-xs-4 pl-0">EORI NR:</span>
                               <span class="address" t-field="o.partner_id.eori_number"/>
                           </div>
                         </div>
                         <div class="col-xs-6">
                           <div t-if="o.min_date" class="col-xs-12">
-                              <span t-if="1" class="col-xs-5">Date:</span>
+                              <span t-if="1" class="col-xs-4 pl-0">Date:</span>
                               <span t-field="o.min_date" t-field-options='{"widget":"date"}'/>
                           </div>
                           <div t-if="o.carrier_id" class="col-xs-12">
-                              <span class="col-xs-5">Carrier:</span>
+                              <span class="col-xs-4 pl-0">Carrier:</span>
                               <span t-field="o.carrier_id"/>
                           </div>
                           <div t-if="not o.carrier_id" class="col-xs-12">
-                              <span class="col-xs-5">Carrier:</span>
+                              <span class="col-xs-4 pl-0">Carrier:</span>
                               <span>no carrier</span>
                           </div>
                           <div class="col-xs-12">
-                              <span class="col-xs-5">Sale Order:</span>
+                              <span class="col-xs-4 pl-0">Sale Order:</span>
                               <span t-field="o.sale_id.name" />
                           </div>
+                        </div>
+                        </div>
                         </div>
                     </div><!-- Box info-->
                 </t><!-- IF outgoing-->
@@ -277,7 +293,6 @@
                           <th>Menge</th>
                           <th>E-No.<br/>Artikel-Nr.</th>
                           <th>Bezeichnung</th>
-                          <th>HS. Code</th>
                         </tr>
                         </thead>
                         <t t-set="line_counter" t-value="0"/>
@@ -298,25 +313,21 @@
                             </td>
                             <td>
                                 <t t-if="m.product_id.e_nr">
-                                  <span  t-field="m.product_id.e_nr"/>
+                                    <span t-field="m.product_id.cut_e_nr"/>
                                 </t>
                                 <t t-if="not m.product_id.e_nr">
                                     -
-                                </t>
-                                <br/>
-                                <t t-if="m.product_id.default_code">
-                                  <span  t-field="m.product_id.default_code"/>
-                                </t>
-                                <t t-if="not m.product_id.default_code">
-                                  -
+                                    <br/>
+                                    <t t-if="m.product_id.default_code">
+                                      <span t-field="m.product_id.default_code"/>
+                                    </t>
+                                    <t t-if="not m.product_id.default_code">
+                                      -
+                                    </t>
                                 </t>
                             </td>
                             <td>
-                                <!--<t t-debug="pdb"/>-->
                                 <span  t-raw="m.name.replace('\n','&lt;br/&gt;')"/>
-                            </td>
-                            <td>
-                              <span t-field="m.product_id.harmsys_code"/>
                             </td>
                         </tr>
 
