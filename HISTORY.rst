@@ -12,6 +12,7 @@ latest (unreleased)
 
 * BIZ-1133: Error message opening VAT-report
 * BIZ-992: Delivery slips are suddently bad again
+* BIZ-705: Fix customer followup report CSS
 
 **Build**
 

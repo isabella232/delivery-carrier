@@ -65,6 +65,14 @@
         font-weight: bold;
         }
 
+        .unreconciled_aml.o_account_reports_domain_line_2 {
+        margin-left: 5px !important;
+        }
+        .unreconciled_aml.o_account_reports_domain_line_2:before {
+        content: "\00a0";
+        }
+
+
       </style>
     </xpath>
 
