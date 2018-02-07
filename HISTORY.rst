@@ -8,6 +8,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Update project-template with lastest updates
+
 **Bugfixes**
 
 * BIZ-1133: Error message opening VAT-report
@@ -17,6 +19,7 @@ latest (unreleased)
 **Build**
 
 * Update odoo-cloud-platform (BIZ-1093)
+* Update with dockerimage 9.0-2.4.1
 
 **Documentation**
 
