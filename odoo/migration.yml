@@ -299,13 +299,10 @@ migration:
         pre:
           - anthem songs.updates.update_9_9_1::pre_update
     - version: 9.9.2
-      operations:
-        pre:
-          - anthem songs.updates.update_9_9_2::pre_update
-    - version: 9.9.3
       addons:
         upgrade:
           - specific_reports
       operations:
-        post:
-          - anthem songs.updates.update_9_9_3::main
+        pre:
+          - anthem songs.updates.update_9_9_2::pre_update
+          - anthem songs.updates.update_9_9_2::post
