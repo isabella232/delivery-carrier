@@ -1,0 +1,26 @@
+From a98beb13db82b692d32aa0e6e0b0befabbbaa386 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?G=C3=A9ry=20Debongnie?= <ged@odoo.com>
+Date: Mon, 5 Feb 2018 20:24:23 +0100
+Subject: [PATCH] [FIX] web_editor: correct check of 'rules' property
+
+see issue #22517
+---
+ addons/web_editor/static/src/js/transcoder.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/addons/web_editor/static/src/js/transcoder.js b/addons/web_editor/static/src/js/transcoder.js
+index ca6f751..b083183 100644
+--- a/addons/web_editor/static/src/js/transcoder.js
++++ b/addons/web_editor/static/src/js/transcoder.js
+@@ -13,7 +13,7 @@ var getMatchedCSSRules = function (a) {
+         var sheets = document.styleSheets;
+         for(var i = sheets.length-1; i >= 0 ; i--) {
+             var rules;
+-            if (sheets[i].rules) {
++            if (sheets[i].hasOwnProperty('rules')) {
+                 rules = sheets[i].rules;
+             } else {
+                 //try...catch because Firefox not able to enumerate document.styleSheets[].cssRules[] for cross-domain stylesheets.
+-- 
+2.7.4
+

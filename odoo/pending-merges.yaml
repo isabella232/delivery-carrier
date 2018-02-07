@@ -5,12 +5,15 @@
     oca: git@github.com:OCA/OCB.git
     camptocamp: git@github.com:camptocamp/odoo.git
   merges:
-    - oca 9.0
+    - oca 3a2cc8d50a07b1b7fbc0685c51bb388f5444afcc
     # Display project manager un project form
     - oca refs/pull/477/head
     # Missing context in Report._check_attachment_use
     - oca refs/pull/536/head
   target: &default_target camptocamp merge-branch-1622-master
+  shell_command_after:
+    # js bug correct check of property 'rules'
+    - git am "$(git format-patch -1 a98beb13db82b692d32aa0e6e0b0befabbbaa386 -o ../patches)"
 ./external-src/account-payment:
   remotes:
     oca: git@github.com:OCA/account-payment.git
