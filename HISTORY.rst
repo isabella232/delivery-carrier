@@ -10,6 +10,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BIZ-1394: URGENT: Change Email settings
+
 **Build**
 
 **Documentation**
