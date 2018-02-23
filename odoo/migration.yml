@@ -299,7 +299,7 @@ migration:
         pre:
           - anthem songs.updates.update_9_9_1::pre_update
     - version: 9.9.3
-    # 9.9.2 skipped and moved to 9.9.4
+    # 9.9.2 skipped and moved to 9.10.0
       operations:
         post:
           - anthem songs.updates.update_9_9_3::post
@@ -309,5 +309,5 @@ migration:
           - specific_reports
       operations:
         pre:
-          - anthem songs.updates.update_9_9_2::pre_update
-          - anthem songs.updates.update_9_9_2::post
+          - anthem songs.updates.update_9_10_0::pre_update
+          - anthem songs.updates.update_9_10_0::post
