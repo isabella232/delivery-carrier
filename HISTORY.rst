@@ -8,11 +8,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Update project-template with lastest updates
+
 **Bugfixes**
+
+* BIZ-1133: Error message opening VAT-report
+* BIZ-992: Delivery slips are suddently bad again
+* BIZ-705: Fix customer followup report CSS
 
 **Build**
 
-**Documentation**
+* Update odoo-cloud-platform (BIZ-1093)
+* Update with dockerimage 9.0-2.4.1
 
 
 9.9.3 (2018-02-22)
@@ -32,23 +39,7 @@ latest (unreleased)
 9.9.2 (2018-02-07)
 ++++++++++++++++++
 
-**Features and Improvements**
-
-* Update project-template with lastest updates
-
-**Bugfixes**
-
-* BIZ-1133: Error message opening VAT-report
-* BIZ-992: Delivery slips are suddently bad again
-* BIZ-705: Fix customer followup report CSS
-
-**Build**
-
-* Update odoo-cloud-platform (BIZ-1093)
-* Update with dockerimage 9.0-2.4.1
-
-**Documentation**
-
+** Moved to 9.10.0
 
 9.9.1 (2018-01-04)
 ++++++++++++++++++
