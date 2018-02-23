@@ -15,6 +15,20 @@ latest (unreleased)
 **Documentation**
 
 
+9.9.3 (2018-02-22)
+++++++++++++++++++
+
+**Features and Improvements**
+
+**Bugfixes**
+
+* BIZ-1394: URGENT: Change Email settings
+
+**Build**
+
+**Documentation**
+
+
 9.9.2 (2018-02-07)
 ++++++++++++++++++
 
