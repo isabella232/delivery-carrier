@@ -29,6 +29,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BIZ-1412 Remove readonly on project_discount field from sale order line model
+
 **Build**
 
 **Documentation**

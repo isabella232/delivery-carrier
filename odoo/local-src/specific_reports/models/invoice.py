@@ -79,10 +79,7 @@ class InvoiceOrderLine(models.Model):
         digits=dp.get_precision('Product Price'),
         string='Subtotal', readonly=True
     )
-    project_discount = fields.Float(
-        string='Object Discount (%)',
-        readonly=True
-    )
+    project_discount = fields.Float(string='Object Discount (%)')
     public_discount = fields.Float(string='Discount (%)')
 
     @api.multi
