@@ -29,13 +29,19 @@ latest (unreleased)
 
 **Bugfixes**
 
-* BIZ-1412 Remove readonly on project_discount field from sale order line model
-
 **Build**
 
 * Update odoo-cloud-platform (BIZ-1093)
 
 **Documentation**
+
+
+9.9.4 (2018-02-27)
+++++++++++++++++++
+
+**Bugfixes**
+
+* BIZ-1412 Remove readonly on project_discount field from sale order line model
 
 
 9.9.3 (2018-02-22)

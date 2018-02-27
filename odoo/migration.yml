@@ -303,6 +303,7 @@ migration:
       operations:
         post:
           - anthem songs.updates.update_9_9_3::post
+    - version: 9.9.4
     - version: 9.10.0
       addons:
         upgrade:
