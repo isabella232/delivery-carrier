@@ -18,22 +18,7 @@ latest (unreleased)
 
 **Build**
 
-* Update odoo-cloud-platform (BIZ-1093)
 * Update with dockerimage 9.0-2.4.1
-
-
-9.9.3 (2018-02-22)
-++++++++++++++++++
-
-**Features and Improvements**
-
-**Bugfixes**
-
-**Build**
-
-* Update odoo-cloud-platform (BIZ-1093)
-
-**Documentation**
 
 
 9.9.4 (2018-02-27)
@@ -42,20 +27,15 @@ latest (unreleased)
 **Bugfixes**
 
 * BIZ-1412 Remove readonly on project_discount field from sale order line model
+* BIZ-1093: Update odoo-cloud-platform
 
 
 9.9.3 (2018-02-22)
 ++++++++++++++++++
 
-**Features and Improvements**
-
 **Bugfixes**
 
 * BIZ-1394: URGENT: Change Email settings
-
-**Build**
-
-**Documentation**
 
 
 9.9.2 (2018-02-07)
@@ -70,12 +50,6 @@ latest (unreleased)
 
 * BIZ-1024: update products with new VAT
 
-**Bugfixes**
-
-**Build**
-
-**Documentation**
-
 
 9.9.0 (2017-12-20)
 ++++++++++++++++++
@@ -89,39 +63,21 @@ latest (unreleased)
   * Install module account_fiscal_position_rule_sale
   * Create fiscal position and rule for swiss VAT 2018
 
-**Bugfixes**
-
-**Build**
-
-**Documentation**
-
 
 9.8.0 (2017-12-12)
 ++++++++++++++++++
-
-**Features and Improvements**
 
 **Bugfixes**
 
 * BIZ-978 CSV-Export has stopped
 
-**Build**
-
-**Documentation**
-
 
 9.7.5 (2017-11-20)
 ++++++++++++++++++
 
-**Features and Improvements**
-
 **Bugfixes**
 
 * BIZ-705 Improve followup report layer
-
-**Build**
-
-**Documentation**
 
 
 9.7.4 (2017-10-26)
