@@ -304,11 +304,3 @@ migration:
         post:
           - anthem songs.updates.update_9_9_3::post
     - version: 9.9.4
-    - version: 9.10.0
-      addons:
-        upgrade:
-          - specific_reports
-      operations:
-        pre:
-          - anthem songs.updates.update_9_10_0::pre_update
-          - anthem songs.updates.update_9_10_0::post
