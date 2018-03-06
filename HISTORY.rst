@@ -8,19 +8,19 @@ latest (unreleased)
 
 **Features and Improvements**
 
-* Update project-template with lastest updates
-
 **Bugfixes**
-
-* BIZ-1133: Error message opening VAT-report
-* BIZ-992: Delivery slips are suddently bad again
-* BIZ-705: Fix customer followup report CSS
-* BIZ-1394: Update production outgoing email settings
 
 **Build**
 
-* Update odoo-cloud-platform (BIZ-1093)
-* Update with dockerimage 9.0-2.4.1
+**Documentation**
+
+
+9.9.5 (2018-03-06)
+++++++++++++++++++
+
+**Bugfixes**
+
+* BIZ-1394: Update production outgoing email settings
 
 
 9.9.3 (2018-02-22)
