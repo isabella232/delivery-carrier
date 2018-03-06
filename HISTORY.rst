@@ -21,6 +21,14 @@ latest (unreleased)
 * Update with dockerimage 9.0-2.4.1
 
 
+9.9.5 (2018-03-06)
+++++++++++++++++++
+
+**Bugfixes**
+
+* BIZ-1394: Update production outgoing email settings
+
+
 9.9.4 (2018-02-27)
 ++++++++++++++++++
 
