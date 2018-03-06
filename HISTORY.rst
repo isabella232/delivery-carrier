@@ -8,6 +8,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+9.10.0 (2018-03-06)
++++++++++++++++++++
+
+**Features and Improvements**
+
 * Update project-template with lastest updates
 
 **Bugfixes**
