@@ -304,3 +304,9 @@ migration:
         post:
           - anthem songs.updates.update_9_9_3::post
     - version: 9.9.4
+    - version: 9.9.5
+      modes:
+        full:
+          operations:
+            post:
+              - anthem songs.updates.update_9_9_5_full::post
