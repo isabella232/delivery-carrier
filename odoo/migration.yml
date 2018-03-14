@@ -46,7 +46,7 @@ migration:
           - website_enterprise
           # C2C
           #camptocamp/cloud-platform
-          - cloud_platform
+          - cloud_platform_exoscale
           - monitoring_statsd
           # OCA
           #oca/account-fiscal-rule
