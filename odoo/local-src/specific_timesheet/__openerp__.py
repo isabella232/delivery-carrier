@@ -20,6 +20,6 @@
         'views/project_project.xml',
     ],
     'test': [],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
 }

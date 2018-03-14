@@ -12,7 +12,7 @@ First, install it with:
 
 ```bash
 
-$ sudo pip install invoke
+$ pip install -r tasks/requirements.txt
 
 ```
 
@@ -73,7 +73,7 @@ invoke translate.generate odoo/external-src/sale-workflow/my_addon
 ### submodule.init
 
 Add git submodules from the `.gitmodules` file configuration.
-Instead of using `git submodule add -b 9.0 {url}`
+Instead of using `git submodule add -b 11.0 {url}`
 {path}, for every branch you need to add, you can edit the `.gitmodules` file,
 add the entries you want, and run this command.
 

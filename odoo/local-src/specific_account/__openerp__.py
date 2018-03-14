@@ -21,6 +21,6 @@
         'wizards/account_invoice_refund.xml',
     ],
     'test': [],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
 }

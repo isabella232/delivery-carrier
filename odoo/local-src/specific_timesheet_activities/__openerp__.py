@@ -21,5 +21,5 @@
         'views/hr_timesheet_sheet_activity.xml',
         'views/project_task.xml',
     ],
-    'installable': True,
+    'installable': False,
 }

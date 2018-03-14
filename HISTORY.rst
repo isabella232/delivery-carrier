@@ -12,6 +12,8 @@ latest (unreleased)
 
 **Build**
 
+* BSSLX-58: Create v11 base branch
+
 **Documentation**
 
 

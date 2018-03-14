@@ -19,6 +19,6 @@
         'views/stock_picking.xml',
     ],
     'test': [],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
 }

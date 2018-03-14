@@ -1,5 +1,5 @@
 customer_name: swisslux
-odoo_version: '9.0'
+odoo_version: '11.0'
 customer_shortname: swisslux
 repo_name: swisslux
 project_id: '1622'

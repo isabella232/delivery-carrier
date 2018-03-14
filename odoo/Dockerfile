@@ -1,7 +1,7 @@
-FROM camptocamp/odoo-project:9.0-2.4.1
+FROM camptocamp/odoo-project:11.0-2.5.1
 MAINTAINER Camptocamp
 
-COPY requirements.txt /opt/odoo/requirements.txt
+COPY requirements.txt /opt/odoo/
 
 COPY ./before-migrate-entrypoint.d/* odoo/before-migrate-entrypoint.d/
 COPY ./start-entrypoint.d/* odoo/start-entrypoint.d/
@@ -18,14 +18,14 @@ RUN set -x; \
          && apt-get remove -y build-essential libssl-dev libffi-dev python-dev \
          && rm -rf /var/lib/apt/lists/*
 
-COPY ./features /opt/odoo/features
-
-COPY oerpscenario /opt/odoo/oerpscenario
-COPY bin/oerpscenario /opt/odoo/bin/oerpscenario
+# `parallel` + `importer.sh` are needed to load heavy files
+COPY ./bin/importer.sh /opt/odoo/bin/
 
 ENV ADDONS_PATH="/opt/odoo/local-src, \
     /opt/odoo/external-src/enterprise, \
     /opt/odoo/external-src/server-tools, \
+    /opt/odoo/external-src/server-ux, \
+    /opt/odoo/external-src/server-env, \
     /opt/odoo/external-src/account-financial-reporting, \
     /opt/odoo/external-src/account-financial-tools, \
     /opt/odoo/external-src/account-fiscal-rule, \
@@ -33,7 +33,6 @@ ENV ADDONS_PATH="/opt/odoo/local-src, \
     /opt/odoo/external-src/bank-payment, \
     /opt/odoo/external-src/bank-statement-reconcile, \
     /opt/odoo/external-src/carrier-delivery, \
-    /opt/odoo/external-src/department, \
     /opt/odoo/external-src/l10n-switzerland, \
     /opt/odoo/external-src/manufacture, \
     /opt/odoo/external-src/odoo-cloud-platform, \
@@ -49,5 +48,4 @@ ENV ADDONS_PATH="/opt/odoo/local-src, \
     LIMIT_TIME_REAL=86400 \
     LIMIT_MEMORY_SOFT=1342177280 \
     LIMIT_MEMORY_HARD=1610612736 \
-    OERPSCENARIO_ODOO_CONFIG=/opt/odoo/etc/odoo.cfg \
     LIST_DB=True

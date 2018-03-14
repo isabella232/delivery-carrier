@@ -46,7 +46,7 @@ branch and have a submodule referencing a commit that do no longer exist.
       oca: https://github.com/OCA/sale-workflow.git
       camptocamp: https://github.com/camptocamp/sale-workflow.git
     merges:
-      - oca 9.0
+      - oca 11.0
       # comment explaining what the PR does (42 is the number of the PR)
       - oca refs/pull/42/head
     # you have to replace <project-id> here
