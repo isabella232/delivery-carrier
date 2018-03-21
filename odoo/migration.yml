@@ -102,12 +102,14 @@ migration:
           # MIA
           # - delivery_carrier_label_s3
           # - account_permanent_lock_move
-
+    - version: 11.0.1
+      addons:
+        upgrade:
           #Specific
           # Not yet ported to v11
           #  - specific_account
           #  - specific_building_project
-          #  - specific_hr
+           - specific_hr
           #  - specific_invoice
           #  - specific_pad
           #  - specific_partner
