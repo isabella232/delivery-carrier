@@ -3,7 +3,7 @@
 {
     "name": "HR extension",
     "summary": "Some HR extensions",
-    "version": "11.0.1.0.0",
+    "version": "11.0.0.0.0",
     "category": "HR",
     "website": "https://odoo-community.org/",
     "author": "Camptocamp",

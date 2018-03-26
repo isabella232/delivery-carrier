@@ -1,0 +1,27 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* swisslux_hr
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-26 14:40+0000\n"
+"PO-Revision-Date: 2018-03-26 14:40+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: swisslux_hr
+#: model:ir.model,name:swisslux_hr.model_hr_department
+msgid "HR Department"
+msgstr ""
+
+#. module: swisslux_hr
+#: model:ir.model.fields,field_description:swisslux_hr.field_hr_department_substitute_id
+msgid "Substitute"
+msgstr ""
+
