@@ -4,6 +4,8 @@ migration:
   versions:
     - version: 11.0.0
       operations:
+        pre:
+          - anthem songs.install.pre::main
         post:
           - anthem openerp.addons.cloud_platform.songs::install_exoscale
       addons:
