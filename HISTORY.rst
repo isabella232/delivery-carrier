@@ -13,6 +13,7 @@ latest (unreleased)
 **Build**
 
 * BSSLX-58: Create v11 base branch
+* BSSLX-37: swisslux_hr module to V11
 
 **Documentation**
 
