@@ -119,7 +119,7 @@ migration:
           #  - specific_stock
           #  - specific_timesheet
           #  - specific_timesheet_activities
-          #  - specific_translations
+          - swisslux_translations
 
           #oca/department
           # Deprecated
