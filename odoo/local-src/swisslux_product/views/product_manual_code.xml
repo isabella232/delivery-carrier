@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <!-- Product manual code form -->
     <record id="product_manual_code_form_view" model="ir.ui.view">

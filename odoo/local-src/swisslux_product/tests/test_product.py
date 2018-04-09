@@ -1,14 +1,16 @@
-# -*- coding: utf8 -*-
+# Copyright 2016-2018 Camptocamp SA
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+
 from psycopg2 import IntegrityError
 
-from openerp.tests import TransactionCase
-from openerp.tests.common import at_install, post_install
+from odoo.tests import TransactionCase
+from odoo.tests.common import at_install, post_install
 
 
 class TestProduct(TransactionCase):
 
     def setUp(self):
-        super(TestProduct, self).setUp()
+        super().setUp()
         self.product_model = self.env['product.product']
 
         self.loc_stock = self.browse_ref('stock.stock_location_stock')
@@ -66,7 +68,10 @@ class TestProduct(TransactionCase):
                              product.product_tmpl_id.virtual_available)
             self.assertEqual(transit, product.product_tmpl_id.transit_qty)
 
-        p1 = self.product_model.create({'name': 'Unittest P1'})
+        p1 = self.product_model.create({
+            'name': 'Unittest P1',
+            'type': 'product',
+        })
         check_quantities(p1, 0, 0, 0)
 
         # Update quantity on hand: 5 p1
@@ -75,7 +80,7 @@ class TestProduct(TransactionCase):
             'location_id': self.loc_stock.id,
             'filter': 'partial'
         })
-        inventory.prepare_inventory()
+        inventory.action_start()
 
         self.env['stock.inventory.line'].create({
             'inventory_id': inventory.id,

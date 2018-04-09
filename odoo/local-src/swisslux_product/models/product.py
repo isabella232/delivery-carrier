@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
-# © 2016 Yannick Vaucher (Camptocamp)
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, fields, models
-from openerp.addons import decimal_precision as dp
-from openerp.osv import expression
+# Copyright 2016-2018 Camptocamp SA
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+
+from odoo import api, fields, models
+from odoo.addons import decimal_precision as dp
+from odoo.osv import expression
 
 
 class ProductTemplate(models.Model):
@@ -13,7 +13,7 @@ class ProductTemplate(models.Model):
 
     transit_qty = fields.Float(
         compute='_get_transit_qty',
-        digits_compute=dp.get_precision('Product Unit of Measure'),
+        digits=dp.get_precision('Product Unit of Measure'),
         string='Transit'
     )
 
@@ -84,7 +84,6 @@ class ProductTemplate(models.Model):
         '''
         It will concatenate the product reference of suppliers
         '''
-        print str(self)
         res = {}
         for product in self:
             supplier_name = []
@@ -117,7 +116,7 @@ class ProductProduct(models.Model):
 
     transit_qty = fields.Float(
         compute='_get_transit_qty',
-        digits_compute=dp.get_precision('Product Unit of Measure'),
+        digits=dp.get_precision('Product Unit of Measure'),
         string='Transit'
     )
 
@@ -155,14 +154,14 @@ class ProductProduct(models.Model):
             vals['default_code'] = self.env['ir.sequence'].next_by_code(
                 'product.product'
             )
-        return super(ProductProduct, self).create(vals)
+        return super().create(vals)
 
     @api.multi
     def copy(self, default=None):
         self.ensure_one()
         default = dict(default or {})
         default['default_code'] = False
-        return super(ProductProduct, self).copy(default)
+        return super().copy(default)
 
     @api.model
     def name_search(self, name, args=None, operator='ilike', limit=100):
@@ -185,7 +184,7 @@ class ProductProduct(models.Model):
                     if products:
                         filter_known = [('id', 'not in', products.ids)]
 
-        name_result = super(ProductProduct, self).name_search(
+        name_result = super().name_search(
             name, args=filter_known + args, operator=operator, limit=limit)
 
         if products:

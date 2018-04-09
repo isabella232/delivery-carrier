@@ -15,6 +15,7 @@ latest (unreleased)
 * BSSLX-58: Create v11 base branch
 * BSSLX-37: swisslux_hr module to V11
 * BSSLX-5: swisslux_sale module to V11
+* BSSLX-13: swisslux_product module to V11
 
 **Documentation**
 
