@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
-# © 2016 Cyril Gaudin (Camptocamp)
+# Copyright 2016-2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, api
+from odoo import models, api
 
 
 class SaleOrder(models.Model):
@@ -17,7 +16,7 @@ class SaleOrder(models.Model):
             if vals['client_order_ref']:
                 vals['client_order_ref'] = vals['client_order_ref'].replace(
                     ',', '/')
-        res = super(SaleOrder, self).write(vals)
+        res = super().write(vals)
         return res
 
     @api.model
@@ -26,5 +25,5 @@ class SaleOrder(models.Model):
             if vals['client_order_ref']:
                 vals['client_order_ref'] = vals['client_order_ref'].replace(
                     ',', '/')
-        res = super(SaleOrder, self).create(vals)
+        res = super().create(vals)
         return res

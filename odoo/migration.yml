@@ -110,6 +110,7 @@ migration:
           #  - specific_account
           #  - specific_building_project
           - swisslux_hr
+          - swisslux_sale
           #  - specific_invoice
           #  - specific_pad
           #  - specific_partner
