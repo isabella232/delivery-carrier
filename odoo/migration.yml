@@ -114,7 +114,7 @@ migration:
           #  - specific_invoice
           #  - specific_pad
           #  - specific_partner
-          #  - specific_product
+          - swisslux_product
           #  - specific_reports
           #  - specific_stock
           #  - specific_timesheet
