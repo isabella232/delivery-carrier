@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 9.0e\n"
+"Project-Id-Version: Odoo Server 11.0e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-18 16:27+0000\n"
 "PO-Revision-Date: 2016-02-18 16:27+0000\n"
@@ -19,11 +19,6 @@ msgstr ""
 #: model:product.uom,name:product.product_uom_unit
 msgid "Unit(s)"
 msgstr "Pce"
-
-#. module: specific_building_project
-#: model:ir.model.fields,field_description:specific_building_project.field_sale_order_number_shipments
-msgid "Number of shipments"
-msgstr "Nombre de livraisons"
 
 #. module: account_payment_partner
 #: model:ir.ui.view,arch_db:account_payment_partner.report_invoice_payment_mode

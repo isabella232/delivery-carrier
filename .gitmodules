@@ -64,3 +64,7 @@
 [submodule "odoo/external-src/server-env"]
 	path = odoo/external-src/server-env
 	url = git@github.com:OCA/server-env.git
+[submodule "odoo/external-src/account-analytic"]
+	path = odoo/external-src/account-analytic
+	url = git@github.com:OCA/account-analytic.git
+	branch = 11.0
