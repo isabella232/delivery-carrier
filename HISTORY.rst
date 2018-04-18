@@ -17,6 +17,7 @@ latest (unreleased)
 * BSSLX-5: swisslux_sale module to V11
 * BSSLX-13: swisslux_product module to V11
 * BSSLX-25: swisslux_translations module to V11
+* Upgrade nginx version to 11.0-1.2.2
 
 **Documentation**
 
