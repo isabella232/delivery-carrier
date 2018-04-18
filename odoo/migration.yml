@@ -125,5 +125,5 @@ migration:
           # Deprecated
           #  - analytic_base_department
           #  - analytic_department
-          #  - project_department
+          - project_department
           #  - project_task_department
