@@ -19,6 +19,7 @@ latest (unreleased)
 * BSSLX-25: swisslux_translations module to V11
 * BSSLX-56: add OCA/project_department
 * Upgrade nginx version to 11.0-1.2.2
+* Upgrade dockerimage to 2.6.1
 
 **Documentation**
 
