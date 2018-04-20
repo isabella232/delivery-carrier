@@ -100,7 +100,8 @@ migration:
           # - stock_split_picking
           #oca/web
           - web_environment_ribbon
-
+          #oca/department
+          - project_department
           # MIA
           # - delivery_carrier_label_s3
           # - account_permanent_lock_move
@@ -125,5 +126,4 @@ migration:
           # Deprecated
           #  - analytic_base_department
           #  - analytic_department
-          #  - project_department
           #  - project_task_department
