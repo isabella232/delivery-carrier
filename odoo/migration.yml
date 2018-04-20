@@ -83,7 +83,8 @@ migration:
           - partner_firstname
           #oca/product-attribute
           # Not ported (yet ?)
-          # - product_dimension
+          # PR used https://github.com/OCA/product-attribute/pull/337
+          - product_dimension
           #oca/project
           - project_task_default_stage
           #oca/server-env
