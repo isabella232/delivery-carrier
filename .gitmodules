@@ -12,7 +12,8 @@
 	url = git@github.com:OCA/account-financial-reporting.git
 [submodule "odoo/external-src/account-payment"]
 	path = odoo/external-src/account-payment
-	url = git@github.com:OCA/account-payment.git
+	url = git@github.com:camptocamp/account-payment.git
+	branch = merge-branch-1622-11.0
 [submodule "odoo/external-src/bank-payment"]
 	path = odoo/external-src/bank-payment
 	url = git@github.com:OCA/bank-payment.git
