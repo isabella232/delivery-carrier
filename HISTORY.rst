@@ -20,6 +20,7 @@ latest (unreleased)
 * BSSLX-56: add OCA/project_department
 * Upgrade nginx version to 11.0-1.2.2
 * Upgrade dockerimage to 2.6.1
+* BSSLX-53: incorporate PR with product_dimension module
 
 **Documentation**
 
