@@ -68,4 +68,4 @@
 	branch = 11.0
 [submodule "odoo/external-src/account-reconcile"]
 	path = odoo/external-src/account-reconcile
-	url = git@github.com:OCA/account-reconcile.git
+	url = git@github.com:camptocamp/bank-statement-reconcile.git

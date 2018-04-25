@@ -18,3 +18,12 @@
     # [11.0] mig product_dimension
     - oca refs/pull/337/head
   target: *default_target
+./external-src/account-reconcile:
+  remotes:
+    oca: git@github.com:OCA/account-reconcile.git
+    camptocamp: git@github.com:camptocamp/bank-statement-reconcile.git
+  merges:
+    - oca 11.0
+    # [11.0][MIG] account_reconcile_rule (account_operation_rule v9)
+    - oca refs/pull/209/head
+  target: *default_target

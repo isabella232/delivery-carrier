@@ -63,7 +63,8 @@ migration:
           - account_payment_order
           - account_payment_partner
           - account_payment_sale
-          #oca/bank-statement-reconcile
+          #oca/account-reconcile
+          - account_reconcile_rule
           # Not yet ported to v11
           # - account_operation_rule_early_payment_discount
           #oca/carrier-delivery
