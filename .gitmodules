@@ -66,3 +66,6 @@
 	path = odoo/external-src/account-analytic
 	url = git@github.com:OCA/account-analytic.git
 	branch = 11.0
+[submodule "odoo/external-src/account-reconcile"]
+	path = odoo/external-src/account-reconcile
+	url = git@github.com:OCA/account-reconcile.git
