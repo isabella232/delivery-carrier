@@ -17,9 +17,6 @@
 [submodule "odoo/external-src/bank-payment"]
 	path = odoo/external-src/bank-payment
 	url = git@github.com:OCA/bank-payment.git
-[submodule "odoo/external-src/bank-statement-reconcile"]
-	path = odoo/external-src/bank-statement-reconcile
-	url = git@github.com:OCA/bank-statement-reconcile.git
 [submodule "odoo/external-src/carrier-delivery"]
 	path = odoo/external-src/carrier-delivery
 	url = git@github.com:OCA/carrier-delivery.git
