@@ -30,9 +30,9 @@ ENV ADDONS_PATH="/opt/odoo/local-src, \
     /opt/odoo/external-src/account-financial-tools, \
     /opt/odoo/external-src/account-fiscal-rule, \
     /opt/odoo/external-src/account-payment, \
+    /opt/odoo/external-src/account-reconcile, \
     /opt/odoo/external-src/account-analytic, \
     /opt/odoo/external-src/bank-payment, \
-    /opt/odoo/external-src/bank-statement-reconcile, \
     /opt/odoo/external-src/carrier-delivery, \
     /opt/odoo/external-src/l10n-switzerland, \
     /opt/odoo/external-src/manufacture, \
