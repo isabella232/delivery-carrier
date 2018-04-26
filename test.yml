@@ -1,0 +1,15 @@
+# For testers
+# This file should be called with
+# docker-compose -f docker-compose.yml -f test.yml up
+
+version: '2'
+services:
+  odoo:
+    image: camptocamp/swisslux_odoo:11.0
+    environment:
+      - MARABUNTA_MODE=sample  # could be 'migration' to run the migration
+      - MARABUNTA_ALLOW_SERIE=True  # should not be set in production
+
+  nginx:
+    ports:
+      - 80:80
