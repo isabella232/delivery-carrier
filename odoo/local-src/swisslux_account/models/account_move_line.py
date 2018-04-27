@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
-# © 2016 Camptocamp SA
+# Copyright 2016-2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, models
+from odoo import api, models
 
 
 class AccountMoveLine(models.Model):
@@ -10,7 +9,7 @@ class AccountMoveLine(models.Model):
 
     @api.multi
     def _prepare_payment_line_vals(self, payment_order):
-        return_val = super(AccountMoveLine, self)._prepare_payment_line_vals(
+        return_val = super()._prepare_payment_line_vals(
             payment_order)
         if not return_val['partner_bank_id']:
             partner_bank_obj = self.env['res.partner.bank']

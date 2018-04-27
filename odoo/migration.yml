@@ -109,8 +109,8 @@ migration:
           # - account_permanent_lock_move
 
           #Specific
+          - swisslux_account
           # Not yet ported to v11
-          #  - specific_account
           #  - specific_building_project
           - swisslux_hr
           - swisslux_sale
