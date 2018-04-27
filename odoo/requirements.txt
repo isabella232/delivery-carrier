@@ -9,3 +9,4 @@ python-json-logger==0.1.5
 statsd==3.2.1
 unicodecsv==0.14.1
 paramiko==2.1.0
+openupgradelib==1.2.2

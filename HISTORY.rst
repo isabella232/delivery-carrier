@@ -21,6 +21,7 @@ latest (unreleased)
 * Upgrade nginx version to 11.0-1.2.2
 * Upgrade dockerimage to 2.6.1
 * BSSLX-53: incorporate PR with product_dimension module
+* BSSLX-64: Fix the build with migrated database
 
 **Documentation**
 
