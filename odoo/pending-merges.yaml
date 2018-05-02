@@ -2,8 +2,8 @@
 # please see docs in docs/how-to-integrate-pull-request.md
 ./external-src/account-payment:
   remotes:
-    oca: https://github.com/OCA/account-payment.git
-    camptocamp: https://github.com/camptocamp/account-payment.git
+    oca: git@github.com:OCA/account-payment.git
+    camptocamp: git@github.com:camptocamp/account-payment.git
   merges:
     - oca 11.0
     # [11.0][MIG] account_early_payment_discount
@@ -26,4 +26,6 @@
     - oca 11.0
     # [11.0][MIG] account_reconcile_rule (account_operation_rule v9)
     - oca refs/pull/209/head
+    # [11.0][MIG] account_reconcile_rule_early_payment_discount
+    - oca refs/pull/210/head
   target: *default_target

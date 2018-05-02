@@ -24,6 +24,7 @@ latest (unreleased)
 * BSSLX-53: incorporate PR with product_dimension module
 * BSSLX-63: Fix minion build
 * BSSLX-64: Fix the build with migrated database
+* BSSLX-41/45: Install account_reconcile_rule_early_payment_discount
 
 **Documentation**
 
