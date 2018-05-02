@@ -10,7 +10,9 @@ migration:
         sample:
           operations:
             pre:
-              - anthem songs.install.pre::main
+              - anthem songs.sample.pre::main
+            post:
+              - anthem songs.sample.post::main
       addons:
         upgrade:
           # Odoo
