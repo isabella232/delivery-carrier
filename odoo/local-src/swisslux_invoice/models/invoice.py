@@ -1,7 +1,7 @@
-# -*- coding: utf-8 -*-
-# © 2016 Yannick Vaucher (Camptocamp)
+# Copyright 2016-2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, models
+
+from odoo import api, models
 
 
 class AccountInvoice(models.Model):
@@ -28,14 +28,3 @@ class AccountInvoice(models.Model):
         # Invalidate constraint that check unique reference for partner invoice
         # With some credit card company invoice reference is always the same
         return self.write({'state': 'open'})
-
-    @api.multi
-    def button_proforma_paid(self):
-        self.ensure_one()
-        if self.state == 'proforma2':
-            # We will set all invoice line to zero in order to invalidate it
-            for invoice_line in self.invoice_line_ids:
-                invoice_line.price_unit = 0
-            self.compute_taxes()
-            self.invoice_validate()
-            self.confirm_paid()

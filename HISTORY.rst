@@ -16,6 +16,7 @@ latest (unreleased)
 * BSSLX-5: swisslux_sale module to V11
 * BSSLX-9: Migrate swisslux_account to V11
 * BSSLX-13: swisslux_product module to V11
+* BSSLX-19: Migrate swisslux_invoice to V11
 * BSSLX-25: swisslux_translations module to V11
 * BSSLX-37: swisslux_hr module to V11
 * BSSLX-56: add OCA/project_department
