@@ -3,7 +3,7 @@ version: '2'
 services:
   odoo:
     build: ./odoo/
-    command: odoo.py --load=web,web_kanban,session_redis,attachment_s3,logging_json
+    command: odoo.py --load=web,session_redis,attachment_s3,logging_json
     volumes:
       - "data-odoo:/data/odoo"
     depends_on:
