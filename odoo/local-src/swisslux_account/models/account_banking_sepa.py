@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
-# © 2016 Camptocamp SA
+# Copyright 2016-2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, models
+from odoo import api, models
 from lxml import etree
 
 
@@ -21,5 +20,4 @@ class AccountPaymentOrder(models.Model):
                 instruction_identification.text = value
                 # Insert it at first position of PmtId node
                 pmt.insert(0, instruction_identification)
-        return super(AccountPaymentOrder, self).finalize_sepa_file_creation(
-            xml_root, gen_args)
+        return super().finalize_sepa_file_creation(xml_root, gen_args)
