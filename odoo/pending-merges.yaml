@@ -38,6 +38,15 @@
     # [MIG] stock_available_mrp: Migration to 11.0
     - oca refs/pull/428/head
   target: *default_target
+./external-src/stock-logistics-workflow:
+  remotes:
+    oca: git@github.com:OCA/stock-logistics-workflow.git
+    camptocamp: git@github.com:camptocamp/stock-logistics-workflow.git
+  merges:
+    - oca 11.0
+    # [MIG][11.0] stock_split_picking
+    - oca refs/pull/422/head
+  target: *default_target
 ./external-src/account-analytic:
   remotes:
     oca: git@github.com:OCA/account-analytic.git

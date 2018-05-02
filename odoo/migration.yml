@@ -102,8 +102,7 @@ migration:
           #oca/stock-logistics-warehouse
           - stock_available_mrp
           #oca/stock-logistics-workflow
-          # Not ported to v11
-          # - stock_split_picking
+          - stock_split_picking
           #oca/web
           - web_environment_ribbon
           #oca/department
