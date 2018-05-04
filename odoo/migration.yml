@@ -115,19 +115,19 @@ migration:
 
           #Specific
           - swisslux_account
+          - swisslux_hr
+          - swisslux_invoice
+          - swisslux_product
+          - swisslux_sale
+          - swisslux_translations
           # Not yet ported to v11
           #  - specific_building_project
-          - swisslux_hr
-          - swisslux_sale
-          #  - specific_invoice
           #  - specific_pad
           #  - specific_partner
-          - swisslux_product
           #  - specific_reports
           #  - specific_stock
           #  - specific_timesheet
           #  - specific_timesheet_activities
-          - swisslux_translations
 
           #oca/department
           # Deprecated
