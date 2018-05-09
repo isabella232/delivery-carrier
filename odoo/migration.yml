@@ -100,8 +100,7 @@ migration:
           #oca/server-ux
           - base_technical_features
           #oca/stock-logistics-warehouse
-          # Not ported to v11
-          # - stock_available_mrp
+          - stock_available_mrp
           #oca/stock-logistics-workflow
           # Not ported to v11
           # - stock_split_picking
