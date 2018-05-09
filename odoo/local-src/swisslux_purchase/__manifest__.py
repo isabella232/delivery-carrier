@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
-# © 2017 Joel Grand-Guillaume (Camptocamp)
+# Copyright 2017-2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
-    'name': 'Specific - Purchase',
-    'version': '9.0.1.0.0',
+    'name': 'Swisslux - Purchase',
+    'version': '11.0.1.0.0',
     'author': 'Camptocamp',
     'license': 'AGPL-3',
     'category': 'Swisslux Modules',
@@ -12,11 +11,11 @@
     'depends': [
         'purchase',
         'stock',
-        'specific_stock'
+        'swisslux_stock'
     ],
     'data': [
     ],
     'test': [],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
 }
