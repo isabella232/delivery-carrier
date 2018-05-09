@@ -26,6 +26,7 @@ latest (unreleased)
 * BSSLX-63: Fix minion build
 * BSSLX-64: Fix the build with migrated database
 * BSSLX-41/45: Install account_reconcile_rule_early_payment_discount
+* BSSLX-46: add analytic_department
 
 **Documentation**
 
