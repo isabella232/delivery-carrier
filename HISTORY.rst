@@ -15,6 +15,7 @@ latest (unreleased)
 * BSSLX-58: Create v11 base branch
 * BSSLX-5: swisslux_sale module to V11
 * BSSLX-9: Migrate swisslux_account to V11
+* BSSLX-12: Migrate the module OCA stock_split_picking to V11
 * BSSLX-13: swisslux_product module to V11
 * BSSLX-19: Migrate swisslux_invoice to V11
 * BSSLX-25: swisslux_translations module to V11
@@ -28,7 +29,6 @@ latest (unreleased)
 * BSSLX-41/45: Install account_reconcile_rule_early_payment_discount
 * BSSLX-6: Add stock_available_mrp
 * BSSLX-46: add analytic_department
-
 
 **Documentation**
 
