@@ -46,6 +46,8 @@
     - oca 11.0
     # [MIG][11.0] stock_split_picking
     - oca refs/pull/422/head
+    # [11.0] Add module stock picking restrict cancel with original move
+    - oca refs/pull/427/head
   target: *default_target
 ./external-src/account-analytic:
   remotes:
