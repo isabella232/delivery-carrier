@@ -1,201 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
-        <template id="report_mrporder" inherit_id="mrp.report_mrporder">
+<odoo>
 
-            <!-- Change title for dismantling BoM -->
-            <xpath expr="//span[@t-field='o.name']/parent::h2" position="replace">
-                <h2 t-if="o.bom_id.dismantling">Dismantling Order # :
-                    <span t-field="o.name"/>
-                </h2>
-                <h2 t-if="not o.bom_id.dismantling">Production Order # :
-                    <span t-field="o.name"/>
-                </h2>
-            </xpath>
+    <template id="report_mrporder" inherit_id="mrp.report_mrporder">
 
-            <xpath expr="//div[@class='page']/div[@class='row mt32 mb32'][2]" position="replace">
-            </xpath>
+        <!-- Change title for dismantling BoM -->
+        <xpath expr="//span[@t-field='o.name']/parent::h2" position="replace">
+            <h2 t-if="o.bom_id.dismantling">Dismantling Order # :
+                <span t-field="o.name"/>
+            </h2>
+            <h2 t-if="not o.bom_id.dismantling">Production Order # :
+                <span t-field="o.name"/>
+            </h2>
+        </xpath>
 
-            <!-- Change-->
-            <xpath expr="//div[@class='page']/div[@class='row mt32 mb32'][1]" position="replace">
-                <div class="row mt32 mb32">
-                    <div class="col-xs-3">
-                        <strong>Source Document:</strong><br/>
-                        <span t-field="o.origin"/>
-                    </div>
-                    <div class="col-xs-4">
-                        <strong>Product:</strong><br/>
-                        <span t-esc="o.product_id.name_get()[0][1]"/><br/>
-                        <t t-if="o.product_id.product_tmpl_id.color_code">
-                            Color Code: <span t-field="o.product_id.product_tmpl_id.color_code.code"/>, 
-							<span t-field="o.product_id.product_tmpl_id.color_code.name"/>
-                        </t>
-                    </div>
-                    <div class="col-xs-2">
-                        <strong>Quantity:</strong><br/>
-                        <span t-field="o.product_qty"/>
-                        <span t-field="o.product_uom.name" groups="product.group_uom"/>
-                    </div>
-                    <div class="col-xs-3">
-                        <strong>Routing:</strong><br/>
-                        <t t-if="o.routing_id">
-                            <span t-field="o.routing_id"/>
-                        </t>
-                    </div>
+        <xpath expr="//div[@class='page']/div[@class='row mt32 mb32'][2]" position="replace">
+        </xpath>
+
+        <!-- Change-->
+        <xpath expr="//div[@class='page']/div[@class='row mt32 mb32'][1]" position="replace">
+            <div class="row mt32 mb32">
+                <div class="col-xs-3">
+                    <strong>Source Document:</strong><br/>
+                    <span t-field="o.origin"/>
                 </div>
-                <div class="row mt32 mb32">
-                    <div class="col-xs-3">
-                        <strong>Scheduled Date:</strong><br/>
-                        <span t-field="o.date_planned"/>
-                    </div>
-                    <div class="col-xs-3">
-                        <strong>Printing date:</strong><br/>
-                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%m/%d/%Y %H:%M:%S')"/>
-                    </div>
-                    <div class="col-xs-3" t-if="'sale_ref' in o._columns.keys()">
-                        <strong>Partner Ref:</strong><br/>
-                        <span t-esc="'sale_ref' in o._columns.keys() and o.sale_ref"/>
-                    </div>
-                    <div class="col-xs-3" t-if="'sale_name' in o._columns.keys()">
-                        <strong>SO Number:</strong><br/>
-                        <span t-esc="'sale_name' in o._columns.keys() and o.sale_name"/>
-                    </div>
+                <div class="col-xs-4">
+                    <strong>Product:</strong><br/>
+                    <span t-esc="o.product_id.name_get()[0][1]"/><br/>
+                    <t t-if="o.product_id.product_tmpl_id.color_code">
+                        Color Code: <span t-field="o.product_id.product_tmpl_id.color_code.code"/>,
+                        <span t-field="o.product_id.product_tmpl_id.color_code.name"/>
+                    </t>
                 </div>
-            </xpath>
+                <div class="col-xs-2">
+                    <strong>Quantity:</strong><br/>
+                    <span t-field="o.product_qty"/>
+                    <span t-field="o.product_uom.name" groups="product.group_uom"/>
+                </div>
+                <div class="col-xs-3">
+                    <strong>Routing:</strong><br/>
+                    <t t-if="o.routing_id">
+                        <span t-field="o.routing_id"/>
+                    </t>
+                </div>
+            </div>
+            <div class="row mt32 mb32">
+                <div class="col-xs-3">
+                    <strong>Scheduled Date:</strong><br/>
+                    <span t-field="o.date_planned"/>
+                </div>
+                <div class="col-xs-3">
+                    <strong>Printing date:</strong><br/>
+                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%m/%d/%Y %H:%M:%S')"/>
+                </div>
+                <div class="col-xs-3" t-if="'sale_ref' in o._columns.keys()">
+                    <strong>Partner Ref:</strong><br/>
+                    <span t-esc="'sale_ref' in o._columns.keys() and o.sale_ref"/>
+                </div>
+                <div class="col-xs-3" t-if="'sale_name' in o._columns.keys()">
+                    <strong>SO Number:</strong><br/>
+                    <span t-esc="'sale_name' in o._columns.keys() and o.sale_name"/>
+                </div>
+            </div>
+        </xpath>
 
-            <!-- Display products list table if we have produces products or products to produce -->
-            <xpath expr="//table[@t-if='o.move_lines or o.move_lines2']" position="replace">
-                <table class="table table-condensed" t-if="o.move_lines or o.move_lines2">
-                    <thead>
+        <!-- Display products list table if we have produces products or products to produce -->
+        <xpath expr="//table[@t-if='o.move_raw_ids']" position="replace">
+
+
+
+
+
+            <!-- TODO: SEE FOR A BETTER WAY TO DO THAT !!!!!!!!!!!!
+            The original report in v11 is very less complex that the v9 version.
+            -->
+
+
+
+            <table class="table table-condensed" t-if="o.move_raw_ids">
+                <thead>
+                    <tr>
+                        <th>
+                            <strong>Product</strong>
+                        </th>
+                        <th class="text-right">
+                            <strong>Quantity</strong>
+                        </th>
+                        <th class="text-center" groups="stock.group_locations">
+                            <strong>Source Location</strong>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-if="o.move_lines">
                         <tr>
-                            <th>
-                                <strong>Product</strong>
-                            </th>
-                            <th class="text-right">
-                                <strong>Quantity</strong>
-                            </th>
-                            <th class="text-center" groups="stock.group_locations">
-                                <strong>Source Location</strong>
-                            </th>
+                            <td colspan="4" style="padding-top: 15px !important;">
+                                <strong>Products to Consume</strong>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <t t-if="o.move_lines">
-                            <tr>
-                                <td colspan="4" style="padding-top: 15px !important;">
-                                    <strong>Products to Consume</strong>
-                                </td>
-                            </tr>
-                            <tr t-foreach="o.move_lines.sorted(key=lambda l: l.product_id.description_picking)" t-as="line">
-                                <td>
-                                    <span t-field="line.product_id.code"/>
-                                    <span t-field="line.product_id.name"/>
-                                    <br/>
-                                    <span t-field="line.product_id.cut_e_nr"/>
-                                </td>
-                                <td class="text-right">
-                                    <span t-field="line.product_uom_qty"/>
-                                    <span t-field="line.product_uom.name" groups="product.group_uom"/>
-                                </td>
-                                <td class="text-center">
-                                    <span t-field="line.product_id.description_picking"/>
-                                </td>
-                            </tr>
-                        </t>
-                        <t t-if="o.move_lines2">
-                            <tr>
-                                <td colspan="4" style="padding-top: 15px !important;">
-                                    <strong>Consumed Products</strong>
-                                </td>
-                            </tr>
-                            <tr t-foreach="o.move_lines2.sorted(key=lambda l: l.product_id.description_picking)" t-as="line2">
-                                <td>
-                                    <span t-field="line2.product_id.code"/>
-                                    <span t-field="line2.product_id.name"/>
-                                    <br/>
-                                    <t t-debug="pdb"></t>
-                                    <span t-field="line2.product_id.cut_e_nr"/>
-                                </td>
-                                <td class="text-right">
-                                    <span t-field="line2.product_uom_qty"/>
-                                    <span t-field="line2.product_uom.name"/>
-                                </td>
-                                <td class="text-center">
-                                    <span t-field="line2.product_id.description_picking"/>
-                                </td>
-                            </tr>
-                        </t>
-                    </tbody>
-                </table>
+                        <tr t-foreach="o.move_lines.sorted(key=lambda l: l.product_id.description_picking)" t-as="line">
+                            <td>
+                                <span t-field="line.product_id.code"/>
+                                <span t-field="line.product_id.name"/>
+                                <br/>
+                                <span t-field="line.product_id.cut_e_nr"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="line.product_uom_qty"/>
+                                <span t-field="line.product_uom.name" groups="product.group_uom"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="line.product_id.description_picking"/>
+                            </td>
+                        </tr>
+                    </t>
+                    <t t-if="o.move_lines2">
+                        <tr>
+                            <td colspan="4" style="padding-top: 15px !important;">
+                                <strong>Consumed Products</strong>
+                            </td>
+                        </tr>
+                        <tr t-foreach="o.move_lines2.sorted(key=lambda l: l.product_id.description_picking)" t-as="line2">
+                            <td>
+                                <span t-field="line2.product_id.code"/>
+                                <span t-field="line2.product_id.name"/>
+                                <br/>
+                                <t t-debug="pdb"></t>
+                                <span t-field="line2.product_id.cut_e_nr"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="line2.product_uom_qty"/>
+                                <span t-field="line2.product_uom.name"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="line2.product_id.description_picking"/>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
 
-                <t t-if="o.bom_id.dismantling">
-                    <table class="table table-condensed" t-if="o.move_created_ids or o.move_created_ids2">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <strong>Product</strong>
-                                </th>
-                                <th class="text-right">
-                                    <strong>Quantity</strong>
-                                </th>
-                                <th class="text-center" groups="stock.group_locations">
-                                    <strong>Destination Location</strong>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Add Products to Produce list-->
-                            <t t-if="o.move_created_ids.sorted(key=lambda l: l.product_id.description_picking)">
-                                <tr>
-                                    <td colspan="4" style="padding-top: 15px !important;">
-                                        <strong>Products to Produce</strong>
-                                    </td>
-                                </tr>
-                                <tr t-foreach="o.move_created_ids" t-as="line">
-                                    <td>
-                                        <span t-field="line.product_id.code"/>
-                                        <span t-field="line.product_id.name"/>
-                                        <br/>
-                                        <span t-field="line.product_id.cut_e_nr"/>
-                                    </td>
-                                    <td class="text-right">
-                                        <span t-field="line.product_uom_qty"/>
-                                        <span t-field="line.product_uom.name" groups="product.group_uom"/>
-                                    </td>
-                                    <td class="text-center">
-                                        <span t-field="line.product_id.description_picking"/>
-                                    </td>
-                                </tr>
-                            </t>
+            <!--
+                TODO: To be replaced by ???
+            -->
+            <!--<t t-if="o.bom_id.dismantling">-->
+                <!--<table class="table table-condensed" t-if="o.move_created_ids or o.move_created_ids2">-->
+                    <!--<thead>-->
+                        <!--<tr>-->
+                            <!--<th>-->
+                                <!--<strong>Product</strong>-->
+                            <!--</th>-->
+                            <!--<th class="text-right">-->
+                                <!--<strong>Quantity</strong>-->
+                            <!--</th>-->
+                            <!--<th class="text-center" groups="stock.group_locations">-->
+                                <!--<strong>Destination Location</strong>-->
+                            <!--</th>-->
+                        <!--</tr>-->
+                    <!--</thead>-->
+                    <!--<tbody>-->
+                        <!--&lt;!&ndash; Add Products to Produce list&ndash;&gt;-->
+                        <!--<t t-if="o.move_created_ids.sorted(key=lambda l: l.product_id.description_picking)">-->
+                            <!--<tr>-->
+                                <!--<td colspan="4" style="padding-top: 15px !important;">-->
+                                    <!--<strong>Products to Produce</strong>-->
+                                <!--</td>-->
+                            <!--</tr>-->
+                            <!--<tr t-foreach="o.move_created_ids" t-as="line">-->
+                                <!--<td>-->
+                                    <!--<span t-field="line.product_id.code"/>-->
+                                    <!--<span t-field="line.product_id.name"/>-->
+                                    <!--<br/>-->
+                                    <!--<span t-field="line.product_id.cut_e_nr"/>-->
+                                <!--</td>-->
+                                <!--<td class="text-right">-->
+                                    <!--<span t-field="line.product_uom_qty"/>-->
+                                    <!--<span t-field="line.product_uom.name" groups="product.group_uom"/>-->
+                                <!--</td>-->
+                                <!--<td class="text-center">-->
+                                    <!--<span t-field="line.product_id.description_picking"/>-->
+                                <!--</td>-->
+                            <!--</tr>-->
+                        <!--</t>-->
 
-                            <!-- Add Produced Products list-->
-                            <t t-if="o.move_created_ids2">
-                                <tr>
-                                    <td colspan="4" style="padding-top: 15px !important;">
-                                        <strong>Produced Products</strong>
-                                    </td>
-                                </tr>
-                                <tr t-foreach="o.move_created_ids2" t-as="line2">
-                                    <td>
-                                        <span t-field="line2.product_id.code"/>
-                                        <span t-field="line2.product_id.name"/>
-                                        <br/>
-                                        <span t-field="line2.product_id.cut_e_nr"/>
-                                    </td>
-                                    <td class="text-right">
-                                        <span t-field="line2.product_uom_qty"/>
-                                        <span t-field="line2.product_uom.name"/>
-                                    </td>
-                                    <td class="text-center">
-                                        <span t-field="line2.product_id.description_picking"/>
-                                    </td>
-                                </tr>
-                            </t>
-                        </tbody>
-                    </table>
+                        <!--&lt;!&ndash; Add Produced Products list&ndash;&gt;-->
+                        <!--<t t-if="o.move_created_ids2">-->
+                            <!--<tr>-->
+                                <!--<td colspan="4" style="padding-top: 15px !important;">-->
+                                    <!--<strong>Produced Products</strong>-->
+                                <!--</td>-->
+                            <!--</tr>-->
+                            <!--<tr t-foreach="o.move_created_ids2" t-as="line2">-->
+                                <!--<td>-->
+                                    <!--<span t-field="line2.product_id.code"/>-->
+                                    <!--<span t-field="line2.product_id.name"/>-->
+                                    <!--<br/>-->
+                                    <!--<span t-field="line2.product_id.cut_e_nr"/>-->
+                                <!--</td>-->
+                                <!--<td class="text-right">-->
+                                    <!--<span t-field="line2.product_uom_qty"/>-->
+                                    <!--<span t-field="line2.product_uom.name"/>-->
+                                <!--</td>-->
+                                <!--<td class="text-center">-->
+                                    <!--<span t-field="line2.product_id.description_picking"/>-->
+                                <!--</td>-->
+                            <!--</tr>-->
+                        <!--</t>-->
+                    <!--</tbody>-->
+                <!--</table>-->
 
-                </t>
-            </xpath>
-        </template>
-    </data>
-</openerp>
+            <!--</t>-->
+        </xpath>
+    </template>
+
+</odoo>

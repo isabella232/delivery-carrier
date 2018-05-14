@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
-# © 2016 Yannick Vaucher (Camptocamp SA)
+# Copyright 2016-2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import fields, models, api
+from odoo import fields, models, api
 
 
 class ProductTemplate(models.Model):
@@ -26,5 +25,5 @@ class ProductTemplate(models.Model):
             ][::-1])
         else:
             self.cut_e_nr = ' '.join([
-                line[i:i + n] for i in xrange(0, len(line), n)
+                line[i:i + n] for i in range(0, len(line), n)
             ])

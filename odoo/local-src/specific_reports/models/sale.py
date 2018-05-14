@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
-# © 2016 Yannick Vaucher (Camptocamp)
+# Copyright 2016-2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, fields, models
+from odoo import api, fields, models
 
-import openerp.addons.decimal_precision as dp
+import odoo.addons.decimal_precision as dp
 
 
 class SaleOrder(models.Model):
@@ -74,29 +73,30 @@ class SaleOrderLine(models.Model):
         else:
             self.price_unit_discount = self.price_unit
 
-    @api.depends('order_id.project_pricelist_id',
-                 'order_id.pricelist_id',
-                 'product_id')
-    def compute_discount(self):
-        for rec in self:
-            product = rec.product_id.with_context(
-                lang=rec.order_id.partner_id.lang,
-                partner=rec.order_id.partner_id.id,
-                quantity=rec.product_uom_qty,
-                date=rec.order_id.date_order,
-                pricelist=rec.order_id.pricelist_id.id,
-                uom=rec.product_uom.id
-            )
-            base_price = rec.price_unit
-            public_price = product.price
-            product = product.with_context(
-                project_pricelist=rec.order_id.project_pricelist_id.id)
-            final_price = product.price
-
-            if public_price:
-                rec.project_discount = (1 - final_price / public_price) * 100
-            if base_price:
-                rec.public_discount = (1 - public_price / base_price) * 100
+    # TODO: Migrate after: https://github.com/camptocamp/swisslux_odoo/pull/446
+    # @api.depends('order_id.project_pricelist_id',
+    #              'order_id.pricelist_id',
+    #              'product_id')
+    # def compute_discount(self):
+    #     for rec in self:
+    #         product = rec.product_id.with_context(
+    #             lang=rec.order_id.partner_id.lang,
+    #             partner=rec.order_id.partner_id.id,
+    #             quantity=rec.product_uom_qty,
+    #             date=rec.order_id.date_order,
+    #             pricelist=rec.order_id.pricelist_id.id,
+    #             uom=rec.product_uom.id
+    #         )
+    #         base_price = rec.price_unit
+    #         public_price = product.price
+    #         product = product.with_context(
+    #             project_pricelist=rec.order_id.project_pricelist_id.id)
+    #         final_price = product.price
+    #
+    #         if public_price:
+    #             rec.project_discount = (1 - final_price / public_price) * 100
+    #         if base_price:
+    #             rec.public_discount = (1 - public_price / base_price) * 100
 
     @api.multi
     def _prepare_invoice_line(self, qty):

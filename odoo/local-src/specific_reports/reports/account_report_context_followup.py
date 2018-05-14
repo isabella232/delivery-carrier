@@ -1,15 +1,14 @@
-# -*- coding: utf-8 -*-
-# © 2016 Camptocamp SA
+# Copyright 2016-2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from datetime import date, datetime
 
-from openerp import api, models, _
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
+from odoo import api, models, _
+from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 
 
-class AccountReportContextFollowup(models.TransientModel):
-    _inherit = 'account.report.context.followup'
+class AccountFollowupReport(models.AbstractModel):
+    _inherit = 'account.followup.report'
 
     @api.multi
     def get_lang_today(self):

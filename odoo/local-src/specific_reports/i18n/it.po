@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* specific_reports
+#	* swisslux_reports
 #
 msgid ""
 msgstr ""
@@ -15,44 +15,44 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;\n"
 "                                      &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;<br/>"
 msgstr "&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;\n"
 "                                      &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;<br/>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;\n"
 "                                    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;<br/>"
 msgstr "&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;\n"
 "                                    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;<br/>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_document
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;\n"
 "                    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;<br/>"
 msgstr "&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;\n"
 "                    &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;<br/>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.external_layout_footer
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.external_layout_footer
 msgid ",&amp;nbsp;\n"
 "                  Tel:"
 msgstr ",&amp;nbsp;\n"
 "                  Tel:"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "<br/>\n"
 "                                        Logistik:<br/>"
 msgstr "<br/>\n"
 "                                        Logistik:<br/>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "<br/>\n"
 "                                    <br/>\n"
 "                                    ________<br/>\n"
@@ -62,8 +62,8 @@ msgstr "<br/>\n"
 "                                    ________<br/>\n"
 "                                    ________<br/>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "<br/>\n"
 "                                  <br/>\n"
 "                                  <strong>\n"
@@ -75,15 +75,15 @@ msgstr "<br/>\n"
 "                                    Official in charge\n"
 "                                  </strong>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "<br/>\n"
 "                                  Tel:"
 msgstr "<br/>\n"
 "                                  Tel:"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "<br/>\n"
 "                        ______________<br/>\n"
 "                        ______________<br/>"
@@ -91,8 +91,8 @@ msgstr "<br/>\n"
 "                        ______________<br/>\n"
 "                        ______________<br/>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "<br/>\n"
 "                  <br/>\n"
 "                  <strong>\n"
@@ -104,8 +104,8 @@ msgstr "<br/>\n"
 "                  Il vostro reponsabile\n"
 "                </strong>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_document
 msgid "<br/>\n"
 "                  <strong>\n"
 "                    Official in charge\n"
@@ -115,41 +115,41 @@ msgstr "<br/>\n"
 "                    Il vostro reponsabile\n"
 "                  </strong>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_document
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "<br/>\n"
 "                  Tel:"
 msgstr "<br/>\n"
 "                  Tel:"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
-#: model:ir.ui.view,arch_db:specific_reports.report_purchasequotation_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_purchaseorder_document
+#: model:ir.ui.view,arch_db:swisslux_reports.report_purchasequotation_document
 msgid "<br/>\n"
 "                Phone:"
 msgstr "<br/>\n"
 "                Tel:"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.fix_address_report_followup_letter_body
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.fix_address_report_followup_letter_body
 msgid "<br/>\n"
 "            Customer ref:"
 msgstr "<br/>\n"
 "            Rif. cliente:"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "<br/><span>Shipping address:</span>"
 msgstr "<br/><span>Indirizzo di spedizione:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "<span class=\"col-xs-3\">Shipping address:</span>"
 msgstr "<span class=\"col-xs-3\">Indirizzo di spedizione:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.external_layout_header
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.external_layout_header
 msgid "<small>\n"
 "                  <small>\n"
 "                  Intelligente Beleuchtungstechnik<br/>\n"
@@ -165,139 +165,139 @@ msgstr "<small>\n"
 "                  </small>\n"
 "                </small>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "<span class=\"col-xs-4 pl-0\">Your order:</span>"
 msgstr "<span class=\"col-xs-4 pl-0\">Vostra Ordinazione:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "<span class=\"col-xs-2\"><strong>Your reference:</strong></span>"
 msgstr "<span class=\"col-xs-2\"><strong>Commissione:</strong></span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "<span class=\"col-xs-5\"><strong>Your Reference:</strong></span>"
 msgstr "<span class=\"col-xs-5\"><strong>Commissione:</strong></span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "<span class=\"col-xs-4 pl-0\">Carrier:</span>"
 msgstr "<span class=\"col-xs-4 pl-0\">Spedizione:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "<span class=\"col-xs-4 pl-0\">Carrier:</span>\n"
 "                              <span>no carrier</span>"
 msgstr "<span class=\"col-xs-4 pl-0\">Spedizione:</span>\n"
 "                              <span>no spedizione</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_document
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "<span class=\"col-xs-5\">Client number:</span>"
 msgstr "<span class=\"col-xs-5\">No del cliente:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "<span class=\"col-xs-4 pl-0\">Client number:</span>"
 msgstr "<span class=\"col-xs-4 pl-0\">No del cliente:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_document
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "<span class=\"col-xs-5\">Contact:</span>"
 msgstr "<span class=\"col-xs-5\">Vostro contatto:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "<span class=\"col-xs-4 pl-0\">Contact:</span>"
 msgstr "<span class=\"col-xs-4 pl-0\">Vostro contatto:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "<span class=\"col-xs-5\">Date Ordered:</span>"
 msgstr "<span class=\"col-xs-5\">Data ordinato:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
-#: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_document
+#: model:ir.ui.view,arch_db:swisslux_reports.report_purchaseorder_document
 msgid "Date:"
 msgstr "Data:"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_purchaseorder_document
 msgid "<span class=\"col-xs-5\">Delivery Date:</span>"
 msgstr "<span class=\"col-xs-5\">Data di consegna:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "<span class=\"col-xs-5\">Delivery Method:</span>"
 msgstr "<span class=\"col-xs-5\">Metodo di consegna:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "<span class=\"col-xs-5\">EORI NR:</span>"
 msgstr "<span class=\"col-xs-5\">EORI NR:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_purchaseorder_document
 msgid "<span class=\"col-xs-5\">Important:</span>\n"
 "          <span class=\"address\">Please send us an order confirmation by fax or by E-Mail upon reception of the order!</span>"
 msgstr "<span class=\"col-xs-5\">Important:</span>\n"
 "          <span class=\"address\">Please send us an order confirmation by fax or by E-Mail upon reception of the order!</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "<span class=\"col-xs-5\">Payment Term:</span>"
 msgstr "<span class=\"col-xs-5\">Condizioni:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "<span class=\"col-xs-5\">Quotation Date:</span>"
 msgstr "<span class=\"col-xs-5\">Data:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_purchaseorder_document
 msgid "<span class=\"col-xs-5\">Shipment by:</span>"
 msgstr "<span class=\"col-xs-5\">Spedizione da:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_purchaseorder_document
 msgid "<span class=\"col-xs-5\">Supplier Number:</span>"
 msgstr "<span class=\"col-xs-5\">Numero del fornitore:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "<span class=\"col-xs-5\">Term of delivery:</span>"
 msgstr "<span class=\"col-xs-5\">Data di consegna:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "<span class=\"col-xs-5\">Term of delivery:</span>\n"
 "                  <span>nach Absprache</span>"
 msgstr "<span class=\"col-xs-5\">Data di consegna:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_document
 msgid "<span class=\"col-xs-5\">VAT number:</span>"
 msgstr "<span class=\"col-xs-5\">Partita IVA:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "<span class=\"col-xs-7\">Validity:</span>"
 msgstr "<span class=\"col-xs-7\">Validità:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_document
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "<span class=\"col-xs-5\">Your order:</span>"
 msgstr "<span class=\"col-xs-5\">Vostra ordinazione:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_layouted
-#: model:ir.ui.view,arch_db:specific_reports.report_sale_layouted
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_layouted
+#: model:ir.ui.view,arch_db:swisslux_reports.report_sale_layouted
 msgid "<span>\n"
 "              Disc.(%)\n"
 "            </span>"
@@ -305,15 +305,15 @@ msgstr "<span>\n"
 "              %\n"
 "            </span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.external_layout_footer
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.external_layout_footer
 msgid "<span>Page:</span>\n"
 "                    <span class=\"page\"/>/<span class=\"topage\"/>"
 msgstr "<span>Pagina:</span>\n"
 "                    <span class=\"page\"/>/<span class=\"topage\"/>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "<strong>\n"
 "                                    Your client manager\n"
 "                                  </strong>"
@@ -321,9 +321,9 @@ msgstr "<strong>\n"
 "                                    Il vostro consulente\n"
 "                                  </strong>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_document
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "<strong>\n"
 "                    Your client manager\n"
 "                  </strong>"
@@ -331,9 +331,9 @@ msgstr "<strong>\n"
 "                  Il vostro consulente\n"
 "                </strong>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
-#: model:ir.ui.view,arch_db:specific_reports.report_purchasequotation_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_purchaseorder_document
+#: model:ir.ui.view,arch_db:swisslux_reports.report_purchasequotation_document
 msgid "<strong>\n"
 "                  Person of contact\n"
 "                </strong>"
@@ -341,8 +341,8 @@ msgstr "<strong>\n"
 "                  Persona di contatto\n"
 "                </strong>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_purchaseorder_document
 msgid "<strong>\n"
 "            <span class=\"col-xs-5\">Indication:</span>\n"
 "            <span class=\"address\">Grosse Sendungen bitte ausschliesslich auf EURO-Paletten aliefern! (keine Wegwerf-Paletten)</span>\n"
@@ -352,103 +352,103 @@ msgstr "<strong>\n"
 "            <span class=\"address\">Grosse Sendungen bitte ausschliesslich auf EURO-Paletten aliefern! (keine Wegwerf-Paletten)</span>\n"
 "          </strong>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_mrporder
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_mrporder
 msgid "<strong>Consumed Products</strong>"
 msgstr "<strong>Prodotti Utilizzati</strong>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_mrporder
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_mrporder
 msgid "<strong>Destination Location</strong>"
 msgstr "<strong>Ubicazione destinazione</strong>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_mrporder
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_mrporder
 msgid "<strong>Partner Ref:</strong><br/>"
 msgstr "<strong>Partner Ref:</strong><br/>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_mrporder
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_mrporder
 msgid "<strong>Printing date:</strong><br/>"
 msgstr "<strong>Data di Stampa</strong><br/>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_mrporder
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_mrporder
 msgid "<strong>Produced Products</strong>"
 msgstr "<strong>Produced Products</strong>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_mrporder
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_mrporder
 msgid "<strong>Product:</strong><br/>"
 msgstr "<strong>Prodotto:</strong><br/>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_mrporder
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_mrporder
 msgid "<strong>Product</strong>"
 msgstr "<strong>Prodotto</strong>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_mrporder
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_mrporder
 msgid "<strong>Products to Consume</strong>"
 msgstr "<strong>Prodotti da Utilizzare</strong>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_mrporder
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_mrporder
 msgid "<strong>Products to Produce</strong>"
 msgstr "<strong>Prodotti per la Produzione</strong>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_mrporder
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_mrporder
 msgid "<strong>Quantity:</strong><br/>"
 msgstr "<strong>Quantità:</strong><br/>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_mrporder
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_mrporder
 msgid "<strong>Quantity</strong>"
 msgstr "<strong>Quantità</strong>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_mrporder
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_mrporder
 msgid "<strong>Routing:</strong><br/>"
 msgstr "<strong>Routing:</strong><br/>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_mrporder
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_mrporder
 msgid "<strong>SO Number:</strong><br/>"
 msgstr "<strong>SO Number:</strong><br/>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_mrporder
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_mrporder
 msgid "<strong>Scheduled Date:</strong><br/>"
 msgstr "<strong>Data prevista:</strong><br/>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_mrporder
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_mrporder
 msgid "<strong>Source Document:</strong><br/>"
 msgstr "<strong>Documento sorgente:</strong><br/>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_mrporder
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_mrporder
 msgid "<strong>Source Location</strong>"
 msgstr "<strong>Source Location</strong>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_document
 msgid "<strong>Your Reference:</strong>"
 msgstr "<strong>Il tuo Riferimento:</strong>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_purchaseorder_document
 msgid "Amount"
 msgstr "Importo"
 
-#. module: specific_reports
-#: model:ir.model.fields,field_description:specific_reports.field_sale_order_line_project_id
+#. module: swisslux_reports
+#: model:ir.model.fields,field_description:swisslux_reports.field_sale_order_line_project_id
 msgid "Analytic Account"
 msgstr "Conto analitico"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "Art-Nr.<br/>\n"
 "                                    E-No.<br/>\n"
 "                                    Art.Date"
@@ -456,15 +456,15 @@ msgstr "Art-Nr.<br/>\n"
 "                                    E-No.<br/>\n"
 "                                    Art.Data"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "Bemerkungen<br/>\n"
 "                                    Zu veranlassen"
 msgstr "Bemerkungen<br/>\n"
 "                                    Per indurre"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "Bestellmenge<br/>\n"
 "                                    Liefermenge<br/>\n"
 "                                    Rückstand"
@@ -472,45 +472,45 @@ msgstr "Bestellmenge<br/>\n"
 "                                    Quantità consegnato<br/>\n"
 "                                    Residui"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "Bezeichnung"
 msgstr "Descrizione"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "Bezeichnung Liferantenbezeichnung Inhalt"
 msgstr "Bezeichnung Liferantenbezeichnung Inhalt"
 
-#. module: specific_reports
-#: model:ir.model.fields,field_description:specific_reports.field_account_invoice_client_order_contact_type
-#: model:ir.model.fields,field_description:specific_reports.field_sale_order_client_order_contact_type
+#. module: swisslux_reports
+#: model:ir.model.fields,field_description:swisslux_reports.field_account_invoice_client_order_contact_type
+#: model:ir.model.fields,field_description:swisslux_reports.field_sale_order_client_order_contact_type
 msgid "Client order contact type"
 msgstr "Client order contact type"
 
-#. module: specific_reports
-#: model:ir.model.fields,field_description:specific_reports.field_account_invoice_client_order_date
-#: model:ir.model.fields,field_description:specific_reports.field_sale_order_client_order_date
+#. module: swisslux_reports
+#: model:ir.model.fields,field_description:swisslux_reports.field_account_invoice_client_order_date
+#: model:ir.model.fields,field_description:swisslux_reports.field_sale_order_client_order_date
 msgid "Client order date"
 msgstr "Vostra ordinazione"
 
-#. module: specific_reports
-#: model:ir.model.fields,field_description:specific_reports.field_account_invoice_client_order_ref
+#. module: swisslux_reports
+#: model:ir.model.fields,field_description:swisslux_reports.field_account_invoice_client_order_ref
 msgid "Client order reference"
 msgstr "Client order reference"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_mrporder
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_mrporder
 msgid "Color Code:"
 msgstr "Codice di colore:"
 
-#. module: specific_reports
-#: model:ir.model,name:specific_reports.model_res_company
+#. module: swisslux_reports
+#: model:ir.model,name:swisslux_reports.model_res_company
 msgid "Companies"
 msgstr "Compagnies"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "Datum : <br/>\n"
 "                        Mitarbeiter :<br/>\n"
 "                        RG/LS-Nr :<br/>\n"
@@ -520,366 +520,366 @@ msgstr "Datum : <br/>\n"
 "                        RG/LS-Nr :<br/>\n"
 "                        Lieferant :<br/>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "Delivery Slip"
 msgstr "Bolletino di consegna"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_layouted
-#: model:ir.ui.view,arch_db:specific_reports.report_sale_layouted
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_layouted
+#: model:ir.ui.view,arch_db:swisslux_reports.report_sale_layouted
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "Description"
 msgstr "Descrizione"
 
-#. module: specific_reports
-#: model:ir.model.fields,help:specific_reports.field_account_invoice_client_order_contact_type
-#: model:ir.model.fields,help:specific_reports.field_sale_order_client_order_contact_type
+#. module: swisslux_reports
+#: model:ir.model.fields,help:swisslux_reports.field_account_invoice_client_order_contact_type
+#: model:ir.model.fields,help:swisslux_reports.field_sale_order_client_order_contact_type
 msgid "Description of how the order was made"
 msgstr "Description of how the order was made"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "Disc.(%)"
 msgstr "Sconto (%)"
 
-#. module: specific_reports
-#: model:ir.model.fields,field_description:specific_reports.field_account_invoice_line_public_discount
-#: model:ir.model.fields,field_description:specific_reports.field_sale_order_line_public_discount
+#. module: swisslux_reports
+#: model:ir.model.fields,field_description:swisslux_reports.field_account_invoice_line_public_discount
+#: model:ir.model.fields,field_description:swisslux_reports.field_sale_order_line_public_discount
 msgid "Discount (%)"
 msgstr "Sconto (%)"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_mrporder
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_mrporder
 msgid "Dismantling Order # :"
 msgstr "Smontaggio Ordine # :"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.fix_address_report_followup_letter_body
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.fix_address_report_followup_letter_body
 msgid "Document: Customer account statement<br/>\n"
 "            Date:"
 msgstr "Documento: Report conto cliente<br/>\n"
 "            Data:"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "E-No.<br/>Artikel-Nr."
 msgstr "E-No.<br/>No articolo"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_purchaseorder_document
 msgid "E-Nr"
 msgstr "E-Nr"
 
-#. module: specific_reports
-#: model:ir.model,name:specific_reports.model_mail_template
+#. module: swisslux_reports
+#: model:ir.model,name:swisslux_reports.model_mail_template
 msgid "Email Templates"
 msgstr "Modelli di Email"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.external_layout_footer
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.external_layout_footer
 msgid "Fax:"
 msgstr "Fax:"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "HS. Code"
 msgstr "HS. Code"
 
-#. module: specific_reports
-#: model:ir.model,name:specific_reports.model_account_invoice
+#. module: swisslux_reports
+#: model:ir.model,name:swisslux_reports.model_account_invoice
 msgid "Invoice"
 msgstr "Fattura"
 
-#. module: specific_reports
-#: model:ir.model,name:specific_reports.model_account_invoice_line
+#. module: swisslux_reports
+#: model:ir.model,name:swisslux_reports.model_account_invoice_line
 msgid "Invoice Line"
 msgstr "Riga fattura"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "<span class=\"col-xs-3\">Invoicing address:</span>"
 msgstr "<span class=\"col-xs-3\">Indirizzo di fatturazione:</span>"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "Invoicing and shipping address:"
 msgstr "Indirizzo di fatturazione e spedizione:"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_purchaseorder_document
 msgid "List"
 msgstr "Lista"
 
-#. module: specific_reports
-#: model:ir.model.fields,help:specific_reports.field_res_company_report_logo
+#. module: swisslux_reports
+#: model:ir.model.fields,help:swisslux_reports.field_res_company_report_logo
 msgid "Logo shown in reports"
 msgstr "Logo shown in reports"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "Menge"
 msgstr "Quantità"
 
-#. module: specific_reports
+#. module: swisslux_reports
 #: selection:account.invoice,client_order_contact_type:0
 #: selection:sale.order,client_order_contact_type:0
 msgid "Messestand"
 msgstr "Messestand"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_layouted
-#: model:ir.ui.view,arch_db:specific_reports.report_sale_layouted
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_layouted
+#: model:ir.ui.view,arch_db:swisslux_reports.report_sale_layouted
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "Net"
 msgstr "Netto"
 
-#. module: specific_reports
-#: model:ir.model.fields,field_description:specific_reports.field_account_invoice_line_project_discount
-#: model:ir.model.fields,field_description:specific_reports.field_sale_order_line_project_discount
+#. module: swisslux_reports
+#: model:ir.model.fields,field_description:swisslux_reports.field_account_invoice_line_project_discount
+#: model:ir.model.fields,field_description:swisslux_reports.field_sale_order_line_project_discount
 msgid "Object Discount (%)"
 msgstr "Object Discount (%)"
 
-#. module: specific_reports
-#: code:addons/specific_reports/models/l10n_ch_payment_slip.py:21
+#. module: swisslux_reports
+#: code:addons/swisslux_reports/models/l10n_ch_payment_slip.py:21
 #, python-format
 msgid "Payment slip related to invoice %s"
 msgstr "Polizza di versamento fattura n. %s"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_document
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "Payment term:"
 msgstr "Condizioni:"
 
-#. module: specific_reports
+#. module: swisslux_reports
 #: selection:account.invoice,client_order_contact_type:0
 #: selection:sale.order,client_order_contact_type:0
 msgid "Per E-Mail"
 msgstr "Per E-Mail"
 
-#. module: specific_reports
+#. module: swisslux_reports
 #: selection:account.invoice,client_order_contact_type:0
 #: selection:sale.order,client_order_contact_type:0
 msgid "Per Fax"
 msgstr "Per Fax"
 
-#. module: specific_reports
+#. module: swisslux_reports
 #: selection:account.invoice,client_order_contact_type:0
 #: selection:sale.order,client_order_contact_type:0
 msgid "Per Post"
 msgstr "Per Posto"
 
-#. module: specific_reports
+#. module: swisslux_reports
 #: selection:account.invoice,client_order_contact_type:0
 #: selection:sale.order,client_order_contact_type:0
 msgid "Per Telefon"
 msgstr "Per Telefono"
 
-#. module: specific_reports
+#. module: swisslux_reports
 #: selection:account.invoice,client_order_contact_type:0
 #: selection:sale.order,client_order_contact_type:0
 msgid "Persönlich"
 msgstr "Personalmente"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_layouted
-#: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
-#: model:ir.ui.view,arch_db:specific_reports.report_sale_layouted
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_layouted
+#: model:ir.ui.view,arch_db:swisslux_reports.report_purchaseorder_document
+#: model:ir.ui.view,arch_db:swisslux_reports.report_sale_layouted
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "Pos."
 msgstr "Pos."
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_layouted
-#: model:ir.ui.view,arch_db:specific_reports.report_sale_layouted
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_layouted
+#: model:ir.ui.view,arch_db:swisslux_reports.report_sale_layouted
 msgid "Price"
 msgstr "Prezzo"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_layouted
-#: model:ir.ui.view,arch_db:specific_reports.report_sale_layouted
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_layouted
+#: model:ir.ui.view,arch_db:swisslux_reports.report_sale_layouted
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "Product Num."
 msgstr "No articolo"
 
-#. module: specific_reports
-#: model:ir.model,name:specific_reports.model_product_template
+#. module: swisslux_reports
+#: model:ir.model,name:swisslux_reports.model_product_template
 msgid "Product Template"
 msgstr "Modello Prodotto"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_mrporder
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_mrporder
 msgid "Production Order # :"
 msgstr "Ordine di produzione # :"
 
-#. module: specific_reports
-#: model:ir.model,name:specific_reports.model_purchase_order
+#. module: swisslux_reports
+#: model:ir.model,name:swisslux_reports.model_purchase_order
 msgid "Purchase Order"
 msgstr "Ordine di Acquisto"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_purchaseorder_document
 msgid "Purchase Order #"
 msgstr "Ordinazione d'acquisto #"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_purchaseorder_document
 msgid "Qty"
 msgstr "Qta'"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_layouted
-#: model:ir.ui.view,arch_db:specific_reports.report_sale_layouted
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_layouted
+#: model:ir.ui.view,arch_db:swisslux_reports.report_sale_layouted
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "Quantity"
 msgstr "Quantità"
 
-#. module: specific_reports
-#: model:ir.model.fields,field_description:specific_reports.field_product_template_receipt_checklist
-#: model:ir.model.fields,field_description:specific_reports.field_res_company_receipt_checklist
+#. module: swisslux_reports
+#: model:ir.model.fields,field_description:swisslux_reports.field_product_template_receipt_checklist
+#: model:ir.model.fields,field_description:swisslux_reports.field_res_company_receipt_checklist
 msgid "Receipt checklist"
 msgstr "Receipt checklist"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.product_template_form_view
-#: model:ir.ui.view,arch_db:specific_reports.view_company_form
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.product_template_form_view
+#: model:ir.ui.view,arch_db:swisslux_reports.view_company_form
 msgid "Reception"
 msgstr "Reception"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_document
 msgid "Rechnung für: EEV-Nr."
 msgstr "Fattura per: EEV-Nr."
 
-#. module: specific_reports
-#: model:ir.model.fields,help:specific_reports.field_account_invoice_client_order_ref
+#. module: swisslux_reports
+#: model:ir.model.fields,help:swisslux_reports.field_account_invoice_client_order_ref
 msgid "Reference for the client"
 msgstr "Riferimento per il cliente"
 
-#. module: specific_reports
-#: model:ir.model,name:specific_reports.model_report
+#. module: swisslux_reports
+#: model:ir.model,name:swisslux_reports.model_report
 msgid "Report"
 msgstr "Report"
 
-#. module: specific_reports
-#: model:ir.model.fields,field_description:specific_reports.field_res_company_report_logo
+#. module: swisslux_reports
+#: model:ir.model.fields,field_description:swisslux_reports.field_res_company_report_logo
 msgid "Report logo"
 msgstr "Report logo"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_purchaseorder_document
 msgid "Request for Quotation #"
 msgstr "Richiesta per una quotazione #"
 
-#. module: specific_reports
-#: model:ir.model,name:specific_reports.model_sale_advance_payment_inv
+#. module: swisslux_reports
+#: model:ir.model,name:swisslux_reports.model_sale_advance_payment_inv
 msgid "Sales Advance Payment Invoice"
 msgstr "Anticipo su fattura di vendita"
 
-#. module: specific_reports
-#: model:ir.model,name:specific_reports.model_sale_order
+#. module: swisslux_reports
+#: model:ir.model,name:swisslux_reports.model_sale_order
 msgid "Sales Order"
 msgstr "Ordine di vendita"
 
-#. module: specific_reports
-#: model:ir.model,name:specific_reports.model_sale_order_line
+#. module: swisslux_reports
+#: model:ir.model,name:swisslux_reports.model_sale_order_line
 msgid "Sales Order Line"
 msgstr "Linea ordine di vendita"
 
-#. module: specific_reports
-#: model:ir.model.fields,field_description:specific_reports.field_account_invoice_line_price_unit_discount
-#: model:ir.model.fields,field_description:specific_reports.field_sale_order_line_price_unit_discount
+#. module: swisslux_reports
+#: model:ir.model.fields,field_description:swisslux_reports.field_account_invoice_line_price_unit_discount
+#: model:ir.model.fields,field_description:swisslux_reports.field_sale_order_line_price_unit_discount
 msgid "Subtotal"
 msgstr "Subtotale"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_document
-#: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
-#: model:ir.ui.view,arch_db:specific_reports.report_purchasequotation_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_document
+#: model:ir.ui.view,arch_db:swisslux_reports.report_purchaseorder_document
+#: model:ir.ui.view,arch_db:swisslux_reports.report_purchasequotation_document
 msgid "TIN:"
 msgstr "P.IVA:"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_layouted
-#: model:ir.ui.view,arch_db:specific_reports.report_sale_layouted
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_layouted
+#: model:ir.ui.view,arch_db:swisslux_reports.report_sale_layouted
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "Taxes"
 msgstr "Tasse "
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "Taxes: include VAT and any other taxes"
 msgstr "Tasse: Comprende IVA e tutte altre tasse"
 
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.external_layout_footer
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.external_layout_footer
 msgid "Technik-Hotline: +41 43 844 80 77,"
 msgstr "Tecnica-Hotline: +41 43 844 80 77,"
 
-#. module: specific_reports
-#: model:ir.model.fields,field_description:specific_reports.field_account_invoice_delivery_term
-#: model:ir.model.fields,field_description:specific_reports.field_sale_order_delivery_term
+#. module: swisslux_reports
+#: model:ir.model.fields,field_description:swisslux_reports.field_account_invoice_delivery_term
+#: model:ir.model.fields,field_description:swisslux_reports.field_sale_order_delivery_term
 msgid "Term of delivery"
 msgstr "Term. consegna"
 
-#. module: specific_reports
-#: model:ir.model.fields,help:specific_reports.field_sale_order_line_project_id
+#. module: swisslux_reports
+#: model:ir.model.fields,help:swisslux_reports.field_sale_order_line_project_id
 msgid "The analytic account related to a sales order."
 msgstr "Il conto analitico legato all'ordine di vendita."
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "Total"
 msgstr "Totale"
 
-#. module: specific_reports
-#: model:ir.model,name:specific_reports.model_stock_picking
+#. module: swisslux_reports
+#: model:ir.model,name:swisslux_reports.model_stock_picking
 msgid "Transfer"
 msgstr "Trasferimento"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_sale_layouted
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_sale_layouted
 msgid "UOM"
 msgstr "Unita"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_invoice_layouted
-#: model:ir.ui.view,arch_db:specific_reports.report_sale_layouted
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_invoice_layouted
+#: model:ir.ui.view,arch_db:swisslux_reports.report_sale_layouted
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "Unit Price"
 msgstr "Prezzo unitario"
 
-#. module: specific_reports
-#: model:ir.model.fields,help:specific_reports.field_account_invoice_client_order_date
-#: model:ir.model.fields,help:specific_reports.field_sale_order_client_order_date
+#. module: swisslux_reports
+#: model:ir.model.fields,help:swisslux_reports.field_account_invoice_client_order_date
+#: model:ir.model.fields,help:swisslux_reports.field_sale_order_client_order_date
 msgid "When the order was made"
 msgstr "When the order was made"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_purchaseorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_purchaseorder_document
 msgid "[Article-No.] Description<br/>Swisslux Description<br/>Reminder"
 msgstr "[Article-No.] Description<br/>Swisslux Description<br/>Reminder"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "_____ Manual-Code:"
 msgstr "_____ Manual-Code:"
 
-#. module: specific_reports
-#: model:ir.model,name:specific_reports.model_l10n_ch_payment_slip
+#. module: swisslux_reports
+#: model:ir.model,name:swisslux_reports.model_l10n_ch_payment_slip
 msgid "l10n_ch.payment_slip"
 msgstr "l10n_ch.payment_slip"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "Number of shipments:"
 msgstr "Spedizione: Al massimo in consegna/e"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "<span class=\"col-xs-3\">Business provider:</span>"
 msgstr "<span class=\"col-xs-3\">Committente:</span>"
 
@@ -893,8 +893,8 @@ msgstr "Conferma d'ordine"
 msgid "Quotation #"
 msgstr "Offerta #"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_saleorder_document
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_saleorder_document
 msgid "<span style=\"padding-left: 0px;\">according to the arrangement</span>"
 msgstr "<span>Nach Absprache</span>"
 
@@ -943,8 +943,8 @@ msgstr "Tasse"
 msgid "Tax"
 msgstr "Tassa"
 
-#. module: specific_reports
-#: model:ir.ui.view,arch_db:specific_reports.report_delivery_document_in_out
+#. module: swisslux_reports
+#: model:ir.ui.view,arch_db:swisslux_reports.report_delivery_document_in_out
 msgid "<span class=\"col-xs-4 pl-0\">Sale Order:</span>"
 msgstr "<span class=\"col-xs-4 pl-0\">Ordine di vendita:</span>"
 

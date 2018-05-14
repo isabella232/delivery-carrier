@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-  <template id="fix_address_report_followup_letter_body" inherit_id="account_reports.report_followup_letter_body">
+  <template id="fix_address_report_followup_letter_body" inherit_id="account_reports.followup_filter_info_template">
     <xpath expr="//div[@class='row']" position="before">
       <style type="text/css">
         .head{
@@ -80,18 +80,6 @@
     </xpath>
 
 
-    <!-- To have the full table into the page -->
-    <xpath expr="//table" position="attributes">
-      <attribute name="width">90%</attribute>
-    </xpath>
-
-    <!-- Add space after summary -->
-    <xpath expr="//table" position="before">
-      <br/>
-      <br/>
-    </xpath>
-
-
     <xpath expr="//div[@class='row']" position="replace">
       <div class="row head">
         <div class="address">
@@ -122,7 +110,23 @@
 
   </template>
 
-  <template id="account_reports.report_followup_body" inherit_id="account_reports.report_financial_body" primary="True">
+
+  <template id="main_template_inherit" inherit_id="account_reports.main_template">
+
+    <!-- To have the full table into the page -->
+    <xpath expr="//table" position="attributes">
+      <attribute name="width">90%</attribute>
+    </xpath>
+
+    <!-- Add space after summary -->
+    <xpath expr="//table" position="before">
+      <br/>
+      <br/>
+    </xpath>
+
+  </template>
+
+  <template id="account_reports.report_followup_body" inherit_id="account_reports.template_followup_report" primary="True">
     <xpath expr="//h2" position="after">
       <div t-if="mode != 'print' and not context.env.context.get('public')">
         <div class='pull-right' id='history'>
@@ -172,9 +176,6 @@
       </h2>
     </xpath>
     <xpath expr="//h4" position="replace" />
-    <xpath expr="//t[@t-call='account_reports.report_financial_line']" position="replace">
-      <t t-call='account_reports.report_followup_line' />
-    </xpath>
     <xpath expr="//div[@class='o_account_reports_summary']" position="before">
       <div t-if="mode != 'print' and not context.env.context.get('public')">
         <span id='action-buttons' class='o_account_reports_followup_not_clicked'>

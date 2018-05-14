@@ -1,20 +1,16 @@
-# -*- coding: utf-8 -*-
-# © 2016 Camptocamp SA
+# Copyright 2016-2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, models
+from odoo import api, models
 
 
-class Report(models.Model):
-    _inherit = 'report'
+class IrActionsReport(models.Model):
+    _inherit = 'ir.actions.report'
 
-    @api.v7
-    def _check_attachment_use(self, cr, uid, ids, report, context=None):
+    @api.multi
+    def _post_pdf(self, save_in_attachment, pdf_content=None, res_ids=None):
         """ Don't save attachment if the report is generated for email.
         """
-        if 'default_template_id' in context:
-            return {}
-        else:
-            return super(Report, self)._check_attachment_use(
-                cr, uid, ids, report, context=context
-            )
+        if 'default_template_id' in self.env.context:
+            save_in_attachment = False
+        return super()._post_pdf(save_in_attachment, pdf_content, res_ids)
