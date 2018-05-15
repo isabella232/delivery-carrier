@@ -56,3 +56,12 @@
     #  11.0 mig analytic department
     - oca refs/pull/167/head
   target: *default_target
+./external-src/delivery-carrier:
+  remotes:
+    oca: git@github.com:OCA/delivery-carrier.git
+    camptocamp: git@github.com:camptocamp/carrier-delivery.git
+  merges:
+    - oca 11.0
+    #  [MIG] base_delivery_carrier_label
+    - oca refs/pull/154/head
+  target: *default_target
