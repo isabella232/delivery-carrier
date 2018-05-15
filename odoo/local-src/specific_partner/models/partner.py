@@ -1,44 +1,22 @@
-# -*- coding: utf-8 -*-
-# © 2015 Swisslux
-# © 2016 Yannick Vaucher (Camptocamp)
+# Copyright 2015 Swisslux
+# Copyright 2016 Yannick Vaucher (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, fields, models
-from openerp.osv import expression
-from openerp.osv import fields as osv_fields
+from odoo import api, fields, models
+from odoo.osv import expression
 
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
     @api.multi
-    def _display_name_compute(self, name, args):
-        res = super(ResPartner, self)._display_name_compute(name, args)
-        for rec in self:
-            res[rec.id] = rec.name_get()[0][1]
-        return res
-
-    # Add ref in triggers in base code
-    _display_name_store_triggers = {
-        'res.partner': (
-            lambda self, cr, uid, ids, context=None: self.search(
-                cr, uid, [('id', 'child_of', ids)],
-                context=dict(active_test=False)),
-            ['parent_id', 'is_company', 'name', 'ref', 'city'], 10)
-    }
-
-    def _display_name(self, *args, **kwargs):
-        return self._display_name_compute(*args, **kwargs)
-
-    _columns = {
-        'display_name': osv_fields.function(
-            _display_name, type='char', string='Name',
-            store=_display_name_store_triggers, select=True
-        ),
-    }
+    @api.depends('is_company', 'name', 'parent_id.name', 'type',
+                 'company_name', 'parent_id', 'ref', 'city')
+    def _compute_display_name(self):
+        super()._compute_display_name()
 
     ref = fields.Char('Code', readonly=True)
-    parent_category_id = fields.Many2one(
-        relation='parent_id.category_id',
+    parent_category_id = fields.Many2many(
+        related='parent_id.category_id',
         string="Tags parent",
         store=False,
         readonly=True
@@ -157,12 +135,11 @@ class ResPartner(models.Model):
             if self.env.context.get('show_address') or\
                     self.env.context.get('uid'):
                 if record.ref and record.city:
-                    name = u'{}, {}  ({})'.format(name,
-                                                  record.city, record.ref)
+                    name = '{}, {}  ({})'.format(name, record.city, record.ref)
                 elif record.ref:
-                    name = u'{} ({})'.format(name, record.ref)
+                    name = '{} ({})'.format(name, record.ref)
                 elif record.city:
-                    name = u'{}, {}'.format(name, record.city)
+                    name = '{}, {}'.format(name, record.city)
             if record.parent_id and not record.is_company:
                 if not name and record.type in ['invoice',
                                                 'delivery',
@@ -171,10 +148,10 @@ class ResPartner(models.Model):
                                 ['selection'])[record.type]
                 name = "%s, %s" % (record.parent_name, name)
             if self.env.context.get('show_address_only'):
-                name = record._display_address(record, without_company=True)
+                name = record._display_address(without_company=True)
             if self.env.context.get('show_address'):
                 name = name + "\n" + record._display_address(
-                    record, without_company=True)
+                    without_company=True)
             name = name.replace('\n\n', '\n')
             name = name.replace('\n\n', '\n')
             if self.env.context.get('show_email') and record.email:
@@ -184,7 +161,6 @@ class ResPartner(models.Model):
             res.append((record.id, name))
         return res
 
-    @api.one
     @api.onchange('zip_id')
     def onchange_zip_set_region_and_user(self):
         if self.zip_id:

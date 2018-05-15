@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
-<openerp>
-<data noupdate="1">
-
+<odoo noupdate="1">
 #
 # Sequences for res.partner
 #
@@ -12,8 +10,5 @@
     <field name="prefix"></field>
     <field name="padding">0</field>
     <field name="company_id" eval="False"/>
-    <field name="number_next">141051</field>
   </record>
-
-</data>
-</openerp>
+</odoo>

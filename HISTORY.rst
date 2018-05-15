@@ -30,6 +30,7 @@ latest (unreleased)
 * BSSLX-6: Add stock_available_mrp
 * BSSLX-46: add analytic_department
 * Set MARABUNTA_MODE to migration mode
+* BSSLX-18: Migrate specific_partner to V11
 
 **Documentation**
 

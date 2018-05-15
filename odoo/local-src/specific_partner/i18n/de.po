@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 9.0e\n"
+"Project-Id-Version: Odoo Server 11.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-22 11:34+0000\n"
-"PO-Revision-Date: 2016-04-22 11:34+0000\n"
+"POT-Creation-Date: 2018-05-09 13:09+0000\n"
+"PO-Revision-Date: 2018-05-09 13:09+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -47,26 +47,43 @@ msgstr "50 Exemplare"
 
 #. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_name2
+#: model:ir.model.fields,field_description:specific_partner.field_res_users_name2
 msgid "Additional name"
 msgstr "Additional name"
 
 #. module: specific_partner
+#: model:ir.model,name:specific_partner.model_res_partner_bank
+msgid "Bank Accounts"
+msgstr "Bankkonten"
+
+#. module: specific_partner
 #: model:ir.model,name:specific_partner.model_res_better_zip
 msgid "City/locations completion object"
-msgstr "City/locations completion object"
+msgstr "Stadt/Standorte-Vervollständungsobjekt"
+
+#. module: specific_partner
+#: model:ir.model,name:specific_partner.model_res_partner
+msgid "Contact"
+msgstr "Kontakt"
 
 #. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_region_create_uid
 msgid "Created by"
-msgstr "Angelegt von"
+msgstr "Erstellt von"
 
 #. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_region_create_date
 msgid "Created on"
-msgstr "Angelegt am"
+msgstr "Erstellt am"
+
+#. module: specific_partner
+#: sql_constraint:res.partner.bank:0
+msgid "Deactivate : Account Number must be unique"
+msgstr "Deactivate : Account Number must be unique"
 
 #. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_department
+#: model:ir.model.fields,field_description:specific_partner.field_res_users_department
 msgid "Department"
 msgstr "Abteilung"
 
@@ -77,31 +94,37 @@ msgstr "Anzeigename"
 
 #. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_mailing
+#: model:ir.model.fields,field_description:specific_partner.field_res_users_mailing
 msgid "Dokuversand"
 msgstr "Dokuversand"
 
 #. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_mailing_email
+#: model:ir.model.fields,field_description:specific_partner.field_res_users_mailing_email
 msgid "E-Mail Newsletter"
 msgstr "E-Mail Newsletter"
 
 #. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_eev_number
+#: model:ir.model.fields,field_description:specific_partner.field_res_users_eev_number
 msgid "EEV Nr."
 msgstr "EEV Nr."
 
 #. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_eev_member
+#: model:ir.model.fields,field_description:specific_partner.field_res_users_eev_member
 msgid "EEV-Mitglied"
 msgstr "EEV-Mitglied"
 
 #. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_eori_number
+#: model:ir.model.fields,field_description:specific_partner.field_res_users_eori_number
 msgid "EORI number"
 msgstr "EORI-Nr"
 
 #. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_influence
+#: model:ir.model.fields,field_description:specific_partner.field_res_users_influence
 msgid "Einfluss"
 msgstr "Einfluss"
 
@@ -112,6 +135,7 @@ msgstr "Filiale"
 
 #. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_companytype
+#: model:ir.model.fields,field_description:specific_partner.field_res_users_companytype
 msgid "Firmen Typ"
 msgstr "Firmen Typ"
 
@@ -119,11 +143,6 @@ msgstr "Firmen Typ"
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_region_name
 msgid "Gebietname"
 msgstr "Gebietname"
-
-#. module: specific_partner
-#: model:ir.ui.view,arch_db:specific_partner.better_zip_form
-msgid "Gebietszuweisung"
-msgstr "Gebietszuweisung"
 
 #. module: specific_partner
 #: selection:res.partner,influence:0
@@ -142,6 +161,7 @@ msgstr "Grosshandel C"
 
 #. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_eev_alarm
+#: model:ir.model.fields,field_description:specific_partner.field_res_users_eev_alarm
 msgid "Haftungsablehnung"
 msgstr "Haftungsablehnung"
 
@@ -152,11 +172,12 @@ msgstr "Hauptsitz"
 
 #. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_headquarter_id
+#: model:ir.model.fields,field_description:specific_partner.field_res_users_headquarter_id
 msgid "Headquarter"
-msgstr "Headquarter"
+msgstr "Hauptquartier"
 
 #. module: specific_partner
-#: model:ir.model.fields,field_description:specific_partner.field_res_partner_region_id_7821
+#: model:ir.model.fields,field_description:specific_partner.field_res_partner_region_id_8206
 msgid "ID"
 msgstr "ID"
 
@@ -177,6 +198,7 @@ msgstr "Installateur C"
 
 #. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_partner_invoicing_id
+#: model:ir.model.fields,field_description:specific_partner.field_res_users_partner_invoicing_id
 msgid "Invoicing Partner"
 msgstr "Invoicing Partner"
 
@@ -212,26 +234,25 @@ msgstr "PO Box Address"
 
 #. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_pobox_city
+#: model:ir.model.fields,field_description:specific_partner.field_res_users_pobox_city
 msgid "PO Box City"
 msgstr "PO Box City"
 
 #. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_pobox_nr
+#: model:ir.model.fields,field_description:specific_partner.field_res_users_pobox_nr
 msgid "PO Box Nr"
 msgstr "PO Box Nr"
 
 #. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_pobox_zip
+#: model:ir.model.fields,field_description:specific_partner.field_res_users_pobox_zip
 msgid "PO Box Zip"
 msgstr "PO Box Zip"
 
 #. module: specific_partner
-#: model:ir.model,name:specific_partner.model_res_partner
-msgid "Partner"
-msgstr "Partner"
-
-#. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_partner_state
+#: model:ir.model.fields,field_description:specific_partner.field_res_users_partner_state
 msgid "Partnerstatus"
 msgstr "Partnerstatus"
 
@@ -252,8 +273,13 @@ msgstr "Planer C"
 
 #. module: specific_partner
 #: model:ir.model,name:specific_partner.model_sale_order
-msgid "Sales Order"
-msgstr "Verkaufsauftrag"
+msgid "Quotation"
+msgstr "Angebot"
+
+#. module: specific_partner
+#: model:ir.ui.view,arch_db:specific_partner.better_zip_form
+msgid "Region assignment"
+msgstr "Gebietszuweisung"
 
 #. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_title_salutation
@@ -267,17 +293,25 @@ msgstr "Schluesselkontakt"
 
 #. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_partner_shipping_id
+#: model:ir.model.fields,field_description:specific_partner.field_res_users_partner_shipping_id
 msgid "Shipping Partner"
 msgstr "Shipping Partner"
 
 #. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_parent_category_id
+#: model:ir.model.fields,field_description:specific_partner.field_res_users_parent_category_id
 msgid "Tags parent"
 msgstr "Tags parent"
 
 #. module: specific_partner
+#: sql_constraint:res.partner:0
+msgid "This code already exists"
+msgstr "Dieser Code exitiert bereits"
+
+#. module: specific_partner
 #: model:ir.model.fields,field_description:specific_partner.field_res_better_zip_region_id
 #: model:ir.model.fields,field_description:specific_partner.field_res_partner_region_id
+#: model:ir.model.fields,field_description:specific_partner.field_res_users_region_id
 msgid "Verkaufsgebiet"
 msgstr "Verkaufsgebiet"
 

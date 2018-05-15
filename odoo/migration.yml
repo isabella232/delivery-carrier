@@ -121,7 +121,7 @@ migration:
           # Not yet ported to v11
           #  - specific_building_project
           #  - specific_pad
-          #  - specific_partner
+          - specific_partner
           #  - specific_reports
           #  - specific_stock
           #  - specific_timesheet
