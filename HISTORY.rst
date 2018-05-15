@@ -29,6 +29,7 @@ latest (unreleased)
 * BSSLX-41/45: Install account_reconcile_rule_early_payment_discount
 * BSSLX-6: Add stock_available_mrp
 * BSSLX-46: add analytic_department
+* Set MARABUNTA_MODE to migration mode
 
 **Documentation**
 
