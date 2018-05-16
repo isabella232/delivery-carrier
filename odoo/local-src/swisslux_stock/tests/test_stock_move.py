@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
-# © 2016 Camptocamp SA
+# Copyright 2016-2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from datetime import datetime, timedelta
-from openerp.tests.common import TransactionCase
-from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
+from odoo.tests.common import TransactionCase
+from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
 
 
 class TestStockMove(TransactionCase):
@@ -12,6 +11,7 @@ class TestStockMove(TransactionCase):
         super(TestStockMove, self).setUp()
 
         self.move_model = self.env['stock.move']
+        self.location_route_model = self.env['stock.location.route']
         self.location_path_model = self.env['stock.location.path']
         self.picking_model = self.env['stock.picking']
 
@@ -38,6 +38,10 @@ class TestStockMove(TransactionCase):
             'res_id': self.loc_transit.id,
         })
 
+        location_route = self.location_route_model.create({
+            'name': 'Unittest route',
+        })
+
         self.location_path_model.search([]).unlink()
         self.location_path_model.create({
             'name': 'Unittest receive from China',
@@ -45,6 +49,7 @@ class TestStockMove(TransactionCase):
             'location_from_id': self.loc_transit.id,
             'location_dest_id': self.loc_stock.id,
             'picking_type_id': self.picking_type_in.id,
+            'route_id': location_route.id,
         })
 
     def delta_days(self, str_value, delta):

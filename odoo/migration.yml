@@ -102,6 +102,7 @@ migration:
           #oca/stock-logistics-warehouse
           - stock_available_mrp
           #oca/stock-logistics-workflow
+          - stock_picking_restrict_cancel_with_orig_move
           - stock_split_picking
           #oca/web
           - web_environment_ribbon
@@ -117,13 +118,13 @@ migration:
           - swisslux_invoice
           - swisslux_product
           - swisslux_sale
+          - swisslux_stock
           - swisslux_translations
           # Not yet ported to v11
           #  - specific_building_project
           #  - specific_pad
           - specific_partner
           #  - specific_reports
-          #  - specific_stock
           #  - specific_timesheet
           #  - specific_timesheet_activities
 

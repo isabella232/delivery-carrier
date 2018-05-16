@@ -20,6 +20,7 @@ latest (unreleased)
 * BSSLX-19: Migrate swisslux_invoice to V11
 * BSSLX-25: swisslux_translations module to V11
 * BSSLX-37: swisslux_hr module to V11
+* BSSLX-50: Migrate swisslux_stock to V11
 * BSSLX-56: add OCA/project_department
 * Upgrade nginx version to 11.0-1.2.2
 * Upgrade dockerimage to 2.6.1

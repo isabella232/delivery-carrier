@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
-# © 2016 Cyril Gaudin (Camptocamp)
+# Copyright 2016-2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
-    'name': 'Specific - Stock',
-    'version': '9.0.1.0.0',
+    'name': 'Swisslux - Stock',
+    'version': '11.0.1.0.0',
     'author': 'Camptocamp',
     'license': 'AGPL-3',
     'category': 'Swisslux Modules',
@@ -19,6 +18,6 @@
         'views/stock_picking.xml',
     ],
     'test': [],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
 }
