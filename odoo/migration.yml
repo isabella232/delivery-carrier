@@ -122,7 +122,7 @@ migration:
           - swisslux_stock
           - swisslux_translations
           - specific_building_project
-
+          - specific_company_group
           # Not yet ported to v11
           #  - specific_pad
           - specific_partner
