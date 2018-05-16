@@ -32,6 +32,7 @@ latest (unreleased)
 * BSSLX-46: add analytic_department
 * Set MARABUNTA_MODE to migration mode
 * BSSLX-18: Migrate specific_partner to V11
+* BSSLX-62: Fix/update pending merges for V11
 
 **Documentation**
 
