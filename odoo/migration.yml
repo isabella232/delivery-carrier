@@ -6,6 +6,7 @@ migration:
       operations:
         post:
           - anthem openerp.addons.cloud_platform.songs::install_exoscale
+          - anthem songs.install.sale::main
       modes:
         sample:
           operations:
