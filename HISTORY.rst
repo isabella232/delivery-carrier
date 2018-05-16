@@ -40,6 +40,7 @@ latest (unreleased)
 * BSSLX-67: Fix migration of module l10n_ch_pain_base
 * BSSLX-67: Fix build with migrated database
 * BSSLX-65: Enable Pro-Forma invoices
+* BSSLX-10: Migrate swisslux_csv_export to V11
 
 **Documentation**
 
