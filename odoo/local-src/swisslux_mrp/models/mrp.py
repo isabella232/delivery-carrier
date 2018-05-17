@@ -16,8 +16,7 @@ class MrpProduction(models.Model):
 
     @api.model
     def _generate_finished_moves(self, production):
-        move = super(MrpProduction, self)._generate_finished_moves(
-            production)
+        move = super()._generate_finished_moves(production)
         # We will get the related stock move and we will check if we have
         # a group on it
         if not move.group_id:
@@ -27,23 +26,21 @@ class MrpProduction(models.Model):
     @api.multi
     def action_cancel(self):
         for production in self:
-            moves = self.env['stock.move'].search([('group_id',
-                                                    '=',
-                                                    production.group_id.id),
-                                                   ('move_orig_ids',
-                                                    '=',
-                                                    False)
-                                                   ])
+            moves = self.env['stock.move'].search([
+                ('group_id', '=', production.group_id.id),
+                ('move_orig_ids', '=', False)
+            ])
             moves.action_cancel()
-        return super(MrpProduction, self).action_cancel()
+        return super().action_cancel()
 
     @api.model
     def _generate_raw_move(self, production, product, uom_id, qty):
-        moves = super(MrpProduction, self)._generate_raw_move(
+        moves = super()._generate_raw_move(
             production,
             product,
             uom_id,
-            qty)
+            qty
+        )
         previous_moves = self.env['stock.move'].search(
             [('move_dest_id', 'in', moves.ids)])
         (moves | previous_moves).filtered(
