@@ -12,6 +12,7 @@
         'account',
         'account_reports',
         'delivery',
+        'mrp',
         'sale',
         'stock',
         'swisslux_product',
