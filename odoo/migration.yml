@@ -18,6 +18,9 @@ migration:
           operations:
             pre:
               - psql -f odoo/songs/migration/pre.sql
+              - anthem songs.migration.pre::main
+            post:
+              - anthem songs.migration.post::main
       addons:
         upgrade:
           # Odoo
@@ -63,9 +66,16 @@ migration:
           - cloud_platform_exoscale
           - monitoring_statsd
           # OCA
+          #oca/account-analytic
+          - analytic_base_department
+          #oca/account-financial-reporting
+          - account_financial_report
+          #oca/account-financial-tools
+          - account_fiscal_year
+          - account_journal_lock_date
           #oca/account-fiscal-rule
+          - account_fiscal_position_rule
           # Not yet ported to v11
-          # - account_fiscal_position_rule
           # - account_fiscal_position_rule_purchase
           # - account_fiscal_position_rule_sale
           #oca/bank-payment
@@ -78,12 +88,12 @@ migration:
           #oca/account-reconcile
           - account_reconcile_rule
           - account_reconcile_rule_early_payment_discount
+          - base_transaction_id
           #oca/carrier-delivery
           # Not yet ported to v11
           # - delivery_carrier_label_postlogistics
           #oca/l10n-switzerland
           - l10n_ch_bank
-          - l10n_ch_payment_slip
           - l10n_ch_pain_credit_transfer
           - l10n_ch_states
           - l10n_ch_zip
@@ -93,15 +103,16 @@ migration:
           #oca/partner-contact
           - partner_firstname
           #oca/product-attribute
-          # Not ported (yet ?)
-          # PR used https://github.com/OCA/product-attribute/pull/337
           - product_dimension
+          - product_state
           #oca/project
           - project_task_default_stage
           #oca/server-env
           - mail_environment
           - server_environment
           - server_environment_ir_config_parameter
+          #oca/server-tools
+          - auditlog
           #oca/server-ux
           - base_technical_features
           #oca/stock-logistics-warehouse
@@ -113,10 +124,6 @@ migration:
           - web_environment_ribbon
           #oca/department
           - project_department
-          # MIA
-          # - delivery_carrier_label_s3
-          # - account_permanent_lock_move
-
           #Specific
           - swisslux_account
           - swisslux_hr
@@ -139,6 +146,4 @@ migration:
 
           #oca/department
           # Deprecated
-          - analytic_base_department
-          #  - analytic_department
           #  - project_task_department

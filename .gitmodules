@@ -6,7 +6,7 @@
 	url = git@github.com:odoo/enterprise.git
 [submodule "odoo/external-src/account-financial-tools"]
 	path = odoo/external-src/account-financial-tools
-	url = git@github.com:OCA/account-financial-tools.git
+	url = git@github.com:camptocamp/account-financial-tools.git
 [submodule "odoo/external-src/account-financial-reporting"]
 	path = odoo/external-src/account-financial-reporting
 	url = git@github.com:OCA/account-financial-reporting.git
@@ -55,7 +55,7 @@
 	url = git@github.com:camptocamp/odoo-cloud-platform
 [submodule "odoo/external-src/account-fiscal-rule"]
 	path = odoo/external-src/account-fiscal-rule
-    url = git@github.com:OCA/account-fiscal-rule.git
+    url = git@github.com:camptocamp/account-fiscal-rule.git
 [submodule "odoo/external-src/server-ux"]
 	path = odoo/external-src/server-ux
 	url = git@github.com:OCA/server-ux.git
@@ -68,3 +68,6 @@
 [submodule "odoo/external-src/account-reconcile"]
 	path = odoo/external-src/account-reconcile
 	url = git@github.com:camptocamp/bank-statement-reconcile.git
+[submodule "odoo/external-src/openupgradelib"]
+	path = odoo/external-src/openupgradelib
+	url = git@github.com:OCA/openupgradelib.git

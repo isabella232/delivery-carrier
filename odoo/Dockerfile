@@ -37,6 +37,7 @@ ENV ADDONS_PATH="/opt/odoo/local-src, \
     /opt/odoo/external-src/l10n-switzerland, \
     /opt/odoo/external-src/manufacture, \
     /opt/odoo/external-src/odoo-cloud-platform, \
+    /opt/odoo/external-src/openupgradelib, \
     /opt/odoo/external-src/partner-contact, \
     /opt/odoo/external-src/product-attribute, \
     /opt/odoo/external-src/project, \
