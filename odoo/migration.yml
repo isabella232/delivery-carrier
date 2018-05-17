@@ -21,6 +21,7 @@ migration:
           - account_budget
           - account_extra_reports
           - base
+          - base_address_city
           - board
           - hr
           - hr_contract
