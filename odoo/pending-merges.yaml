@@ -67,3 +67,12 @@
     #  [MIG] base_delivery_carrier_label
     - oca refs/pull/154/head
   target: *default_target
+./external-src/l10n-switzerland:
+  remotes:
+    oca: git@github.com:OCA/l10n-switzerland.git
+    camptocamp: git@github.com:camptocamp/l10n-switzerland.git
+  merges:
+    - oca 11.0
+    # [11.0][FIX] l10n_ch_pain_base - Fix migration script
+    - oca refs/pull/424/head
+  target: *default_target
