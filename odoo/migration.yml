@@ -116,6 +116,7 @@ migration:
           - swisslux_hr
           - swisslux_invoice
           - swisslux_product
+          - swisslux_purchase
           - swisslux_sale
           - swisslux_stock
           - swisslux_translations
