@@ -9,7 +9,7 @@ class SaleOrder(models.Model):
 
     @api.onchange('partner_id')
     def onchange_partner_id(self):
-        super(SaleOrder, self).onchange_partner_id()
+        super().onchange_partner_id()
         values = {}
         if self.partner_id.is_company:
             partner = self.partner_id
