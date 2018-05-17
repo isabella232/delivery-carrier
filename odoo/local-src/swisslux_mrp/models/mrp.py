@@ -44,12 +44,11 @@ class MrpProduction(models.Model):
             product,
             uom_id,
             qty)
-        for move in moves:
-            if not move.group_id:
-                move.write({'group_id': production.group_id.id})
-            # Get previous created moves:
-            previous_move_list = self.env['stock.move'].search(
-                [('move_dest_id', '=', move.id)])
-            for previous_move in previous_move_list:
-                previous_move.write({'group_id': production.group_id.id})
+        previous_moves = self.env['stock.move'].search(
+            [('move_dest_id', 'in', moves.ids)])
+        (moves | previous_moves).filtered(
+            lambda m: not m.group_id
+        ).write({
+            'group_id': production.group_id.id,
+        })
         return moves
