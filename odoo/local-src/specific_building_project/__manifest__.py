@@ -19,7 +19,7 @@
         "crm",
         "sale",
         "sale_crm",
-        "specific_partner",
+        "swisslux_partner",
         "sale_stock",
     ],
     "data": [

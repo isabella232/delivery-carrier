@@ -3,7 +3,7 @@
   <record model="ir.ui.view" id="view_partner_form">
     <field name="name">res.partner.form.inherit.group</field>
     <field name="model">res.partner</field>
-    <field name="inherit_id" ref="specific_partner.view_partner_form" />
+    <field name="inherit_id" ref="swisslux_partner.view_partner_form" />
     <field name="arch" type="xml">
 
       <field name="name2" position="after">

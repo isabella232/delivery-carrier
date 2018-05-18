@@ -12,7 +12,7 @@
         "base",
         "sale",
         "account",
-        "specific_partner",
+        "swisslux_partner",
         "specific_building_project"
     ],
     "data": [
