@@ -14,6 +14,10 @@ migration:
               - anthem songs.sample.pre::main
             post:
               - anthem songs.sample.post::main
+        migration:
+          operations:
+            pre:
+              - psql -f odoo/songs/migration/pre.sql
       addons:
         upgrade:
           # Odoo
