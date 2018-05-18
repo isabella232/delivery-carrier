@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
-# © 2015 Swisslux
-# © 2016 Yannick Vaucher (Camptocamp)
+# Copyright 2015 Swisslux
+# Copyright 2016 Yannick Vaucher (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, fields, models
+from odoo import api, fields, models
 
 
 class SaleOrder(models.Model):
@@ -36,7 +35,8 @@ class SaleOrder(models.Model):
 
     @api.multi
     def _prepare_invoice(self):
-        vals = super(SaleOrder, self)._prepare_invoice()
+        self.ensure_one()
+        vals = super()._prepare_invoice()
         company_partner = self.partner_id.get_company_partner()
         vals['income_partner_id'] = company_partner.id
         return vals
@@ -47,8 +47,8 @@ class SaleAdvancePaymentInv(models.TransientModel):
 
     @api.multi
     def _create_invoice(self, order, so_line, amount):
-        invoice_return = super(SaleAdvancePaymentInv, self)._create_invoice(
-            order, so_line, amount)
+        self.ensure_one()
+        invoice_return = super()._create_invoice(order, so_line, amount)
         company_partner = order.partner_id.get_company_partner()
         invoice_return.income_partner_id = company_partner.id
         return invoice_return

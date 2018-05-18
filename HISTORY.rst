@@ -36,6 +36,7 @@ latest (unreleased)
 * BSSLX-18: Migrate specific_partner to V11
 * BSSLX-62: Fix/update pending merges for V11
 * BSSLX-3: Migrate specific_building_project to V11
+* BSSLX-16: Migrate specific_company_group to V11
 
 **Documentation**
 

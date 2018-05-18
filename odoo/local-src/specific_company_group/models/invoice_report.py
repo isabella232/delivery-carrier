@@ -1,6 +1,6 @@
-# -*- coding: utf-8 -*-
-
-from openerp import models, fields
+# Copyright 2016 Camptocamp SA
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+from odoo import models, fields
 
 
 class AccountInvoiceReport(models.Model):
@@ -17,15 +17,15 @@ class AccountInvoiceReport(models.Model):
     )
 
     def _select(self):
-        return super(AccountInvoiceReport, self).\
-            _select() + ", sub.company_group_id as company_group_id," + \
+        return super()._select() + \
+            ", sub.company_group_id as company_group_id," + \
             "sub.income_partner_id as income_partner_id"
 
     def _sub_select(self):
-        return super(AccountInvoiceReport, self). \
-            _sub_select() + ", ai.company_group_id as company_group_id," + \
+        return super()._sub_select() + \
+            ", ai.company_group_id as company_group_id," + \
             "ai.income_partner_id as income_partner_id"
 
     def _group_by(self):
-        return super(AccountInvoiceReport, self). \
-                   _group_by() + ", ai.company_group_id, ai.income_partner_id"
+        return super()._group_by() + \
+            ", ai.company_group_id, ai.income_partner_id"
