@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 # © 2016 Cyril Gaudin (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, fields, models
+from odoo import api, fields, models
 
 from lxml import etree
 
@@ -26,13 +25,13 @@ class ProjectProject(models.Model):
                 limit=1
             )[:1]
 
-    def init(self, cr):
-        cr.execute(
+    def init(self):
+        self.env.cr.execute(
             'SELECT indexname FROM pg_indexes WHERE indexname = %s',
             ('project_project_idx_unique_building_template',)
         )
-        if not cr.fetchone():
-            cr.execute(
+        if not self.env.cr.fetchone():
+            self.env.cr.execute(
                 'CREATE UNIQUE INDEX '
                 'project_project_idx_unique_building_template '
                 'ON project_project (building_template) '
@@ -46,16 +45,13 @@ class ProjectProject(models.Model):
         if not self.department_id:
             self.department_id = self.user_id.department_id
 
-    def fields_view_get(self, cr, uid, view_id=None, view_type='form',
-                        context=None, toolbar=False, submenu=False):
+    @api.model
+    def fields_view_get(self, view_id=None, view_type='form',
+                        toolbar=False, submenu=False):
         """ Modify search view to add a filter on connected user department.
         """
-
-        result = super(ProjectProject, self).fields_view_get(
-            cr, uid, view_id, view_type, context, toolbar, submenu
-        )
-
-        user = self.pool['res.users'].browse(cr, uid, uid, context=context)
+        result = super().fields_view_get(view_id, view_type, toolbar, submenu)
+        user = self.env.user
         if view_type == 'search':
             eview = etree.fromstring(result['arch'])
             nodes = eview.xpath("//filter[@name='department']")

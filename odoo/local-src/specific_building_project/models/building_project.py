@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 # © 2015 Swisslux AG
 # © 2015-2016 Yannick Vaucher (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, fields, models, _
+from odoo import api, fields, models, _
 
 
 class BuildingProject(models.Model):
@@ -60,7 +59,7 @@ class BuildingProject(models.Model):
         help="Envolved partners (Architect, Engineer, Electrician)"
     )
 
-    @api.multi
+    @api.model
     def _get_default_stage_id(self):
         """ Gives default stage_id """
         return self.env['building.project.stage'].search([], limit=1)
@@ -144,11 +143,11 @@ class BuildingProject(models.Model):
     sale_order_ids = fields.One2many(
         comodel_name='sale.order',
         string="Sales orders",
-        compute='_get_sale_orders',
+        compute='_compute_sale_orders',
         copy=False,
     )
     sale_order_count = fields.Integer(
-        compute='_sale_order_count',
+        compute='_compute_sale_orders',
         string="# Sales Order"
     )
 
@@ -174,7 +173,8 @@ class BuildingProject(models.Model):
     )
 
     doc_count = fields.Integer(
-        compute='_get_attached_docs', string="Number of documents attached",
+        compute='_compute_attached_docs',
+        string="Number of documents attached",
     )
 
     color = fields.Integer('Color Index')
@@ -184,7 +184,7 @@ class BuildingProject(models.Model):
         """ When creating a building project, we have to copy the tasks of
         the project.project which is marked as building_template.
         """
-        building_project = super(BuildingProject, self).create(vals)
+        building_project = super().create(vals)
         if not building_project.task_ids:
             template = self.env['project.project'].search([
                 ('building_template', '=', True)
@@ -202,19 +202,15 @@ class BuildingProject(models.Model):
         return building_project
 
     @api.depends('analytic_account_id')
-    def _get_sale_orders(self):
+    def _compute_sale_orders(self):
         """ List all sale order linked to this project.
         We do this as reverse many2one is on analytic account
         """
         for rec in self:
-            rec.sale_order_ids = self.env['sale.order'].search(
-                [('project_id', '=', rec.analytic_account_id.id)])
-
-    @api.depends('sale_order_ids')
-    def _sale_order_count(self):
-        """ Count aggregated sale orders """
-        for rec in self:
-            rec.sale_order_count = len(rec.sale_order_ids)
+            orders = self.env['sale.order'].search(
+                [('analytic_account_id', '=', rec.analytic_account_id.id)])
+            rec.update({'sale_order_ids': (6, 0, orders.ids),
+                        'sale_order_count': len(orders)})
 
     @api.depends('opportunity_ids')
     def _opportunity_count(self):
@@ -230,16 +226,17 @@ class BuildingProject(models.Model):
 
     @api.onchange('zip_id')
     def onchange_zip_id(self):
-        for rec in self:
-            if rec.zip_id:
-                rec.zip = rec.zip_id.name
-                rec.city = rec.zip_id.city
-                rec.state_id = rec.zip_id.state_id
-                rec.country_id = rec.zip_id.country_id
-                rec.region_id = rec.zip_id.region_id
+        if self.zip_id:
+            self.update({
+                'zip': self.zip_id.name,
+                'city': self.zip_id.city,
+                'state_id': self.zip_id.state_id,
+                'country_id': self.zip_id.country_id,
+                'region_id': self.zip_id.region_id,
+            })
 
     @api.multi
-    def _get_attached_docs(self):
+    def _compute_attached_docs(self):
         attachment_model = self.env['ir.attachment']
         for rec in self:
             rec.doc_count = attachment_model.search_count(
@@ -281,7 +278,7 @@ class BuildingProject(models.Model):
         role = self.env['res.partner.role'].search(domain)
         if role:
             return
-        self.env['res.partner.role'].create({
+        self.env['res.partner.role'].with_context(default_type=False).create({
             'partner_id': company_partner.id,
             'building_project_id': self.id,
         })
@@ -294,6 +291,7 @@ class BuildingProject(models.Model):
         :return: dictionary value for created Meeting view
         :rtype: dict
         """
+        self.ensure_one()
         res = self.env['ir.actions.act_window'].for_xml_id(
             'calendar', 'action_calendar_event'
         )
@@ -318,12 +316,13 @@ class BuildingProject(models.Model):
         Open sale order tree view
         :return dict: dictionary value for created sale order view
         """
+        self.ensure_one()
         res = self.env['ir.actions.act_window'].for_xml_id(
             'sale', 'action_orders')
 
         res['context'] = {
-            'search_default_project_id': self.analytic_account_id.id,
-            'default_project_id': self.analytic_account_id.id,
+            'search_default_analytic_account_id': self.analytic_account_id.id,
+            'default_analytic_account_id': self.analytic_account_id.id,
             'statistics_include_hide': False,
         }
         res['domain'] = []
@@ -334,6 +333,7 @@ class BuildingProject(models.Model):
         """ Open opportunities view filtered on this project opportunities.
         :rtype: dict
         """
+        self.ensure_one()
         res = self.env['ir.actions.act_window'].for_xml_id(
             'crm', 'crm_lead_opportunities'
         )

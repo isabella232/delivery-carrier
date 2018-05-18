@@ -1,21 +1,24 @@
-# -*- coding: utf-8 -*-
 # © 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from psycopg2._psycopg import IntegrityError
 
-from openerp.tests.common import TransactionCase
+from odoo.tests.common import SavepointCase
 
 
-class TestBuildingProject(TransactionCase):
+class TestBuildingProject(SavepointCase):
 
-    def setUp(self):
-        super(TestBuildingProject, self).setUp()
-        self.building_model = self.env['building.project']
-        self.project_model = self.env['project.project']
-        self.task_model = self.env['project.task']
+    @classmethod
+    def setUpClass(cls):
+        super(TestBuildingProject, cls).setUpClass()
+        cls.building_model = cls.env['building.project'].with_context(
+            tracking_disable=True)
+        cls.project_model = cls.env['project.project'].with_context(
+            tracking_disable=True)
+        cls.task_model = cls.env['project.task'].with_context(
+            tracking_disable=True)
 
         # Remove template tag on a possible existing project for transaction.
-        template = self.project_model.search([
+        template = cls.project_model.search([
             ('building_template', '=', True)
         ])
         template.write({'building_template': False})

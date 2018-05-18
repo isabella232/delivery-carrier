@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
 # © 2016 Yannick Vaucher (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, fields, models
-from openerp.tools import frozendict
+from odoo import api, fields, models
 
 
 class SaleOrder(models.Model):
@@ -31,30 +29,30 @@ class SaleOrder(models.Model):
         string="Number of shipments",
     )
 
-    @api.onchange('project_id')
+    @api.onchange('analytic_account_id')
     def _set_statics_include(self):
         """ Try to set only one sale order per building project
 
         When setting a project we check if there is already a project included
         in statistics.
         """
-        self.statistics_include = not self.project_id
+        self.statistics_include = not self.analytic_account_id
 
-    @api.onchange('project_id', 'partner_id')
+    @api.onchange('analytic_account_id', 'partner_id')
     def _set_project_pricelist(self):
-        if self.project_id or not self.partner_id:
+        if self.analytic_account_id or not self.partner_id:
             company_partner_id = False
             if self.partner_id:
                 company_partner_id = self.partner_id.get_company_partner()
             build_project = self.env['building.project'].search(
-                [('analytic_account_id', '=', self.project_id.id)])
+                [('analytic_account_id', '=', self.analytic_account_id.id)])
             discounts = [pl for pl in build_project.customer_discount_ids
                          if pl.partner_id == company_partner_id]
             pricelist = discounts[0].pricelist_id if discounts else False
             self.project_pricelist_id = pricelist
 
     @api.model
-    def _update_build_project_discounts(self, project_id, partner_id,
+    def _update_build_project_discounts(self, analytic_account_id, partner_id,
                                         project_pricelist_id,
                                         business_provider_id):
         """ If a pricelist is set we check if a pricelist for the customer for
@@ -64,9 +62,9 @@ class SaleOrder(models.Model):
         if partner_id:
             partner = self.env['res.partner'].browse(partner_id)
             partner_id = partner.get_company_partner().id
-        if project_id and project_pricelist_id:
+        if analytic_account_id and project_pricelist_id:
             build_project = self.env['building.project'].search(
-                [('analytic_account_id', '=', project_id)])
+                [('analytic_account_id', '=', analytic_account_id)])
             project_pl = self.env['building.project.pricelist'].search(
                 [('building_project_id', '=', build_project.id),
                  ('partner_id', '=', partner_id)])
@@ -75,10 +73,10 @@ class SaleOrder(models.Model):
                     'building_project_id': build_project.id,
                     'partner_id': partner_id,
                     'pricelist_id': project_pricelist_id})
-        if project_id and business_provider_id and \
+        if analytic_account_id and business_provider_id and \
                 (partner_id != business_provider_id):
             build_project = self.env['building.project'].search(
-                [('analytic_account_id', '=', project_id)])
+                [('analytic_account_id', '=', analytic_account_id)])
             project_pl = self.env['building.project.pricelist'].search(
                 [('building_project_id', '=', build_project.id),
                  ('partner_id', '=', business_provider_id),
@@ -93,30 +91,29 @@ class SaleOrder(models.Model):
     @api.model
     def create(self, vals):
         self._update_build_project_discounts(
-            vals.get('project_id'), vals.get('partner_id'),
+            vals.get('analytic_account_id'), vals.get('partner_id'),
             vals.get('project_pricelist_id'),
             vals.get('business_provider_id'))
-        return super(SaleOrder, self).create(vals)
+        return super().create(vals)
 
     @api.multi
     def write(self, vals):
-        project_id = vals.get('project_id') or self.project_id.id
+        analytic_account_id = vals.get('analytic_account_id') or \
+            self.analytic_account_id.id
         partner_id = vals.get('partner_id') or self.partner_id.id
         business_provider_id = vals.get(
             'business_provider_id') or self.business_provider_id.id
         self._update_build_project_discounts(
-            project_id, partner_id,
+            analytic_account_id, partner_id,
             vals.get('project_pricelist_id'), business_provider_id)
 
-        return super(SaleOrder, self).write(vals)
+        return super().write(vals)
 
-    @api.multi
     @api.onchange('project_pricelist_id', 'pricelist_id')
     def button_update_unit_prices(self):
         """ Button action to update prices in lines based on pricelists """
-        for rec in self:
-            for line in rec.order_line:
-                line.product_uom_change()
+        for line in self.order_line:
+            line.product_uom_change()
 
 
 class SaleOrderLine(models.Model):
@@ -132,16 +129,10 @@ class SaleOrderLine(models.Model):
         """ Alter context of onchange to trigger computation
         of project pricelist
         """
-        base_ctx = frozendict(self.env.context)
-        project_pricelist = self.order_id.project_pricelist_id
-        if project_pricelist:
-            # Ugly set of context due to
-            # https://github.com/odoo/odoo/issues/7472
-            self.env.context = frozendict(
-                base_ctx,
-                project_pricelist=project_pricelist.id)
-
-        super(SaleOrderLine, self).product_uom_change()
-
-        # Restore context
-        self.env.context = base_ctx
+        project_pricelist_id = self.order_id.project_pricelist_id
+        if project_pricelist_id:
+            super(SaleOrderLine, self.with_context(
+                project_pricelist=project_pricelist_id.id)
+            ).product_uom_change()
+        else:
+            super().product_uom_change()

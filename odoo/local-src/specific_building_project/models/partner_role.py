@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 # © 2016 Yannick Vaucher (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import fields, models
+from odoo import fields, models
 
 
 class ResPartnerRole(models.Model):
@@ -49,7 +48,6 @@ class ResPartnerRole(models.Model):
     country_id = fields.Many2one(
         'res.country', related='partner_id.country_id')
     mobile = fields.Char(related='partner_id.mobile')
-    fax = fields.Char(related='partner_id.fax')
     state_id = fields.Many2one(
         'res.country.state', related='partner_id.state_id')
     image = fields.Binary(related='partner_id.image')

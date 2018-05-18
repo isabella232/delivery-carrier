@@ -121,8 +121,9 @@ migration:
           - swisslux_sale
           - swisslux_stock
           - swisslux_translations
+          - specific_building_project
+
           # Not yet ported to v11
-          #  - specific_building_project
           #  - specific_pad
           - specific_partner
           #  - specific_reports

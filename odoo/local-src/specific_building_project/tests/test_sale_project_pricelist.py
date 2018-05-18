@@ -1,14 +1,67 @@
-# -*- coding: utf-8 -*-
 # © 2016 Yannick Vaucher (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp.tests import common
+from odoo.tests import common
 
 
-class TestSalePricelist(common.TransactionCase):
+class TestSalePricelist(common.SavepointCase):
+
+    @classmethod
+    def setUpClass(cls):
+        super(TestSalePricelist, cls).setUpClass()
+
+        product = cls.env['product.product'].with_context(
+            tracking_disable=True).create({
+                'name': 'Unittest product',
+                'list_price': 23500,
+            })
+        cls.listprice = product.list_price
+
+        cls.partner = cls.env['res.partner'].with_context(
+            tracking_disable=True).create({
+                'name': 'Unittest partner'
+            })
+
+        cls.sale = cls.env['sale.order'].with_context(
+            tracking_disable=True).create({
+                'partner_id': cls.partner.id,
+                'order_line': [(0, 0, {
+                    'product_id': product.id,
+                    'product_uom': product.uom_id.id,
+                    'name': '/',
+                })]
+            })
+
+        cls.pricelist40 = cls.env['product.pricelist'].with_context(
+            tracking_disable=True).create({
+                'name': '40%',
+                'item_ids': [(0, 0, {
+                    'compute_price': 'percentage',
+                    'percent_price': '40.0',
+                })]
+            })
+        cls.pricelist50 = cls.env['product.pricelist'].with_context(
+            tracking_disable=True).create({
+                'name': '50%',
+                'item_ids': [(0, 0, {
+                    'compute_price': 'percentage',
+                    'percent_price': '50.0',
+                })]
+            })
+
+        cls.project = cls.env['building.project'].with_context(
+            tracking_disable=True).create({
+                'name': 'Building Project',
+            })
+        cls.project_pl = cls.env['building.project.pricelist'].with_context(
+            tracking_disable=True).create({
+                'building_project_id': cls.project.id,
+                'partner_id': cls.partner.id,
+            })
 
     def test_standard_pricelist(self):
         self.sale.button_update_unit_prices()
-        self.assertAlmostEqual(self.sale.order_line.price_unit, self.listprice)
+        self.assertAlmostEqual(self.sale.order_line.price_subtotal,
+                               self.listprice)
 
     def test_sale_discount_pricelist(self):
         self.sale.pricelist_id = self.pricelist40
@@ -19,7 +72,7 @@ class TestSalePricelist(common.TransactionCase):
         )
 
     def test_project_without_discount(self):
-        self.sale.project_id = self.project.analytic_account_id
+        self.sale.analytic_account_id = self.project.analytic_account_id
         self.sale.button_update_unit_prices()
         self.assertAlmostEqual(
             self.sale.order_line.price_subtotal,
@@ -29,6 +82,7 @@ class TestSalePricelist(common.TransactionCase):
     def test_project_discount_pricelist(self):
         self.sale.project_pricelist_id = self.pricelist50
         self.sale.button_update_unit_prices()
+        self.sale.invalidate_cache()
         self.assertAlmostEqual(
             self.sale.order_line.price_subtotal,
             self.listprice * 0.5,
@@ -42,48 +96,7 @@ class TestSalePricelist(common.TransactionCase):
             self.sale.order_line.price_subtotal,
             self.listprice * 0.5 * 0.6,
         )
-
-    def setUp(self):
-        super(TestSalePricelist, self).setUp()
-
-        product = self.env['product.product'].create({
-            'name': 'Unittest product',
-            'list_price': 23500,
-        })
-        self.listprice = product.list_price
-
-        self.partner = self.env['res.partner'].create({
-            'name': 'Unittest partner'
-        })
-
-        self.sale = self.env['sale.order'].create({
-            'partner_id': self.partner.id,
-            'order_line': [(0, 0, {
-                'product_id': product.id,
-                'product_uom': product.uom_id.id,
-                'name': '/',
-            })]
-        })
-
-        self.pricelist40 = self.env['product.pricelist'].create({
-            'name': '40%',
-            'item_ids': [(0, 0, {
-                'compute_price': 'percentage',
-                'percent_price': '40.0',
-            })]
-        })
-        self.pricelist50 = self.env['product.pricelist'].create({
-            'name': '50%',
-            'item_ids': [(0, 0, {
-                'compute_price': 'percentage',
-                'percent_price': '50.0',
-            })]
-        })
-
-        self.project = self.env['building.project'].create({
-            'name': 'Building Project',
-        })
-        self.project_pl = self.env['building.project.pricelist'].create({
-            'building_project_id': self.project.id,
-            'partner_id': self.partner.id,
-        })
+        self.assertAlmostEqual(
+            self.sale.order_line.product_id.list_price,
+            23500.0
+        )

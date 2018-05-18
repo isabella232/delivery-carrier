@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 # © 2016 Yannick Vaucher (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, fields, models
+from odoo import api, fields, models
 
 
 class ResPartner(models.Model):
@@ -9,7 +8,7 @@ class ResPartner(models.Model):
 
     building_project_ids = fields.One2many(
         comodel_name='building.project',
-        compute='_get_building_projects',
+        compute='_compute_building_projects',
         string='Bauprojekt',
     )
 
@@ -22,7 +21,7 @@ class ResPartner(models.Model):
             return self
 
     @api.multi
-    def _get_building_projects(self):
+    def _compute_building_projects(self):
         for rec in self:
             if rec.is_company:
                 domain = [('partner_id', '=', rec.id)]

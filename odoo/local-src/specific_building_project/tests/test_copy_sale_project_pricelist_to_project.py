@@ -1,13 +1,61 @@
-# -*- coding: utf-8 -*-
 # © 2016 Yannick Vaucher (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp.tests import common
+from odoo.tests import common
 
 
-class TestCopySalePricelistToProject(common.TransactionCase):
+class TestCopySalePricelistToProject(common.SavepointCase):
+
+    @classmethod
+    def setUpClass(cls):
+        super(TestCopySalePricelistToProject, cls).setUpClass()
+
+        cls.product = cls.env['product.product'].with_context(
+            tracking_disable=True).create({
+                'name': 'Unittest product',
+                'list_price': 23500,
+            })
+        cls.listprice = cls.product.list_price
+
+        cls.partner = cls.env['res.partner'].with_context(
+            tracking_disable=True).create({
+                'name': 'Unittest partner'
+            })
+
+        cls.project = cls.env['building.project'].with_context(
+            tracking_disable=True).create({
+                'name': 'Building Project',
+            })
+        cls.sale = cls.env['sale.order'].with_context(
+            tracking_disable=True).create({
+                'partner_id': cls.partner.id,
+                'order_line': [(0, 0, {
+                    'product_id': cls.product.id,
+                    'product_uom': cls.product.uom_id.id,
+                    'name': '/',
+                })],
+                'analytic_account_id': cls.project.analytic_account_id.id
+
+            })
+
+        cls.pricelist40 = cls.env['product.pricelist'].with_context(
+            tracking_disable=True).create({
+                'name': '40%',
+                'item_ids': [(0, 0, {
+                    'compute_price': 'percentage',
+                    'percent_price': '40.0',
+                })]
+            })
+        cls.pricelist50 = cls.env['product.pricelist'].with_context(
+            tracking_disable=True).create({
+                'name': '50%',
+                'item_ids': [(0, 0, {
+                    'compute_price': 'percentage',
+                    'percent_price': '50.0',
+                })]
+            })
 
     def test_no_project_on_so(self):
-        self.sale.project_id = False
+        self.sale.analytic_account_id = False
         self.sale.project_pricelist_id = self.pricelist40
         self.assertEqual(len(self.project.customer_discount_ids), 0)
 
@@ -31,7 +79,7 @@ class TestCopySalePricelistToProject(common.TransactionCase):
                 'product_uom': self.product.uom_id.id,
                 'name': '/',
             })],
-            'project_id': self.project.analytic_account_id.id,
+            'analytic_account_id': self.project.analytic_account_id.id,
             'project_pricelist_id': self.pricelist40.id
 
         })
@@ -56,45 +104,3 @@ class TestCopySalePricelistToProject(common.TransactionCase):
                          self.partner)
         self.assertEqual(self.project.customer_discount_ids.pricelist_id,
                          self.pricelist40)
-
-    def setUp(self):
-        super(TestCopySalePricelistToProject, self).setUp()
-
-        self.product = self.env['product.product'].create({
-            'name': 'Unittest product',
-            'list_price': 23500,
-        })
-        self.listprice = self.product.list_price
-
-        self.partner = self.env['res.partner'].create({
-            'name': 'Unittest partner'
-        })
-
-        self.project = self.env['building.project'].create({
-            'name': 'Building Project',
-        })
-        self.sale = self.env['sale.order'].create({
-            'partner_id': self.partner.id,
-            'order_line': [(0, 0, {
-                'product_id': self.product.id,
-                'product_uom': self.product.uom_id.id,
-                'name': '/',
-            })],
-            'project_id': self.project.analytic_account_id.id
-
-        })
-
-        self.pricelist40 = self.env['product.pricelist'].create({
-            'name': '40%',
-            'item_ids': [(0, 0, {
-                'compute_price': 'percentage',
-                'percent_price': '40.0',
-            })]
-        })
-        self.pricelist50 = self.env['product.pricelist'].create({
-            'name': '50%',
-            'item_ids': [(0, 0, {
-                'compute_price': 'percentage',
-                'percent_price': '50.0',
-            })]
-        })

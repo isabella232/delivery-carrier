@@ -1,16 +1,13 @@
-# -*- coding: utf-8 -*-
 # © 2015 Yannick Vaucher (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Building project ",
     "summary": "New type of analytic account",
-    "version": "9.0.1.0.0",
+    "version": "11.0.1.0.0",
     "category": "Swisslux Modules",
-    "website": "https://odoo-community.org/",
+    "website": "https://camptocamp.com/",
     "author": "Camptocamp",
     "license": "AGPL-3",
-    "application": False,
-    "installable": False,
     "external_dependencies": {
         "python": [],
         "bin": [],
@@ -18,10 +15,12 @@
     "depends": [
         "project_department",
         "hr",
+        "hr_attendance",
         "crm",
         "sale",
         "sale_crm",
         "specific_partner",
+        "sale_stock",
     ],
     "data": [
         "data/building_project_tag.xml",
@@ -37,8 +36,6 @@
         'views/building_project_template.xml',
         'views/project_project.xml',
         "security/ir.model.access.csv",
-        "security/account_analytic_account.xml"
-    ],
-    "demo": [
+        "security/account_analytic_account.xml",
     ],
 }
