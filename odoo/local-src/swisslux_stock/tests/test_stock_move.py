@@ -8,7 +8,7 @@ from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
 
 class TestStockMove(TransactionCase):
     def setUp(self):
-        super(TestStockMove, self).setUp()
+        super().setUp()
 
         self.move_model = self.env['stock.move']
         self.location_route_model = self.env['stock.location.route']

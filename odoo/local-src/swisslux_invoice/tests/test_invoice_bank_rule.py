@@ -56,7 +56,7 @@ class TestInvoiceBankRule(common.TransactionCase):
         )
 
     def setUp(self):
-        super(TestInvoiceBankRule, self).setUp()
+        super().setUp()
 
         cp_partner = self.env.ref('base.main_partner')
         self.cp = self.env.ref('base.main_company')

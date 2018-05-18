@@ -21,7 +21,7 @@ class StockMove(models.Model):
             for move in self if move.move_dest_id.location_id == transit_loc
             }
 
-        super(StockMove, self).action_done()
+        super().action_done()
 
         for move, date_expected in expected_dates.items():
             move.date_expected = date_expected

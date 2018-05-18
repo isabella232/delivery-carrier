@@ -109,7 +109,7 @@ class ResPartner(models.Model):
                 'res.partner'
             )
 
-        return super(ResPartner, self).create(vals)
+        return super().create(vals)
 
     @api.model
     def name_search(self, name, args=None, operator='ilike', limit=100):
@@ -123,7 +123,7 @@ class ResPartner(models.Model):
             partners = self.search(domain + args, limit=limit)
             result = partners.name_get()
         if not result:
-            result = super(ResPartner, self).name_search(
+            result = super().name_search(
                 name, args=args, operator=operator, limit=limit)
         return result
 
@@ -174,7 +174,7 @@ class ResPartner(models.Model):
         default['ref'] = self.env['ir.sequence'].next_by_code(
             'res.partner'
         )
-        return super(ResPartner, self).copy(default)
+        return super().copy(default)
 
     @api.multi
     def write(self, vals):
@@ -184,5 +184,5 @@ class ResPartner(models.Model):
             for current_partner in self:
                 if current_partner.child_ids:
                     current_partner.child_ids.write({'active': False})
-        result = super(ResPartner, self).write(vals)
+        result = super().write(vals)
         return result
