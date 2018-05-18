@@ -15,6 +15,7 @@ latest (unreleased)
 * BSSLX-58: Create v11 base branch
 * BSSLX-5: swisslux_sale module to V11
 * BSSLX-7: Migrate swisslux_purchase to V11
+* BSSLX-8: Migrate swisslux_mrp to V11
 * BSSLX-9: Migrate swisslux_account to V11
 * BSSLX-12: Migrate the module OCA stock_split_picking to V11
 * BSSLX-13: swisslux_product module to V11

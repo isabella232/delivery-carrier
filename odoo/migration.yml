@@ -115,6 +115,7 @@ migration:
           - swisslux_account
           - swisslux_hr
           - swisslux_invoice
+          - swisslux_mrp
           - swisslux_product
           - swisslux_purchase
           - swisslux_sale
