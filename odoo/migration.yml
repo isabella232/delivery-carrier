@@ -21,6 +21,7 @@ migration:
           - account_budget
           - account_extra_reports
           - base
+          - base_address_city
           - board
           - hr
           - hr_contract
@@ -116,6 +117,7 @@ migration:
           - swisslux_hr
           - swisslux_invoice
           - swisslux_mrp
+          - swisslux_partner
           - swisslux_product
           - swisslux_purchase
           - swisslux_sale
@@ -125,7 +127,6 @@ migration:
           - specific_company_group
           # Not yet ported to v11
           #  - specific_pad
-          - specific_partner
           #  - specific_reports
           #  - specific_timesheet
           #  - specific_timesheet_activities
