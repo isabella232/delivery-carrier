@@ -1,25 +1,21 @@
-# -*- coding: utf-8 -*-
-# Author: Denis Leemann
-# Copyright 2016 Camptocamp SA
+# Copyright 2016-2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-try:
-    from cStringIO import StringIO
-except ImportError:
-    from StringIO import StringIO
+from io import StringIO
 
 import os
 import time
 import unicodecsv as csv
 import base64
+import collections
 
 import logging
 
-import openerp.osv.orm as orm  # TODO update it
+import odoo.osv.orm as orm
 from .sftp_interface import SFTPInterface
 
-from openerp.addons.server_environment import serv_config
-from openerp import fields, models, api
+from odoo.addons.server_environment import serv_config
+from odoo import api, fields, models
 
 _logger = logging.getLogger()
 
@@ -31,16 +27,12 @@ class CSVExporter(object):
     def __init__(self, records, export_mapping, export_padding=False,
                  encoding='utf-8', quote_all=True, quotechar='"',
                  separator=';', escapechar='\\'):
-        # `records._name` does not exsist in v6.1
         model = records and records[0]._name or 'unknown model'
         _logger.info('export %d %s', len(records), model)
         self._records = records
         self._export_mapping = export_mapping
         self.output = StringIO()
-        if export_padding:
-            self._export_padding = export_padding
-        else:
-            self._export_padding = None
+        self._export_padding = export_padding or None
         quoting = csv.QUOTE_MINIMAL
         if quote_all:
             quoting = csv.QUOTE_ALL
@@ -55,18 +47,18 @@ class CSVExporter(object):
                                      delimiter=separator)
 
     def generate_export(self):
-        # export records according to mapping
+        """ Export records according to mapping
+        """
         self.write_headers()
         for record in self._records:
             row = []
             mapping = self._export_mapping
             written = False
-            for openerp_field, external_field, type_field in mapping:
-
+            for odoo_field, external_field, type_field in mapping:
                 try:
                     record = record.with_context(lang='de_DE')
-                    value = record[openerp_field]
-                    if callable(value):
+                    value = record[odoo_field]
+                    if isinstance(value, collections.Callable):
                         value = value()
                     if not value:
                         value = ''
@@ -83,31 +75,28 @@ class CSVExporter(object):
                             value = 'n/a'
                     if value and type_field == 'CharLimit50':
                         value = value[:50]
-                    if (type_field == 'boolean_number'):
-                        if not value:
-                            value = '0'
-                        else:
-                            value = '1'
-                    if value and openerp_field == 'lang':
+                    if type_field == 'boolean_number':
+                        value = '1' if value else '0'
+                    if value and odoo_field == 'lang':
                         value = value[0].upper()
                     row.append(value)
                 except KeyError:
-                    if callable(getattr(record, openerp_field, None)):
+                    if isinstance(getattr(record, odoo_field, None),
+                                  collections.Callable):
                         if type_field == 'm2m':
-                            values = getattr(record, openerp_field)()
+                            values = getattr(record, odoo_field)()
                             if values and values != '':
-
                                 for val in values:
                                     row.append(val)
                                     self.csv_writer.writerow(row)
                                     row.remove(val)
                             written = True
                         else:
-                            value = getattr(record, openerp_field)()
+                            value = getattr(record, odoo_field)()
                             row.append(value)
                     else:
                         # unknown field
-                        _logger.warning('unknown field "%s"', openerp_field)
+                        _logger.warning('unknown field "%s"', odoo_field)
             if self._export_padding:
                 for padding_name, padding_value in self._export_padding:
                     row.append(padding_value)
@@ -118,11 +107,9 @@ class CSVExporter(object):
         return self.output
 
     def write_headers(self):
-        if not self._export_padding:
-            header = [x[1] for x in self._export_mapping]
-        else:
-            header = [x[1] for x in self._export_mapping]
-            header = header + [x[0] for x in self._export_padding]
+        header = [x[1] for x in self._export_mapping]
+        if self._export_padding:
+            header += [x[0] for x in self._export_padding]
         self.csv_writer.writerow(header)
 
     def save_file(self, config_name_for_filename, additional_filename=None):
@@ -151,7 +138,7 @@ class CSVExporter(object):
 
     def save_to_sftp(self, filename):
         timestr = time.strftime("%Y%m%d-%H%M%S")
-        filename = filename + timestr + '.csv'
+        filename += timestr + '.csv'
         self.output.seek(0)
         sftp_interface = SFTPInterface()
         file = sftp_interface.save_output_to_sftp(self.output, filename)
@@ -176,7 +163,8 @@ class CSVExporterFromList(CSVExporter):
                                      delimiter=separator)
 
     def generate_export_from_list(self):
-        # export records according to mapping
+        """ Export records according to mapping
+        """
         self.write_headers()
         for record in self._records:
             row = []

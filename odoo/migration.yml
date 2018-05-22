@@ -130,6 +130,7 @@ migration:
           - swisslux_translations
           - specific_building_project
           - specific_company_group
+          - swisslux_csv_export
           # Not yet ported to v11
           #  - specific_pad
           #  - specific_reports

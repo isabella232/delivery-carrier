@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-# Author: Julien Coux
-# Copyright 2016 Camptocamp SA
+# Copyright 2016-2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 import os
@@ -8,9 +6,9 @@ import logging
 
 import paramiko
 
-from openerp.addons.server_environment import serv_config
-# from openerp.osv.orm import except_orm
-# from openerp import exceptions
+from odoo.addons.server_environment import serv_config
+# from odoo.osv.orm import except_orm
+# from odoo import exceptions
 
 SERV_CONFIG_SECTION = 'sftp_csv'
 _logger = logging.getLogger('SFTP')

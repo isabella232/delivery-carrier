@@ -1,15 +1,14 @@
-# -*- coding: utf-8 -*-
-# Author: Denis Leemann
-# Copyright 2016 Camptocamp SA
+# Copyright 2016-2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from contextlib import closing
-from openerp import models, fields, api, sql_db
-# from openerp.tools.misc import DEFAULT_SERVER_DATE_FORMAT
+from odoo import api, fields, models, sql_db
+from odoo.addons.server_environment import serv_config
+# from odoo.tools.misc import DEFAULT_SERVER_DATE_FORMAT
 
-from csv_export import CSVExporter
+from .csv_export import CSVExporter
 # from sftp_interface import SFTPInterface
-# from openerp import exceptions
+# from odoo import exceptions
 import paramiko
 
 EXPORT_DATE_FORMAT = '%d/%m/%Y'
@@ -95,10 +94,11 @@ EXPORT_TAGS = [
     ('scenario.partner_category_9', '010'),
 ]
 
+SERV_CONFIG_SECTION = 'sftp_csv'
+
 
 class ResPartner(models.Model):
-    """
-    Export CSV functionality
+    """ Export CSV functionality
     """
     _inherit = "res.partner"
 
@@ -108,7 +108,7 @@ class ResPartner(models.Model):
 
     @api.model
     def export_csv_contacts(self, domain=None, ftp=None, disk=None):
-        """We want to export all the partners that are emmbedded into a company
+        """ We want to export all the partners that are embedded into a company
         """
         exc = False
         msg = False
@@ -130,14 +130,18 @@ class ResPartner(models.Model):
             exporter = CSVExporter(partners, EXPORT_FIELDS_CONTACTS)
 
             exporter.generate_export()
-            disk = '/tmp/partnercontact_'  # Set for dev purposes
-            ftp = 'partnercontact_'
-            if ftp is not None:
+            sftp_or_disk = serv_config.get(
+                SERV_CONFIG_SECTION, 'use_sftp_or_disk')
+            if sftp_or_disk == 'sftp':
+                ftp = 'partnercontact_'
                 try:
                     exporter.save_to_sftp(ftp)
                 except paramiko.SSHException as exc:
                     msg = str(exc)
-            elif disk is not None:
+            elif sftp_or_disk == 'disk':
+                path = serv_config.get(
+                    SERV_CONFIG_SECTION, 'diskpath') or '/tmp'
+                disk = path + '/partnercontact_'
                 exporter.save_to_disk(disk)
 
             if not exc:
@@ -165,7 +169,6 @@ class ResPartner(models.Model):
 
     @api.model
     def export_csv_partners(self):
-
         """ We want to export all the companies & the partners that have no
             companies
         """
@@ -192,14 +195,18 @@ class ResPartner(models.Model):
             exporter = CSVExporter(partners, EXPORT_FIELDS_ADRESSES,
                                    PADDING_ADRESSES_FIELDS)
             exporter.generate_export()
-            disk = '/tmp/partner_'  # TODO Set for dev purposes
-            ftp = 'partner_'
-            if ftp is not None:
+            sftp_or_disk = serv_config.get(
+                SERV_CONFIG_SECTION, 'use_sftp_or_disk')
+            if sftp_or_disk == 'sftp':
+                ftp = 'partner_'
                 try:
                     exporter.save_to_sftp(ftp)
                 except paramiko.SSHException as exc:
                     msg = str(exc)
-            elif disk is not None:
+            elif sftp_or_disk == 'disk':
+                path = serv_config.get(
+                    SERV_CONFIG_SECTION, 'diskpath') or '/tmp'
+                disk = path + '/partner_'
                 exporter.save_to_disk(disk)
 
             if not exc:
@@ -249,14 +256,18 @@ class ResPartner(models.Model):
             exporter = CSVExporter(partners, EXPORT_FIELDS_TAGS,
                                    quote_all=False)
             exporter.generate_export()
-            disk = '/tmp/Identifier_partnertags_'
-            ftp = 'Identifier_partnertags_'
-            if ftp is not None:
+            sftp_or_disk = serv_config.get(
+                SERV_CONFIG_SECTION, 'use_sftp_or_disk')
+            if sftp_or_disk == 'sftp':
+                ftp = 'Identifier_partnertags_'
                 try:
                     exporter.save_to_sftp(ftp)
                 except paramiko.SSHException as exc:
                     msg = str(exc)
-            elif disk is not None:
+            elif sftp_or_disk == 'disk':
+                path = serv_config.get(
+                    SERV_CONFIG_SECTION, 'diskpath') or '/tmp'
+                disk = path + '/Identifier_partnertags_'
                 exporter.save_to_disk(disk)
 
             if not exc:
@@ -284,20 +295,16 @@ class ResPartner(models.Model):
         return res
 
     def get_parent_id_ref(self):
-
-        parent_ref = self.parent_id.ref
-
-        return parent_ref
+        return self.parent_id.ref
 
     def get_partner_state(self):
         if self.partner_state == 'qualified':
             return 'qualifiziert - Person'
-        elif self.partner_state == 'potential_partner':
+        if self.partner_state == 'potential_partner':
             return 'potentieller Partner - Person'
-        elif self.partner_state == 'active':
+        if self.partner_state == 'active':
             return 'Kontaktpflege aktuell - Person'
-        else:
-            return ''
+        return ''
 
     def get_country_id_name(self):
         if not self.country_id:
@@ -305,14 +312,13 @@ class ResPartner(models.Model):
         country_name = self.country_id.code
         if country_name == 'IT':
             return 'I'
-        elif country_name == 'FR':
+        if country_name == 'FR':
             return 'F'
-        elif country_name == 'DE':
+        if country_name == 'DE':
             return 'D'
-        elif country_name == 'US':
+        if country_name == 'US':
             return 'USA'
-        else:
-            return country_name
+        return country_name
 
     def get_translated_title(self):
         # get title in the partner language
@@ -344,5 +350,5 @@ class ResPartner(models.Model):
             value = dict(self.fields_get(allfields=['influence'])
                          ['influence']['selection'])[key]
             if value == "Schluesselkontakt":
-                value = u"Schlüsselkontakt"
+                value = "Schlüsselkontakt"
             return value

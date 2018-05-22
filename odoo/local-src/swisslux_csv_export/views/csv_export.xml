@@ -2,14 +2,14 @@
 <odoo>
 
   <record model="ir.ui.view" id="csv_export_view_form">
-    <field name='name'>CSV Exports</field>
-    <field name='model'>csv.export.manager</field>
+    <field name="name">CSV Exports</field>
+    <field name="model">csv.export.manager</field>
     <field name="arch" type="xml">
       <form>
         <group>
-          <field name='last_export'/>
-          <field name='is_exported'/>
-          <field name='log'/>
+          <field name="last_export"/>
+          <field name="is_exported"/>
+          <field name="log"/>
         </group>
         <group>
           <div class="oe_chatter">
@@ -22,23 +22,23 @@
   </record>
 
   <record model="ir.ui.view" id="csv_export_view_tree">
-    <field name='name'>CSV Exports Tree</field>
-    <field name='model'>csv.export.manager</field>
+    <field name="name">CSV Exports Tree</field>
+    <field name="model">csv.export.manager</field>
     <field name="arch" type="xml">
       <tree default_order="last_export desc" colors="red:is_exported == False">
         <field name="last_export"/>
-        <field name='is_exported'/>
+        <field name="is_exported"/>
       </tree>
     </field>
   </record>
 
   <record model="ir.ui.view" id="csv_export_view_search">
-    <field name='name'>CSV Exports Search</field>
-    <field name='model'>csv.export.manager</field>
+    <field name="name">CSV Exports Search</field>
+    <field name="model">csv.export.manager</field>
     <field name="arch" type="xml">
       <search>
         <field name="last_export"/>
-        <field name='is_exported'/>
+        <field name="is_exported"/>
       </search>
     </field>
   </record>
