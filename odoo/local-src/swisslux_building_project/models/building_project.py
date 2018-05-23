@@ -303,7 +303,7 @@ class BuildingProject(models.Model):
             'default_building_project_id': self.id,
         }
         cal_view = self.env.ref(
-            'specific_building_project.view_calendar_event_calendar'
+            'swisslux_building_project.view_calendar_event_calendar'
         )
         res['views'] = [
             (False, 'tree'), (cal_view.id, 'calendar'), (False, 'form')
