@@ -12,10 +12,10 @@ RUN chmod +x odoo/before-migrate-entrypoint.d/* \
 RUN set -x; \
          apt-get update \
          && apt-get install -y --no-install-recommends \
-         build-essential libssl-dev libffi-dev python-dev \
+         build-essential libssl-dev libffi-dev python-dev git \
          && cd /opt/odoo && pip install -r requirements.txt \
          && apt-get clean \
-         && apt-get remove -y build-essential libssl-dev libffi-dev python-dev \
+         && apt-get remove -y build-essential libssl-dev libffi-dev python-dev git \
          && rm -rf /var/lib/apt/lists/*
 
 # `parallel` + `importer.sh` are needed to load heavy files

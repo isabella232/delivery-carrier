@@ -1,0 +1,1038 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* swisslux_building_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-02 07:31+0000\n"
+"PO-Revision-Date: 2016-05-02 07:31+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_meeting_count
+msgid "# Meetings"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_opportunity_count
+msgid "# Opportunity"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_phonecall_count
+#: model:ir.model.fields,field_description:swisslux_building_project.field_crm_lead_phonecall_count
+msgid "# Phonecalls"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_sale_order_count
+msgid "# Sales Order"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_order_form
+msgid "(update prices by applying pricelist)"
+msgstr ""
+
+#. module: swisslux_building_project
+#: selection:building.project,probability:0
+msgid "100%"
+msgstr ""
+
+#. module: swisslux_building_project
+#: selection:building.project,probability:0
+msgid "25%"
+msgstr ""
+
+#. module: swisslux_building_project
+#: selection:building.project,probability:0
+msgid "50%"
+msgstr ""
+
+#. module: swisslux_building_project
+#: selection:building.project,probability:0
+msgid "75%"
+msgstr ""
+
+#. module: swisslux_building_project
+#: code:addons/swisslux_building_project/models/building_project.py:348
+#, python-format
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                   Documents are attached to the tasks and issues of your\n"
+"                   project.</p><p>Send messages or log internal notes with\n"
+"                   attachments to link documents to your project.</p>"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_kanban
+msgid "<span class=\"o_label\">Documents</span>"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_kanban
+msgid "<span class=\"o_label\">Meetings</span>"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_kanban
+msgid "<span class=\"o_label\">Opportunities</span>"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_kanban
+msgid "<span class=\"o_label\">Phonecalls</span>"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_kanban
+msgid "<span class=\"o_label\">Sales orders</span>"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "<span class=\"o_stat_text\" attrs=\"{'invisible': [('meeting_count', '&lt;', 2)]}\"> Meetings</span>\n"
+"                <span class=\"o_stat_text\" attrs=\"{'invisible': [('meeting_count', '&gt;', 1)]}\"> Meeting</span>"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "<span class=\"o_stat_text\" attrs=\"{'invisible': [('opportunity_count', '&lt;', 2)]}\"> Opportunities</span>\n"
+"                <span class=\"o_stat_text\" attrs=\"{'invisible': [('opportunity_count', '&gt;', 1)]}\"> Opportunity</span>"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "<span class=\"o_stat_text\" attrs=\"{'invisible': [('phonecall_count', '&lt;', 2)]}\"> Phonecalls</span>\n"
+"                <span class=\"o_stat_text\" attrs=\"{'invisible': [('phonecall_count', '&gt;', 1)]}\"> Phonecall</span>"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.crm_case_form_view_oppor
+msgid "<span class=\"o_stat_text\" attrs=\"{'invisible': [('phonecall_count', '&lt;', 2)]}\"> Phonecalls</span>\n"
+"            <span class=\"o_stat_text\" attrs=\"{'invisible': [('phonecall_count', '&gt;', 1)]}\"> Phonecall</span>"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "<span class=\"o_stat_text\" attrs=\"{'invisible': [('sale_order_count', '&lt;', 2)]}\"> Sales orders</span>\n"
+"              <span class=\"o_stat_text\" attrs=\"{'invisible': [('sale_order_count', '&gt;', 1)]}\"> Sales order</span>"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_name
+msgid "Account Name"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_name2
+msgid "Additional name"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "Address"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_build_activity
+msgid "Aktivität"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_line_ids
+msgid "Analytic Lines"
+msgstr ""
+
+#. module: swisslux_building_project
+#: code:addons/swisslux_building_project/models/building_project.py:341
+#, python-format
+msgid "Attachments"
+msgstr ""
+
+#. module: swisslux_building_project
+#: selection:building.project,build_progress:0
+msgid "Ausschreibung"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_analytic_account_id
+msgid "Automatically created field to link to parent account.analytic.account"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_balance
+msgid "Balance"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_partner_building_project_ids
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_building_project_ids
+msgid "Bauprojekt"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_filter
+msgid "Bauprojekt-Fortschritt"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_filter
+msgid "Bauprojekt-Status"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_build_type
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_filter
+msgid "Bauprojekt-Typ"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_partner_form
+msgid "Bauprojekts"
+msgstr ""
+
+#. module: swisslux_building_project
+#: selection:building.project,build_progress:0
+msgid "Bewirtschaftung"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_crossovered_budget_line
+msgid "Budget Lines"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.actions.act_window,name:swisslux_building_project.action_view_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_pricelist_building_project_id
+#: model:ir.model.fields,field_description:swisslux_building_project.field_calendar_event_building_project_id
+#: model:ir.model.fields,field_description:swisslux_building_project.field_crm_lead_building_project_id
+#: model:ir.ui.menu,name:swisslux_building_project.menu_view_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "Building Project"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_filter
+msgid "Building Project Name"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_tag_name
+msgid "Building Project Tag"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_type_name
+msgid "Building Project Type"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_crm_lead_project_id
+msgid "Building Project's analytic account"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project
+msgid "Building Projects"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_sale_order_business_provider_id
+msgid "Business provider"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.create_opportunity_quotation_form_view
+msgid "Cancel"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,help:swisslux_building_project.field_building_project_use_issues
+msgid "Check this box to manage customer activities through this project"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,help:swisslux_building_project.field_building_project_use_tasks
+msgid "Check this box to manage internal activities through this project"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,help:swisslux_building_project.field_building_project_use_timesheets
+msgid "Check this field if this project manages timesheets"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "City"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "City completion"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_zip_id
+msgid "City/Location"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_color
+msgid "Color Index"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_company_id
+msgid "Company"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_company_uom_id
+msgid "Company UOM"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "Contact / Address"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "Contact Name"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_contact_ids
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "Contacts"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_country_id
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "Country"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.create_opportunity_quotation_form_view
+msgid "Create"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.actions.act_window,help:swisslux_building_project.action_view_building_project
+msgid "Create a new building project."
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_create_uid
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_pricelist_create_uid
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_stage_create_uid
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_tag_create_uid
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_type_create_uid
+#: model:ir.model.fields,field_description:swisslux_building_project.field_create_opportunity_quotation_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_create_date
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_pricelist_create_date
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_stage_create_date
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_tag_create_date
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_type_create_date
+#: model:ir.model.fields,field_description:swisslux_building_project.field_create_opportunity_quotation_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_credit
+msgid "Credit"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_partner_id
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_pricelist_partner_id
+msgid "Customer"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_customer_discount_ids
+msgid "Customer discounts"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "Customers"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,help:swisslux_building_project.field_building_project_message_last_post
+msgid "Date of the last message posted on the record."
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_debit
+msgid "Debit"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_department_id
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_department
+msgid "Department"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_department_id
+msgid "Department id"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_pricelist_display_name
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_stage_display_name
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_tag_display_name
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_type_display_name
+#: model:ir.model.fields,field_description:swisslux_building_project.field_create_opportunity_quotation_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_display_name
+msgid "Display name"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "Documents"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_mailing
+msgid "Dokuversand"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_mailing_email
+msgid "E-Mail Newsletter"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_eev_number
+msgid "EEV Nr."
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_eev_member
+msgid "EEV-Mitglied"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_eori_number
+msgid "EORI number"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_influence
+msgid "Einfluss"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,help:swisslux_building_project.field_building_project_contact_ids
+msgid "Envolved partners (Architect, Engineer, Electrician)"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model,name:swisslux_building_project.model_calendar_event
+msgid "Event"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "Fax:"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_companytype
+msgid "Firmen Typ"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,help:swisslux_building_project.field_sale_order_statistics_include
+msgid "Flag field to deduplicate sale order for the same building project in statistics. By default the first sale order for a building project will be flagged."
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_stage_fold
+msgid "Fold project in kanban?"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_build_progress
+msgid "Fortschritt nach sia"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_business_area
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_filter
+msgid "Geschäftsfeld"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_filter
+msgid "Group By"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model,name:swisslux_building_project.model_hr_department
+msgid "HR Department"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_eev_alarm
+msgid "Haftungsablehnung"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_headquarter_id
+msgid "Headquarter"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_id
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_pricelist_id
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_stage_id
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_tag_id
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_type_id
+#: model:ir.model.fields,field_description:swisslux_building_project.field_create_opportunity_quotation_id
+msgid "ID"
+msgstr ""
+
+#. module: swisslux_building_project
+#: selection:building.project,business_area:0
+msgid "IL"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,help:swisslux_building_project.field_building_project_message_unread
+msgid "If checked new messages require your attention."
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,help:swisslux_building_project.field_building_project_message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_sale_order_statistics_include
+msgid "Include in statistics"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "Info"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_partner_invoicing_id
+msgid "Invoicing Partner"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_use_issues
+msgid "Issues"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_message_last_post
+msgid "Last Message Date"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project___last_update
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_pricelist___last_update
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_stage___last_update
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_tag___last_update
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_type___last_update
+#: model:ir.model.fields,field_description:swisslux_building_project.field_create_opportunity_quotation___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_pricelist_write_uid
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_stage_write_uid
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_tag_write_uid
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_type_write_uid
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_write_uid
+#: model:ir.model.fields,field_description:swisslux_building_project.field_create_opportunity_quotation_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_pricelist_write_date
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_stage_write_date
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_tag_write_date
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_type_write_date
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_write_date
+#: model:ir.model.fields,field_description:swisslux_building_project.field_create_opportunity_quotation_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model,name:swisslux_building_project.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,help:swisslux_building_project.field_create_opportunity_quotation_building_project_customer_ids
+msgid "List of allowed customers"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_filter
+msgid "Manager"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "Mobile:"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_kanban
+msgid "More <i class=\"fa fa-caret-down\"/>"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_stage_name
+msgid "Name"
+msgstr ""
+
+#. module: swisslux_building_project
+#: selection:building.project,build_type:0
+msgid "Neubau"
+msgstr ""
+
+#. module: swisslux_building_project
+#: code:addons/swisslux_building_project/models/crm_lead.py:81
+#: model:ir.ui.view,arch_db:swisslux_building_project.create_opportunity_quotation_form_view
+#: model:ir.ui.view,arch_db:swisslux_building_project.crm_case_form_view_oppor
+#, python-format
+msgid "New Quotation"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_doc_count
+msgid "Number of documents attached"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,help:swisslux_building_project.field_building_project_message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,help:swisslux_building_project.field_building_project_message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_sale_order_project_pricelist_id
+msgid "Object Discount"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_opportunity_ids
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_kanban
+msgid "Opportunities"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_city
+msgid "Ort"
+msgstr ""
+
+#. module: swisslux_building_project
+#: selection:building.project,business_area:0
+msgid "PIR"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_zip
+msgid "PLZ"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_pobox_city
+msgid "PO Box City"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_pobox_nr
+msgid "PO Box Nr"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_pobox_zip
+msgid "PO Box Zip"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model,name:swisslux_building_project.model_res_partner
+msgid "Partner"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_partner_state
+msgid "Partnerstatus"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "Phone:"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_phonecall_ids
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_crm_meeting_search
+msgid "Phonecalls"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_pricelist_pricelist_id
+msgid "Pricelist"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model,name:swisslux_building_project.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model,name:swisslux_building_project.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_user_id
+msgid "Project Manager"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_project_ids
+msgid "Projects"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_project_type_id
+msgid "Projekt Art"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_building_project_tag_ids
+msgid "Projekt Tags"
+msgstr ""
+
+#. module: swisslux_building_project
+#: selection:building.project,build_progress:0
+msgid "Projektierung"
+msgstr ""
+
+#. module: swisslux_building_project
+#: selection:building.project,build_progress:0
+msgid "Realisierung"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_code
+msgid "Reference"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "Region..."
+msgstr ""
+
+#. module: swisslux_building_project
+#: selection:building.project,build_type:0
+msgid "Renovation"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model,name:swisslux_building_project.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model,name:swisslux_building_project.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_sale_order_ids
+msgid "Sales orders"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_filter
+msgid "Search Building Project"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_stage_sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_partner_shipping_id
+msgid "Shipping Partner"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_stage_id_7906
+msgid "Stage"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_account_type
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_state_id
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "State"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_street
+msgid "Strasse"
+msgstr ""
+
+#. module: swisslux_building_project
+#: selection:building.project,build_progress:0
+msgid "Strategische Plannung"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "Street 2..."
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "Street..."
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_tag_ids
+msgid "Tags"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_parent_category_id
+msgid "Tags parent"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_use_tasks
+msgid "Tasks"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_create_opportunity_quotation_building_project_customer_ids
+msgid "Technical filter for wholesaler_id"
+msgstr ""
+
+#. module: swisslux_building_project
+#: sql_constraint:building.project.pricelist:0
+msgid "The discount must be unique per partner in building project!"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_use_timesheets
+msgid "Timesheets"
+msgstr ""
+
+#. module: swisslux_building_project
+#: selection:building.project,build_type:0
+msgid "Umbau"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_sale_order_line_price_unit_readonly
+msgid "Unit Price"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model,name:swisslux_building_project.model_res_users
+msgid "Users"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_region_id
+#: model:ir.model.fields,field_description:swisslux_building_project.field_res_users_region_id
+msgid "Verkaufsgebiet"
+msgstr ""
+
+#. module: swisslux_building_project
+#: selection:building.project,build_progress:0
+msgid "Vorprojekt"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_probability
+msgid "Wahrscheinlichkeit"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_create_opportunity_quotation_wholesaler_id
+msgid "Wholesaler"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,help:swisslux_building_project.field_create_opportunity_quotation_wholesaler_id
+msgid "Wholesaler for the building project"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "ZIP"
+msgstr ""
+
+#. module: swisslux_building_project
+#: selection:building.project,build_activity:0
+msgid "activ begleitet"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model,name:swisslux_building_project.model_building_project
+msgid "building.project"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model,name:swisslux_building_project.model_building_project_pricelist
+msgid "building.project.pricelist"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model,name:swisslux_building_project.model_building_project_stage
+msgid "building.project.stage"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model,name:swisslux_building_project.model_building_project_tag
+msgid "building.project.tag"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model,name:swisslux_building_project.model_building_project_type
+msgid "building.project.type"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model,name:swisslux_building_project.model_create_opportunity_quotation
+msgid "create.opportunity.quotation"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "e.g. Building Project XYZ"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "e.g. Mr."
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "e.g. Sales Director"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_date_start
+msgid "erwarteter Lieferstart"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_expected_amount
+msgid "erwarteter Umsatz"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_date_end
+msgid "erwartetes Lieferende"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.ui.view,arch_db:swisslux_building_project.view_building_project_form
+msgid "internal note..."
+msgstr ""
+
+#. module: swisslux_building_project
+#: selection:building.project,build_activity:0
+msgid "nicht aktiv begleitet"
+msgstr ""
+
+#. module: swisslux_building_project
+#: selection:building.project,build_activity:0
+msgid "nicht mehr aktiv begleitet"
+msgstr ""
+
+#. module: swisslux_building_project
+#: model:ir.model.fields,field_description:swisslux_building_project.field_building_project_project_count
+msgid "unknown"
+msgstr ""
+

@@ -58,6 +58,24 @@
     #  11.0 mig analytic department
     - oca refs/pull/167/head
   target: *default_target
+./external-src/account-financial-tools:
+  remotes:
+    oca: git@github.com:OCA/account-financial-tools.git
+    camptocamp: git@github.com:camptocamp/account-financial-tools.git
+  merges:
+    - oca 11.0
+    # [11.0] [MIG] Consolidate account_journal_lock_date and account_move_locking
+    - oca refs/pull/615/head
+  target: *default_target
+./external-src/account-fiscal-rule:
+  remotes:
+    oca: git@github.com:OCA/account-fiscal-rule.git
+    camptocamp: git@github.com:camptocamp/account-fiscal-rule.git
+  merges:
+    - oca 11.0
+    # [11.0] [MIG] account fiscal position rule
+    - oca refs/pull/78/head
+  target: *default_target
 ./external-src/delivery-carrier:
   remotes:
     oca: git@github.com:OCA/delivery-carrier.git

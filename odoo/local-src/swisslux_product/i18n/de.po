@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* specific_product
+#	* swisslux_product
 #
 msgid ""
 msgstr ""
@@ -15,171 +15,171 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: specific_product
-#: model:ir.ui.view,arch_db:specific_product.product_product_form_view_transit
-#: model:ir.ui.view,arch_db:specific_product.product_template_form_view_transit
+#. module: swisslux_product
+#: model:ir.ui.view,arch_db:swisslux_product.product_product_form_view_transit
+#: model:ir.ui.view,arch_db:swisslux_product.product_template_form_view_transit
 msgid "<span class=\"o_stat_text\">Transit</span>"
 msgstr "<span class=\"o_stat_text\">Transit</span>"
 
-#. module: specific_product
-#: model:ir.model.fields,field_description:specific_product.field_product_product_color_code
-#: model:ir.model.fields,field_description:specific_product.field_product_template_color_code
+#. module: swisslux_product
+#: model:ir.model.fields,field_description:swisslux_product.field_product_product_color_code
+#: model:ir.model.fields,field_description:swisslux_product.field_product_template_color_code
 msgid "Color Code NCS/RAL"
 msgstr "Farbcode NCS/RAL"
 
-#. module: specific_product
-#: model:ir.model.fields,field_description:specific_product.field_product_color_code_name
+#. module: swisslux_product
+#: model:ir.model.fields,field_description:swisslux_product.field_product_color_code_name
 msgid "Color Name"
 msgstr "Farbname"
 
-#. module: specific_product
-#: model:ir.model.fields,field_description:specific_product.field_product_color_code_feller_name
+#. module: swisslux_product
+#: model:ir.model.fields,field_description:swisslux_product.field_product_color_code_feller_name
 msgid "Color Name Feller"
 msgstr "Feller Farbname"
 
-#. module: specific_product
-#: model:ir.model.fields,field_description:specific_product.field_product_class_create_uid
-#: model:ir.model.fields,field_description:specific_product.field_product_color_code_create_uid
-#: model:ir.model.fields,field_description:specific_product.field_product_harmsys_code_create_uid
-#: model:ir.model.fields,field_description:specific_product.field_product_manual_code_create_uid
+#. module: swisslux_product
+#: model:ir.model.fields,field_description:swisslux_product.field_product_class_create_uid
+#: model:ir.model.fields,field_description:swisslux_product.field_product_color_code_create_uid
+#: model:ir.model.fields,field_description:swisslux_product.field_product_harmsys_code_create_uid
+#: model:ir.model.fields,field_description:swisslux_product.field_product_manual_code_create_uid
 msgid "Created by"
 msgstr "Angelegt von"
 
-#. module: specific_product
-#: model:ir.model.fields,field_description:specific_product.field_product_class_create_date
-#: model:ir.model.fields,field_description:specific_product.field_product_color_code_create_date
-#: model:ir.model.fields,field_description:specific_product.field_product_harmsys_code_create_date
-#: model:ir.model.fields,field_description:specific_product.field_product_manual_code_create_date
+#. module: swisslux_product
+#: model:ir.model.fields,field_description:swisslux_product.field_product_class_create_date
+#: model:ir.model.fields,field_description:swisslux_product.field_product_color_code_create_date
+#: model:ir.model.fields,field_description:swisslux_product.field_product_harmsys_code_create_date
+#: model:ir.model.fields,field_description:swisslux_product.field_product_manual_code_create_date
 msgid "Created on"
 msgstr "Angelegt am"
 
-#. module: specific_product
-#: model:ir.model.fields,field_description:specific_product.field_product_class_display_name
-#: model:ir.model.fields,field_description:specific_product.field_product_color_code_display_name
-#: model:ir.model.fields,field_description:specific_product.field_product_harmsys_code_display_name
-#: model:ir.model.fields,field_description:specific_product.field_product_manual_code_display_name
+#. module: swisslux_product
+#: model:ir.model.fields,field_description:swisslux_product.field_product_class_display_name
+#: model:ir.model.fields,field_description:swisslux_product.field_product_color_code_display_name
+#: model:ir.model.fields,field_description:swisslux_product.field_product_harmsys_code_display_name
+#: model:ir.model.fields,field_description:swisslux_product.field_product_manual_code_display_name
 msgid "Display Name"
 msgstr "Anzeigename"
 
-#. module: specific_product
-#: model:ir.model.fields,field_description:specific_product.field_product_product_e_nr
-#: model:ir.model.fields,field_description:specific_product.field_product_template_e_nr
+#. module: swisslux_product
+#: model:ir.model.fields,field_description:swisslux_product.field_product_product_e_nr
+#: model:ir.model.fields,field_description:swisslux_product.field_product_template_e_nr
 msgid "E-Nr"
 msgstr "E-Nr"
 
-#. module: specific_product
-#: model:ir.model.fields,field_description:specific_product.field_product_product_harmsys_code
-#: model:ir.model.fields,field_description:specific_product.field_product_template_harmsys_code
-#: model:ir.ui.view,arch_db:specific_product.product_harmsys_code_form_view
+#. module: swisslux_product
+#: model:ir.model.fields,field_description:swisslux_product.field_product_product_harmsys_code
+#: model:ir.model.fields,field_description:swisslux_product.field_product_template_harmsys_code
+#: model:ir.ui.view,arch_db:swisslux_product.product_harmsys_code_form_view
 msgid "Harmonized System Code"
 msgstr "Statistische Warennummer"
 
-#. module: specific_product
-#: model:ir.model.fields,field_description:specific_product.field_product_class_id
-#: model:ir.model.fields,field_description:specific_product.field_product_color_code_id
-#: model:ir.model.fields,field_description:specific_product.field_product_harmsys_code_id
-#: model:ir.model.fields,field_description:specific_product.field_product_manual_code_id
+#. module: swisslux_product
+#: model:ir.model.fields,field_description:swisslux_product.field_product_class_id
+#: model:ir.model.fields,field_description:swisslux_product.field_product_color_code_id
+#: model:ir.model.fields,field_description:swisslux_product.field_product_harmsys_code_id
+#: model:ir.model.fields,field_description:swisslux_product.field_product_manual_code_id
 msgid "ID"
 msgstr "ID"
 
-#. module: specific_product
-#: model:ir.model,name:specific_product.model_product_supplierinfo
+#. module: swisslux_product
+#: model:ir.model,name:swisslux_product.model_product_supplierinfo
 msgid "Information about a product vendor"
 msgstr "Informationen zum Produktlieferanten"
 
-#. module: specific_product
-#: model:ir.model.fields,field_description:specific_product.field_product_class___last_update
-#: model:ir.model.fields,field_description:specific_product.field_product_color_code___last_update
-#: model:ir.model.fields,field_description:specific_product.field_product_harmsys_code___last_update
-#: model:ir.model.fields,field_description:specific_product.field_product_manual_code___last_update
+#. module: swisslux_product
+#: model:ir.model.fields,field_description:swisslux_product.field_product_class___last_update
+#: model:ir.model.fields,field_description:swisslux_product.field_product_color_code___last_update
+#: model:ir.model.fields,field_description:swisslux_product.field_product_harmsys_code___last_update
+#: model:ir.model.fields,field_description:swisslux_product.field_product_manual_code___last_update
 msgid "Last Modified on"
 msgstr "Zuletzt geändert am"
 
-#. module: specific_product
-#: model:ir.model.fields,field_description:specific_product.field_product_supplierinfo_lastproduct_code
+#. module: swisslux_product
+#: model:ir.model.fields,field_description:swisslux_product.field_product_supplierinfo_lastproduct_code
 msgid "Last Product Code"
 msgstr "Letztes Produkt-Code"
 
-#. module: specific_product
-#: model:ir.model.fields,field_description:specific_product.field_product_class_write_uid
-#: model:ir.model.fields,field_description:specific_product.field_product_color_code_write_uid
-#: model:ir.model.fields,field_description:specific_product.field_product_harmsys_code_write_uid
-#: model:ir.model.fields,field_description:specific_product.field_product_manual_code_write_uid
+#. module: swisslux_product
+#: model:ir.model.fields,field_description:swisslux_product.field_product_class_write_uid
+#: model:ir.model.fields,field_description:swisslux_product.field_product_color_code_write_uid
+#: model:ir.model.fields,field_description:swisslux_product.field_product_harmsys_code_write_uid
+#: model:ir.model.fields,field_description:swisslux_product.field_product_manual_code_write_uid
 msgid "Last Updated by"
 msgstr "Zuletzt aktualisiert durch"
 
-#. module: specific_product
-#: model:ir.model.fields,field_description:specific_product.field_product_class_write_date
-#: model:ir.model.fields,field_description:specific_product.field_product_color_code_write_date
-#: model:ir.model.fields,field_description:specific_product.field_product_harmsys_code_write_date
-#: model:ir.model.fields,field_description:specific_product.field_product_manual_code_write_date
+#. module: swisslux_product
+#: model:ir.model.fields,field_description:swisslux_product.field_product_class_write_date
+#: model:ir.model.fields,field_description:swisslux_product.field_product_color_code_write_date
+#: model:ir.model.fields,field_description:swisslux_product.field_product_harmsys_code_write_date
+#: model:ir.model.fields,field_description:swisslux_product.field_product_manual_code_write_date
 msgid "Last Updated on"
 msgstr "Zuletzt aktualisiert am"
 
-#. module: specific_product
-#: model:ir.model.fields,field_description:specific_product.field_product_product_manual_code
-#: model:ir.model.fields,field_description:specific_product.field_product_template_manual_code
-#: model:ir.ui.view,arch_db:specific_product.product_manual_code_form_view
+#. module: swisslux_product
+#: model:ir.model.fields,field_description:swisslux_product.field_product_product_manual_code
+#: model:ir.model.fields,field_description:swisslux_product.field_product_template_manual_code
+#: model:ir.ui.view,arch_db:swisslux_product.product_manual_code_form_view
 msgid "Manual Code"
 msgstr "Manual Code"
 
-#. module: specific_product
-#: model:ir.model.fields,field_description:specific_product.field_product_color_code_code
+#. module: swisslux_product
+#: model:ir.model.fields,field_description:swisslux_product.field_product_color_code_code
 msgid "NCS/RAL Code"
 msgstr "NCS/RAL Code"
 
-#. module: specific_product
-#: model:ir.model.fields,field_description:specific_product.field_product_class_name
-#: model:ir.model.fields,field_description:specific_product.field_product_harmsys_code_name
-#: model:ir.model.fields,field_description:specific_product.field_product_manual_code_name
+#. module: swisslux_product
+#: model:ir.model.fields,field_description:swisslux_product.field_product_class_name
+#: model:ir.model.fields,field_description:swisslux_product.field_product_harmsys_code_name
+#: model:ir.model.fields,field_description:swisslux_product.field_product_manual_code_name
 msgid "Name"
 msgstr "Name"
 
-#. module: specific_product
-#: model:ir.model,name:specific_product.model_product_product
+#. module: swisslux_product
+#: model:ir.model,name:swisslux_product.model_product_product
 msgid "Product"
 msgstr "Produkt"
 
-#. module: specific_product
-#: model:ir.model.fields,field_description:specific_product.field_product_product_product_class
-#: model:ir.model.fields,field_description:specific_product.field_product_template_product_class
-#: model:ir.ui.view,arch_db:specific_product.product_class_form_view
+#. module: swisslux_product
+#: model:ir.model.fields,field_description:swisslux_product.field_product_product_product_class
+#: model:ir.model.fields,field_description:swisslux_product.field_product_template_product_class
+#: model:ir.ui.view,arch_db:swisslux_product.product_class_form_view
 msgid "Product Class"
 msgstr "Produkt Klasse"
 
-#. module: specific_product
-#: model:ir.model,name:specific_product.model_product_template
+#. module: swisslux_product
+#: model:ir.model,name:swisslux_product.model_product_template
 msgid "Product Template"
 msgstr "Produktvorlage"
 
-#. module: specific_product
-#: model:ir.model.fields,field_description:specific_product.field_product_product_transit_qty
-#: model:ir.model.fields,field_description:specific_product.field_product_template_transit_qty
+#. module: swisslux_product
+#: model:ir.model.fields,field_description:swisslux_product.field_product_product_transit_qty
+#: model:ir.model.fields,field_description:swisslux_product.field_product_template_transit_qty
 msgid "Transit"
 msgstr "Transit"
 
-#. module: specific_product
-#: model:ir.model,name:specific_product.model_product_class
+#. module: swisslux_product
+#: model:ir.model,name:swisslux_product.model_product_class
 msgid "product.class"
 msgstr "product.class"
 
-#. module: specific_product
-#: model:ir.model,name:specific_product.model_product_color_code
+#. module: swisslux_product
+#: model:ir.model,name:swisslux_product.model_product_color_code
 msgid "product.color.code"
 msgstr "product.color.code"
 
-#. module: specific_product
-#: model:ir.model,name:specific_product.model_product_harmsys_code
+#. module: swisslux_product
+#: model:ir.model,name:swisslux_product.model_product_harmsys_code
 msgid "product.harmsys.code"
 msgstr "product.harmsys.code"
 
-#. module: specific_product
-#: model:ir.model,name:specific_product.model_product_manual_code
+#. module: swisslux_product
+#: model:ir.model,name:swisslux_product.model_product_manual_code
 msgid "product.manual.code"
 msgstr "product.manual.code"
 
-#. module: specific_product
-#: model:ir.model.fields,field_description:specific_product.field_product_product_supplier_code_name
-#: model:ir.model.fields,field_description:specific_product.field_product_template_supplier_code_name
+#. module: swisslux_product
+#: model:ir.model.fields,field_description:swisslux_product.field_product_product_supplier_code_name
+#: model:ir.model.fields,field_description:swisslux_product.field_product_template_supplier_code_name
 msgid "Supplier Code"
 msgstr "Produktnummer Lieferant"

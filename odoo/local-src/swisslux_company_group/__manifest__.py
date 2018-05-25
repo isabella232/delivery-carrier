@@ -13,7 +13,7 @@
         "sale",
         "account",
         "swisslux_partner",
-        "specific_building_project"
+        "swisslux_building_project"
     ],
     "data": [
         "views/res_partner.xml",

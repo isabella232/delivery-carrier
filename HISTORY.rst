@@ -35,12 +35,11 @@ latest (unreleased)
 * Set MARABUNTA_MODE to migration mode
 * BSSLX-18: Migrate swisslux_partner to V11
 * BSSLX-62: Fix/update pending merges for V11
-* BSSLX-3: Migrate specific_building_project to V11
-* BSSLX-16: Migrate specific_company_group to V11
-* BSSLX-67: Fix migration of module l10n_ch_pain_base
-* BSSLX-67: Fix build with migrated database
+* BSSLX-3: Migrate swisslux_building_project to V11
+* BSSLX-16: Migrate swisslux_company_group to V11
 * BSSLX-65: Enable Pro-Forma invoices
 * BSSLX-10: Migrate swisslux_csv_export to V11
+* BSSLX-67: Fix build/modules/menus with migrated database
 
 **Documentation**
 
