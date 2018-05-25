@@ -9,4 +9,4 @@ python-json-logger==0.1.5
 statsd==3.2.1
 unicodecsv==0.14.1
 paramiko==2.1.0
-openupgradelib==1.2.2
+git+git://github.com/OCA/openupgradelib.git@5335acd136e6d4e5a8833977e46642c451899d26#egg=openupgradelib

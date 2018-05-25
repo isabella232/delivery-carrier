@@ -68,6 +68,3 @@
 [submodule "odoo/external-src/account-reconcile"]
 	path = odoo/external-src/account-reconcile
 	url = git@github.com:camptocamp/bank-statement-reconcile.git
-[submodule "odoo/external-src/openupgradelib"]
-	path = odoo/external-src/openupgradelib
-	url = git@github.com:OCA/openupgradelib.git

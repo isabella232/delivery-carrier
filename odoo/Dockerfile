@@ -12,10 +12,10 @@ RUN chmod +x odoo/before-migrate-entrypoint.d/* \
 RUN set -x; \
          apt-get update \
          && apt-get install -y --no-install-recommends \
-         build-essential libssl-dev libffi-dev python-dev \
+         build-essential libssl-dev libffi-dev python-dev git \
          && cd /opt/odoo && pip install -r requirements.txt \
          && apt-get clean \
-         && apt-get remove -y build-essential libssl-dev libffi-dev python-dev \
+         && apt-get remove -y build-essential libssl-dev libffi-dev python-dev git \
          && rm -rf /var/lib/apt/lists/*
 
 # `parallel` + `importer.sh` are needed to load heavy files
@@ -37,7 +37,6 @@ ENV ADDONS_PATH="/opt/odoo/local-src, \
     /opt/odoo/external-src/l10n-switzerland, \
     /opt/odoo/external-src/manufacture, \
     /opt/odoo/external-src/odoo-cloud-platform, \
-    /opt/odoo/external-src/openupgradelib, \
     /opt/odoo/external-src/partner-contact, \
     /opt/odoo/external-src/product-attribute, \
     /opt/odoo/external-src/project, \
