@@ -84,23 +84,23 @@
       <div class="row head">
         <div class="address">
           <div style="text-decoration: underline; padding-left: 0px;">
-            <span t-field="o.company_id.name"/>, <span t-field="o.company_id.street"/>, <span t-field="o.company_id.zip"/> <span t-field="o.company_id.city"/>
+            <span t-field="partner.company_id.name"/>, <span t-field="partner.company_id.street"/>, <span t-field="partner.company_id.zip"/> <span t-field="partner.company_id.city"/>
 
             <br/>
             <br/>
           </div>
-          <div t-field="context.partner_id.name"/>
-          <div t-field="context.partner_id"
+          <div t-field="partner.name"/>
+          <div t-field="partner.self"
                t-field-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
-          <span t-field="context.partner_id.vat"/>
+          <span t-field="partner.vat"/>
           <br/>
         </div>
       </div>
       <div class="row head">
         <p style='margin-top: 35px;'>
           Document: Customer account statement<br/>
-          Date: <span t-esc="context.get_lang_today()"/><br/>
-          Client number: <span t-field="context.partner_id.ref"/>
+          Date: <span t-esc="today"/><br/>
+          Client number: <span t-field="partner.ref"/>
         </p>
         <br/>
         <br/>
@@ -179,11 +179,11 @@
     <xpath expr="//div[@class='o_account_reports_summary']" position="before">
       <div t-if="mode != 'print' and not context.env.context.get('public')">
         <span id='action-buttons' class='o_account_reports_followup_not_clicked'>
-          <button data-primary='1' class="btn btn-primary followup-letter" t-att-data-target="'/account_reports/followup_report/' + str(context.partner_id.id) + '/'" t-att-data-partner="str(context.partner_id.id)">Print Letter</button>
-          <button data-primary='1' class="btn btn-primary followup-email" t-att-data-context="str(context.id)">Send by email</button>
-          <button data-time='none' class="btn btn-default o_account_reports_followup-set-next-action" t-att-data-partner="str(context.partner_id.id)">Log a Note</button>
-          <button class="btn btn-primary o_account_reports_followup_done" t-att-data-partner="str(context.partner_id.id)">Done</button>
-          <button class="btn btn-default o_account_reports_followup_skip" t-att-data-partner="str(context.partner_id.id)">Do it Later</button>
+          <button class="btn btn-primary followup-letter" action="print_followup" t-att-data-partner="partner.id">Print Letter</button>
+          <button class="btn btn-primary followup-email" t-att-data-partner="partner.id">Send by email</button>
+          <button class="btn btn-default o_account_reports_followup-set-next-action" t-att-data-partner="partner.id">Log a Note</button>
+          <button class="btn btn-primary o_account_reports_followup_done" t-att-data-partner="partner.id">Done</button>
+          <button class="btn btn-default o_account_reports_followup_skip" t-att-data-partner="partner.id">Do it Later</button>
         </span>
         <div class='pull-right' id='followup-mode'>
           Next Reminder:

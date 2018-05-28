@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-  <template id="assets_common" inherit_id="web.assets_common">
+  <template id="report_assets_common" inherit_id="web.report_assets_common">
     <xpath expr='.' position="inside">
-      <link rel="stylesheet" href="/specific_reports/static/src/css/specific_reports.css"></link>
+      <link rel="stylesheet" href="/swisslux_reports/static/src/css/swisslux_reports.css"></link>
     </xpath>
   </template>
 

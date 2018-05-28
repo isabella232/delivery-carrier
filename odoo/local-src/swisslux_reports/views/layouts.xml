@@ -43,7 +43,7 @@
                                     <span t-field="company.zip"/>
                                     <span t-field="company.city"/>,&amp;nbsp;
                                     Tel: <span t-field="company.phone"/>
-                                    Fax: <span t-field="company.fax"/>
+                                    Fax: <span t-field="company.partner_id.fax"/>
                                     Technik-Hotline: +41 43 844 80 77,
                                     <span t-field="company.email"/>,
                                     <span t-raw="company.website[7:]"/>
@@ -69,7 +69,7 @@
                                 <span t-field="company.zip"/>
                                 <span t-field="company.city"/>,&amp;nbsp;
                                 Tel: <span t-field="company.phone"/>
-                                Fax: <span t-field="company.fax"/>
+                                Fax: <span t-field="company.partner_id.fax"/>
                                 Technik-Hotline: +41 43 844 80 77,
                                 <span t-field="company.email"/>,
                                 <span t-raw="company.website[7:]"/><br/>
@@ -95,9 +95,9 @@
             <t t-set="company" t-value="res_company"></t>
         </t>
 
-        <t t-call="specific_reports.external_layout_header" />
+        <t t-call="swisslux_reports.external_layout_standard" />
         <t t-raw="0" />
-        <t t-call="specific_reports.inventory_layout_footer" />
+        <t t-call="swisslux_reports.inventory_layout_footer" />
     </template>
 
     <record id="base.paperformat_euro" model="report.paperformat">

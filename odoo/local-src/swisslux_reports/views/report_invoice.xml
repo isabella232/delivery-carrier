@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <template id="report_invoice_document" inherit_id="account.report_invoice_document">
+    <template id="report_invoice_document" inherit_id="sale.report_invoice_document_inherit_sale">
         <xpath expr="//div[@class='page']" position="attributes">
             <attribute name="style">margin-left: 60px !important;</attribute>
         </xpath>
@@ -172,7 +172,7 @@
     <!-- Invoice Line-->
     <template id="report_invoice_layouted" inherit_id="sale.report_invoice_layouted">
 
-        <t t-foreach="o.order_lines_layouted()">
+        <t t-foreach="o.order_lines_layouted()" position="replace">
 
             <t groups="sale.group_sale_layout" t-foreach="o.order_lines_layouted()" t-as="page" name="lines_layouted">
                 <table class="table table-condensed">

@@ -73,10 +73,9 @@ class AccountFollowupReport(models.AbstractModel):
                     subtype='account_reports.followup_logged_action'
                 )
 
-        return self.env['report']._run_wkhtmltopdf(
+        return self.env['ir.actions.report']._run_wkhtmltopdf(
             headers,
             footers,
             bodies,
             False,
-            self.env.user.company_id.paperformat_id
         )

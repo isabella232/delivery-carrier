@@ -19,7 +19,7 @@
 
         <span t-field="move.product_id.display_name" position="after">
             <br/>
-            <span t-field="pack_operation.product_id.cut_e_nr"/>
+            <span t-field="move.product_id.cut_e_nr"/>
         </span>
 
         <xpath expr="//tr[@t-as='move']//img" position="attributes">

@@ -149,7 +149,7 @@ msgid "<span class=\"col-xs-3\">Shipping address:</span>"
 msgstr "<span class=\"col-xs-3\">Indirizzo di spedizione:</span>"
 
 #. module: swisslux_reports
-#: model:ir.ui.view,arch_db:swisslux_reports.external_layout_header
+#: model:ir.ui.view,arch_db:swisslux_reports.external_layout_standard
 msgid "<small>\n"
 "                  <small>\n"
 "                  Intelligente Beleuchtungstechnik<br/>\n"

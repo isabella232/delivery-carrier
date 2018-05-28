@@ -119,7 +119,7 @@ msgid "<br/><span>Shipping address:</span>"
 msgstr ""
 
 #. module: swisslux_reports
-#: model:ir.ui.view,arch_db:swisslux_reports.external_layout_header
+#: model:ir.ui.view,arch_db:swisslux_reports.external_layout_standard
 msgid "<small>\n"
 "                  <small>\n"
 "                  Intelligente Beleuchtungstechnik<br/>\n"
