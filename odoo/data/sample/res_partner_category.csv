@@ -1,0 +1,41 @@
+id,parent_id/id,name,active
+__setup__.partner_category_1,,Adressen & Kontakte,TRUE
+__setup__.partner_category_2,__setup__.partner_category_1,"Bauherr (Firmen, Öffentlich)",TRUE
+__setup__.partner_category_3,__setup__.partner_category_1,Bauherr (Privat),TRUE
+__setup__.partner_category_4,__setup__.partner_category_1,"Grosshandel, Handel, Produzent - Elektro (divers)",TRUE
+__setup__.partner_category_5,__setup__.partner_category_1,Grosshandel - Elektro (ELDAS),TRUE
+__setup__.partner_category_6,__setup__.partner_category_1,Installateur (Elektro)*,TRUE
+__setup__.partner_category_7,__setup__.partner_category_1,Installateur (HLKS),TRUE
+__setup__.partner_category_8,__setup__.partner_category_1,Leuchtenhersteller,TRUE
+__setup__.partner_category_9,__setup__.partner_category_1,"Planer, Ingenieur (Architekt)",TRUE
+__setup__.partner_category_10,__setup__.partner_category_1,"Planer, Ingenieur (Elektro)*",TRUE
+__setup__.partner_category_11,__setup__.partner_category_1,"Planer, Ingenieur (HLKS)",TRUE
+__setup__.partner_category_12,__setup__.partner_category_1,"Planer, Ingenieur (Licht)",TRUE
+__setup__.partner_category_13,__setup__.partner_category_1,"Schulen, Ausbildungsstätten, Verbände - Elektro",TRUE
+__setup__.partner_category_14,,Firmengruppe,TRUE
+__setup__.partner_category_15,__setup__.partner_category_14,"ABB, ETAVIS",TRUE
+__setup__.partner_category_16,__setup__.partner_category_14,Alpiq,TRUE
+__setup__.partner_category_17,__setup__.partner_category_14,Baumann Koelliker,TRUE
+__setup__.partner_category_18,__setup__.partner_category_14,BKW ISP,TRUE
+__setup__.partner_category_19,__setup__.partner_category_14,Burkhalter,TRUE
+__setup__.partner_category_20,__setup__.partner_category_14,Elektrobaer-Group,TRUE
+__setup__.partner_category_21,__setup__.partner_category_14,Eltop EKZ,TRUE
+__setup__.partner_category_22,__setup__.partner_category_14,EM,TRUE
+__setup__.partner_category_23,__setup__.partner_category_14,Frey + Cie,TRUE
+__setup__.partner_category_24,__setup__.partner_category_14,Otto Fischer,TRUE
+__setup__.partner_category_25,__setup__.partner_category_14,Saesseli,TRUE
+__setup__.partner_category_26,__setup__.partner_category_14,Schibli,TRUE
+__setup__.partner_category_27,__setup__.partner_category_14,Sonepar Group,TRUE
+__setup__.partner_category_28,__setup__.partner_category_14,Winterhalter + Fenner,TRUE
+__setup__.partner_category_29,__setup__.partner_category_14,Ziegler,TRUE
+__setup__.partner_category_30,__setup__.partner_category_1,KNX-Swiss Partner,TRUE
+__setup__.partner_category_31,__setup__.partner_category_1,Mitbewerber,TRUE
+__setup__.partner_category_32,__setup__.partner_category_1,Verteiler für Weihnachtsversand,TRUE
+__setup__.partner_category_33,,Kontakte,TRUE
+__setup__.partner_category_34,__setup__.partner_category_33,Einkauf,TRUE
+__setup__.partner_category_35,__setup__.partner_category_33,"Geschäftsführer, Niederlassungsleiter",TRUE
+__setup__.partner_category_36,__setup__.partner_category_33,GST,TRUE
+__setup__.partner_category_37,__setup__.partner_category_33,Offerten,TRUE
+__setup__.partner_category_38,__setup__.partner_category_33,Product-Management,TRUE
+__setup__.partner_category_39,__setup__.partner_category_33,Verkauf,TRUE
+__setup__.partner_category_40,__setup__.partner_category_33,Werbe- u. Präsentationsmaterial (Displays etc.),TRUE

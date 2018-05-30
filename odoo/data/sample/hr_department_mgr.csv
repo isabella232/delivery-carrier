@@ -1,0 +1,10 @@
+id,name,parent_id/id,manager_id/id,substitute_id/id
+__setup__.hr_department_slx,Swisslux,,__setup__.hr_employee_-2141818947,
+__setup__.hr_department_hr,Human Ressource,__setup__.hr_department_slx,__setup__.hr_employee_-2144329417,__setup__.hr_employee_-2142227408
+__setup__.hr_department_finanz,Finanzen,__setup__.hr_department_slx,__setup__.hr_employee_-2144322495,__setup__.hr_employee_-2144329417
+__setup__.hr_department_produkt,Produktmanagement,__setup__.hr_department_slx,__setup__.hr_employee_-2142190477,
+__setup__.hr_department_marketing,Marketing,__setup__.hr_department_slx,__setup__.hr_employee_-2142168356,
+__setup__.hr_department_verkauf,Verkauf,__setup__.hr_department_slx,__setup__.hr_employee_-2144324199,__setup__.hr_employee_-2143700315
+__setup__.hr_department_logistik,Logistik,__setup__.hr_department_slx,__setup__.hr_employee_-2144322470,__setup__.hr_employee_-2143048780
+__setup__.hr_department_support,Operations Support,__setup__.hr_department_slx,__setup__.hr_employee_-2144370623,
+__setup__.hr_department_it,Operations Informatik,__setup__.hr_department_slx,__setup__.hr_employee_-2144388032,

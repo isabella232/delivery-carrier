@@ -1,0 +1,10 @@
+id,name,parent_id
+__setup__.hr_department_slx,Swisslux,
+__setup__.hr_department_hr,Human Ressource,Swisslux
+__setup__.hr_department_finanz,Finanzen,Swisslux
+__setup__.hr_department_produkt,Produktmanagement,Swisslux
+__setup__.hr_department_marketing,Marketing,Swisslux
+__setup__.hr_department_verkauf,Verkauf,Swisslux
+__setup__.hr_department_logistik,Logistik,Swisslux
+__setup__.hr_department_support,Operations Support,Swisslux
+__setup__.hr_department_it,Operations Informatik,Swisslux

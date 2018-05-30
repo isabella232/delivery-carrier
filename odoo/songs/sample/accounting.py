@@ -4,7 +4,7 @@
 import anthem
 from anthem.lyrics.records import create_or_update
 from anthem.lyrics.settings import define_settings
-from ..common import load_csv
+from ..common import load_csv_no_tracking
 
 
 @anthem.log
@@ -33,7 +33,8 @@ def remove_cash_bank(ctx):
 
 @anthem.log
 def account_chart_extended(ctx):
-    load_csv(ctx, 'data/sample/account.account.csv', 'account.account')
+    load_csv_no_tracking(
+        ctx, 'data/sample/account.account.csv', 'account.account')
 
 
 @anthem.log
@@ -42,22 +43,22 @@ def create_bank_accounts(ctx):
     records = [
         {'xmlid': '__setup__.account_1010',
          'name': 'CCP 84-001285-1',
-         'code': '991010',
+         'code': '1010',
          'user_type_id': expense_type.id,
          },
         {'xmlid': '__setup__.account_1020',
          'name': 'ZKB CH7400700115500086877',
-         'code': '991020',
+         'code': '1020',
          'user_type_id': expense_type.id,
          },
         {'xmlid': '__setup__.account_1021',
          'name': 'ZKB CH2300700115500179557',
-         'code': '991021',
+         'code': '1021',
          'user_type_id': expense_type.id,
          },
     ]
     for record in records:
-        xmlid = record['xmlid']
+        xmlid = record.pop('xmlid')
         create_or_update(ctx, 'account.account', xmlid, record)
 
 
@@ -91,7 +92,7 @@ def set_banks(ctx):
          },
     ]
     for record in records:
-        xmlid = record['xmlid']
+        xmlid = record.pop('xmlid')
         create_or_update(ctx, 'res.partner.bank', xmlid, record)
 
     # FIXME: print_* fields were added by module l10n_ch_payment_slip
@@ -145,7 +146,7 @@ def set_banks(ctx):
          },
     ]
     for record in records:
-        xmlid = record['xmlid']
+        xmlid = record.pop('xmlid')
         create_or_update(ctx, 'account.journal', xmlid, record)
 
 
@@ -225,7 +226,7 @@ def set_journal(ctx):
          },
     ]
     for record in records:
-        xmlid = record['xmlid']
+        xmlid = record.pop('xmlid')
         create_or_update(ctx, 'account.journal', xmlid, record)
 
 
