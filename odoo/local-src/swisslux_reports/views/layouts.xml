@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="external_layout_standard" inherit_id="web.external_layout_standard">
+        <xpath expr="//div[@class='header']" position="replace">
+            <div class="header" t-if="env.context.get('tpl_partners_only')">
+                <div class="row mt0" t-att-style="'padding-top: 16px; width: 930px; background-size: 930px; background-repeat: no-repeat; background-image: url(''data:image/png;base64,%s'')' % company.report_logo">
+                    <div class="col-xs-2">
+                    </div>
+                    <div class="col-xs-8" style="padding-left: 30px;">
+                        <p>
+                            <small>
+                                <small>
+                                    Intelligente Beleuchtungstechnik<br/>
+                                    Gestion intelligente de l'éclairage<br/>
+                                    Gestione intelligente dell'illuminazione
+                                </small>
+                            </small>
+                        </p>
+                        <br/>
+                    </div>
+                    <div class="col-xs-2 text-center" name="company_address">
+                        <small>
+                            <small>
+                                <span t-field="company.email"/><br/>
+                                <span t-raw="company.website[7:]"/>
+                            </small>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[@class='footer']" position="replace">
+            <div class="footer" width="100%">
+                <div class="text-center">
+                    <small>
+                        <small>
+                            <small>
+                                <div class="col-xs-1"> </div>
+                                <div class="col-xs-11">
+                                    <strong t-field="company.name"/>
+                                    <span t-field="company.street"/>,
+                                    <span t-field="company.zip"/>
+                                    <span t-field="company.city"/>,&amp;nbsp;
+                                    Tel: <span t-field="company.phone"/>
+                                    Fax: <span t-field="company.partner_id.fax"/>
+                                    Technik-Hotline: +41 43 844 80 77,
+                                    <span t-field="company.email"/>,
+                                    <span t-raw="company.website[7:]"/>
+                                </div>
+                            </small>
+                        </small>
+                    </small>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="inventory_layout_footer">
+        <div class="footer">
+            <div class="text-center">
+                <small>
+                    <small>
+                        <small>
+                            <div class="col-xs-1"> </div>
+                            <div class="col-xs-11">
+                                <strong t-field="company.name"/>
+                                <span t-field="company.street"/>,
+                                <span t-field="company.zip"/>
+                                <span t-field="company.city"/>,&amp;nbsp;
+                                Tel: <span t-field="company.phone"/>
+                                Fax: <span t-field="company.partner_id.fax"/>
+                                Technik-Hotline: +41 43 844 80 77,
+                                <span t-field="company.email"/>,
+                                <span t-raw="company.website[7:]"/><br/>
+                                <span class="page" />/<span class="topage" />
+                            </div>
+                        </small>
+                    </small>
+                </small>
+            </div>
+        </div>
+    </template>
+
+
+    <template id="inventory_layout">
+        <!-- Multicompany -->
+        <t t-if="not o and doc">
+            <t t-set="o" t-value="doc"/>
+        </t>
+        <t t-if="o and 'company_id' in o">
+            <t t-set="company" t-value="o.company_id"></t>
+        </t>
+        <t t-if="not o or not 'company_id' in o">
+            <t t-set="company" t-value="res_company"></t>
+        </t>
+
+        <t t-call="swisslux_reports.external_layout_standard" />
+        <t t-raw="0" />
+        <t t-call="swisslux_reports.inventory_layout_footer" />
+    </template>
+
+    <record id="base.paperformat_euro" model="report.paperformat">
+        <field name="name">European A4</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">25</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">0</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">25</field>
+        <field name="dpi">90</field>
+    </record>
+
+</odoo>

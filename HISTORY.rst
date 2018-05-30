@@ -20,6 +20,7 @@ latest (unreleased)
 * BSSLX-12: Migrate the module OCA stock_split_picking to V11
 * BSSLX-13: swisslux_product module to V11
 * BSSLX-19: Migrate swisslux_invoice to V11
+* BSSLX-20: Migrate swisslux_reports to V11
 * BSSLX-25: swisslux_translations module to V11
 * BSSLX-37: swisslux_hr module to V11
 * BSSLX-50: Migrate swisslux_stock to V11

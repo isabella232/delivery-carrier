@@ -89,7 +89,8 @@ migration:
           - account_reconcile_rule
           - account_reconcile_rule_early_payment_discount
           - base_transaction_id
-          #oca/carrier-delivery
+          #oca/delivery-carrier
+          - base_delivery_carrier_label
           # Not yet ported to v11
           # - delivery_carrier_label_postlogistics
           #oca/l10n-switzerland
@@ -101,6 +102,7 @@ migration:
           # Not ported to v11
           # - mrp_bom_dismantling
           #oca/partner-contact
+          - partner_fax
           - partner_firstname
           #oca/product-attribute
           - product_dimension
@@ -132,6 +134,7 @@ migration:
           - swisslux_partner
           - swisslux_product
           - swisslux_purchase
+          - swisslux_reports
           - swisslux_sale
           - swisslux_stock
           - swisslux_translations
@@ -140,7 +143,6 @@ migration:
           - swisslux_csv_export
           # Not yet ported to v11
           #  - specific_pad
-          #  - specific_reports
           #  - specific_timesheet
           #  - specific_timesheet_activities
 

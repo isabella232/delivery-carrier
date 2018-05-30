@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <template id="report_inventory_document" inherit_id="stock.report_inventory">
+    <xpath expr="//t[@t-call='web.external_layout']" position="attributes">
+      <attribute name="t-call">swisslux_reports.inventory_layout</attribute>
+    </xpath>
+  </template>
+</odoo>

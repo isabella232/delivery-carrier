@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="report_picking_location" inherit_id="stock.report_picking">
+
+        <xpath expr="//table[@t-if='o.move_line_ids']/thead/tr/th[2]" position="attributes">
+           <attribute name="class">text-left</attribute>
+        </xpath>
+
+        <span t-esc="ml.location_id.display_name" position="replace">
+            <span t-field="ml.product_id.description_picking"/>
+        </span>
+
+        <xpath expr="//table[2]/thead/tr/th" position="replace">
+            <th width="15%">
+                <strong>Product<br/>E-NR</strong>
+            </th>
+        </xpath>
+
+        <span t-field="move.product_id.display_name" position="after">
+            <br/>
+            <span t-field="move.product_id.cut_e_nr"/>
+        </span>
+
+        <xpath expr="//tr[@t-as='move']//img" position="attributes">
+           <attribute name="style">width:300px;height:50px;margin-bottom:40px</attribute>
+        </xpath>
+
+        <xpath expr="//span[@t-field='move.product_id.display_name']/parent::td" position="attributes">
+           <attribute name="style">width:40%;</attribute>
+        </xpath>
+
+        <xpath expr="//span[@t-esc='move.product_qty']/parent::td" position="attributes">
+           <attribute name="class">text-left</attribute>
+           <attribute name="style">width:10%;</attribute>
+        </xpath>
+
+        <xpath expr="//tr[@t-as='move']" position="attributes">
+           <attribute name="style">border-top: 2px solid black !important;</attribute>
+           <attribute name="t-foreach">o.move_lines.sorted(key=lambda l: l.product_id.description_picking)</attribute>
+        </xpath>
+
+    </template>
+</odoo>
