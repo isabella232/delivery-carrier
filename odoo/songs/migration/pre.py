@@ -3,7 +3,59 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
 import anthem
+import os
 from openupgradelib.openupgrade import update_module_names
+
+
+@anthem.log
+def fix_path_on_attachments(ctx):
+    """ Fix path on attachments """
+    if os.environ.get('RUNNING_ENV') == 'prod':
+        # TODO: Before deployment in production, check the rancher stack name
+        # Update attachment given by odoo for the database migration
+        ctx.env.cr.execute("""
+UPDATE
+    ir_attachment
+SET
+    store_fname = 's3://swisslux-odoo-prod/' || store_fname
+WHERE
+    store_fname IS NOT NULL
+AND store_fname NOT LIKE 's3://%';
+        """)
+    elif os.environ.get('RUNNING_ENV') == 'integration':
+        # Update attachment from current production instance
+        ctx.env.cr.execute("""
+UPDATE
+    ir_attachment
+SET
+    store_fname = replace(
+        store_fname,
+        's3://swisslux-odoo-prod/',
+        's3://swisslux-odoo-integration-v11/'
+    )
+WHERE
+    store_fname IS NOT NULL
+AND store_fname LIKE 's3://%';
+        """)
+        # Update attachment given by odoo for the database migration
+        ctx.env.cr.execute("""
+UPDATE
+    ir_attachment
+SET
+    store_fname = 's3://swisslux-odoo-integration-v11/' || store_fname
+WHERE
+    store_fname IS NOT NULL
+AND store_fname NOT LIKE 's3://%';
+        """)
+    else:
+        # Remove the s3 attachment
+        ctx.env.cr.execute("""
+DELETE FROM
+    ir_attachment
+WHERE
+    store_fname IS NOT NULL
+AND store_fname LIKE 's3://%';
+        """)
 
 
 @anthem.log
@@ -49,4 +101,5 @@ def rename_modules(ctx):
 @anthem.log
 def main(ctx):
     """ PRE: migration """
+    fix_path_on_attachments(ctx)
     rename_modules(ctx)

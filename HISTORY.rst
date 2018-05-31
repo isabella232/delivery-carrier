@@ -41,6 +41,7 @@ latest (unreleased)
 * BSSLX-65: Enable Pro-Forma invoices
 * BSSLX-10: Migrate swisslux_csv_export to V11
 * BSSLX-67: Fix build/modules/menus with migrated database
+* BSSLX-74: Fix attachment filename with migrated database
 
 **Documentation**
 
