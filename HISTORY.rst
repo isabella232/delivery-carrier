@@ -42,6 +42,7 @@ latest (unreleased)
 * BSSLX-10: Migrate swisslux_csv_export to V11
 * BSSLX-67: Fix build/modules/menus with migrated database
 * BSSLX-74: Fix attachment filename with migrated database
+* BSSLX-79: Update project from odoo-template
 
 **Documentation**
 
