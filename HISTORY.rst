@@ -25,8 +25,8 @@ latest (unreleased)
 * BSSLX-37: swisslux_hr module to V11
 * BSSLX-50: Migrate swisslux_stock to V11
 * BSSLX-56: add OCA/project_department
-* Upgrade nginx version to 11.0-1.2.2
-* Upgrade dockerimage to 2.6.1
+* BSSLX-79: Upgrade nginx version to 11.0-1.3.0
+* BSSLX-79: Upgrade dockerimage to 2.6.1
 * BSSLX-53: incorporate PR with product_dimension module
 * BSSLX-63: Fix minion build
 * BSSLX-64: Fix the build with migrated database
@@ -43,6 +43,8 @@ latest (unreleased)
 * BSSLX-67: Fix build/modules/menus with migrated database
 * BSSLX-74: Fix attachment filename with migrated database
 * BSSLX-79: Update project from odoo-template
+* BSSLX-79: Upgrade nginx version to 11.0-1.3.0
+* BSSLX-79: Upgrade dockerimage to 11.0-2.6.1
 
 **Documentation**
 
