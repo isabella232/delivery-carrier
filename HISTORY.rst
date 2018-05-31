@@ -45,6 +45,7 @@ latest (unreleased)
 * BSSLX-79: Update project from odoo-template
 * BSSLX-79: Upgrade nginx version to 11.0-1.3.0
 * BSSLX-79: Upgrade dockerimage to 11.0-2.6.1
+* BSSLX-79: Update all submodules
 
 **Documentation**
 

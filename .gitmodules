@@ -22,7 +22,7 @@
 	branch = 11.0
 [submodule "odoo/external-src/l10n-switzerland"]
 	path = odoo/external-src/l10n-switzerland
-	url = git@github.com:camptocamp/l10n-switzerland.git
+	url = git@github.com:OCA/l10n-switzerland.git
 [submodule "odoo/external-src/manufacture"]
 	path = odoo/external-src/manufacture
 	url = git@github.com:OCA/manufacture.git
@@ -46,7 +46,7 @@
 	url = git@github.com:camptocamp/stock-logistics-warehouse.git
 [submodule "odoo/external-src/stock-logistics-workflow"]
 	path = odoo/external-src/stock-logistics-workflow
-	url = git@github.com:camptocamp/stock-logistics-workflow.git
+	url = git@github.com:OCA/stock-logistics-workflow.git
 [submodule "odoo/external-src/web"]
 	path = odoo/external-src/web
 	url = git@github.com:OCA/web.git
@@ -64,7 +64,7 @@
 	url = git@github.com:OCA/server-env.git
 [submodule "odoo/external-src/account-analytic"]
 	path = odoo/external-src/account-analytic
-	url = git@github.com:camptocamp/account-analytic.git
+	url = git@github.com:OCA/account-analytic.git
 [submodule "odoo/external-src/account-reconcile"]
 	path = odoo/external-src/account-reconcile
 	url = git@github.com:camptocamp/bank-statement-reconcile.git
