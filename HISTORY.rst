@@ -25,8 +25,6 @@ latest (unreleased)
 * BSSLX-37: swisslux_hr module to V11
 * BSSLX-50: Migrate swisslux_stock to V11
 * BSSLX-56: add OCA/project_department
-* BSSLX-79: Upgrade nginx version to 11.0-1.3.0
-* BSSLX-79: Upgrade dockerimage to 2.6.1
 * BSSLX-53: incorporate PR with product_dimension module
 * BSSLX-63: Fix minion build
 * BSSLX-64: Fix the build with migrated database
