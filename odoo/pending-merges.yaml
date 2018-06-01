@@ -1,5 +1,23 @@
 # file used with gitaggregate: https://github.com/acsone/git-aggregator
 # please see docs in docs/how-to-integrate-pull-request.md
+./external-src/account-financial-tools:
+  remotes:
+    oca: git@github.com:OCA/account-financial-tools.git
+    camptocamp: git@github.com:camptocamp/account-financial-tools.git
+  merges:
+    - oca 11.0
+    # [11.0] [MIG] Consolidate account_journal_lock_date and account_move_locking
+    - oca refs/pull/615/head
+  target: &default_target camptocamp merge-branch-1622-11.0
+./external-src/account-fiscal-rule:
+  remotes:
+    oca: git@github.com:OCA/account-fiscal-rule.git
+    camptocamp: git@github.com:camptocamp/account-fiscal-rule.git
+  merges:
+    - oca 11.0
+    # [11.0] [MIG] account fiscal position rule
+    - oca refs/pull/78/head
+  target: *default_target
 ./external-src/account-payment:
   remotes:
     oca: git@github.com:OCA/account-payment.git
@@ -8,15 +26,6 @@
     - oca 11.0
     # [11.0][MIG] account_early_payment_discount
     - oca refs/pull/184/head
-  target: &default_target camptocamp merge-branch-1622-11.0
-./external-src/product-attribute:
-  remotes:
-    oca: git@github.com:OCA/product-attribute.git
-    camptocamp: git@github.com:camptocamp/product-attribute.git
-  merges:
-    - oca 11.0
-    # [11.0] mig product_dimension
-    - oca refs/pull/337/head
   target: *default_target
 ./external-src/account-reconcile:
   remotes:
@@ -29,6 +38,23 @@
     # [11.0][MIG] account_reconcile_rule_early_payment_discount
     - oca refs/pull/210/head
   target: *default_target
+./external-src/delivery-carrier:
+  remotes:
+    oca: git@github.com:OCA/delivery-carrier.git
+    camptocamp: git@github.com:camptocamp/carrier-delivery.git
+  merges:
+    - oca 11.0
+    # Let here because a new PR will be arrived for this repository
+  target: *default_target
+./external-src/product-attribute:
+  remotes:
+    oca: git@github.com:OCA/product-attribute.git
+    camptocamp: git@github.com:camptocamp/product-attribute.git
+  merges:
+    - oca 11.0
+    # [11.0] mig product_dimension
+    - oca refs/pull/337/head
+  target: *default_target
 ./external-src/stock-logistics-warehouse:
   remotes:
     oca: git@github.com:OCA/stock-logistics-warehouse.git
@@ -37,60 +63,4 @@
     - oca 11.0
     # [MIG] stock_available_mrp: Migration to 11.0
     - oca refs/pull/428/head
-  target: *default_target
-./external-src/stock-logistics-workflow:
-  remotes:
-    oca: git@github.com:OCA/stock-logistics-workflow.git
-    camptocamp: git@github.com:camptocamp/stock-logistics-workflow.git
-  merges:
-    - oca 11.0
-    # [MIG][11.0] stock_split_picking
-    - oca refs/pull/422/head
-    # [11.0] Add module stock picking restrict cancel with original move
-    - oca refs/pull/427/head
-  target: *default_target
-./external-src/account-analytic:
-  remotes:
-    oca: git@github.com:OCA/account-analytic.git
-    camptocamp: git@github.com:camptocamp/account-analytic.git
-  merges:
-    - oca 11.0
-    #  11.0 mig analytic department
-    - oca refs/pull/167/head
-  target: *default_target
-./external-src/account-financial-tools:
-  remotes:
-    oca: git@github.com:OCA/account-financial-tools.git
-    camptocamp: git@github.com:camptocamp/account-financial-tools.git
-  merges:
-    - oca 11.0
-    # [11.0] [MIG] Consolidate account_journal_lock_date and account_move_locking
-    - oca refs/pull/615/head
-  target: *default_target
-./external-src/account-fiscal-rule:
-  remotes:
-    oca: git@github.com:OCA/account-fiscal-rule.git
-    camptocamp: git@github.com:camptocamp/account-fiscal-rule.git
-  merges:
-    - oca 11.0
-    # [11.0] [MIG] account fiscal position rule
-    - oca refs/pull/78/head
-  target: *default_target
-./external-src/delivery-carrier:
-  remotes:
-    oca: git@github.com:OCA/delivery-carrier.git
-    camptocamp: git@github.com:camptocamp/carrier-delivery.git
-  merges:
-    - oca 11.0
-    #  [MIG] base_delivery_carrier_label
-    - oca refs/pull/154/head
-  target: *default_target
-./external-src/l10n-switzerland:
-  remotes:
-    oca: git@github.com:OCA/l10n-switzerland.git
-    camptocamp: git@github.com:camptocamp/l10n-switzerland.git
-  merges:
-    - oca 11.0
-    # [11.0][FIX] l10n_ch_pain_base - Fix migration script
-    - oca refs/pull/424/head
   target: *default_target

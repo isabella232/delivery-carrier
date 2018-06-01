@@ -1,11 +1,15 @@
 # Copyright 2016-2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, models
+from odoo import api, models, fields
 
 
 class AccountInvoice(models.Model):
     _inherit = 'account.invoice'
+
+    partner_bank_id = fields.Many2one(
+        ondelete='set null',
+    )
 
     @api.onchange('partner_id')
     def onchange_partner_id_set_bank(self):
