@@ -209,8 +209,9 @@ class BuildingProject(models.Model):
         for rec in self:
             orders = self.env['sale.order'].search(
                 [('analytic_account_id', '=', rec.analytic_account_id.id)])
-            rec.update({'sale_order_ids': (6, 0, orders.ids),
-                        'sale_order_count': len(orders)})
+            if orders:
+                rec.update({'sale_order_ids': (6, 0, orders.ids),
+                            'sale_order_count': len(orders)})
 
     @api.depends('opportunity_ids')
     def _opportunity_count(self):
