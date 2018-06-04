@@ -7,7 +7,8 @@
         <field name="model">account.invoice</field>
         <field name="arch" type="xml">
             <field name="partner_id" position="after">
-                <field name="company_group_id"/>
+                <field name="company_group_id" invisible="True"/>
+                <field name="company_group_readonly_id"/>
                 <field name="income_partner_id"/>
             </field>
         </field>

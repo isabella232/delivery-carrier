@@ -8,6 +8,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSLX-82: Change behavior of field company_group on invoices (copy value instead of related)
+
 **Bugfixes**
 
 **Build**
