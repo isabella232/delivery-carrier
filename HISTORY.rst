@@ -12,6 +12,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BSSLX-83: Change from create_date to date_invoice in invoice report
+
 **Build**
 
 * BSSLX-58: Create v11 base branch

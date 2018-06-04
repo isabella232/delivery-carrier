@@ -140,9 +140,9 @@
                     </div>
                 </div>
                 <div class="col-xs-6 lp-0">
-                    <div t-if="o.create_date" class="col-xs-12">
+                    <div t-if="o.date_invoice" class="col-xs-12">
                         <span t-if="1" class="col-xs-4">Date:</span>
-                        <span t-field="o.create_date" t-field-options='{"widget":"date"}'/>
+                        <span t-field="o.date_invoice" t-field-options='{"widget":"date"}'/>
                     </div>
                 </div>
                 <div class="col-xs-6 lp-0">
