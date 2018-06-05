@@ -15,6 +15,7 @@ migration:
               - anthem songs.sample.pre::main
             post:
               - anthem songs.sample.post::main
+              - anthem songs.sample.accounting::main
         migration:
           operations:
             pre:
