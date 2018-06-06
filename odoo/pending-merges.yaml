@@ -18,15 +18,6 @@
     # [11.0] [MIG] account fiscal position rule
     - oca refs/pull/78/head
   target: *default_target
-./external-src/account-payment:
-  remotes:
-    oca: git@github.com:OCA/account-payment.git
-    camptocamp: git@github.com:camptocamp/account-payment.git
-  merges:
-    - oca 11.0
-    # [11.0][MIG] account_early_payment_discount
-    - oca refs/pull/184/head
-  target: *default_target
 ./external-src/account-reconcile:
   remotes:
     oca: git@github.com:OCA/account-reconcile.git
