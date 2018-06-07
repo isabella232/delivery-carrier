@@ -13,6 +13,8 @@ migration:
           operations:
             pre:
               - anthem songs.sample.pre::main
+              # will auto-install l10n_ch and generate the account chart
+              - odoo --stop-after-init --no-xmlrpc -i account
             post:
               - anthem songs.sample.post::main
               - anthem songs.sample.accounting::main
