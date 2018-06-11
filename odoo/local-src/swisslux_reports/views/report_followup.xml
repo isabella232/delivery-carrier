@@ -124,6 +124,20 @@
       <br/>
     </xpath>
 
+    <xpath expr="//thead" position="replace">
+
+      <thead>
+        <tr>
+          <th class="o_account_report_column_header date" style="text-align:center; white-space:nowrap;">Invoice Number</th>
+          <t t-foreach="lines.get('columns_header')[1:]" t-as="column_header">
+            <th t-att-class="'o_account_report_column_header ' + (column_header.get('class', ''))" t-att-style="column_header.get('style', '')">
+              <t t-esc="column_header.get('name')"/>
+            </th>
+          </t>
+        </tr>
+      </thead>
+    </xpath>
+
   </template>
 
   <template id="account_reports.report_followup_body" inherit_id="account_reports.template_followup_report" primary="True">
@@ -155,20 +169,6 @@
       </div>
     </xpath>
 
-    <xpath expr="//thead" position="replace">
-
-      <thead>
-        <tr>
-          <th>Invoice Number</th>
-          <t t-set="column" t-value="0" />
-          <t t-set="cols_w"/>
-          <t t-foreach="context.get_columns_names()" t-as="column_name">
-            <t t-set="column" t-value="column + 1" />
-            <th class="text-left" t-raw="column_name"/>
-          </t>
-        </tr>
-      </thead>
-    </xpath>
     <xpath expr="//h2" position="replace">
       <h2 t-if="not context.env.context.get('public')">
         <span><a t-att-data-active-id="context.partner_id.id" data-res-model="res.partner" class="o_account_reports_web_action"><t t-esc='context.partner_id.name' /></a></span>

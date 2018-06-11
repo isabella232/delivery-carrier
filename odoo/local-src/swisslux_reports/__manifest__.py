@@ -16,6 +16,7 @@
         'sale',
         'sale_stock',
         'stock',
+        'swisslux_building_project',
         'swisslux_product',
     ],
     'website': 'http://www.camptocamp.com',
