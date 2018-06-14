@@ -77,8 +77,8 @@ migration:
           - account_journal_lock_date
           #oca/account-fiscal-rule
           - account_fiscal_position_rule
+          - account_fiscal_position_rule_purchase
           # Not yet ported to v11
-          # - account_fiscal_position_rule_purchase
           # - account_fiscal_position_rule_sale
           #oca/bank-payment
           - account_banking_pain_base

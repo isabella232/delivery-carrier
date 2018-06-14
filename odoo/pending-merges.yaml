@@ -17,6 +17,8 @@
     - oca 11.0
     # [11.0] [MIG] account fiscal position rule
     - oca refs/pull/78/head
+    # [11.0] [MIG] account fiscal position rule purchase
+    - oca refs/pull/81/head
   target: *default_target
 ./external-src/account-payment:
   remotes:

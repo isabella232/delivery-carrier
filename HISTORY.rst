@@ -16,6 +16,7 @@ latest (unreleased)
 
 **Build**
 
+* BSSLX-71: Migrate v11 account_fiscal_position_rule_purchase
 * BSSLX-58: Create v11 base branch
 * BSSLX-5: swisslux_sale module to V11
 * BSSLX-7: Migrate swisslux_purchase to V11
