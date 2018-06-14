@@ -170,20 +170,6 @@
             <t t-set="line_counter" t-value="0"/>
         </xpath>
 
-        <xpath expr="//thead/tr" position="replace">
-            <tr>
-                <th>Pos.</th>
-                <th class="text-right">Quantity</th>
-                <th>Product Num.</th>
-                <th>Description</th>
-                <th class="text-right">Unit Price</th>
-                <th class="text-right">Taxes</th>
-                <th class="text-right" groups="sale.group_discount_per_so_line">Disc.(%)</th>
-                <th class="text-right" groups="sale.group_discount_per_so_line">Net</th>
-                <th class="text-right">Total</th>
-            </tr>
-        </xpath>
-
         <xpath expr="//p[@t-if='doc.payment_term_id.note']" position="replace">
             <t t-if="doc.number_shipments">
                 <p>Number of shipments: <span t-field="doc.number_shipments"/></p>
@@ -218,7 +204,6 @@
                         <tr>
                             <th>Pos.</th>
                             <th class="text-right">Quantity</th>
-                            <th>UOM</th>
                             <th>Product Num.</th>
                             <th>Description</th>
                             <th class="text-right">Unit Price</th>
@@ -229,7 +214,7 @@
                                 </span>
                             </th>
                             <th class="text-right" groups="sale.group_discount_per_so_line">Net</th>
-                            <th class="text-right">Price</th>
+                            <th class="text-right">Total</th>
                         </tr>
                     </thead>
                     <tbody class="sale_tbody">
@@ -312,6 +297,10 @@
             </t>
 
         </t>
+
+        <xpath expr="//table[@class='table table-condensed']/tr[@class='border-black']/td/strong" position="replace">
+            <strong>Total Without Taxes</strong>
+        </xpath>
 
     </template>
 

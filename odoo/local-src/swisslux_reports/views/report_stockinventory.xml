@@ -6,4 +6,5 @@
       <attribute name="t-call">swisslux_reports.inventory_layout</attribute>
     </xpath>
   </template>
+
 </odoo>
