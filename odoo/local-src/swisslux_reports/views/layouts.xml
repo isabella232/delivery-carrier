@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="external_layout_standard" inherit_id="web.external_layout_standard">
-        <xpath expr="//div[@class='header']" position="replace">
+        <xpath expr="//div[hasclass('header')]" position="replace">
             <div class="header">
                 <t t-if="env.context.get('tpl_partners_only')">
                     <div class="row mt0" t-att-style="'padding-top: 16px; width: 930px; background-size: 930px; background-repeat: no-repeat; background-image: url(''data:image/png;base64,%s'')' % company.report_logo">
@@ -32,7 +32,7 @@
             </div>
         </xpath>
 
-        <xpath expr="//div[@class='footer']" position="replace">
+        <xpath expr="//div[hasclass('footer')]" position="replace">
             <div class="footer" width="100%">
                 <div class="text-center">
                     <small>
@@ -60,7 +60,7 @@
 
     <template id="inventory_layout_header_footer" primary="True" inherit_id="swisslux_reports.external_layout_standard">
 
-        <xpath expr="//div[@class='footer']" position="replace">
+        <xpath expr="//div[hasclass('footer')]" position="replace">
 
             <div class="footer">
                 <div class="text-center">

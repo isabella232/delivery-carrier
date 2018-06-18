@@ -9,21 +9,30 @@ class BuildingProject(models.Model):
     _name = 'building.project'
     _inherits = {'project.project': "project_id"}
     _inherit = ['mail.thread']
-    _rec_name = 'display_name'
 
     display_name = fields.Char(
         compute='_compute_display_name',
         store=True,
     )
 
-    @api.depends('name', 'business_area')     # this definition is recursive
+    @api.depends('project_id.name', 'business_area')
     def _compute_display_name(self):
         for record in self:
             if record.business_area:
                 business_area = record.business_area.upper()
-                record.display_name = ' - '.join([business_area, record.name])
+                record.display_name = (
+                    ' - '.join([business_area, record.project_id.name])
+                )
             else:
-                record.display_name = record.name
+                record.display_name = record.project_id.name
+
+    @api.model
+    def name_search(self, name='', args=None, operator='ilike', limit=100):
+        args = args or []
+        domain_name = [
+            ('display_name', operator, name)
+        ]
+        return self.search(domain_name + args, limit=limit).name_get()
 
     project_id = fields.Many2one(
         'project.project',

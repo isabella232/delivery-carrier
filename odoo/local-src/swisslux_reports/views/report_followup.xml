@@ -2,7 +2,7 @@
 <odoo>
 
   <template id="fix_address_report_followup_letter_body" inherit_id="account_reports.followup_filter_info_template">
-    <xpath expr="//div[@class='row']" position="before">
+    <xpath expr="//div[hasclass('row')]" position="before">
       <style type="text/css">
         .head{
         margin-left: 0px !important;
@@ -80,7 +80,7 @@
     </xpath>
 
 
-    <xpath expr="//div[@class='row']" position="replace">
+    <xpath expr="//div[hasclass('row')]" position="replace">
       <div class="row head">
         <div class="address">
           <div style="text-decoration: underline; padding-left: 0px;">
@@ -176,7 +176,7 @@
       </h2>
     </xpath>
     <xpath expr="//h4" position="replace" />
-    <xpath expr="//div[@class='o_account_reports_summary']" position="before">
+    <xpath expr="//div[hasclass('o_account_reports_summary')]" position="before">
       <div t-if="mode != 'print' and not context.env.context.get('public')">
         <span id='action-buttons' class='o_account_reports_followup_not_clicked'>
           <button class="btn btn-primary followup-letter" action="print_followup" t-att-data-partner="partner.id">Print Letter</button>
