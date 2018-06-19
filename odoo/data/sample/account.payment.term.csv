@@ -1,0 +1,16 @@
+id,note,name,early_payment_discount,epd_nb_days,epd_discount,line_ids/value,line_ids/days
+__setup__.accountpaymentterm_00dn,"0 Tage netto","Zahlbar bei Erhalt",False,0,0,balance,0
+__setup__.accountpaymentterm_07dn,"7 Tage netto","7 Tage netto",False,0,0,balance,7
+__setup__.accountpaymentterm_10dn,"10 Tage netto","10 Tage netto",False,0,0,balance,10
+__setup__.accountpaymentterm_20dn,"20 Tage netto","20 Tage netto",False,0,0,balance,20
+__setup__.accountpaymentterm_30dn,"30 Tage netto","30 Tage netto",False,0,0,balance,30
+__setup__.accountpaymentterm_30dn10d2s,"10 Tage 2% Skonto, 30 Tage netto","10 Tage 2% Skonto, 30 Tage netto",True,10,2,balance,30
+__setup__.accountpaymentterm_30dn10d3s,"10 Tage 3% Skonto, 30 Tage netto","10 Tage 3% Skonto, 30 Tage netto",True,10,3,balance,30
+__setup__.accountpaymentterm_45dn30d2s,"30 Tage 2% Skonto, 45 Tage netto","30 Tage 2% Skonto, 45 Tage netto",True,30,2,balance,45
+__setup__.accountpaymentterm_60dn30d2s,"30 Tage 2% Skonto, 60 Tage netto","30 Tage 2% Skonto, 60 Tage netto",True,30,2,balance,60
+__setup__.accountpaymentterm_60dn30d3s,"30 Tage 3% Skonto, 60 Tage netto","30 Tage 3% Skonto, 60 Tage netto",True,30,3,balance,60
+__setup__.accountpaymentterm_60dn40d3s,"40 Tage 3% Skonto, 60 Tage netto","40 Tage 3% Skonto, 60 Tage netto",True,40,3,balance,60
+__setup__.accountpaymentterm_60dn45d3s,"45 Tage 3% Skonto, 60 Tage netto","45 Tage 3% Skonto, 60 Tage netto",True,45,3,balance,60
+__setup__.accountpaymentterm_00dnnn,"Nachnahme","Nachnahme",False,0,0,balance,0
+__setup__.accountpaymentterm_00dnvz,"Vorauszahlung","Vorauszahlung",False,0,0,balance,0
+__setup__.accountpaymentterm_eev,"zahlbar an eev-Zentrale","zahlbar an eev-Zentrale",False,0,0,balance,0
