@@ -104,8 +104,7 @@ migration:
           - base_transaction_id
           #oca/delivery-carrier
           - base_delivery_carrier_label
-          # Not yet ported to v11
-          # - delivery_carrier_label_postlogistics
+          - delivery_carrier_label_postlogistics
           #oca/l10n-switzerland
           - l10n_ch_bank
           - l10n_ch_pain_credit_transfer

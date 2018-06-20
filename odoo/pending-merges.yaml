@@ -37,7 +37,8 @@
     camptocamp: git@github.com:camptocamp/carrier-delivery.git
   merges:
     - oca 11.0
-    # Let here because a new PR will be arrived for this repository
+    # [11.0][MIG] delivery_carrier_label_postlogistics
+    - oca refs/pull/155/head
   target: *default_target
 ./external-src/product-attribute:
   remotes:
@@ -85,4 +86,13 @@
     - oca 11.0
     # [MIG] payment_slip: Migration to 11.0
     - oca refs/pull/373/head
+  target: *default_target
+./external-src/server-tools:
+  remotes:
+    oca: git@github.com:OCA/server-tools.git
+    camptocamp: git@github.com:camptocamp/server-tools.git
+  merges:
+    - oca 11.0
+    # [11.0][MIG] configuration_helper
+    - oca refs/pull/1261/head
   target: *default_target
