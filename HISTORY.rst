@@ -9,6 +9,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSLX-82: Change behavior of field company_group on invoices (copy value instead of related)
+* BSSLX-105: Propagate `company_group_id` to invoices if those weren't provided explicitly
 
 **Bugfixes**
 
