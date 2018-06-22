@@ -13,6 +13,7 @@ latest (unreleased)
 **Bugfixes**
 
 * BSSLX-83: Change from create_date to date_invoice in invoice report
+* BSSLX-93: Change min_date to scheduled_date on delivery slip report
 
 **Build**
 

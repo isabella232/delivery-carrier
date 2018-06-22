@@ -177,9 +177,9 @@
                           </div>
                         </div>
                         <div class="col-xs-6">
-                          <div t-if="o.min_date" class="col-xs-12">
+                          <div t-if="o.scheduled_date" class="col-xs-12">
                               <span t-if="1" class="col-xs-4 pl-0">Date:</span>
-                              <span t-field="o.min_date" t-field-options='{"widget":"date"}'/>
+                              <span t-field="o.scheduled_date" t-field-options='{"widget":"date"}'/>
                           </div>
                           <div t-if="o.carrier_id" class="col-xs-12">
                               <span class="col-xs-4 pl-0">Carrier:</span>
