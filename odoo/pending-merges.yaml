@@ -66,3 +66,12 @@
     # [11.0] Add Stock Picking Purchase Procurement Group module
     - oca refs/pull/425/head
   target: *default_target
+./external-src/project:
+  remotes:
+    oca: git@github.com:OCA/project.git
+    camptocamp: git@github.com:camptocamp/project.git
+  merges:
+    - oca 11.0
+    # [11.0] Add project_task_type_active
+    - oca refs/pull/396/head
+  target: *default_target
