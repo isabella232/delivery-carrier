@@ -147,6 +147,7 @@ migration:
           - swisslux_account
           - swisslux_hr
           - swisslux_invoice
+          - swisslux_lang
           - swisslux_mrp
           - swisslux_partner
           - swisslux_product
