@@ -140,6 +140,8 @@ migration:
           #oca/stock-logistics-workflow
           - purchase_line_procurement_group
           - stock_picking_purchase_propagate
+          - mrp_stock_picking_restrict_cancel
+          - purchase_stock_picking_restrict_cancel
           - stock_picking_restrict_cancel_with_orig_move
           - stock_split_picking
           #oca/web
