@@ -55,6 +55,8 @@ latest (unreleased)
 * BSSLX-79: Update all submodules
 * BSSLX-69: Port OERPScenarios to songs in sample mode
 * BSSLX-96: Add `swisslux_lang` module
+* BSSLX-94: Uninstall swisslux_mrp
+>>>>>>> c3203a1... BSSLX-94: Uninstall swisslux_mrp
 
 **Documentation**
 
