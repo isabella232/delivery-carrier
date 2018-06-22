@@ -49,8 +49,8 @@
                 <strong>
                   Person of contact
                 </strong><span t-field="o.env.user.name"/><br/>
-                Phone: <span t-field="o.get_employee_from_user(o.env.user).work_phone"/><br/>
-                <span t-field="o.get_employee_from_user(o.env.user).work_email"/><br/>
+                Phone: <span t-field="o.env.user.get_employee_from_user().work_phone"/><br/>
+                <span t-field="o.env.user.get_employee_from_user().work_email"/><br/>
               </small>
             </small>
           </div>
@@ -207,8 +207,8 @@
                 <strong>
                   Person of contact
                 </strong><span t-field="o.env.user.name"/><br/>
-                Phone: <span t-field="o.get_employee_from_user(o.env.user).work_phone"/><br/>
-                <span t-field="o.get_employee_from_user(o.env.user).work_email"/><br/>
+                Phone: <span t-field="o.env.user.get_employee_from_user().work_phone"/><br/>
+                <span t-field="o.env.user.get_employee_from_user().work_email"/><br/>
               </small>
             </small>
           </div>

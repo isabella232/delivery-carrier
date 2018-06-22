@@ -95,20 +95,17 @@
                                     <span t-field="o.partner_id.user_id"/><br/>
                                   </t>
                                   Tel:
-                                  <t t-if="o.get_employee_from_user()">
-                                    <span t-field="o.get_employee_from_user().work_phone"/><br/>
-                                  </t>
                                   <t t-if="o.sale_id">
-                                    <t t-if="not o.get_employee_from_user().work_phone">
-                                      &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;
-                                      &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;<br/>
-                                    </t>
-                                  </t>
-                                  <t t-if="o.sale_id">
-                                      <span t-field="o.get_employee_from_user(o.sale_id.user_id).work_email"/>
+                                    <span t-field="o.sale_id.user_id.get_employee_from_user().work_phone"/><br/>
                                   </t>
                                   <t t-if="not o.sale_id">
-                                      <span t-field="o.get_employee_from_user(o.partner_id.user_id).work_email"/>
+                                    <span t-field="o.partner_id.user_id.get_employee_from_user().work_phone"/><br/>
+                                  </t>
+                                  <t t-if="o.sale_id">
+                                      <span t-field="o.sale_id.user_id.get_employee_from_user().work_email"/>
+                                  </t>
+                                  <t t-if="not o.sale_id">
+                                      <span t-field="o.partner_id.user_id.get_employee_from_user().work_email"/>
                                   </t>
                                 </small>
                               </small>

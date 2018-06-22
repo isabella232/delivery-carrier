@@ -50,16 +50,6 @@ class AccountInvoice(models.Model):
     )
 
     @api.multi
-    def get_employee_from_user(self, user_id):
-        self.ensure_one()
-        resource = self.env['resource.resource'].search(
-            [('user_id', '=', user_id.id)])
-        hr_employee = self.env['hr.employee'].search(
-            [('resource_id', '=', resource.id)])
-
-        return hr_employee
-
-    @api.multi
     def get_so_from_invoice(self):
         self.ensure_one()
         return_val = False

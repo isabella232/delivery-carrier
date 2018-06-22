@@ -49,9 +49,9 @@
                                 </strong> <span t-field="doc.user_id.partner_id"/><br/>
                                 Tel:
                                 <t t-if="doc.user_id">
-                                    <span t-field="doc.get_employee_from_user(doc.user_id).work_phone"/><br/>
+                                    <span t-field="doc.user_id.get_employee_from_user().work_phone"/><br/>
                                 </t>
-                                <span t-field="doc.get_employee_from_user(doc.user_id).work_email"/><br/>
+                                <span t-field="doc.user_id.get_employee_from_user().work_email"/><br/>
                             </small>
                         </small>
                     </div>
