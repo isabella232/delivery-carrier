@@ -56,6 +56,7 @@ latest (unreleased)
 * BSSLX-79: Update all submodules
 * BSSLX-69: Port OERPScenarios to songs in sample mode
 * BSSLX-96: Add `swisslux_lang` module
+* BSSLX-104: Install module account_bank_statement_import_camt
 
 **Documentation**
 
