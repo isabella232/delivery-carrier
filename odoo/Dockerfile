@@ -38,6 +38,7 @@ ENV ADDONS_PATH="/opt/odoo/local-src, \
     /opt/odoo/external-src/manufacture, \
     /opt/odoo/external-src/odoo-cloud-platform, \
     /opt/odoo/external-src/partner-contact, \
+    /opt/odoo/external-src/purchase-workflow, \
     /opt/odoo/external-src/product-attribute, \
     /opt/odoo/external-src/project, \
     /opt/odoo/external-src/reporting-engine, \

@@ -73,7 +73,6 @@ def rename_modules(ctx):
             ('specific_mrp', 'swisslux_mrp'),
             ('specific_partner', 'swisslux_partner'),
             ('specific_product', 'swisslux_product'),
-            ('specific_purchase', 'swisslux_purchase'),
             ('specific_reports', 'swisslux_reports'),
             ('specific_sale', 'swisslux_sale'),
             ('specific_stock', 'swisslux_stock'),

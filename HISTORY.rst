@@ -16,6 +16,8 @@ latest (unreleased)
 
 **Build**
 
+* BSSLX-106: Replace swisslux_purchase with OCA module
+  stock_picking_purchase_propagate and this module depend of purchase_line_procurement_group
 * BSSLX-71: Migrate v11 account_fiscal_position_rule_purchase
 * BSSLX-58: Create v11 base branch
 * BSSLX-5: swisslux_sale module to V11
