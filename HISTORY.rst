@@ -56,6 +56,7 @@ latest (unreleased)
 * BSSLX-79: Update all submodules
 * BSSLX-69: Port OERPScenarios to songs in sample mode
 * BSSLX-96: Add `swisslux_lang` module
+* BSSLX-49: Add payment slip module
 
 **Documentation**
 
