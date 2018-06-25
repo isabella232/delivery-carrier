@@ -137,6 +137,8 @@ migration:
           #oca/stock-logistics-warehouse
           - stock_available_mrp
           #oca/stock-logistics-workflow
+          - purchase_line_procurement_group
+          - stock_picking_purchase_propagate
           - stock_picking_restrict_cancel_with_orig_move
           - stock_split_picking
           #oca/web
@@ -150,7 +152,6 @@ migration:
           - swisslux_mrp
           - swisslux_partner
           - swisslux_product
-          - swisslux_purchase
           - swisslux_reports
           - swisslux_sale
           - swisslux_stock

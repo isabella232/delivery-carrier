@@ -57,3 +57,12 @@
     # [MIG] stock_available_mrp: Migration to 11.0
     - oca refs/pull/428/head
   target: *default_target
+./external-src/stock-logistics-workflow:
+  remotes:
+    oca: git@github.com:oca/stock-logistics-workflow.git
+    camptocamp: git@github.com:camptocamp/stock-logistics-workflow.git
+  merges:
+    - oca 11.0
+    # [11.0] Add Stock Picking Purchase Procurement Group module
+    - oca refs/pull/425/head
+  target: *default_target
