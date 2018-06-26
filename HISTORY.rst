@@ -54,6 +54,7 @@ latest (unreleased)
 * BSSLX-79: Upgrade dockerimage to 11.0-2.6.1
 * BSSLX-79: Update all submodules
 * BSSLX-69: Port OERPScenarios to songs in sample mode
+* BSSLX-96: Add `swisslux_lang` module
 
 **Documentation**
 
