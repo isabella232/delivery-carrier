@@ -15,6 +15,7 @@ latest (unreleased)
 **Bugfixes**
 
 * BSSLX-83: Change from create_date to date_invoice in invoice report
+* BSSLX-97: Fix error message validating a vendor bill
 
 **Build**
 
