@@ -29,3 +29,10 @@ class AccountInvoice(models.Model):
             self.company_group_id = self.partner_id.company_group_id.id
         else:
             self.company_group_id = None
+
+    @api.model
+    def create(self, vals):
+        if 'company_group_id' not in vals and 'partner_id' in vals:
+            partner = self.env['res.partner'].browse(vals['partner_id'])
+            vals['company_group_id'] = partner.company_group_id.id
+        return super().create(vals)
