@@ -29,9 +29,7 @@
         'views/company.xml',
         'views/report_inventory.xml',
         'views/report_invoice.xml',
-        # TODO: Finish the migration of this report:
-        # TODO: See the card https://jira.camptocamp.com/browse/BSSLX-76
-        # 'views/report_mrporder.xml',
+        'views/report_mrporder.xml',
         'views/report_picking.xml',
         'views/report_purchase.xml',
         'views/report_sale.xml',

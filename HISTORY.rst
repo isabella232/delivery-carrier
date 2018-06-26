@@ -8,6 +8,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSLX-102: Migrate the mrp order report in V11
+
 **Bugfixes**
 
 **Build**
