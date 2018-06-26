@@ -34,7 +34,7 @@
 	url = git@github.com:camptocamp/product-attribute.git
 [submodule "odoo/external-src/project"]
 	path = odoo/external-src/project
-	url = git@github.com:OCA/project.git
+	url = git@github.com:camptocamp/project.git
 [submodule "odoo/external-src/reporting-engine"]
 	path = odoo/external-src/reporting-engine
 	url = git@github.com:OCA/reporting-engine.git

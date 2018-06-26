@@ -101,9 +101,30 @@ FROM
 
 
 @anthem.log
+def set_project_task_type_inactive(ctx):
+    """Set project.task.type from project_task_default_stage to inactive"""
+    project_task_types = ctx.env['project.task.type']
+    records = [
+        'project_tt_analysis',
+        'project_tt_specification',
+        'project_tt_design',
+        'project_tt_development'
+        'project_tt_testing',
+        'project_tt_merge',
+        'project_tt_deployment',
+        'project_tt_cancel'
+    ]
+    for rec in records:
+        project_task_types |= ctx.env.ref(
+            'project_task_default_stage.%s' % rec, raise_if_not_found=False)
+    project_task_types.write({'active': False})
+
+
+@anthem.log
 def main(ctx):
     """ POST: migration """
     uninstall_modules(ctx)
     clean_modules_list(ctx)
     clean_duplicated_menu(ctx)
     migrate_account_reconcile_rule_values(ctx)
+    set_project_task_type_inactive(ctx)

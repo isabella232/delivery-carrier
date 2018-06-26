@@ -9,6 +9,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSLX-82: Change behavior of field company_group on invoices (copy value instead of related)
+* BSSLX-88: Install module project_task_type_active
 
 **Bugfixes**
 

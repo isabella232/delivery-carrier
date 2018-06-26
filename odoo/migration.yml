@@ -126,6 +126,7 @@ migration:
           - product_state
           #oca/project
           - project_task_default_stage
+          - project_task_type_active
           #oca/server-env
           - mail_environment
           - server_environment
