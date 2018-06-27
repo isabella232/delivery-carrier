@@ -70,6 +70,18 @@ def migrate_account_reconcile_rule_values(ctx):
     if not ctx.env['account.reconcile.rule'].search([]):
         # if account reconcile rule not found, we need
         # to migrate the previous values in account_operation_rule table
+        cr = ctx.env.cr
+        cr.execute("""
+SELECT EXISTS
+    (
+        SELECT 1
+        FROM pg_tables
+        WHERE tablename = 'account_operation_rule'
+    );
+        """)
+        if not cr.fetchone()[0]:
+            return
+
         ctx.env.cr.execute("""
 INSERT INTO
     account_reconcile_rule
