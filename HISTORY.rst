@@ -59,6 +59,7 @@ latest (unreleased)
 * BSSLX-69: Port OERPScenarios to songs in sample mode
 * BSSLX-96: Add `swisslux_lang` module
 * BSSLX-94: Uninstall swisslux_mrp and add stock_picking_restrict_cancel_with_orig_move improvements
+* BSSLX-49: Add payment slip module
 
 **Documentation**
 

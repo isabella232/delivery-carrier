@@ -77,3 +77,12 @@
     # [11.0] Add project_task_type_active
     - oca refs/pull/396/head
   target: *default_target
+./external-src/l10n-switzerland:
+  remotes:
+    oca: git@github.com:OCA/l10n-switzerland.git
+    camptocamp: git@github.com:camptocamp/l10n-switzerland.git
+  merges:
+    - oca 11.0
+    # [MIG] payment_slip: Migration to 11.0
+    - oca refs/pull/373/head
+  target: *default_target

@@ -115,6 +115,7 @@ migration:
           - l10n_ch_pain_credit_transfer
           - l10n_ch_states
           - l10n_ch_zip
+          - l10n_ch_payment_slip
           #oca/manufacture
           # Not ported to v11
           # - mrp_bom_dismantling
