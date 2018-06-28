@@ -65,6 +65,8 @@
     - oca 11.0
     # [11.0] Add Stock Picking Purchase Procurement Group module
     - oca refs/pull/425/head
+    # [11.0][FIX] restrict cancel modules
+    - oca refs/pull/436/head
   target: *default_target
 ./external-src/project:
   remotes:

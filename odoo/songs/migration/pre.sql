@@ -44,3 +44,17 @@ WHERE
         AND
             model = 'ir.ui.view'
     );
+
+
+-- Update mrp.production to use procurement_group_id (defined in odoo/mrp)
+-- instead of group_id which was defined in v9 in specific_mrp
+UPDATE
+    mrp_production
+SET
+    procurement_group_id = group_id;
+
+-- Remove unneeded group_id column on mrp_production
+ALTER TABLE
+    mrp_production
+DROP COLUMN
+    group_id;
