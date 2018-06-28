@@ -22,7 +22,7 @@
 	branch = 11.0
 [submodule "odoo/external-src/l10n-switzerland"]
 	path = odoo/external-src/l10n-switzerland
-	url = git@github.com:OCA/l10n-switzerland.git
+	url = git@github.com:camptocamp/l10n-switzerland.git
 [submodule "odoo/external-src/manufacture"]
 	path = odoo/external-src/manufacture
 	url = git@github.com:OCA/manufacture.git
