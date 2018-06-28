@@ -67,6 +67,7 @@ migration:
           - stock
           - warning
           # Enterprise
+          - account_bank_statement_import_camt
           - account_bank_statement_import_ofx
           - account_reports
           - account_reports_followup
