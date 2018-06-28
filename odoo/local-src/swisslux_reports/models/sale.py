@@ -36,15 +36,6 @@ class SaleOrder(models.Model):
         invoice_vals['client_order_date'] = self.client_order_date
         return invoice_vals
 
-    @api.multi
-    def get_employee_from_user(self, user_id):
-        resource = self.env['resource.resource'].search(
-            [('user_id', '=', user_id.id)])
-        hr_employee = self.env['hr.employee'].search(
-            [('resource_id', '=', resource.id)])
-
-        return hr_employee
-
 
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
