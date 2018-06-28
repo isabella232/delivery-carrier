@@ -44,7 +44,6 @@ migration:
           - account
           - account_cancel
           - account_budget
-          - account_extra_reports
           - base
           - base_address_city
           - board
@@ -54,18 +53,14 @@ migration:
           - hr_holidays
           - hr_recruitment
           - hr_timesheet
-          - hr_timesheet_sheet
           - l10n_ch
           - mrp
           - mrp_byproduct
           - purchase
-          - product_visible_discount
           - project
-          - project_issue
           - report_intrastat
           - sale
           - stock
-          - warning
           # Enterprise
           - account_bank_statement_import_camt
           - account_bank_statement_import_ofx
@@ -126,6 +121,8 @@ migration:
           #oca/product-attribute
           - product_dimension
           - product_state
+          #oca/purchase-workflow
+          - purchase_line_procurement_group
           #oca/project
           - project_task_default_stage
           - project_task_type_active
@@ -135,12 +132,12 @@ migration:
           - server_environment_ir_config_parameter
           #oca/server-tools
           - auditlog
+          - database_cleanup
           #oca/server-ux
           - base_technical_features
           #oca/stock-logistics-warehouse
           - stock_available_mrp
           #oca/stock-logistics-workflow
-          - purchase_line_procurement_group
           - stock_picking_purchase_propagate
           - mrp_stock_picking_restrict_cancel
           - purchase_stock_picking_restrict_cancel

@@ -108,7 +108,7 @@ def set_project_task_type_inactive(ctx):
         'project_tt_analysis',
         'project_tt_specification',
         'project_tt_design',
-        'project_tt_development'
+        'project_tt_development',
         'project_tt_testing',
         'project_tt_merge',
         'project_tt_deployment',
@@ -121,6 +121,16 @@ def set_project_task_type_inactive(ctx):
 
 
 @anthem.log
+def database_cleanup(ctx):
+    ctx.env['cleanup.purge.wizard.model'].create({}).purge_all()
+    # Do not remove the marabunta_version table
+    purge_table_wiz = ctx.env['cleanup.purge.wizard.table'].create({})
+    purge_table_wiz.purge_line_ids.filtered(
+        lambda r: r.name == 'marabunta_version').unlink()
+    purge_table_wiz.purge_all()
+
+
+@anthem.log
 def main(ctx):
     """ POST: migration """
     uninstall_modules(ctx)
@@ -128,3 +138,4 @@ def main(ctx):
     clean_duplicated_menu(ctx)
     migrate_account_reconcile_rule_values(ctx)
     set_project_task_type_inactive(ctx)
+    database_cleanup(ctx)
