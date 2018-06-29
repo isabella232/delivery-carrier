@@ -18,6 +18,7 @@ latest (unreleased)
 * BSSLX-97: Fix error message validating a vendor bill
 * BSSLX-93: Change min_date to scheduled_date on delivery slip report
 * BSSLX-93: Standardize the use of get_employee_from_user
+* BSSLX-116: Fix delivery slip print when no user on related SO
 
 **Build**
 
