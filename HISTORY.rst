@@ -63,6 +63,7 @@ latest (unreleased)
 * BSSLX-104: Install module account_bank_statement_import_camt
 * BSSLX-78: Clean uninstalled modules
 * BSSLX-70: Migrate delivery_carrier_label_postlogistics to v11
+* BSSLX-117: Fix installation of l10n_ch_payment_slip
 
 **Documentation**
 
