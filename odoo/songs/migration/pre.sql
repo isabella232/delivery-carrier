@@ -12,7 +12,6 @@ WHERE
 AND
     name NOT IN (
         'mrp_bom_dismantling',
-        'l10n_ch_payment_slip',
         'delivery_carrier_label_s3',
         'specific_timesheet',
         'specific_timesheet_activities'
@@ -37,6 +36,7 @@ WHERE
             ir_model_data
         WHERE
             module IN (
+                'l10n_ch_payment_slip',
                 'project_task_department',
                 'specific_timesheet',
                 'specific_timesheet_activities'

@@ -13,7 +13,6 @@ def uninstall_modules(ctx):
         ctx,
         [
             'mrp_bom_dismantling',
-            'l10n_ch_payment_slip',
             'delivery_carrier_label_s3',
             'specific_timesheet',
             'specific_timesheet_activities',
@@ -30,7 +29,6 @@ def clean_modules_list(ctx):
             'in',
             (
                 'mrp_bom_dismantling',
-                'l10n_ch_payment_slip',
                 'delivery_carrier_label_s3',
                 'specific_timesheet',
                 'specific_timesheet_activities',
