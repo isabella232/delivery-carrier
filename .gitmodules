@@ -19,7 +19,6 @@
 [submodule "odoo/external-src/delivery-carrier"]
 	path = odoo/external-src/delivery-carrier
 	url = git@github.com:camptocamp/carrier-delivery.git
-	branch = 11.0
 [submodule "odoo/external-src/l10n-switzerland"]
 	path = odoo/external-src/l10n-switzerland
 	url = git@github.com:camptocamp/l10n-switzerland.git
@@ -40,7 +39,7 @@
 	url = git@github.com:OCA/reporting-engine.git
 [submodule "odoo/external-src/server-tools"]
 	path = odoo/external-src/server-tools
-	url = git@github.com:OCA/server-tools.git
+	url = git@github.com:camptocamp/server-tools.git
 [submodule "odoo/external-src/stock-logistics-warehouse"]
 	path = odoo/external-src/stock-logistics-warehouse
 	url = git@github.com:camptocamp/stock-logistics-warehouse.git
