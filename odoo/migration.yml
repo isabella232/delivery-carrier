@@ -168,3 +168,8 @@ migration:
           #oca/department
           # Deprecated
           #  - project_task_department
+    - version: 11.0.1
+    - version: 11.0.2
+    - version: 11.0.3
+    - version: 11.0.4
+    - version: 11.0.5

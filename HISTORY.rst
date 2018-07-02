@@ -8,6 +8,31 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+11.0.5 (2018-07-02)
++++++++++++++++++++
+
+**Features and Improvements**
+
+**Bugfixes**
+* BSSLX-116: Fix delivery slip print when no user on related SO
+* BSSLX-112: Fix `list index out of range` in `_compute_sale_orders`.
+**Build**
+
+**Documentation**
+
+
+11.0.1 (2018-07-02)
++++++++++++++++++++
+
+**Features and Improvements**
+
 * BSSLX-82: Change behavior of field company_group on invoices (copy value instead of related)
 * BSSLX-88: Install module project_task_type_active
 * BSSLX-105: Propagate `company_group_id` to invoices if those weren't provided explicitly
@@ -18,8 +43,6 @@ latest (unreleased)
 * BSSLX-97: Fix error message validating a vendor bill
 * BSSLX-93: Change min_date to scheduled_date on delivery slip report
 * BSSLX-93: Standardize the use of get_employee_from_user
-* BSSLX-116: Fix delivery slip print when no user on related SO
-* BSSLX-112: Fix `list index out of range` in `_compute_sale_orders`.
   Change docker-compose command from `odoo.py` to `odoo`.
   Fix `table 'account_operation_rule' not found` which occur on empty db
 
