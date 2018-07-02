@@ -23,20 +23,6 @@ WHERE
 AND store_fname NOT LIKE 's3://%';
         """)
     elif os.environ.get('RUNNING_ENV') == 'integration':
-        # Update attachment from current production instance
-        ctx.env.cr.execute("""
-UPDATE
-    ir_attachment
-SET
-    store_fname = replace(
-        store_fname,
-        's3://swisslux-odoo-prod/',
-        's3://swisslux-odoo-integration-v11/'
-    )
-WHERE
-    store_fname IS NOT NULL
-AND store_fname LIKE 's3://%';
-        """)
         # Update attachment given by odoo for the database migration
         ctx.env.cr.execute("""
 UPDATE
