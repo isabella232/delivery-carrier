@@ -83,32 +83,22 @@
                     <small>
                         <div class="row">
                             <div class="col-xs-12" style="text-align: right;">
-                              <small>
                                 <small>
-                                  <strong>
-                                    Your client manager
-                                  </strong>
-                                  <t t-if="o.sale_id">
-                                    <span t-field="o.sale_id.user_id"/><br/>
-                                  </t>
-                                  <t t-if="not o.sale_id">
-                                    <span t-field="o.partner_id.user_id"/><br/>
-                                  </t>
-                                  Tel:
-                                  <t t-if="o.sale_id">
-                                    <span t-field="o.sale_id.user_id.get_employee_from_user().work_phone"/><br/>
-                                  </t>
-                                  <t t-if="not o.sale_id">
-                                    <span t-field="o.partner_id.user_id.get_employee_from_user().work_phone"/><br/>
-                                  </t>
-                                  <t t-if="o.sale_id">
-                                      <span t-field="o.sale_id.user_id.get_employee_from_user().work_email"/>
-                                  </t>
-                                  <t t-if="not o.sale_id">
-                                      <span t-field="o.partner_id.user_id.get_employee_from_user().work_email"/>
-                                  </t>
+                                    <small>
+                                        <t t-if="o.sale_id"><t t-set="user_id" t-value="o.sale_id.user_id" /></t>
+                                        <t t-else=""><t t-set="user_id" t-value="o.partner_id.user_id" /></t>
+                                        <t t-if="user_id">
+                                            <strong>
+                                                Your client manager
+                                            </strong>
+                                            <t t-esc="user_id.name" /><br/>
+                                            Tel:
+                                            <t t-set="employee_id" t-value="user_id.get_employee_from_user()" />
+                                            <t t-esc="employee_id.work_phone" /><br/>
+                                            <t t-esc="employee_id.work_email" /><br/>
+                                        </t>
+                                    </small>
                                 </small>
-                              </small>
                             </div>
                           </div>
                     </small>
