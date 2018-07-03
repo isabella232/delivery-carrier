@@ -10,6 +10,18 @@ latest (unreleased)
 
 **Bugfixes**
 
+**Build**
+
+**Documentation**
+
+
+11.0.6 (2018-07-03)
++++++++++++++++++++
+
+**Features and Improvements**
+
+**Bugfixes**
+
 * BSSLX-86: Fix some errors/warnings
 
 **Build**
