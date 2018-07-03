@@ -141,6 +141,17 @@ def database_cleanup(ctx):
 
 
 @anthem.log
+def fix_mrp_dismantling(ctx):
+    dismantling_act_window = ctx.env.ref(
+        'mrp.template_open_bom', raise_if_not_found=False
+    )
+    if dismantling_act_window:
+        dismantling_act_window.domain = ''
+    else:
+        ctx.log_line('No dismantling ir_act_window found!!!')
+
+
+@anthem.log
 def main(ctx):
     """ POST: migration """
     uninstall_modules(ctx)
@@ -149,3 +160,4 @@ def main(ctx):
     migrate_account_reconcile_rule_values(ctx)
     set_project_task_type_inactive(ctx)
     database_cleanup(ctx)
+    fix_mrp_dismantling(ctx)

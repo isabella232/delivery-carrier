@@ -26,6 +26,7 @@ latest (unreleased)
 
 * BSSLX-86: Fix some errors/warnings
 * BSSLX-120: Fix quotation sending crash
+* BSSLX-118: Fix Open a BoM from a product form
 
 **Build**
 
