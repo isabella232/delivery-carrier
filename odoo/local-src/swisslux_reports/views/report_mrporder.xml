@@ -13,11 +13,10 @@
             </h2>
         </xpath>
 
-        <xpath expr="//div[@class='page']/div[@class='row mt32 mb32'][2]" position="replace">
-        </xpath>
+        <xpath expr="//div[hasclass('page')]/div[hasclass('row mt32 mb32')][2]" position="replace"/>
 
         <!-- Change-->
-        <xpath expr="//div[@class='page']/div[@class='row mt32 mb32'][1]" position="replace">
+        <xpath expr="//div[hasclass('page')]/div[hasclass('row mt32 mb32')][1]" position="replace">
             <div class="row mt32 mb32">
                 <div class="col-xs-3">
                     <strong>Source Document:</strong><br/>

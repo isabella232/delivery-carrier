@@ -3,7 +3,7 @@
 
     <template id="report_delivery_document_in_out" priority="100" inherit_id="stock.report_delivery_document">
             <!-- Stylesheet -->
-            <xpath expr="//div[@class='row']" position="before">
+            <xpath expr="//div[hasclass('row')]" position="before">
                 <style type="text/css">
                     .upright{
                         text-align: right !important;
@@ -50,12 +50,12 @@
             </xpath>
             <!-- Throwing away unuseful table & Title -->
             <xpath expr="//h2" position="replace"> </xpath>
-            <xpath expr="//table[@class='table table-condensed']" position="replace"> </xpath>
+            <xpath expr="//table[hasclass('table') and hasclass('table-condensed')]" position="replace"/>
 
-            <xpath expr="//table[@class='table table-condensed mt48']" position="replace"> </xpath>
+            <xpath expr="//table[hasclass('table') and hasclass('table-condensed') and hasclass('mt48')]" position="replace"/>
 
             <!-- Address on top of document -->
-            <xpath expr="//div[@class='page']/div[@class='row'] " position="replace">
+            <xpath expr="//div[hasclass('page')]/div[hasclass('row')] " position="replace">
                 <t t-if="o.picking_type_id.code == 'incoming'">
                     <div class="col-xs-6 bold">
                         <span t-field="o.company_id.name"/>, <span t-field="o.company_id.zip"/> <span t-field="o.company_id.city"/>
@@ -188,7 +188,7 @@
             </xpath>
 
             <!-- Table part -->
-            <xpath expr="//table[@class='table table-condensed mt48']" position="replace">
+            <xpath expr="//table[hasclass('table') and hasclass('table-condensed') and hasclass('mt48')]" position="replace">
                 <t t-if="o.picking_type_id.code == 'incoming'">
                     <table class="table table-bordered">
                         <thead>

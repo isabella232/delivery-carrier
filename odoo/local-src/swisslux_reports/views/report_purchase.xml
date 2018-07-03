@@ -3,7 +3,7 @@
 
   <template id="report_purchaseorder_document" inherit_id="purchase.report_purchaseorder_document">
 
-    <xpath expr="//div[@class='page']" position="attributes">
+    <xpath expr="//div[hasclass('page')]" position="attributes">
       <attribute name="style">margin-left: 60px !important;</attribute>
     </xpath>
     <!-- remove 'Confirmation' from purchase order subject -->
@@ -16,7 +16,7 @@
     </xpath>
 
     <!-- Address small top right -->
-    <xpath expr="//div[@class='page']/div[@class='row'][1]" position="before">
+    <xpath expr="//div[hasclass('page')]/div[hasclass('row')][1]" position="before">
       <style type="text/css">
         .page{
           margin-right: 25px !important;
@@ -64,7 +64,7 @@
     </xpath>
 
     <!-- Address -->
-    <xpath expr="//div[@class='page']/div[@class='row'][1]" position="replace">
+    <xpath expr="//div[hasclass('page')]/div[hasclass('row')][1]" position="replace">
       <div class="row" id="address">
         <div class="col-xs-6">
               <t t-if="o.partner_id.parent_id">
@@ -79,7 +79,7 @@
     </xpath>
 
     <!-- Informations -->
-    <xpath expr="//div[@class='page']/div[@class='row mt32 mb32']" position="replace">
+    <xpath expr="//div[hasclass('page')]/div[hasclass('row') and hasclass('mt32') and hasclass('mb32')]" position="replace">
       <div class="row mt32 mb 32" id="informations">
         <div class="col-xs-6 pl-0">
           <div class="col-xs-12 pl-0">
@@ -114,7 +114,7 @@
       </div>
     </xpath>
 
-    <xpath expr="//div[@class='page']/table[@class='table table-condensed']" position="replace">
+    <xpath expr="//div[hasclass('page')]/table[hasclass('table') and hasclass('table-condensed')]" position="replace">
       <t t-set="line_counter" t-value="0"/>
       <table class="table table-condensed">
         <thead>
@@ -168,10 +168,10 @@
 
   <!-- Purchase order quotation -->
   <template id="report_purchasequotation_document" inherit_id="purchase.report_purchasequotation_document">
-    <xpath expr="//div[@class='page']" position="attributes">
+    <xpath expr="//div[hasclass('page')]" position="attributes">
         <attribute name="style">margin-left: 60px !important;margin-right: 25px !important;</attribute>
     </xpath>
-    <xpath expr="//div[@class='page']//div[@class='row mt32 mb32'][1]" position="before">
+    <xpath expr="//div[hasclass('page')]/div[hasclass('row') and hasclass('mt32') and hasclass('mb32')][1]" position="before">
       <style type="text/css">
         .page{
           margin-right: 25px !important;
@@ -198,7 +198,7 @@
       </style>
     </xpath>
     <!-- Address of swisslux & vendor -->
-    <xpath expr="//div[@class='page']/div[@class='row mt32 mb32']" position="replace">
+    <xpath expr="//div[hasclass('page')]/div[hasclass('row') and hasclass('mt32') and hasclass('mb32')]" position="replace">
       <small>
         <div class="row">
           <div class="col-xs-12" style="text-align: right;">

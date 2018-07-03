@@ -10,6 +10,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BSSLX-86: Fix some errors/warnings
+
 **Build**
 
 **Documentation**
@@ -18,14 +20,10 @@ latest (unreleased)
 11.0.5 (2018-07-02)
 +++++++++++++++++++
 
-**Features and Improvements**
-
 **Bugfixes**
+
 * BSSLX-116: Fix delivery slip print when no user on related SO
 * BSSLX-112: Fix `list index out of range` in `_compute_sale_orders`.
-**Build**
-
-**Documentation**
 
 
 11.0.1 (2018-07-02)

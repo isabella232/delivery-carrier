@@ -2,11 +2,11 @@
 <odoo>
 
     <template id="report_saleorder_document" inherit_id="sale.report_saleorder_document">
-        <xpath expr="//div[@class='page']" position="attributes">
+        <xpath expr="//div[hasclass('page')]" position="attributes">
             <attribute name="style">margin-left: 60px !important;</attribute>
         </xpath>
-        <xpath expr="//div[@class='row']/div" position="replace"/>
-        <xpath expr="//div[@class='row']/div/div[@t-field='doc.partner_id']/.." position="replace">
+        <xpath expr="//div[hasclass('row')]/div" position="replace"/>
+        <xpath expr="//div[hasclass('row')]/div/div[@t-field='doc.partner_id']/.." position="replace">
             <div class="col-xs-6">
                 <t t-if="doc.partner_id.parent_id">
                     <span t-field="doc.partner_id.parent_id"/><br/>
@@ -19,7 +19,7 @@
             </div>
         </xpath>
 
-        <xpath expr="//div[@class='row']" position="before">
+        <xpath expr="//div[hasclass('row')]" position="before">
             <style type="text/css">
                 h2{
                 font-weight: bold;
@@ -298,7 +298,7 @@
 
         </t>
 
-        <xpath expr="//table[@class='table table-condensed']/tr[@class='border-black']/td/strong" position="replace">
+        <xpath expr="//table[hasclass('table') and hasclass('table-condensed')]/tr[hasclass('border-black')]/td/strong" position="replace">
             <strong>Total Without Taxes</strong>
         </xpath>
 

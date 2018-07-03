@@ -2,12 +2,12 @@
 <odoo>
 
     <template id="report_invoice_document" inherit_id="sale.report_invoice_document_inherit_sale">
-        <xpath expr="//div[@class='page']" position="attributes">
+        <xpath expr="//div[hasclass('page')]" position="attributes">
             <attribute name="style">margin-left: 60px !important;</attribute>
         </xpath>
 
         <!-- Put address on left side for letter -->
-        <xpath expr="//div[@class='row']/div/address[@t-field='o.partner_id']/.." position="replace">
+        <xpath expr="//div[hasclass('row')]/div/address[@t-field='o.partner_id']/.." position="replace">
             <!-- 1 Address IF no eev_nr or eev_alarm for a company or contact in a company AND
             payment term not to the EEV -->
             <t t-if="not (o.partner_id.eev_member or o.partner_id.parent_id.eev_member) or (o.partner_id.eev_alarm or o.partner_id.parent_id.eev_alarm) or not (o.payment_term_id == o.env.ref('scenario.accountpaymentterm_eev'))">
@@ -45,7 +45,7 @@
             </t>
         </xpath>
 
-        <xpath expr="//div[@class='row']" position="before">
+        <xpath expr="//div[hasclass('row')]" position="before">
             <style type="text/css">
                 h2{
                 font-weight: bold;
@@ -97,7 +97,7 @@
         </xpath>
 
         <!-- References of Invoice before InvoiceLines -->
-        <xpath expr="//div[@class='row mt32 mb32']" position="replace">
+        <xpath expr="//div[hasclass('row') and hasclass('mt32') and hasclass('mb32')]" position="replace">
             <div class="row mt32 mb32" id="informations">
                 <div t-if="o.name" class="col-xs-6 lp-0" name="reference">
                     <div class="col-xs-5"><strong>Your Reference:</strong>
