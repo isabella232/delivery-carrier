@@ -12,5 +12,5 @@ class IrActionsReport(models.Model):
         """ Don't save attachment if the report is generated for email.
         """
         if 'default_template_id' in self.env.context:
-            save_in_attachment = False
+            save_in_attachment = {}
         return super()._post_pdf(save_in_attachment, pdf_content, res_ids)
