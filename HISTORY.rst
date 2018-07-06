@@ -9,6 +9,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSLX-102: Migrate the mrp order report in V11
+* BSSLX-123: Add "Include in statistics" custom filter in V11 `report.all.channels.sales` report
 
 **Bugfixes**
 

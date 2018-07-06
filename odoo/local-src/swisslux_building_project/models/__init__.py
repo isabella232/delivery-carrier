@@ -8,6 +8,7 @@ from . import building_project_stage
 from . import building_project
 from . import building_project_pricelist
 from . import res_users
+from . import report_all_channels_sales
 from . import sale
 from . import sale_report
 from . import product

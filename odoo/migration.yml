@@ -174,3 +174,7 @@ migration:
     - version: 11.0.4
     - version: 11.0.5
     - version: 11.0.6
+    - version: 11.0.7
+      addons:
+        upgrade:
+          - swisslux_building_project
