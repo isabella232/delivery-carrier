@@ -73,5 +73,5 @@
 	url = git@github.com:camptocamp/bank-statement-reconcile.git
 [submodule "odoo/external-src/bank-statement-import"]
 	path = odoo/external-src/bank-statement-import
-	url = git@github.com:OCA/bank-statement-import.git
+	url = git@github.com:camptocamp/bank-statement-import.git
 	branch = 11.0
