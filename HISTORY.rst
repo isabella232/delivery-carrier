@@ -10,10 +10,14 @@ latest (unreleased)
 
 * BSSLX-102: Migrate the mrp order report in V11
 * BSSLX-123: Add "Include in statistics" custom filter in V11 `report.all.channels.sales` report
+* BSSLX-127: Uninstall account_bank_statement_import_camt.
+  Install account_bank_statement_import_camt_oca.
 
 **Bugfixes**
 
 **Build**
+
+* BSSLX-127: Add OCA/bank-statement-import
 
 **Documentation**
 

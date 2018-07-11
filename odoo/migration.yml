@@ -62,7 +62,6 @@ migration:
           - sale
           - stock
           # Enterprise
-          - account_bank_statement_import_camt
           - account_bank_statement_import_ofx
           - account_reports
           - account_reports_followup
@@ -98,6 +97,8 @@ migration:
           - account_payment_order
           - account_payment_partner
           - account_payment_sale
+          #oca/bank-statement-import
+          - account_bank_statement_import_camt_oca
           #oca/account-reconcile
           - account_reconcile_rule
           - account_reconcile_rule_early_payment_discount
@@ -175,6 +176,13 @@ migration:
     - version: 11.0.5
     - version: 11.0.6
     - version: 11.0.7
+      modes:
+        migration:
+          operations:
+            pre:
+              - anthem songs.migration.11_0_7::pre
       addons:
         upgrade:
+          #oca/bank-statement-import
+          - account_bank_statement_import_camt_oca
           - swisslux_building_project

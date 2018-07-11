@@ -96,3 +96,13 @@
     # [11.0][MIG] configuration_helper
     - oca refs/pull/1261/head
   target: *default_target
+./external-src/bank-statement-import:
+  remotes:
+    oca: git@github.com:OCA/bank-statement-import.git
+    camptocamp: git@github.com:camptocamp/bank-statement-import.git
+  merges:
+    - oca 11.0
+    # [11.0][FIX] Fix CAMT import without NTRY
+    # https://github.com/OCA/bank-statement-import/pull/163
+    - oca refs/pull/163/head
+  target: *default_target
