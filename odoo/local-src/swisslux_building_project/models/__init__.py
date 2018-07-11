@@ -10,6 +10,7 @@ from . import building_project_pricelist
 from . import res_users
 from . import sale
 from . import sale_report
+from . import report_all_channels_sales
 from . import product
 from . import partner_role
 from . import partner
