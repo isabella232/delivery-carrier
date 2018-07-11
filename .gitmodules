@@ -71,3 +71,7 @@
 [submodule "odoo/external-src/account-reconcile"]
 	path = odoo/external-src/account-reconcile
 	url = git@github.com:camptocamp/bank-statement-reconcile.git
+[submodule "odoo/external-src/bank-statement-import"]
+	path = odoo/external-src/bank-statement-import
+	url = git@github.com:camptocamp/bank-statement-import.git
+	branch = 11.0

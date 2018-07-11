@@ -9,10 +9,14 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSLX-102: Migrate the mrp order report in V11
+* BSSLX-127: Uninstall account_bank_statement_import_camt.
+  Install account_bank_statement_import_camt_oca.
 
 **Bugfixes**
 
 **Build**
+
+* BSSLX-127: Add OCA/bank-statement-import
 
 **Documentation**
 
