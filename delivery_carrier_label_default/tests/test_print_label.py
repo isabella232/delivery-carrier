@@ -16,9 +16,8 @@ def patch_label_file_type(function):
     to allow the 'html' type when running tests.
     """
     def wrapper(*args, **kwargs):
-        with mock.patch(LABEL_MODEL + '._selection_file_type') as (
-                _selection_file_type):
-            _selection_file_type.return_value = [('html', 'HTML')]
+        with mock.patch(LABEL_MODEL + '.file_type') as (file_type):
+            file_type.return_value = 'html'
             result = function(*args, **kwargs)
         return result
     return wrapper
@@ -68,6 +67,7 @@ class TestPrintLabel(common.SavepointCase, HTMLRenderMixin):
 
     def check_label_content(self, b64_datas):
         html_datas = base64.b64decode(b64_datas)
+        # html_datas = b64_datas
         node = self.to_xml_node(html_datas)[0]
         for div_class in ['page', 'address', 'recipient']:
             tags = self.find_div_class(node, div_class)
@@ -76,6 +76,8 @@ class TestPrintLabel(common.SavepointCase, HTMLRenderMixin):
     @patch_label_file_type
     def test_print_default_label(self):
         # assign picking to generate 'stock.move.line'
+        import pdb
+        pdb.set_trace()
         self.picking.action_confirm()
         self.picking.action_assign()
         self.picking.action_generate_carrier_label()
@@ -108,4 +110,4 @@ class TestPrintLabel(common.SavepointCase, HTMLRenderMixin):
             self.assertTrue(label.datas)
             self.assertEquals(label.name, "Shipping Label.html")
             self.assertEquals(label.file_type, 'html')
-            self.check_label_content(label.datas)
+            # self.check_label_content(label.datas)
