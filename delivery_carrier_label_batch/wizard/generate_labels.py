@@ -52,39 +52,23 @@ class DeliveryCarrierLabelGenerate(models.TransientModel):
             yield pack, list(grp_operations), pack_label
 
     @api.model
-    def _find_picking_label(self, picking, f_type=None):
+    def _find_picking_label(self, picking):
         label_obj = self.env['shipping.label']
         domain = [
             ('res_id', '=', picking.id),
             ('package_id', '=', False),
         ]
-        if f_type:
-            domain.append(('file_type', '=', f_type))
         return label_obj.search(
             domain, order='create_date DESC', limit=1
         )
 
     @api.model
-    def _find_pack_label(self, pack, f_type=None):
+    def _find_pack_label(self, pack):
         label_obj = self.env['shipping.label']
         domain = [('package_id', '=', pack.id)]
-        if f_type:
-            domain.append(('file_type', '=', f_type))
         return label_obj.search(
             domain, order='create_date DESC', limit=1
         )
-
-    def get_file_types(self):
-        """Return the list of file types of related shipping labels."""
-        picking_ids = self.mapped('batch_ids.picking_ids').ids
-        labels = self.env['shipping.label'].search(
-            [
-                ('res_model', '=', 'stock.picking'),
-                ('res_id', 'in', picking_ids),
-            ],
-        )
-        file_types = list(set(labels.mapped('file_type')))
-        return file_types
 
     @contextmanager
     @api.model
@@ -150,7 +134,7 @@ class DeliveryCarrierLabelGenerate(models.TransientModel):
         return int(num_workers)
 
     @api.multi
-    def _get_all_files(self, batch, file_type):
+    def _get_all_files(self, batch):
         self.ensure_one()
 
         data_queue = Queue.Queue()
@@ -217,15 +201,17 @@ class DeliveryCarrierLabelGenerate(models.TransientModel):
         with self._do_in_new_env() as new_env:
             # labels = new_env['shipping.label']
             self_env = self.with_env(new_env)
+            labels = []
             for pack, operations, label in self_env._get_packs(batch):
                 picking = operations[0].picking_id
                 if pack:
-                    label = self_env._find_pack_label(pack, file_type)
+                    label = self_env._find_pack_label(pack)
                 else:
-                    label = self_env._find_picking_label(picking, file_type)
+                    label = self_env._find_picking_label(picking)
                 if not label:
                     continue
-                yield label.attachment_id.datas
+                labels.append((label.file_type, label.attachment_id.datas))
+            return labels
 
     @api.multi
     def action_generate_labels(self):
@@ -250,11 +236,16 @@ class DeliveryCarrierLabelGenerate(models.TransientModel):
             )
 
         for batch in to_generate:
-            for f_type in self.get_file_types():
-                labels = self._get_all_files(batch, f_type)
-                labels = [label.decode('base64') for label in labels if label]
+            labels = self._get_all_files(batch)
+            labels_by_f_type = self._group_labels_by_file_type(labels)
+            for f_type, labels in labels_by_f_type.iteritems():
+                labels_b64 = [label for label in labels if label]
                 filename = batch.name + '.' + f_type
-                filedata = self._concat_files(f_type, labels).encode('base64')
+                filedata = self._concat_files(f_type, labels_b64)
+                if not filedata:
+                    # Merging of `f_type` not supported, so we cannot
+                    # create the attachment
+                    continue
                 data = {
                     'name': filename,
                     'res_id': batch.id,
@@ -269,11 +260,18 @@ class DeliveryCarrierLabelGenerate(models.TransientModel):
         }
 
     @api.model
+    def _group_labels_by_file_type(self, labels):
+        res = {}
+        for f_type, label in labels:
+            res.setdefault(f_type, [])
+            res[f_type].append(label)
+        return res
+
+    @api.model
     def _concat_files(self, file_type, files):
         if file_type == 'pdf':
             return assemble_pdf(files)
         if file_type == 'zpl2':
             return assemble_zpl2(files)
-        raise NotImplementedError(
-            _("Merging files of type '{}' is not supported.".format(
-                file_type)))
+        # Merging files of `file_type` not supported, we return nothing
+        return
