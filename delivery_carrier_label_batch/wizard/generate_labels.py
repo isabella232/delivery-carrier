@@ -7,7 +7,7 @@ import openerp
 import threading
 from contextlib import contextmanager
 from itertools import groupby
-from openerp import _, api, exceptions, fields, models
+from openerp import _, api, exceptions, fields, models, tools
 
 from ..pdf_utils import assemble_pdf
 from ..zpl_utils import assemble_zpl2
@@ -73,6 +73,9 @@ class DeliveryCarrierLabelGenerate(models.TransientModel):
     @contextmanager
     @api.model
     def _do_in_new_env(self):
+        if tools.config["test_enable"]:
+            yield self.env
+            raise StopIteration
         with openerp.api.Environment.manage():
             with openerp.registry(self.env.cr.dbname).cursor() as new_cr:
                 yield openerp.api.Environment(new_cr, self.env.uid,
@@ -239,9 +242,11 @@ class DeliveryCarrierLabelGenerate(models.TransientModel):
             labels = self._get_all_files(batch)
             labels_by_f_type = self._group_labels_by_file_type(labels)
             for f_type, labels in labels_by_f_type.iteritems():
-                labels_b64 = [label for label in labels if label]
+                labels_bin = [
+                    label.decode("base64") for label in labels if label
+                ]
                 filename = batch.name + '.' + f_type
-                filedata = self._concat_files(f_type, labels_b64)
+                filedata = self._concat_files(f_type, labels_bin)
                 if not filedata:
                     # Merging of `f_type` not supported, so we cannot
                     # create the attachment
@@ -250,7 +255,7 @@ class DeliveryCarrierLabelGenerate(models.TransientModel):
                     'name': filename,
                     'res_id': batch.id,
                     'res_model': 'stock.batch.picking',
-                    'datas': filedata,
+                    'datas': filedata.encode("base64"),
                     'datas_fname': filename,
                 }
                 self.env['ir.attachment'].create(data)
