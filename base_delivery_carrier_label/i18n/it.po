@@ -1,22 +1,21 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * base_delivery_carrier_label
-# 
+#
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
-# Paolo Valier <paolo.valier@hotmail.it>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-10 01:50+0000\n"
-"PO-Revision-Date: 2016-12-10 01:50+0000\n"
-"Last-Translator: Paolo Valier <paolo.valier@hotmail.it>, 2016\n"
+"POT-Creation-Date: 2017-07-01 02:32+0000\n"
+"PO-Revision-Date: 2017-07-01 02:32+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: base_delivery_carrier_label
@@ -99,7 +98,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:base_delivery_carrier_label.field_delivery_carrier_template_option_code
 #: model:ir.model.fields,field_description:base_delivery_carrier_label.field_stock_picking_carrier_code
 msgid "Code"
-msgstr ""
+msgstr "Codice"
 
 #. module: base_delivery_carrier_label
 #: model:ir.model.fields,field_description:base_delivery_carrier_label.field_shipping_label_company_id
@@ -344,11 +343,12 @@ msgid "Shipping Label"
 msgstr ""
 
 #. module: base_delivery_carrier_label
-#: code:addons/base_delivery_carrier_label/models/stock_picking.py:252
+#: code:addons/base_delivery_carrier_label/models/stock_picking.py:253
 #, python-format
 msgid ""
 "Some labels already exist for the picking %s.\n"
-"Please delete the existing labels in the attachments of this picking and try again"
+"Please delete the existing labels in the attachments of this picking and try "
+"again"
 msgstr ""
 
 #. module: base_delivery_carrier_label
@@ -374,8 +374,7 @@ msgstr ""
 #. module: base_delivery_carrier_label
 #: model:ir.model.fields,help:base_delivery_carrier_label.field_stock_quant_package_total_weight
 msgid ""
-"Total weight of the package in kg, including the weight of the logistic "
-"unit."
+"Total weight of the package in kg, including the weight of the logistic unit."
 msgstr ""
 
 #. module: base_delivery_carrier_label
@@ -420,7 +419,7 @@ msgid ""
 msgstr ""
 
 #. module: base_delivery_carrier_label
-#: code:addons/base_delivery_carrier_label/models/stock_picking.py:159
+#: code:addons/base_delivery_carrier_label/models/stock_picking.py:160
 #, python-format
 msgid ""
 "You should not remove a mandatory option.Please cancel the edit or add back "
