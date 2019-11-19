@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Camptocamp SA
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
   <record id="view_postlogistics_config_settings" model="ir.ui.view">
     <field name="name">postlogistics settings</field>
@@ -11,7 +13,7 @@
         <div class="row mt16 o_settings_container" id="postlogistics_ws_authentication">
           <div class="col-xs-12 col-md-6 o_setting_box" id="credentials">
             <div class="o_setting_right_pane">
-              <label string="Credentials"/>
+              <span>Credentials</span>
               <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." groups="base.group_multi_company"/>
               <div class="text-muted">
                 For "Swiss Post Business customer" account
@@ -42,7 +44,7 @@
         <div class="row mt16 o_settings_container" id="postlogistics_sender_infos">
           <div class="col-xs-12 col-md-6 o_setting_box" id="sender_logo">
             <div class="o_setting_right_pane">
-              <label string="Logo"/>
+              <span>Logo</span>
               <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." groups="base.group_multi_company"/>
               <div class="text-muted">
                 Company Logo on Post labels
@@ -56,7 +58,7 @@
           </div>
           <div class="col-xs-12 col-md-6 o_setting_box" id="sender_post_office">
             <div class="o_setting_right_pane">
-              <label string="Post office"/>
+              <span>Post office</span>
               <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." groups="base.group_multi_company"/>
               <div class="text-muted">
                 Post office which will receive the shipped goods

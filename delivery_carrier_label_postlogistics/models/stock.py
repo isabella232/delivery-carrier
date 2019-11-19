@@ -1,7 +1,8 @@
-# Copyright 2013-2017 Yannick Vaucher (Camptocamp SA)
+# Copyright 2013-2019 Yannick Vaucher (Camptocamp SA)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from operator import attrgetter
 import base64
+from operator import attrgetter
+
 from odoo import _, api, exceptions, fields, models
 
 from ..postlogistics.web_service import PostlogisticsWebService
