@@ -1,4 +1,4 @@
-# Copyright 2013-2017 Yannick Vaucher (Camptocamp SA)
+# Copyright 2013-2019 Yannick Vaucher (Camptocamp SA)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 import re
 import logging
@@ -214,21 +214,21 @@ class PostlogisticsWebService(object):
         label_layout = self._get_single_option(picking, 'label_layout')
         if not label_layout:
             company = picking.company_id
-            label_layout = company.postlogistics_default_label_layout.code
+            label_layout = company.postlogistics_label_layout.code
         return label_layout
 
     def _get_output_format(self, picking):
         output_format = self._get_single_option(picking, 'output_format')
         if not output_format:
             company = picking.company_id
-            output_format = company.postlogistics_default_output_format.code
+            output_format = company.postlogistics_output_format.code
         return output_format
 
     def _get_image_resolution(self, picking):
         resolution = self._get_single_option(picking, 'resolution')
         if not resolution:
             company = picking.company_id
-            resolution = company.postlogistics_default_resolution.code
+            resolution = company.postlogistics_resolution.code
         return resolution
 
     def _get_license(self, picking):
