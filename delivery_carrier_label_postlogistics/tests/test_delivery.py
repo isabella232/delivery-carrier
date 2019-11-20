@@ -15,7 +15,7 @@ class TestDelivery(common.SavepointCase):
 
     @classmethod
     def setUpClass(cls):
-        super(TestDelivery, cls).setUpClass()
+        super().setUpClass()
         cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.service_group = cls.env['postlogistics.service.group'].create({
             'name': "TEST SERVICE GROUP",

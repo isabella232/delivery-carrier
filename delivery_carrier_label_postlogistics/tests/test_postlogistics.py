@@ -10,8 +10,7 @@ class FakeWS(PostlogisticsWebService):
     def generate_label(self, picking, packages, user_lang=None):
         # call super to pass in the methods so we can check their
         # behavior.
-        super(FakeWS, self).generate_label(picking, packages,
-                                           user_lang=user_lang)
+        super().generate_label(picking, packages, user_lang=user_lang)
         # but returns a fake label
         result = {
             'value': [{'item_id': picking.id,
@@ -35,7 +34,7 @@ output_path = ('odoo.addons.delivery_carrier_label_postlogistics'
 class TestPostlogistics(common.TransactionCase):
 
     def setUp(self):
-        super(TestPostlogistics, self).setUp()
+        super().setUp()
         Product = self.env['product.product']
         partner_id = self.env.ref(
             'delivery_carrier_label_postlogistics.partner_postlogistics').id
