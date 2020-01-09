@@ -16,6 +16,7 @@
  'data': ['data/partner.xml',
           'data/product.xml',
           'data/delivery.xml',
+          'wizards/postlogistics_oauth.xml',
           'views/delivery.xml',
           'views/postlogistics_license.xml',
           'views/res_config.xml',
@@ -26,7 +27,14 @@
  'auto_install': False,
  'application': True,
  'external_dependencies': {
-     'python': ['suds'],
+     'python': [
+         'oauthlib',
+         # these are dependencies but as they don't have the same name of
+         # package / module, we can't list them here
+         # 'requests-oauthlib',
+         # 'requests-toolbelt',
+         # 'PyJWT',
+         'cryptography',
+     ],
  },
- 'post_load': 'patch_suds',
  }
