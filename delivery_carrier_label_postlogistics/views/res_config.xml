@@ -136,18 +136,6 @@
             </div>
           </div>
         </div>
-        <h2>Actions</h2>
-        <div class="row mt16 o_settings_container" id="postlogistics_actions">
-          <div class="col-xs-12 col-md-6 o_setting_box" id="actions">
-            <div class="o_setting_left_pane">
-              <button string="Update PostLogistics Services"
-                type="object" name="update_postlogistics_options" class="oe_highlight"/>
-              <p/>
-              <button string="Assign PostLogistics Licenses to service groups"
-                type="object" name="assign_licenses_to_service_groups" class="oe_highlight"/>
-            </div>
-          </div>
-        </div>
       </div>
       </xpath>
     </field>
