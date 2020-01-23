@@ -1,5 +1,7 @@
 # Copyright 2013-2019 Yannick Vaucher (Camptocamp SA)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
+import base64
 import re
 import logging
 from urllib.request import HTTPSHandler
@@ -48,16 +50,7 @@ class PostlogisticsWebService(object):
     """
 
     def __init__(self, company):
-        self.init_connection(company)
         self.default_lang = company.partner_id.lang or 'en'
-
-    def init_connection(self, company):
-        t = HttpAuthenticated(
-            username=company.postlogistics_username,
-            password=company.postlogistics_password)
-        self.client = Client(
-            company.postlogistics_wsdl_url,
-            transport=t)
 
     def _send_request(self, request, **kwargs):
         """ Wrapper for API requests
@@ -96,43 +89,11 @@ class PostlogisticsWebService(object):
         """
         if not lang:
             lang = self.default_lang
-        available_languages = self.client.factory.create('ns0:Language')
+        available_languages = ['de', 'en', 'fr', 'it']
         lang_code = lang.split('_')[0]
         if lang_code in available_languages:
             return lang_code
         return 'en'
-
-    def read_allowed_services_by_franking_license(self, cp_license, lang=None):
-        """ Get a list of allowed service for a postlogistics licence """
-        lang = self._get_language(lang)
-        request = self.client.service.ReadAllowedServicesByFrankingLicense
-        return self._send_request(request, FrankingLicense=cp_license,
-                                  Language=lang)
-
-    def read_service_groups(self, lang):
-        """ Get group of services """
-        lang = self._get_language(lang)
-        request = self.client.service.ReadServiceGroups
-        return self._send_request(request, Language=lang)
-
-    def read_basic_services(self, service_group_id, lang):
-        """ Get basic services for a given service group """
-        lang = self._get_language(lang)
-        request = self.client.service.ReadBasicServices
-        return self._send_request(request, Language=lang,
-                                  ServiceGroupID=service_group_id)
-
-    def read_additional_services(self, service_code, lang):
-        """ Get additional services compatible with a basic services """
-        lang = self._get_language(lang)
-        request = self.client.service.ReadAdditionalServices
-        return self._send_request(request, Language=lang, PRZL=service_code)
-
-    def read_delivery_instructions(self, service_code, lang):
-        """ Get delivery instruction 'ZAW' compatible with a base service """
-        lang = self._get_language(lang)
-        request = self.client.service.ReadDeliveryInstructions
-        return self._send_request(request, Language=lang, PRZL=service_code)
 
     def _prepare_recipient(self, picking):
         """ Create a ns0:Recipient as a dict from a partner
@@ -234,23 +195,16 @@ class PostlogisticsWebService(object):
     def _get_license(self, picking):
         """ Get the license
 
-        Take it from carrier and if not defined get the first license
-        depending on service group. This needs to have associated
-        licenses to groups.
+        Take it from carrier and if not defined get the first license.
 
         :return: license number
         """
         franking_license = picking.carrier_id.postlogistics_license_id
         if not franking_license:
             company_licenses = picking.company_id.postlogistics_license_ids
-            group = picking.carrier_id.postlogistics_service_group_id
-            if not company_licenses or not group:
+            if not company_licenses:
                 return None
-            group_license_ids = [l.id for l in group.postlogistics_license_ids]
-            if not group_license_ids:
-                return None
-            franking_license = [l for l in company_licenses
-                                if l.id in group_license_ids][0]
+            franking_license = company_licenses[0]
         return franking_license.number
 
     def _prepare_attributes(self, picking, pack_num=None, pack_total=None):
@@ -470,7 +424,7 @@ class PostlogisticsWebService(object):
                 file_type = output_format if output_format != 'spdf' else 'pdf'
                 res['value'].append({
                     'item_id': item.ItemID,
-                    'binary': item.Label,
+                    'binary': base64.b64encode(bytes(item.Label, 'utf-8')),
                     'tracking_number': item.IdentCode,
                     'file_type': file_type,
                 })
