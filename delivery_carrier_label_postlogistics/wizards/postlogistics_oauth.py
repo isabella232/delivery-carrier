@@ -32,7 +32,7 @@ class PostlogisticsAuth(models.TransientModel):
         icp = self.env['ir.config_parameter']
         client_id = icp.get_param('postlogistics.oauth.client_id')
         client_secret = icp.get_param('postlogistics.oauth.client_secret')
-        if client_id and client_id:
+        if client_id and client_secret:
             res['client_id'] = client_id
             res['client_secret'] = client_secret
             res['state'] = 'done'
