@@ -41,6 +41,7 @@ class PostlogisticsAuth(models.TransientModel):
 
     @api.multi
     def generate_access_token(self):
+        self.ensure_one()
 
         authentication_url = 'https://wedecint.post.ch/WEDECOAuth/token'
 
