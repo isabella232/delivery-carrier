@@ -9,6 +9,7 @@
     <field name="model">postlogistics.auth</field>
     <field name="arch" type="xml">
       <form string="Postlogistics Auth">
+
         <field invisible="1" name="state"/>
 
         <!--    To do   -->
@@ -17,13 +18,10 @@
         </group>
 
         <group states="todo">
+          <field name="authentication_url"/>
+          <field name="generate_label_url"/>
           <field name="client_id" required="1"/>
           <field name="client_secret" required="1"/>
-        </group>
-
-        <!--    Done    -->
-        <group states="done">
-          <h2>OAuth configuration complete</h2>
         </group>
 
         <footer states="todo">
@@ -31,10 +29,16 @@
           <button special="cancel" string="Cancel"/>
         </footer>
 
+        <!--    Done    -->
+        <group states="done">
+          <h2>OAuth configuration complete</h2>
+        </group>
+
         <footer states="done">
           <button name="reset_access_token" type="object" string="Reset access token"/>
           <button special="cancel" string="Close" class="btn-primary"/>
         </footer>
+
       </form>
     </field>
   </record>

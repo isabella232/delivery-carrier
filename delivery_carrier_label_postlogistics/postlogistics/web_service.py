@@ -333,6 +333,9 @@ class PostlogisticsWebService(object):
         icp = env['ir.config_parameter']
         client_id = icp.get_param('postlogistics.oauth.client_id')
         client_secret = icp.get_param('postlogistics.oauth.client_secret')
+        authentication_url = icp.get_param(
+            'postlogistics.oauth.authentication_url'
+        )
 
         if not (client_id and client_secret):
             raise exceptions.UserError(
@@ -340,7 +343,6 @@ class PostlogisticsWebService(object):
                   'Please verify postlogistics client id and secret in:\n'
                   'Configuration -> Postlogistics'))
 
-        authentication_url = 'https://wedecint.post.ch/WEDECOAuth/token'
         response_token = requests.post(
             url=authentication_url,
             headers={'content-type': 'application/x-www-form-urlencoded'},
@@ -402,8 +404,12 @@ class PostlogisticsWebService(object):
 
         res = {'value': []}
 
+        icp = picking.env['ir.config_parameter']
+        generate_label_url = icp.get_param(
+            'postlogistics.oauth.generate_label_url'
+        )
         response = requests.post(
-            url='https://wedecint.post.ch/api/barcode/v1/generateAddressLabel',
+            url=generate_label_url,
             headers={
                 'Authorization': 'Bearer %s' % access_token,
                 'accept': 'application/json',
