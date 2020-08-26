@@ -63,6 +63,7 @@ class SaleOrder(models.Model):
             "product_id": fee_product.id,
             "tax_id": [(6, 0, taxes_ids)],
             "price_unit": price_unit,
+            "package_fee_id": package_fee.id,
         }
         if self.order_line:
             values["sequence"] = self.order_line[-1].sequence + 1
@@ -76,3 +77,20 @@ class SaleOrder(models.Model):
 
         values = self._prepare_package_fee_line(package_fee, picking, qty, price_unit)
         return line_model.create(values)
+
+    def copy_data(self, default=None):
+        result = super().copy_data(default=default)
+        new_result = []
+        for values in result:
+            # "sale" module sets this key
+            if "order_line" in values:
+                # remove package fee lines
+                order_lines = [
+                    line
+                    for line in values["order_line"]
+                    # lines are (0, 0, {}) commands
+                    if not line[2].get("package_fee_id")
+                ]
+                values["order_line"] = order_lines
+            new_result.append(values)
+        return new_result
