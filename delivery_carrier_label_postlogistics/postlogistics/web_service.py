@@ -7,8 +7,10 @@ import logging
 import json
 import unidecode
 import requests
+import threading
 from PIL import Image
 from io import StringIO
+from datetime import datetime, timedelta
 
 from odoo import _, exceptions
 
@@ -35,6 +37,10 @@ class PostlogisticsWebService(object):
     Allows to generate labels
 
     """
+
+    access_token = False
+    access_token_expiry = False
+    _lock = threading.Lock()
 
     def __init__(self, company):
         self.default_lang = company.partner_id.lang or 'en'
@@ -337,40 +343,52 @@ class PostlogisticsWebService(object):
         }
 
     def get_access_token(self, env):
-        icp = env['ir.config_parameter'].sudo()
-        client_id = icp.get_param('postlogistics.oauth.client_id')
-        client_secret = icp.get_param('postlogistics.oauth.client_secret')
-        authentication_url = icp.get_param(
-            'postlogistics.oauth.authentication_url'
-        )
+        """Threadsafe access to token"""
 
-        if not (client_id and client_secret):
-            raise exceptions.UserError(
-                _('Authorization Required\n\n'
-                  'Please verify postlogistics client id and secret in:\n'
-                  'Configuration -> Postlogistics'))
+        with self._lock:
+            now = datetime.now()
 
-        response_token = requests.post(
-            url=authentication_url,
-            headers={'content-type': 'application/x-www-form-urlencoded'},
-            data={
-                'grant_type': 'client_credentials',
-                'client_id': client_id,
-                'client_secret': client_secret,
-                'scope': 'WEDEC_BARCODE_READ',
-            },
-            timeout=60,
-        )
-        response_token_dict = json.loads(response_token.content.decode("utf-8"))
-        access_token = response_token_dict['access_token']
+            if self.access_token:
+                # keep a safe margin on the expiration
+                expiry = self.access_token_expiry - timedelta(seconds=5)
+                if now < expiry:
+                    return
 
-        if not (access_token):
-            raise exceptions.UserError(
-                _('Authorization Required\n\n'
-                  'Please verify postlogistics client id and secret in:\n'
-                  'Configuration -> Postlogistics'))
+            icp = env['ir.config_parameter'].sudo()
+            client_id = icp.get_param('postlogistics.oauth.client_id')
+            client_secret = icp.get_param('postlogistics.oauth.client_secret')
+            authentication_url = icp.get_param(
+                'postlogistics.oauth.authentication_url'
+            )
 
-        return access_token
+            if not (client_id and client_secret):
+                raise exceptions.UserError(
+                    _('Authorization Required\n\n'
+                      'Please verify postlogistics client id and secret in:\n'
+                      'Configuration -> Postlogistics'))
+
+            response = requests.post(
+                url=authentication_url,
+                headers={'content-type': 'application/x-www-form-urlencoded'},
+                data={
+                    'grant_type': 'client_credentials',
+                    'client_id': client_id,
+                    'client_secret': client_secret,
+                    'scope': 'WEDEC_BARCODE_READ',
+                },
+                timeout=60,
+            )
+            data = response.json()
+            self.access_token = data['access_token']
+
+            if not (self.access_token):
+                raise exceptions.UserError(
+                    _('Authorization Required\n\n'
+                      'Please verify postlogistics client id and secret in:\n'
+                      'Configuration -> Postlogistics'))
+
+            self.access_token_expiry = now + timedelta(seconds=data["expires_in"])
+            return self.access_token
 
     def generate_label(self, picking, packages, user_lang=None):
         """ Generate a label for a picking
