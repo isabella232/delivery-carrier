@@ -19,6 +19,6 @@ class SaleOrderLine(models.Model):
     @api.depends("is_free_delivery")
     def _get_to_invoice_qty(self):
         free_delivery_lines = self.filtered("is_free_delivery")
-        free_delivery_lines.qty_to_invoice = 0
+        # free_delivery_lines.qty_to_invoice = 0
         other_lines = self - free_delivery_lines
         super(SaleOrderLine, other_lines)._get_to_invoice_qty()

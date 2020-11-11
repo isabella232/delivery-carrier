@@ -42,63 +42,33 @@ class TestDeliveryFreeFeeRemoval(SavepointCase):
                 ],
             }
         )
-        # Get the product in stock
-        stock_inventory = cls.env["stock.inventory"].create(
-            {
-                "name": "Stock Inventory",
-                "product_ids": [(4, product.id)],
-                "line_ids": [
-                    (
-                        0,
-                        0,
-                        {
-                            "product_id": product.id,
-                            "product_uom_id": product.uom_id.id,
-                            "product_qty": 12,
-                            "location_id": cls.env.ref("stock.stock_location_14").id,
-                        },
-                    )
-                ],
-            }
-        )
-        stock_inventory._action_start()
-        stock_inventory.action_validate()
 
     def test_delivery_free_fee_removal_with_fee(self):
         self.sale.set_delivery_line(self.delivery, 100)
         delivery_line = self.sale.mapped("order_line").filtered(lambda x: x.is_delivery)
         self.sale.action_confirm()
         self.assertRecordValues(
-            delivery_line, [{"is_free_delivery": False, "qty_to_invoice": 1}]
+            delivery_line,
+            [
+                {
+                    "is_free_delivery": False,
+                    "qty_to_invoice": 1,
+                    "invoice_status": "to invoice",
+                }
+            ],
         )
-        self.deliver_and_invoice_order(self.sale)
 
     def test_delivery_free_fee_removal_free_fee(self):
         self.sale.set_delivery_line(self.delivery, 0)
         delivery_line = self.sale.mapped("order_line").filtered(lambda x: x.is_delivery)
         self.sale.action_confirm()
         self.assertRecordValues(
-            delivery_line, [{"is_free_delivery": True, "qty_to_invoice": 0}]
+            delivery_line,
+            [
+                {
+                    "is_free_delivery": True,
+                    "qty_to_invoice": 0,
+                    "invoice_status": "invoiced",
+                }
+            ],
         )
-        self.deliver_and_invoice_order(self.sale)
-
-    def deliver_and_invoice_order(self, order):
-        """Check delivery line state for invoicing and delivery."""
-        # Deliver the order
-        picking = order.picking_ids
-        self.assertEqual(picking.state, "assigned")
-        picking.move_line_ids[0].qty_done = 1.0
-        picking.action_done()
-        self.assertEqual(picking.state, "done")
-        # Invoice the order
-        self.wizard_obj = self.env["sale.advance.payment.inv"]
-        wizard = self.wizard_obj.with_context(
-            active_ids=order.ids, active_model=order._name
-        ).create({})
-        wizard.create_invoices()
-        self.assertTrue(order.invoice_ids)
-        # Check delivery lines are properly invoiced and delivered
-        fee_line = order.order_line.filtered("is_delivery")
-        self.assertEqual(fee_line.invoice_status, "invoiced")
-        # Check the order is fully invoiced
-        self.assertEqual(self.sale.invoice_status, "invoiced")
