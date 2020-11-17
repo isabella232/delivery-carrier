@@ -78,7 +78,7 @@ class PostlogisticsWebService(object):
             partner = (
                 location_dest.partner_id or
                 location_dest.company_id.partner_id or
-                picking.env.user.company_id
+                picking.env.user.company_id.partner_id
             )
 
         partner_name = partner.name or partner.parent_id.name
