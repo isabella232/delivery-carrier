@@ -90,6 +90,7 @@ class StockPicking(models.Model):
                     }
 
         labels = []
+<<<<<<< HEAD
         # if there are no pack defined, write tracking_number on picking
         # otherwise, write it on parcel_tracking field of each pack
         if not packages:
@@ -112,6 +113,13 @@ class StockPicking(models.Model):
                     tracking_refs.append(tracking_number)
                     break
             info = info_from_label(label)
+=======
+        for package in packages:
+            label = [item for item in res if package.name in item['value']['item_id']]
+            value = label[0]['value']
+            package.parcel_tracking = value['tracking_number']
+            info = info_from_label(value)
+>>>>>>> 298a640a... [12.0][IMP] generate labels for all packages in stock picking
             info['package_id'] = package.id
             labels.append(info)
 
