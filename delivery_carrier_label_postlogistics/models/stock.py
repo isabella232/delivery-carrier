@@ -111,14 +111,10 @@ class StockPicking(models.Model):
         labels = []
 
         for package in packages:
-            label = None
-            for search_label in res['value']:
-                if package.name in search_label['item_id'].split('+')[-1]:
-                    label = search_label
-                    tracking_number = label['tracking_number']
-                    package.parcel_tracking = tracking_number
-                    break
-            info = info_from_label(label)
+            label = [item for item in res if package.name in item['value']['item_id']]
+            value = label[0]['value']
+            package.parcel_tracking = value['tracking_number']
+            info = info_from_label(value)
             info['package_id'] = package.id
             labels.append(info)
         return labels
