@@ -11,7 +11,9 @@ class StockPicking(models.Model):
 
     def _generate_postlogistics_label(self, webservice_class=None, package_ids=None):
         """ Generate post logistic label using specific from this module."""
+        if webservice_class is None:
+            webservice_class = PostlogisticsWebServiceDangerousGoods
         return super()._generate_postlogistics_label(
-            webservice_class=PostlogisticsWebServiceDangerousGoods,
+            webservice_class=webservice_class,
             package_ids=package_ids,
         )
