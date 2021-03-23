@@ -121,6 +121,7 @@ class StockPicking(models.Model):
                 labels.append(info)
             return labels
 
+        tracking_refs = []
         for package in packages:
             label = [item for item in res if package.name in item['value']['item_id']]
             value = label[0]['value']
