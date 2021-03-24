@@ -65,7 +65,7 @@ class PostlogisticsWebService(object):
             return (
                 location_dest.partner_id or
                 location_dest.company_id.partner_id or
-                picking.env.user.company_id
+                picking.env.user.company_id.partner_id
             )
 
     def _prepare_recipient(self, picking):
