@@ -57,6 +57,17 @@ class PostlogisticsWebService(object):
             return lang_code
         return 'en'
 
+    def _get_recipient_partner(self, picking):
+        if picking.picking_type_id.code == 'outgoing':
+            return picking.partner_id
+        elif picking.picking_type_id.code == 'incoming':
+            location_dest = picking.location_dest_id
+            return (
+                location_dest.partner_id or
+                location_dest.company_id.partner_id or
+                picking.env.user.company_id
+            )
+
     def _prepare_recipient(self, picking):
         """ Create a ns0:Recipient as a dict from a partner
 
@@ -64,7 +75,7 @@ class PostlogisticsWebService(object):
         :return a dict containing data for ns0:Recipient
 
         """
-        partner = picking.partner_id
+        partner = self._get_recipient_partner(picking)
 
         partner_name = partner.name or partner.parent_id.name
         recipient = {
@@ -110,7 +121,10 @@ class PostlogisticsWebService(object):
 
         """
         company = picking.company_id
-        partner = company.partner_id
+        if picking.picking_type_id.code == 'outgoing':
+            partner = company.partner_id
+        elif picking.picking_type_id.code == 'incoming':
+            partner = picking.partner_id
 
         customer = {
             'name1': partner.name,
@@ -118,8 +132,17 @@ class PostlogisticsWebService(object):
             'zip': partner.zip,
             'city': partner.city,
             'country': partner.country_id.code,
-            'domicilePostOffice': company.postlogistics_office,
         }
+        if (
+            picking.picking_type_id.code == 'outgoing'
+            and company.postlogistics_office
+        ):
+            customer['domicilePostOffice'] = company.postlogistics_office
+
+        if partner.parent_id and partner.parent_id.name != partner.name:
+            customer['name2'] = customer.get('name1')
+            customer['name1'] = partner.parent_id.name
+
         logo = company.postlogistics_logo
         if logo:
             logo_image = Image.open(StringIO(logo.decode()))
