@@ -19,5 +19,21 @@ class SaleOrder(models.Model):
     @api.depends("partner_shipping_id")
     def _compute_delivery_zone_id(self):
         for so in self:
-            if so.partner_shipping_id.delivery_zone_id:
-                so.delivery_zone_id = so.partner_shipping_id.delivery_zone_id
+            partner = (
+                so.partner_shipping_id
+                if so.partner_shipping_id.type == "delivery"
+                else so.partner_shipping_id.commercial_partner_id
+            )
+            so.delivery_zone_id = partner.delivery_zone_id
+
+    def write(self, vals):
+        # Update picking delivery zone if user update it in sale order that
+        # creates a picking,
+        res = super().write(vals)
+        if "delivery_zone_id" in vals and not self.env.context.get(
+            "skip_delivery_zone_update", False
+        ):
+            self.mapped("picking_ids").with_context(
+                skip_delivery_zone_update=True
+            ).write({"delivery_zone_id": vals["delivery_zone_id"]})
+        return res

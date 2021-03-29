@@ -95,3 +95,57 @@ class TestPartnerDeliveryZone(SavepointCase):
         res = self.partner.fields_view_get(view_id=view.id, view_type="form")
         ctx = self._get_ctx_from_view(res)
         self.assertTrue("default_delivery_zone_id" in ctx)
+
+    def test_order_assign_commercial_partner_delivery_zone(self):
+        # For contact type partners the delivery zone get from commercial
+        # partner
+        self.child_partner_contact = self.env["res.partner"].create(
+            {"name": "Partner contact", "type": "contact", "parent_id": self.partner.id}
+        )
+        self.child_partner_delivery = self.env["res.partner"].create(
+            {
+                "name": "Partner delivery",
+                "type": "delivery",
+                "parent_id": self.partner.id,
+            }
+        )
+
+        self.order.partner_shipping_id = self.child_partner_contact
+        self.assertEqual(self.order.delivery_zone_id, self.partner.delivery_zone_id)
+
+        self.order.partner_shipping_id = self.child_partner_delivery
+        self.assertFalse(self.order.delivery_zone_id)
+
+    def test_picking_assign_commercial_partner_contact_zone(self):
+        # For contact type partners the delivery zone get from commercial
+        # partner
+        self.child_partner_contact = self.env["res.partner"].create(
+            {"name": "Partner contact", "type": "contact", "parent_id": self.partner.id}
+        )
+        self.order.action_confirm()
+        picking = self.order.picking_ids[0]
+        picking.partner_id = self.child_partner_contact
+        self.assertEqual(picking.delivery_zone_id, self.partner.delivery_zone_id)
+
+    def test_picking_assign_commercial_partner_delivery_zone(self):
+        # For contact type partners the delivery zone get from commercial
+        # partner
+        self.child_partner_delivery = self.env["res.partner"].create(
+            {
+                "name": "Partner delivery",
+                "type": "delivery",
+                "parent_id": self.partner.id,
+            }
+        )
+        self.order.action_confirm()
+        picking = self.order.picking_ids[0]
+        picking.partner_id = self.child_partner_delivery
+        self.assertFalse(picking.delivery_zone_id)
+
+    def test_change_delivery_zone(self):
+        self.order.action_confirm()
+        self.assertEqual(self.order.picking_ids.delivery_zone_id, self.delivery_zone_a)
+        self.order.picking_ids.delivery_zone_id = self.delivery_zone_b
+        self.assertEqual(self.order.delivery_zone_id, self.delivery_zone_b)
+        self.order.delivery_zone_id = self.delivery_zone_a
+        self.assertEqual(self.order.picking_ids.delivery_zone_id, self.delivery_zone_a)
