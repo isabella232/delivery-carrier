@@ -37,10 +37,10 @@ class PostlogisticsWebServiceDangerousGoods(web_service.PostlogisticsWebService)
                 unnumbers.append(int(unnumber))
             return unnumbers
 
-    def _prepare_attributes(self, picking, pack=None, pack_num=None, pack_total=None):
+    def _prepare_attributes(self, picking, pack=None, pack_num=None, pack_total=None, pack_weight=None):
         # Adds a new attribute UNNumbers when there's dangerous goods
         # in the pack / picking
-        res = super()._prepare_attributes(picking, pack, pack_num, pack_total)
+        res = super()._prepare_attributes(picking, pack, pack_num, pack_total, pack_weight)
         unnumbers = self._get_unnumbers(picking, pack)
         if unnumbers:
             res["unnumbers"] = unnumbers
