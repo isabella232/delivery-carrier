@@ -41,7 +41,6 @@ class StockPicking(models.Model):
         """ Get all the packages from the picking """
         self.ensure_one()
         operation_obj = self.env["stock.move.line"]
-        packages = self.env["stock.quant.package"].browse()
         operations = operation_obj.search(
             [
                 "|",
@@ -50,10 +49,15 @@ class StockPicking(models.Model):
                 ("picking_id", "=", self.id),
             ]
         )
+        package_ids = []
         for operation in operations:
             # Take the destination package. If empty, the package is
             # moved so take the source one.
-            packages |= operation.result_package_id or operation.package_id
+            package_ids.append(
+                operation.result_package_id.id or operation.package_id.id
+            )
+
+        packages = self.env["stock.quant.package"].browse(package_ids)
         return packages
 
     def get_shipping_label_values(self, label):
@@ -137,38 +141,37 @@ class StockPicking(models.Model):
             )
         return order.amount_total
 
+    def info_from_label(self, label, zpl_patch_string=False):
+        tracking_number = label["tracking_number"]
+        data = base64.b64decode(label["binary"])
+
+        # Apply patch for zpl file
+        if label["file_type"] == "zpl2" and zpl_patch_string:
+            data = base64.b64encode(
+                base64.b64decode(data)
+                .decode("cp437")
+                .replace("^XA", zpl_patch_string)
+                .encode("utf-8")
+            )
+        return {
+            "file": data,
+            "file_type": label["file_type"],
+            "name": tracking_number + "." + label["file_type"],
+        }
+
     def write_tracking_number_label(self, label_result, packages):
         """
         If there are no pack defined, write tracking_number on picking
         otherwise, write it on parcel_tracking field of each pack.
         Note we can receive multiple labels for a same package
         """
-
-        def info_from_label(label, zpl_patch_string=False):
-            tracking_number = label["tracking_number"]
-            data = base64.b64decode(label["binary"])
-
-            # Apply patch for zpl file
-            if label["file_type"] == "zpl2" and zpl_patch_string:
-                data = base64.b64encode(
-                    base64.b64decode(data)
-                    .decode("cp437")
-                    .replace("^XA", zpl_patch_string)
-                    .encode("utf-8")
-                )
-            return {
-                "file": data,
-                "file_type": label["file_type"],
-                "name": tracking_number + "." + label["file_type"],
-            }
-
         zpl_patch_string = self.carrier_id.zpl_patch_string
 
         labels = []
         if not packages:
             label = label_result[0]["value"][0]
             self.carrier_tracking_ref = label["tracking_number"]
-            labels.append(info_from_label(label, zpl_patch_string))
+            labels.append(self.info_from_label(label, zpl_patch_string))
 
         tracking_refs = []
         for package in packages:
@@ -177,7 +180,9 @@ class StockPicking(models.Model):
                 for label_value in label["value"]:
                     if package.name in label_value["item_id"].split("+")[-1]:
                         tracking_numbers.append(label_value["tracking_number"])
-                        labels.append(info_from_label(label_value, zpl_patch_string))
+                        labels.append(
+                            self.info_from_label(label_value, zpl_patch_string)
+                        )
             package.parcel_tracking = "; ".join(tracking_numbers)
             tracking_refs += tracking_numbers
 

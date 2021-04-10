@@ -11,22 +11,13 @@ def migrate(env, version):
         merge_modules=True,
     )
 
-    # Model renaming
-    # delivery.carrier.template.otion => postlogistics.delivery.carrier.template.option
-    rename_model_list = [
-        (
-            "delivery.carrier.template.option",
-            "postlogistics.delivery.carrier.template.option",
-        )
-    ]
-    openupgrade.rename_models(env.cr, rename_model_list)
-
     # Delete obsolete model
     env.cr.execute(
         """
         DELETE FROM ir_model_fields
         WHERE model_id IN
-        (SELECT id FROM ir_model WHERE model = 'postlogistics.auth');
+        (SELECT id FROM ir_model WHERE model IN
+            ('postlogistics.auth', 'delivery.carrier.template.option'));
     """
     )
 
