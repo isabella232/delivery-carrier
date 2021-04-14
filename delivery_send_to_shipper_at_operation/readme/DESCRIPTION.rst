@@ -5,3 +5,5 @@ This is used mainly to send the notification when the pack operation is marked
 as done, using the shipping method of the related delivery operation.
 By doing so, the delivery operation won't send again the delivery notification
 when it will be validated.
+However, the delivery cost will still be added to the sale order by the delivery
+operation, not the pack.

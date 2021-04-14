@@ -3,8 +3,6 @@
 
 from odoo.tests.common import SavepointCase
 
-import mock
-
 
 class TestDeliverySendToShipper(SavepointCase):
     @classmethod
@@ -23,24 +21,26 @@ class TestDeliverySendToShipper(SavepointCase):
             cls.product, cls.stock_location, 10.0,
         )
         # create carriers
-        delivery_fee = cls.env.ref("delivery.product_product_delivery")
+        cls.delivery_fee = cls.env.ref("delivery.product_product_delivery")
         cls.carrier_on_ship = cls.env["delivery.carrier"].create(
             {
                 "name": "Carrier On Ship",
-                "product_id": delivery_fee.id,
+                "product_id": cls.delivery_fee.id,
                 "integration_level": "rate_and_ship",
                 "send_delivery_notice_on": "ship",
+                "invoice_policy": "real",
             }
         )
         cls.carrier_on_pack = cls.env["delivery.carrier"].create(
             {
                 "name": "Carrier On Pack",
-                "product_id": delivery_fee.id,
+                "product_id": cls.delivery_fee.id,
                 "integration_level": "rate_and_ship",
                 "send_delivery_notice_on": "custom",
                 "send_delivery_notice_picking_type_ids": [
                     (6, 0, cls.wh.pack_type_id.ids)
                 ],
+                "invoice_policy": "real",
             }
         )
         # create a pick/pack/ship transfer
@@ -66,6 +66,12 @@ class TestDeliverySendToShipper(SavepointCase):
         cls.packing = cls.pack_move.picking_id
         cls.shipping = cls.ship_move.picking_id
         cls.picking.action_assign()
+        # Assign an empty order to transfers in a ugly way to ease test
+        # (no SO line = no fee added by the delivery module)
+        cls.order = cls.env["sale.order"].create(
+            {"partner_id": cls.env.ref("base.res_partner_1").id}
+        )
+        (cls.picking | cls.packing | cls.shipping).sale_id = cls.order
 
     def _validate_picking(self, picking):
         for ml in picking.move_line_ids:
@@ -79,22 +85,20 @@ class TestDeliverySendToShipper(SavepointCase):
         validated (std Odoo behavior).
         """
         self.shipping.carrier_id = self.carrier_on_ship
+        # Validate the pick: nothing happen, as usual
         self._validate_picking(self.picking)
         self.assertEqual(self.picking.state, "done")
         # Validate the pack: delivery notification is not sent
-        with mock.patch.object(type(self.packing), "send_to_shipper") as mocked:
-            self._validate_picking(self.packing)
-            self.assertEqual(self.packing.state, "done")
-            mocked.assert_not_called()
-            self.assertFalse(self.shipping.delivery_notification_sent)
+        self.assertFalse(self.order.order_line)  # No fee
+        self._validate_picking(self.packing)
+        self.assertEqual(self.packing.state, "done")
+        self.assertFalse(self.shipping.delivery_notification_sent)
+        self.assertFalse(self.order.order_line)  # Still no fee added
         # Validate the ship: delivery notification is sent
-        with mock.patch.object(
-            type(self.shipping.carrier_id), "send_shipping"
-        ) as mocked:
-            self._validate_picking(self.shipping)
-            self.assertEqual(self.shipping.state, "done")
-            mocked.assert_called()
-            self.assertFalse(self.shipping.delivery_notification_sent)
+        self._validate_picking(self.shipping)
+        self.assertEqual(self.shipping.state, "done")
+        self.assertFalse(self.shipping.delivery_notification_sent)
+        self.assertEqual(self.order.order_line.product_id, self.delivery_fee)
 
     def test_send_to_shipper_on_pack(self):
         """Check sending of delivery notification on pack.
@@ -102,28 +106,27 @@ class TestDeliverySendToShipper(SavepointCase):
         The delivery notification is sent to the carrier when the pack is
         validated (the carrier has been configured this way), so the delivery
         notification should not be sent again when the ship is validated.
+        Furthermore, the delivery cost should still be added to the SO when
+        the ship is validated (not the pack).
         """
         self.shipping.carrier_id = self.carrier_on_pack
         self._validate_picking(self.picking)
         self.assertEqual(self.picking.state, "done")
         # Validate the pack: delivery notification is sent with the
         # carrier of the ship, and this one is flagged accordingly
-        with mock.patch.object(type(self.packing), "send_to_shipper") as mocked:
-            self._validate_picking(self.packing)
-            self.assertEqual(self.packing.state, "done")
-            # stock.picking.send_to_shipper() not called at all
-            mocked.assert_called()
-            self.assertTrue(self.shipping.delivery_notification_sent)
+        self.assertFalse(self.order.order_line)  # No fee
+        self._validate_picking(self.packing)
+        self.assertEqual(self.packing.state, "done")
+        self.assertTrue(self.shipping.delivery_notification_sent)
+        self.assertFalse(self.order.order_line)  # Still no fee added
+        self.assertEqual(self.packing.carrier_price, self.shipping.carrier_price)
+        self.assertEqual(
+            self.packing.carrier_tracking_ref, self.shipping.carrier_tracking_ref
+        )
         # Validate the ship: no delivery notification is sent to the carrier
-        # as it has already been done during the validation of the pack
-        with mock.patch.object(
-            type(self.shipping.carrier_id), "send_shipping"
-        ) as mocked:
-            self._validate_picking(self.shipping)
-            self.assertEqual(self.shipping.state, "done")
-            # 'stock.picking.send_to_shipper()' has been called but nothing
-            # happened because the ship is flagged, for that we are checking
-            # if the 'delivery.carrier.send_shipping()' has not been called by
-            # 'send_to_shipper'
-            mocked.assert_not_called()
-            self.assertTrue(self.shipping.delivery_notification_sent)
+        # as it has already been done during the validation of the pack,
+        # but delivery fee has been added to the SO
+        self._validate_picking(self.shipping)
+        self.assertEqual(self.shipping.state, "done")
+        self.assertTrue(self.shipping.delivery_notification_sent)
+        self.assertEqual(self.order.order_line.product_id, self.delivery_fee)
