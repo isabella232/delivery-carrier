@@ -20,16 +20,24 @@ class StockPicking(models.Model):
 
     def _send_confirmation_email(self):
         for picking in self:
-            picking._handle_send_to_shipper_at_operation()
+            skip_delivery_cost = picking._handle_send_to_shipper_at_operation()
+            picking = picking.with_context(skip_delivery_cost=skip_delivery_cost)
             super(StockPicking, picking)._send_confirmation_email()
 
     def _handle_send_to_shipper_at_operation(self):
+        """Send the delivery notice to the carrier from a specific operation type.
+
+        We are only interested by sending the delivery notice, the delivery fee
+        still have to be added to the SO by the ship operation.
+
+        Return True if the operation has send the delivery notice.
+        """
         self.ensure_one()
         if not self.carrier_id:
             # If the current operation has no carrier defined, but a carrier
-            # has been found in one of the chained transfers and is
-            # configured to match the current operation type: force the
-            # sending of the delivery notice to the carrier
+            # has been found from the ship and is configured to match the
+            # current operation type: force the sending of the delivery notice
+            # to the carrier
             related_ship = self.ship_picking_id
             carrier = related_ship.carrier_id
             if (
@@ -39,19 +47,30 @@ class StockPicking(models.Model):
                 in carrier.send_delivery_notice_picking_type_ids
             ):
                 self.carrier_id = carrier
-                self.send_to_shipper()
+                self.with_context(skip_delivery_cost=True).send_to_shipper()
                 # Flag the current operation and the ship one.
                 # Mandatory to not execute twice 'send_to_shipper' method
                 self.delivery_notification_sent = True
                 related_ship.delivery_notification_sent = True
+                related_ship.carrier_price = self.carrier_price
+                related_ship.carrier_tracking_ref = self.carrier_tracking_ref
+                return True
+        return False
 
     def send_to_shipper(self):
         # Do not send delivery notice to the carrier if it has already been sent
         # through a previous operation (like a pack)
         self.ensure_one()
         if self.delivery_notification_sent:
+            # But we still need to add the delivery cost to the SO
+            self._add_delivery_cost_to_so()
             return False
         return super().send_to_shipper()
+
+    def _add_delivery_cost_to_so(self):
+        if self.env.context.get("skip_delivery_cost"):
+            return
+        return super()._add_delivery_cost_to_so()
 
     def fields_view_get(
         self, view_id=None, view_type="form", toolbar=False, submenu=False
