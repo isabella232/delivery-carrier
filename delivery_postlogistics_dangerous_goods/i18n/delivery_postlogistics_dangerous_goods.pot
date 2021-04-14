@@ -1,0 +1,27 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* delivery_postlogistics_dangerous_goods
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-11 13:51+0000\n"
+"PO-Revision-Date: 2021-03-11 13:51+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: delivery_postlogistics_dangerous_goods
+#: model:ir.model,name:delivery_postlogistics_dangerous_goods.model_stock_picking
+msgid "Transfer"
+msgstr ""
+
+#. module: delivery_postlogistics_dangerous_goods
+#: code:addons/delivery_postlogistics_dangerous_goods/postlogistics/web_service.py:0
+#, python-format
+msgid "UNNumber {} is invalid for product {}."
+msgstr ""
