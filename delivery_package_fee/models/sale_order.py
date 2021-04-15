@@ -1,5 +1,7 @@
 # Copyright 2020 Camptocamp
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+import re
+
 from odoo import fields, models
 
 
@@ -79,14 +81,48 @@ class SaleOrder(models.Model):
             values["sequence"] = self.order_line[-1].sequence + 1
         return values
 
-    def _create_package_fee_line(self, package_fee, picking):
+    def _handle_package_fee_line(self, package_fee, picking):
         line_model = self.env["sale.order.line"].sudo()
         qty, price_unit = self._package_fee_line_qty_and_price(package_fee, picking)
         if not qty or self.currency_id.is_zero(price_unit):
             return line_model.browse()
+        # Lookup for an existing SO line satisfying this package fee
+        existing_line = line_model.search(
+            [
+                ("order_id", "=", self.id),
+                ("product_id", "=", package_fee.product_id.id),
+            ],
+            limit=1,
+        )
+        if not existing_line:
+            return self._create_package_fee_line(package_fee, picking, qty, price_unit)
+        return self._update_package_fee_line(
+            package_fee, picking, qty, price_unit, existing_line
+        )
 
+    def _create_package_fee_line(self, package_fee, picking, qty, price_unit):
+        """Create a new package fee line."""
+        line_model = self.env["sale.order.line"].sudo()
+        if not qty or self.currency_id.is_zero(price_unit):
+            return line_model.browse()
         values = self._prepare_package_fee_line(package_fee, picking, qty, price_unit)
         return line_model.create(values)
+
+    def _update_package_fee_line(
+        self, package_fee, picking, qty, price_unit, existing_line
+    ):
+        """Update an existing package fee line."""
+        # Increase the qty
+        existing_line.product_qty += qty
+        # Append the new transfer reference in the line description
+        # (inside the parenthesis)
+        outer = re.compile(r"\((.+)\)")
+        line_name = existing_line.name
+        current_value = outer.search(line_name).group(1)
+        picking_refs = [ref.strip() for ref in current_value.split(",")]
+        picking_refs += [picking.name]
+        new_value = "({})".format(", ".join(picking_refs))
+        existing_line.name = outer.sub(new_value, line_name)
 
     def copy_data(self, default=None):
         result = super().copy_data(default=default)

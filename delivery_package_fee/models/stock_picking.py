@@ -16,4 +16,4 @@ class StockPicking(models.Model):
         if not self.sale_id:
             return
         for package_fee in self.carrier_id.package_fee_ids:
-            self.sale_id._create_package_fee_line(package_fee, self)
+            self.sale_id._handle_package_fee_line(package_fee, self)
