@@ -7,3 +7,9 @@ class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
     package_fee_id = fields.Many2one(comodel_name="delivery.package.fee", default=False)
+    is_delivery_package_fee = fields.Boolean(
+        string="Is a Delivery Package Fee", default=False,
+    )
+
+    def _is_delivery(self):
+        return super()._is_delivery() or self.is_delivery_package_fee
