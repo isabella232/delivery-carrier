@@ -127,6 +127,7 @@ class TestPackageFee(SavepointCase):
                     "product_uom_qty": 2.0,
                     "price_unit": 3.0,
                     "name": "LSVA Fee ({})".format(picking.name),
+                    "is_delivery_package_fee": True,
                 },
                 {
                     "product_id": self.fee2.id,
@@ -134,6 +135,7 @@ class TestPackageFee(SavepointCase):
                     "product_uom_qty": 2.0,
                     "price_unit": 4.0,
                     "name": "Service Fee ({})".format(picking.name),
+                    "is_delivery_package_fee": True,
                 },
             ],
         )
@@ -176,6 +178,7 @@ class TestPackageFee(SavepointCase):
                     "product_uom_qty": 1.0,
                     "price_unit": 3.0,
                     "name": "LSVA Fee ({})".format(picking.name),
+                    "is_delivery_package_fee": True,
                 },
                 {
                     "product_id": self.fee2.id,
@@ -183,6 +186,7 @@ class TestPackageFee(SavepointCase):
                     "product_uom_qty": 1.0,
                     "price_unit": 4.0,
                     "name": "Service Fee ({})".format(picking.name),
+                    "is_delivery_package_fee": True,
                 },
             ],
         )
@@ -220,6 +224,7 @@ class TestPackageFee(SavepointCase):
                     "product_uom_qty": 1.0,
                     "price_unit": 3.0,
                     "name": "LSVA Fee ({})".format(picking.name),
+                    "is_delivery_package_fee": True,
                 },
                 {
                     "product_id": self.fee2.id,
@@ -227,6 +232,7 @@ class TestPackageFee(SavepointCase):
                     "product_uom_qty": 1.0,
                     "price_unit": 4.0,
                     "name": "Service Fee ({})".format(picking.name),
+                    "is_delivery_package_fee": True,
                 },
                 # new lines added for the backorder
                 {
@@ -235,6 +241,7 @@ class TestPackageFee(SavepointCase):
                     "product_uom_qty": 1.0,
                     "price_unit": 3.0,
                     "name": "LSVA Fee ({})".format(backorder.name),
+                    "is_delivery_package_fee": True,
                 },
                 {
                     "product_id": self.fee2.id,
@@ -242,6 +249,7 @@ class TestPackageFee(SavepointCase):
                     "product_uom_qty": 1.0,
                     "price_unit": 4.0,
                     "name": "Service Fee ({})".format(backorder.name),
+                    "is_delivery_package_fee": True,
                 },
             ],
         )
@@ -306,6 +314,7 @@ class TestPackageFee(SavepointCase):
                     "product_uom_qty": 2.0,
                     "price_unit": fee1_price,
                     "name": "LSVA Fee ({})".format(picking.name),
+                    "is_delivery_package_fee": True,
                 },
                 {
                     "product_id": self.fee2.id,
@@ -313,6 +322,7 @@ class TestPackageFee(SavepointCase):
                     "product_uom_qty": 2.0,
                     "price_unit": fee2_price,
                     "name": "Service Fee ({})".format(picking.name),
+                    "is_delivery_package_fee": True,
                 },
             ],
         )
@@ -392,6 +402,7 @@ class TestPackageFee(SavepointCase):
                     "product_uom_qty": 2.0,
                     "price_unit": 4.0,
                     "name": "Service Fee ({})".format(picking.name),
+                    "is_delivery_package_fee": True,
                 },
             ],
         )
