@@ -74,7 +74,6 @@ class SaleOrder(models.Model):
             "tax_id": [(6, 0, taxes_ids)],
             "price_unit": price_unit,
             "package_fee_id": package_fee.id,
-            "is_delivery_package_fee": True,
         }
         if self.order_line:
             values["sequence"] = self.order_line[-1].sequence + 1
