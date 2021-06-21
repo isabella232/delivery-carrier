@@ -73,8 +73,8 @@ class StockPicking(models.Model):
         )
 
     def _set_a_default_package(self):
-        """ Pickings using this module must have a package
-            If not this method put it one silently
+        """Pickings using this module must have a package
+        If not this method put it one silently
         """
         for picking in self:
             move_lines = picking.move_line_ids.filtered(
@@ -94,7 +94,7 @@ class StockPicking(models.Model):
                 move_lines.write({"result_package_id": package.id})
 
     def postlogistics_cod_amount(self):
-        """ Return the PostLogistics Cash on Delivery amount of a picking
+        """Return the PostLogistics Cash on Delivery amount of a picking
 
         If the picking delivers the whole sales order, we use the total
         amount of the sales order.
@@ -115,10 +115,9 @@ class StockPicking(models.Model):
                     "from different sales orders."
                 )
             )
-        order_moves = order.mapped("order_line.procurement_ids.move_ids")
-        picking_moves = self.move_lines
+        order_moves = order.picking_ids
         # check if the package delivers the whole sales order
-        if order_moves != picking_moves:
+        if len(order_moves) > 1:
             raise exceptions.Warning(
                 _(
                     "The cash on delivery amount must be manually specified "
@@ -223,7 +222,7 @@ class StockPicking(models.Model):
         if failed_label_results:
             # Commit the change to save the changes,
             # This ensures the label pushed recored correctly in Odoo
-            self._cr.commit()
+            self._cr.commit()  # pylint: disable=invalid-commit
             error_message = "\n".join(label["errors"] for label in failed_label_results)
             raise exceptions.Warning(error_message)
         return labels

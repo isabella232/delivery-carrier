@@ -18,11 +18,11 @@ class StockQuantPackage(models.Model):
     def _get_origin_pickings(self):
         self.ensure_one()
         move_line_model = self.env["stock.move.line"]
-        move_line = move_line_model.search([("package_id", "=", self.id)])
-        return move_line.mapped("picking_id")
+        move_line = move_line_model.search([("result_package_id", "=", self.id)])
+        return move_line.picking_id.sale_id.picking_ids
 
     def postlogistics_cod_amount(self):
-        """ Return the PostLogistics Cash on Delivery amount of a package
+        """Return the PostLogistics Cash on Delivery amount of a package
 
         If we have only 1 package which delivers the whole sales order
         we use the total amount of the sales order.
@@ -59,16 +59,19 @@ class StockQuantPackage(models.Model):
                 )
             )
 
-        order_moves = order.mapped("order_line.procurement_ids.move_ids")
-        package_moves = self.mapped("quant_ids.history_ids")
-        # check if the package delivers the whole sales order
-        if order_moves != package_moves:
-            raise exceptions.Warning(
-                _(
-                    "The cash on delivery amount must be manually specified "
-                    "on the packages when a sales order is delivered "
-                    "in several packages."
-                )
-            )
+        # As history_ids column is removed, and stock.quant is not directly
+        # linked to move, below checking is same with checking pickings logic above.
+        # odoo/odoo commit b3180c841101510081ee8ef9c52d205497efdd4f
+        # order_moves = order.mapped("order_line.move_ids")
+        # package_moves = self.mapped("quant_ids.history_ids")
+        # # check if the package delivers the whole sales order
+        # if order_moves != package_moves:
+        #     raise exceptions.Warning(
+        #         _(
+        #             "The cash on delivery amount must be manually specified "
+        #             "on the packages when a sales order is delivered "
+        #             "in several packages."
+        #         )
+        #     )
 
         return order.amount_total

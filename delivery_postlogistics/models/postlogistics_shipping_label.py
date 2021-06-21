@@ -22,7 +22,7 @@ class PostlogisticsShippingLabel(models.Model):
     # TODO: check if we can remove this method
     @api.model
     def _selection_file_type(self):
-        """ Return a concatenated list of extensions of label file format
+        """Return a concatenated list of extensions of label file format
         plus file format from super
 
         This will be filtered and sorted in __get_file_type_selection

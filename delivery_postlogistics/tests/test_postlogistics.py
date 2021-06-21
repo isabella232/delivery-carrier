@@ -2,9 +2,9 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from os.path import dirname, join
 
-from odoo.tests import common
-
 from vcr import VCR
+
+from odoo.tests import common
 
 recorder = VCR(
     record_mode="once",
@@ -66,6 +66,20 @@ class TestPostlogistics(common.SavepointCase):
         cls.picking = cls.create_picking(cls, postlogistics_pd_packaging)
         cls.env.user.lang = "en_US"
 
+    def test_misc(self):
+        self.assertFalse(self.carrier.prod_environment)
+        self.carrier.toggle_prod_environment()
+        self.carrier.onchange_prod_environment()
+        self.assertTrue(self.carrier.prod_environment)
+        self.carrier.toggle_prod_environment()
+        self.carrier.onchange_prod_environment()
+        self.assertFalse(self.carrier.prod_environment)
+        self.assertEqual(
+            self.carrier.get_tracking_link(self.picking),
+            "https://service.post.ch/EasyTrack/"
+            "submitParcelData.do?formattedParcelCodes=False",
+        )
+
     def test_store_label(self):
         with recorder.use_cassette("test_store_label") as cassette:
             res = self.picking._generate_postlogistics_label(skip_attach_file=True)
@@ -123,5 +137,5 @@ class TestPostlogistics(common.SavepointCase):
             {"picking_id": picking.id, "delivery_packaging_id": prod_packaging.id}
         )
         picking.action_assign()
-        choose_delivery_package_wizard.put_in_pack()
+        choose_delivery_package_wizard.action_put_in_pack()
         return picking

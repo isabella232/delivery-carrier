@@ -10,13 +10,18 @@ class DeliveryCarrier(models.Model):
 
     _inherit = "delivery.carrier"
 
-    delivery_type = fields.Selection(selection_add=[("postlogistics", "PostLogistics")])
+    delivery_type = fields.Selection(
+        selection_add=[("postlogistics", "PostLogistics")],
+        ondelete={"postlogistics": "set default"},
+    )
     postlogistics_default_packaging_id = fields.Many2one(
         "product.packaging", domain=[("package_carrier_type", "=", "postlogistics")]
     )
 
     postlogistics_endpoint_url = fields.Char(
-        string="Endpoint URL", default="https://wedecint.post.ch/", required=True,
+        string="Endpoint URL",
+        default="https://wedecint.post.ch/",
+        required=True,
     )
     postlogistics_client_id = fields.Char(
         string="Client ID", groups="base.group_system"
@@ -84,7 +89,8 @@ class DeliveryCarrier(models.Model):
     )
 
     postlogistics_license_id = fields.Many2one(
-        comodel_name="postlogistics.license", string="Franking License",
+        comodel_name="postlogistics.license",
+        string="Franking License",
     )
     zpl_patch_string = fields.Char(
         string="ZPL Patch String", default="^XA^CW0,E:TT0003M_.TTF^XZ^XA^CI28"
