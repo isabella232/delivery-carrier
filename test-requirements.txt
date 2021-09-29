@@ -1,2 +1,3 @@
 odoo-test-helper >= 1.1.0
 vcrpy-unittest
+odoo14-addon-delivery-postlogistics @git+https://github.com/OCA/delivery-carrier@refs/pull/377/head#subdirectory=setup/delivery_postlogistics
