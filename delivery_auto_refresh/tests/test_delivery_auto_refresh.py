@@ -130,7 +130,7 @@ class TestDeliveryAutoRefresh(common.HttpCase):
         picking = self.order.picking_ids
         picking.action_assign()
         picking.move_line_ids[0].qty_done = 2
-        picking.action_done()
+        picking._action_done()
         line_delivery = self.order.order_line.filtered("is_delivery")
         self.assertEqual(line_delivery.price_unit, 50)
 
@@ -150,7 +150,7 @@ class TestDeliveryAutoRefresh(common.HttpCase):
         picking = self.order.picking_ids
         picking.action_assign()
         picking.move_line_ids[0].qty_done = 2
-        picking.action_done()
+        picking._action_done()
         line_delivery = self.order.order_line.filtered("is_delivery")
         self.assertEqual(line_delivery.price_unit, 60)
 
