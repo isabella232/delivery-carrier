@@ -7,7 +7,7 @@
     "category": "Delivery",
     "website": "https://github.com/OCA/delivery-carrier",
     "author": "Camptocamp, Odoo Community Association (OCA)",
-    "installable": False,
+    "installable": True,
     "license": "AGPL-3",
     "depends": ["delivery"],
     "data": ["security/ir.model.access.csv"],

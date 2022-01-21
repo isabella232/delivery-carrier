@@ -10,7 +10,7 @@
     "website": "https://github.com/OCA/delivery-carrier",
     "author": "Tecnativa, " "Odoo Community Association (OCA)",
     "license": "AGPL-3",
-    "installable": False,
+    "installable": True,
     "depends": ["delivery"],
     "demo": ["demo/delivery_carrier_demo.xml"],
     "data": ["views/delivery_carrier_view.xml"],

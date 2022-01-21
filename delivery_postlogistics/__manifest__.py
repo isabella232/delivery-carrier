@@ -23,7 +23,7 @@
         "views/res_partner_view.xml",
         "views/stock.xml",
     ],
-    "installable": False,
+    "installable": True,
     "auto_install": False,
     "application": True,
 }
