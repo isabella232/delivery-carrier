@@ -77,33 +77,34 @@ class DeliveryCarrier(models.Model):
         """We have to override this method for redirecting the result to the
         proper "child" carrier.
         """
-        if self.destination_type == "one":
+        # falsy type is considered as one destination
+        if not self.destination_type or self.destination_type == "one":
             return super().send_shipping(pickings)
+        carrier = self.with_context(show_children_carriers=True)
+        res = []
+        for p in pickings:
+            picking_res = False
+            for subcarrier in carrier.child_ids:
+                picking_res = subcarrier._send_shipping_next(p, picking_res)
+            if not picking_res:
+                raise ValidationError(_("There is no matching delivery rule."))
+            res += picking_res
+        return res
+
+    def _send_shipping_next(self, picking, picking_res):
+        if self.delivery_type == "fixed":
+            if self._match_address(picking.partner_id):
+                picking_res = [
+                    {
+                        "exact_price": self.fixed_price,
+                        "tracking_number": False,
+                    }
+                ]
+            # TODO: verify if not match address, previous picking_res (passed
+            # in method's argument) can be used.
         else:
-            carrier = self.with_context(show_children_carriers=True)
-            res = []
-            for p in pickings:
-                picking_res = False
-                for subcarrier in carrier.child_ids:
-                    if subcarrier.delivery_type == "fixed":
-                        if subcarrier._match_address(p.partner_id):
-                            picking_res = [
-                                {
-                                    "exact_price": subcarrier.fixed_price,
-                                    "tracking_number": False,
-                                }
-                            ]
-                            break
-                    else:
-                        try:
-                            picking_res = super(
-                                DeliveryCarrier,
-                                subcarrier,
-                            ).send_shipping(pickings)
-                            break
-                        except Exception:
-                            pass
-                if not picking_res:
-                    raise ValidationError(_("There is no matching delivery rule."))
-                res += picking_res
-            return res
+            try:
+                picking_res = super().send_shipping(picking)
+            except Exception:
+                pass
+        return picking_res
