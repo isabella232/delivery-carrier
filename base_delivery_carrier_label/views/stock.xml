@@ -21,8 +21,8 @@
         <field name="model">stock.picking</field>
         <field name="inherit_id" ref="stock.vpicktree" />
         <field name="arch" type="xml">
-            <field name="state" position="before">
-                <field name="carrier_id" />
+            <field name="carrier_id" position="attributes">
+                <attribute name="optional">show</attribute>
             </field>
         </field>
     </record>
