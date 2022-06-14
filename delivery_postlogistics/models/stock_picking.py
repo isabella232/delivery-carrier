@@ -1,11 +1,14 @@
 # Copyright 2013-2016 Camptocamp SA
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 import base64
+import logging
 from operator import attrgetter
 
 from odoo import _, exceptions, fields, models
 
 from ..postlogistics.web_service import PostlogisticsWebService
+
+_logger = logging.getLogger(__name__)
 
 
 class StockPicking(models.Model):
@@ -75,26 +78,74 @@ class StockPicking(models.Model):
             .create(data)
         )
 
-    def _set_a_default_package(self):
-        """Pickings using this module must have a package
+    # When base_delivery_carrier_label is installed, its _set_a_default_package
+    # is called instead of this module's one. So the logic should be moved to
+    # _put_in_pack.
+    # TODO: Add a glue module to be auto installed when both delivery_postlogistics
+    #  and base_delivery_carrier_label are installed
+    def _postlogistics_set_a_default_package(self):
+        """Pickings using this module must have a package with packaging defined
         If not this method put it one silently
         """
-        # TODO: consider to depends on base_delivery_carrier_label
         for picking in self:
             move_lines = picking.move_line_ids.filtered(
-                lambda s: not (s.package_id or s.result_package_id)
+                lambda s: not s.result_package_id
             )
             if move_lines:
-                carrier = picking.carrier_id
-                default_packaging = carrier.postlogistics_default_packaging_id
-                package = self.env["stock.quant.package"].create(
-                    {
-                        "packaging_id": default_packaging
-                        and default_packaging.id
-                        or False
-                    }
+                picking._put_in_pack(move_lines)
+        postlogistics_picks = self.filtered(
+            lambda p: p.delivery_type == "postlogistics"
+        )
+        if postlogistics_picks:
+            postlogistics_picks._assign_postlogistics_packaging_on_packages()
+
+    def _set_delivery_packaging(self):
+        res = super()._set_delivery_packaging()
+        if self.carrier_id.delivery_type == "postlogistics":
+            ctx = res.get("context")
+            default_packaging = self.carrier_id.postlogistics_default_packaging_id
+            if default_packaging and "default_delivery_packaging_id" not in ctx:
+                ctx["default_delivery_packaging_id"] = default_packaging.id
+        return res
+
+    def _put_in_pack(self, move_line_ids, create_package_level=True):
+        result = super()._put_in_pack(move_line_ids, create_package_level)
+        postlogistics_picks = self.filtered(
+            lambda p: p.delivery_type == "postlogistics"
+        )
+        if postlogistics_picks:
+            postlogistics_picks._assign_postlogistics_packaging_on_packages()
+        return result
+
+    def _assign_postlogistics_packaging_on_packages(self):
+        for pick in self:
+            carrier = pick.carrier_id
+            if carrier.delivery_type != "postlogistics":
+                _logger.warning(
+                    "Function '_assign_postlogistics_packaging_on_packages'"
+                    " was called on picking having a carrier that is"
+                    " not postlogistics!"
                 )
-                move_lines.write({"result_package_id": package.id})
+                continue
+            lines_with_package = self.env["stock.move.line"].search(
+                [("picking_id", "=", pick.id), ("result_package_id", "!=", False)]
+            )
+            if lines_with_package:
+                packages_without_packaging = self.env["stock.quant.package"].search(
+                    [
+                        (
+                            "id",
+                            "in",
+                            lines_with_package.mapped("result_package_id").ids,
+                        ),
+                        ("packaging_id", "=", False),
+                    ]
+                )
+                if packages_without_packaging:
+                    packages_without_packaging.write(
+                        {"packaging_id": carrier.postlogistics_default_packaging_id.id}
+                    )
+        return True
 
     def postlogistics_cod_amount(self):
         """Return the PostLogistics Cash on Delivery amount of a picking
